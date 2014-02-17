@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" xmlns="http://ferruck.github.io/dtd/blog.dtd"?>
+<?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="http://ferruck.github.io/xsl/blog.xsl"?>
-<blog>
+<blog xmlns="http://ferruck.github.io/dtd/blog.dtd">
 	<article>
 		<published>17.02.2014</published>
 		<title>Test</title>

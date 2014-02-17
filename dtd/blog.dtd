@@ -1,0 +1,11 @@
+<!DOCTYPE blog [
+	<!ELEMENT blog (article*)>
+		<!ELEMENT article (published, title, text, author)>
+			<!ELEMENT published (#PCDATA)>
+			<!ELEMENT title (#PCDATA)>
+			<!ELEMENT text (#PCDATA)>
+			<!ELEMENT author (name, link, mail?)>
+				<!ELEMENT name (#PCDATA)>
+				<!ELEMENT link (#PCDATA)>
+				<!ELEMENT mail (#PCDATA)>
+]>

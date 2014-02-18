@@ -30,10 +30,11 @@
 						<hr />
 					</header>
 					<xsl:for-each select="//article">
-						<div class="one-third column">
+						<article class="one-third column">
 							<h3><xsl:value-of select="title"/></h3>
 							<p><xsl:value-of select="text"/></p>
-						</div>
+							<a><xsl:attribute name="href"/><xsl:value-of select="link"/></xsl:attribute>weiterlesen</a>
+						</article>
 					</xsl:for-each>
 					<div class="one-third column">
 						<h3>About Skeleton?</h3>

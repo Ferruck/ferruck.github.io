@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:template match="/">
-		<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-		<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-		<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+		<!--[if lt IE 7 ]><html class="ie ie6" lang="de"> <![endif]-->
+		<!--[if IE 7 ]><html class="ie ie7" lang="de"> <![endif]-->
+		<!--[if IE 8 ]><html class="ie ie8" lang="de"> <![endif]-->
 		<!--[if (gte IE 9)|!(IE)]><!--><html lang="de" xmlns="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
 			<head>
 				<meta charset="utf-8"/>
@@ -14,6 +14,7 @@
 				<link rel="stylesheet" href="stylesheets/base.css"/>
 				<link rel="stylesheet" href="stylesheets/skeleton.css"/>
 				<link rel="stylesheet" href="stylesheets/layout.css"/>
+				<link rel="stylesheet" href="stylesheets/custom.css"/>
 				<!--[if lt IE 9]>
 					<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 				<![endif]-->
@@ -27,15 +28,18 @@
 					<header class="sixteen columns">
 						<h1 class="remove-bottom" style="margin-top: 40px">Philipp Trommler</h1>
 						<h2>Blog</h2>
+						<nav>Home &middot; Projekte &middot; &Uuml;ber mich</nav>
 						<hr />
 					</header>
-					<xsl:for-each select="//article">
-						<article class="one-third column">
-							<h3><xsl:value-of select="title"/></h3>
-							<p><xsl:value-of select="text"/></p>
-							<a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute>weiterlesen</a>
-						</article>
-					</xsl:for-each>
+					<main>
+						<xsl:for-each select="//article">
+							<article class="one-third column">
+								<h3><xsl:value-of select="title"/></h3>
+								<p><xsl:value-of select="text"/></p>
+								<a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute>weiterlesen</a>
+							</article>
+						</xsl:for-each>
+					</main>
 					<footer class="sixteen columns">
 						Hi!
 					</footer>

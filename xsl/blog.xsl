@@ -28,7 +28,7 @@
 					<header class="sixteen columns">
 						<h1 class="remove-bottom" style="margin-top: 40px">Philipp Trommler</h1>
 						<h2>Blog</h2>
-						<nav>Home &middot; Projekte &middot; &Uuml;ber mich</nav>
+						<nav>Home &#183; Projekte &#183; &Uuml;ber mich</nav>
 						<hr />
 					</header>
 					<main>

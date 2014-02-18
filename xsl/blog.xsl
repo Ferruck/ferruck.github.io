@@ -25,10 +25,13 @@
 			</head>
 			<body>
 				<div class="container">
-					<header class="sixteen columns">
-						<h1 class="remove-bottom" style="margin-top: 40px">Philipp Trommler</h1>
-						<h2>Blog</h2>
-						<nav>Home &#183; Projekte &#183; &Uuml;ber mich</nav>
+					<header>
+						<img src="images/header.jpg" alt="Background"/>
+						<div class="two-thirds column">
+							<h1 class="remove-bottom" style="margin-top: 40px">Philipp Trommler</h1>
+							<h2>Blog</h2>
+						</div>
+						<nav class="one-third column">Home &#183; Projekte &#183; Über mich</nav>
 						<hr />
 					</header>
 					<main>
@@ -40,8 +43,18 @@
 							</article>
 						</xsl:for-each>
 					</main>
-					<footer class="sixteen columns">
-						Hi!
+					<footer>
+						<div class="one-third column">
+							Hi
+						</div>
+						<div class="one-third column">
+							Hi
+						</div>
+						<div class="one-third column">
+							Der Author ist nicht für Inhalte verlinkter Drittseiten verantwortlich.<br/><br/>
+							Alle Bilder auf dieser Website stehen, soweit nicht anders angegeben, unter <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.de">CC-BY-SA 4.0 International Lizenz</a>.<br/><br/>
+							&#169; 2014 Philipp Trommler
+						</div>
 					</footer>
 				</div>
 			</body>

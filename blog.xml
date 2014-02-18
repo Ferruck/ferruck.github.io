@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="http://ferruck.github.io/xsl/blog.xsl"?>
-<!DOCTYPE blog SYSTEM "http://ferruck.github.io/dtd/blog.dtd">
+<?xml-stylesheet type="text/xsl" href="xsl/blog.xsl"?>
+<!DOCTYPE blog SYSTEM "dtd/blog.dtd">
 <blog>
 	<article>
 		<published>17.02.2014</published>
-		<title>Test</title>
-		<text>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvoluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem i</text>
+		<title> Die neue GTK 3.10 HeaderBar in Vala</title>
+		<text>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.</text>
 		<link>articles/test1</link>
 	</article>
 	<article>

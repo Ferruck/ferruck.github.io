@@ -40,6 +40,7 @@
 								<h3><xsl:value-of select="title"/></h3>
 								<p><xsl:value-of select="text"/></p>
 								<a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute>weiterlesen</a>
+								<a class="tag">Tag</a>
 							</article>
 						</xsl:for-each>
 					</main>

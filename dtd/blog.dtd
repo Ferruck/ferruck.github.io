@@ -1,5 +1,5 @@
 <!ELEMENT blog (article*)>
-	<!ELEMENT article (published, title, text, link)>
+	<!ELEMENT article (published, title, text, link, tag*)>
 		<!ELEMENT published (#PCDATA)>
 		<!ELEMENT title (#PCDATA)>
 		<!ELEMENT text (#PCDATA)>

@@ -7,17 +7,27 @@
 		<title>Numix GTK 3 Flat Theme Light Review</title>
 		<text>Seit ein paar Tagen sind die neuen Flat-Themes von Numix im Software Center und auf deviantART als normale, helle und dunkle Version erhältlich. Ich habe mir die helle Version zugelegt und möchte hier kurz meine Meinung dazu abgeben.</text>
 		<link>articles/numix_gtk_flat_theme_review.xml</link>
+		<tag>flat</tag>
+		<tag>gtk</tag>
+		<tag>numix</tag>
+		<tag>review</tag>
 	</article>
 	<article>
 		<published>21.12.2013</published>
 		<title>Die neue GTK 3.10 HeaderBar in Vala</title>
 		<text>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.</text>
 		<link>articles/gtk_3_10_headerbar_vala.xml</link>
+		<tag>3.10</tag>
+		<tag>gtk</tag>
+		<tag>vala</tag>
 	</article>
 	<article>
 		<published>08.05.2013</published>
 		<title>Desktop-Verknüpfungen einfach gemacht mit MenuLibre</title>
 		<text>Wer außer mir auch denkt, dass es jedes Mal eine Qual ist, "Desktop-Entries" zu schreiben - einfach weil man es so selten macht und deswegen die benötigten Teile jedes Mal aufs neue vergessen hat und ergoogeln muss - der sollte sich MenuLibre von Sean Davis genauer ansehen. Es ist kostenlos, über sein PPA erhältlich und macht die Menü-Bearbeitung zu einer wahren Freude.</text>
 		<link>articles/desktop_verknupfungen_einfach_menulibre.xml</link>
+		<tag>lubuntu</tag>
+		<tag>menulibre</tag>
+		<tag>ubuntu</tag>
 	</article>
 </blog>

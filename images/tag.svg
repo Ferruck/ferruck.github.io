@@ -9,15 +9,15 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="30"
-   height="20"
+   width="21"
+   height="13"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
    inkscape:export-filename="/home/philipp/Dropbox/Programmierung/Blog/images/tag.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90"
-   sodipodi:docname="Neues Dokument 1">
+   sodipodi:docname="tag.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -28,8 +28,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="25.2"
-     inkscape:cx="15"
-     inkscape:cy="10"
+     inkscape:cx="15.079365"
+     inkscape:cy="9.9206349"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -54,13 +54,12 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-1032.3622)">
+     transform="translate(0,-1039.3622)">
     <path
-       style="fill:#64d20f;stroke:#4eb400;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
-       d="m 14.056075,1.9813084 14.018691,0 0,16.1869156 -14.018691,0 -12.0373834,-8.149532 z"
+       style="fill:#64d20f;fill-opacity:1;stroke:#4eb400;stroke-width:0.73678756px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 9.800954,1039.9262 10.328798,0 0,11.9263 -10.328798,0 -8.86899431,-6.0044 z"
        id="path2987"
-       inkscape:connector-curvature="0"
-       transform="translate(0,1032.3622)" />
+       inkscape:connector-curvature="0" />
     <path
        sodipodi:type="arc"
        style="fill:#ffffff;fill-opacity:1;stroke:#4eb400;stroke-width:1.09850419;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -70,6 +69,6 @@
        sodipodi:rx="3.5514019"
        sodipodi:ry="3.9439251"
        d="m 13.457944,9.9626169 a 3.5514019,3.9439251 0 1 1 -7.102804,0 3.5514019,3.9439251 0 1 1 7.102804,0 z"
-       transform="matrix(0.95931825,0,0,0.86384109,4.3446043,1033.7492)" />
+       transform="matrix(0.58905489,0,0,0.53042858,1.4967607,1040.5233)" />
   </g>
 </svg>

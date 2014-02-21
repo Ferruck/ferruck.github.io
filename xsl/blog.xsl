@@ -29,9 +29,8 @@
 						<img src="images/header.jpg" alt="Background"/>
 						<div class="two-thirds column">
 							<h1 class="remove-bottom" style="margin-top: 40px">Philipp Trommler</h1>
-							<h2>Blog</h2>
 						</div>
-						<nav class="one-third column">Home &#183; Projekte &#183; Über mich</nav>
+						<nav class="one-third column"><a href="index.xml">Home</a> &#183; <a href="projects.xml">Projekte</a> &#183; <a href="blog.xml" class="now">Blog</a> &#183; <a href="about.xml">Über mich</a></nav>
 						<hr />
 					</header>
 					<main>
@@ -39,8 +38,10 @@
 							<article class="one-third column">
 								<h3><xsl:value-of select="title"/></h3>
 								<p><xsl:value-of select="text"/></p>
-								<a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute>weiterlesen</a>
-								<a class="tag">Tag</a>
+								<a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute>weiterlesen</a><br /><br />
+								<xsl:for-each select="tag">
+									<a class="tag"><xsl:attribute name="href">blog.xml?tag=<xsl:value-of select="."/></xsl:attribute><xsl:value-of select="."/></a>
+								</xsl:for-each>
 							</article>
 						</xsl:for-each>
 					</main>

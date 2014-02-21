@@ -4,3 +4,4 @@
 		<!ELEMENT title (#PCDATA)>
 		<!ELEMENT text (#PCDATA)>
 		<!ELEMENT link (#PCDATA)>
+		<!ELEMENT tag (#PCDATA)>

@@ -54,7 +54,7 @@ nav a:hover {
 main {
 	display: inline-block;
 	background-color: #ffffff;
-	padding: 1.5rem 0;
+	padding: 1.5rem 0.5rem;
   	position:relative;       
     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
        -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -107,3 +107,42 @@ footer {
 	font-size: 10px;
 	text-align: justify;
 }
+
+footer ul li {
+	height: 72px;
+	width: 72px;
+	float: left;
+}
+
+footer ul li a {
+	display: inline-block;
+	height: 72px;
+	width: 72px;
+}
+
+.rss {
+	background-image: url('../images/rss.png');
+}
+
+.facebook {
+	background-image: url('../images/facebook.png');
+}
+
+.googleplus {
+	background-image: url('../images/googleplus.png');
+}
+
+.youtube {
+	background-image: url('../images/youtube.png');
+}
+
+@media only screen and (max-width: 767px) {
+	main {
+		display: inline-block;
+		background-color: #ffffff;
+		padding: 1.5rem 0;
+		position:relative;       
+		-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+		   -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+			    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	}

@@ -39,14 +39,19 @@
 					</main>
 					<footer>
 						<div class="one-third column">
-							Hi
+							<ul>
+								<li><a href="rss" class="rss"></a></li>
+								<li><a href="facebook" class="facebook"></a></li>
+								<li><a href="googleplus" class="googleplus"></a></li>
+								<li><a href="youtube" class="youtube"></a></li>
+							</ul>
 						</div>
 						<div class="one-third column">
 							Hi
 						</div>
 						<div class="one-third column">
 							Der Author ist nicht für Inhalte verlinkter Drittseiten verantwortlich.<br/><br/>
-							Alle Bilder auf dieser Website stehen, soweit nicht anders angegeben, unter <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.de">CC-BY-SA 4.0 International Lizenz</a>.<br/><br/>
+							Alle Bilder und auf dieser Website stehen, soweit nicht anders angegeben, unter <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.de">CC-BY-SA 4.0 International Lizenz</a>. Dies gilt nicht für die Social-Media-Icons.<br/><br/>
 							&#169; 2014 Philipp Trommler
 						</div>
 					</footer>

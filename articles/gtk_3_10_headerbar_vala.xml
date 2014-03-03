@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../xsl/article.xsl"?>
+<!DOCTYPE article SYSTEM "http://ferruck.github.io/dtd/article.dtd">
+<article>
+	<published>Sat, 21 Dec 2013 23:44 +0100</published>
+	<author link="https://plus.google.com/+PhilippTrommler">Philipp Trommler</author>
+	<name>Die neue GTK 3.10 HeaderBar in Vala</name>
+	<text>
+		<par>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.</par>
+		<par>Diese HeaderBars können auch einfach in die eigenen Programme integriert werden, wenn die aktuellen Bibliotheken, also libgtk-3-0 und libgtk-3-dev (>= 3.10), installiert sind. Das folgende Minimalbeispiel befolgt die aktuellen Empfehlungen zur Erstellung von GNOME-Apps, erweitert also die Gtk.Application Klasse. Eine HeaderBar besteht im Endeffekt aus drei Bereichen, dem linken und dem rechten, die jeweils mit Gtk.Widgets befüllt werden können, und dem mittleren, der entweder mit Titel und gegebenenfalls Untertitel oder mit einem Gtk.Widget belegt wird.</par>
+		<par>Dieses Minimalbeispiel kann schon mit wenigen Zeilen Code erstellt werden:</par>
+		<par>Besonders gut gefallen mir die dunkelrote Highlight-Farbe, die sich gut vom Rest des Themes abhebt, sowie die Scrollbars, die deutlich unaufdringlicher sind als die Originalen.</par>
+		<par>Das "Schließen"-Icon und der Titel von Fenstern ohne HeaderBar sind für meinen Geschmack etwas zu nah am Fensterrand, der Titel und Untertitel von Fenstern mit HeaderBar hat irgendwie einen seltsamen Font (siehe Bild). Alles in allem gefällt mir das Theme aber sehr gut, ich kann den Kauf zu diesem Preis empfehlen, und ich bin gespannt, was sich das Numix-Team in nächster Zeit noch so aus den Fingern saugt.</par>
+		<par>Da Bilder, insbesondere in so einem Fall wie hier, natürlich mehr sagen als tausend Worte, gibt es hier noch ein paar Screenshots, mit denen ihr selbst für euch entscheiden könnt, ob das Theme etwas für euch ist oder nicht.</par>
+		<par>Und jetzt schön eines der Themes kaufen und damit die Macher unterstützen!</par>
+	</text>
+	<link>articles/numix_gtk_flat_theme_review.xml</link>
+	<tag>flat</tag>
+	<tag>gtk</tag>
+	<tag>numix</tag>
+	<tag>review</tag>
+</article>

@@ -38,7 +38,7 @@
 						<h3><xsl:value-of select="name"/></h3>
 						<section><xsl:value-of select="text"/></section>
 						<section><xsl:value-of select="long"/></section>
-						<div id="disqus_thread"></div>
+						<div xlass="two-thirds column" id="disqus_thread"></div>
 						<script type="text/javascript">
 							var disqus_shortname = 'phtrommlerblog';
 

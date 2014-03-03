@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../xsl/article.xsl"?>
-<!DOCTYPE blog SYSTEM "http://ferruck.github.io/dtd/article.dtd">
+<!DOCTYPE article SYSTEM "http://ferruck.github.io/dtd/article.dtd">
 <article>
 	<published>17.01.2014</published>
 	<name>Numix GTK 3 Flat Theme Light Review</name>

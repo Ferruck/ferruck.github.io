@@ -25,6 +25,10 @@
 				<script type="text/javascript" src="../js/jquery.socialshareprivacy.js"></script>
 				<script type="text/javascript">
 					jQuery(document).ready(function($){
+						var d = new Date('<xsl:value-of select="published"/>');
+						document.getElementById ('date').innerHTML = d.toLocaleString ();
+						//$('#date').val(d.toLocaleString ());
+					
 						if($('#socialshareprivacy').length > 0){
 							$('#socialshareprivacy').socialSharePrivacy({
 								'services'	: {
@@ -65,12 +69,13 @@
 					<main>
 						<h3><xsl:value-of select="name"/></h3>
 						<xsl:apply-templates select="text"/>
+						<span class="date-author">Verfasst/zuletzt geändert: <span id="date"></span><span> von <xsl:value-of select="author"/></span></span>
 						<hr />
 						<h5>Social Media</h5>
 						<div id="socialshareprivacy"></div>
 						<hr />
-						<h5>disqus</h5>
-						<div xlass="two-thirds column" id="disqus_thread"></div>
+						<h5>Kommentare</h5>
+						<div id="disqus_thread"></div>
 						<script type="text/javascript">
 							var disqus_shortname = 'phtrommlerblog';
 							var disqus_identifier = '<xsl:value-of select="name"/>';

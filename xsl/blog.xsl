@@ -65,7 +65,7 @@
 		<article class="one-third column">
 			<h3><xsl:value-of select="name"/></h3>
 			<p><xsl:value-of select="text"/></p>
-			<a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute>weiterlesen</a><br /><br />
+			<a class="overview"><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute>weiterlesen</a><br /><br />
 		</article>
 	</xsl:template>
 </xsl:stylesheet>

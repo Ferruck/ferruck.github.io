@@ -127,19 +127,19 @@ footer ul li a {
 	width: 72px;
 }
 
-a.rss {
+.rss {
 	background-image: url('../images/rss.png');
 }
 
-a.facebook {
+.facebook {
 	background-image: url('../images/facebook.png');
 }
 
-a.googleplus {
+.googleplus {
 	background-image: url('../images/googleplus.png');
 }
 
-a.youtube {
+.youtube {
 	background-image: url('../images/youtube.png');
 }
 
@@ -154,7 +154,7 @@ a.youtube {
 			    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 	}
 	
-	h3, h4, h5, p {
+	h3, h4, p {
 		padding: 0 0.5rem;
 	}
 		

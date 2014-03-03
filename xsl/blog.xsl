@@ -5,7 +5,7 @@
 		<!--[if lt IE 7 ]><html class="ie ie6" lang="de"> <![endif]-->
 		<!--[if IE 7 ]><html class="ie ie7" lang="de"> <![endif]-->
 		<!--[if IE 8 ]><html class="ie ie8" lang="de"> <![endif]-->
-		<!--[if (gte IE 9)|!(IE)]><!--><html lang="de" xmlns="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
+		<!--[if (gte IE 9)|!(IE)]><!--><html lang="de"> <!--<![endif]-->
 			<head>
 				<meta charset="utf-8"/>
 				<title>Philipp Trommler - Blog</title>
@@ -31,7 +31,7 @@
 						<div class="two-thirds column">
 							<h1 class="remove-bottom" style="margin-top: 40px">Philipp Trommler</h1>
 						</div>
-						<nav class="one-third column"><a href="index.xml">Home</a> &#183; <a href="projects.xml">Projekte</a> &#183; <a href="blog.xml" class="now">Blog</a> &#183; <a href="about.xml">Über mich</a></nav>
+						<nav class="one-third column"><a href="index.xml">Home</a> &#183; <a href="projects.xml">Projekte</a> &#183; <a href="blog.xml"><h2>Blog</h2></a> &#183; <a href="about.xml">Über mich</a></nav>
 						<hr />
 					</header>
 					<main>

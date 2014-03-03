@@ -5,11 +5,11 @@
 		<!--[if lt IE 7 ]><html class="ie ie6" lang="de"> <![endif]-->
 		<!--[if IE 7 ]><html class="ie ie7" lang="de"> <![endif]-->
 		<!--[if IE 8 ]><html class="ie ie8" lang="de"> <![endif]-->
-		<!--[if (gte IE 9)|!(IE)]><!--><html lang="de" xmlns="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
+		<!--[if (gte IE 9)|!(IE)]><!--><html lang="de"> <!--<![endif]-->
 			<head>
 				<meta charset="utf-8"/>
 				<title><xsl:value-of select="name"/> - Philipp Trommler - Blog</title>
-				<meta name="description" content=""/>
+				<meta name="description"><xsl:attribute name="content"><xsl:value-of select="text/par"/></xsl:attribute></meta>
 				<meta name="author" content="Philipp Trommler"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 				<link rel="stylesheet" href="../stylesheets/base.css"/>
@@ -20,9 +20,37 @@
 					<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 				<![endif]-->
 				<link rel="shortcut icon" href="../images/favicon.ico"/>
-				<link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
-				<link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
-				<link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+				<link rel="canonical"><xsl:attribute name="href">http://ferruck.github.io/<xsl:value-of select="link"/></xsl:attribute></link>
+				<script type="text/javascript" src="../js/jquery.js"></script> 
+				<script type="text/javascript" src="../js/jquery.socialshareprivacy.js"></script>
+				<script type="text/javascript">
+					jQuery(document).ready(function($){
+						if($('#socialshareprivacy').length > 0){
+							$('#socialshareprivacy').socialSharePrivacy({
+								'services'	: {
+												facebook: {
+													'dummy_img'	: '../images/socialshareprivacy/dummy_facebook.png',
+													'sharer'	: {
+														'status'	: 'on',
+														'dummy_img'	: '../images/socialshareprivacy/dummy_facebook_share_de.png',
+														'img'		: '../images/socialshareprivacy/dummy_facebook_share_active_de.png'
+													}
+												},
+												twitter	: {
+													'dummy_img'	: '../images/socialshareprivacy/dummy_twitter.png'
+												},
+												gplus	: {
+													'dummy_img' : '../images/socialshareprivacy/dummy_gplus.png'
+												}
+								},
+								'uri'		: 'http://ferruck.github.io/<xsl:value-of select="link"/>',
+								'css_path'  : '../stylesheets/socialshareprivacy.css',
+								'lang_path' : '../js/lang/',
+								'language'  : 'de'
+							});
+						}
+					});
+				</script>
 			</head>
 			<body>
 				<div class="container">
@@ -31,16 +59,23 @@
 						<div class="two-thirds column">
 							<h1 class="remove-bottom" style="margin-top: 40px">Philipp Trommler</h1>
 						</div>
-						<nav class="one-third column"><a href="../index.xml">Home</a> &#183; <a href="../projects.xml">Projekte</a> &#183; <a href="../blog.xml" class="now">Blog</a> &#183; <a href="../about.xml">Über mich</a></nav>
+						<nav class="one-third column"><a href="../index.xml">Home</a> &#183; <a href="../projects.xml">Projekte</a> &#183; <a href="../blog.xml"><h2>Blog</h2></a> &#183; <a href="../about.xml">Über mich</a></nav>
 						<hr />
 					</header>
 					<main>
 						<h3><xsl:value-of select="name"/></h3>
-						<section><xsl:value-of select="text"/></section>
-						<section><xsl:value-of select="long"/></section>
+						<xsl:apply-templates select="text"/>
+						<hr />
+						<h5>Social Media</h5>
+						<div id="socialshareprivacy"></div>
+						<hr />
+						<h5>disqus</h5>
 						<div xlass="two-thirds column" id="disqus_thread"></div>
 						<script type="text/javascript">
 							var disqus_shortname = 'phtrommlerblog';
+							var disqus_identifier = '<xsl:value-of select="name"/>';
+							var disqus_title = '<xsl:value-of select="name"/>';
+							var disqus_url = 'http://ferruck.github.io/<xsl:value-of select="link"/>';
 
 							(function() {
 								var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -61,7 +96,7 @@
 							</ul>
 						</div>
 						<div class="one-third column">
-							Hi
+							Hi!
 						</div>
 						<div class="one-third column">
 							Der Author ist nicht für Inhalte verlinkter Drittseiten verantwortlich.<br/><br/>
@@ -72,5 +107,17 @@
 				</div>
 			</body>
 		</html>
+	</xsl:template>
+	
+	<xsl:template match="text/heading">
+		<h4><xsl:value-of select="."/></h4>
+	</xsl:template>
+	
+	<xsl:template match="text/par">
+		<p><xsl:value-of select="."/></p>
+	</xsl:template>
+	
+	<xsl:template match="text/image">
+		<img class="scale-width-grid"><xsl:attribute name="src"><xsl:value-of select="@src"/></xsl:attribute><xsl:attribute name="alt"><xsl:value-of select="@alt"/></xsl:attribute></img>
 	</xsl:template>
 </xsl:stylesheet>

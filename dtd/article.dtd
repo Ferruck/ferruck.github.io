@@ -1,7 +1,11 @@
-<!ELEMENT article (published, name, text, long, link, tag*)>
+<!ELEMENT article (published, name, text, link, tag*)>
 	<!ELEMENT published (#PCDATA)>
 	<!ELEMENT name (#PCDATA)>
-	<!ELEMENT text (#PCDATA)>
-	<!ELEMENT long (#PCDATA)>
+	<!ELEMENT text (par*, image*, heading*)>
+		<!ELEMENT par (#PCDATA)>
+		<!ELEMENT image EMPTY>
+			<!ATTLIST image src #CDATA REQUIRED,
+							alt #CDATA REQUIRED>
+		<!ELEMENT heading (#PCDATA)>
 	<!ELEMENT link (#PCDATA)>
 	<!ELEMENT tag (#PCDATA)>

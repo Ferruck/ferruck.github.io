@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:output method="html" doctype-system="about:legacy-compat" />
 	<xsl:template match="/">
 		<!--[if lt IE 7 ]><html class="ie ie6" lang="de"> <![endif]-->
 		<!--[if IE 7 ]><html class="ie ie7" lang="de"> <![endif]-->
@@ -34,16 +35,7 @@
 						<hr />
 					</header>
 					<main>
-						<xsl:for-each select="//article">
-							<article class="one-third column">
-								<h3><xsl:value-of select="title"/></h3>
-								<p><xsl:value-of select="text"/></p>
-								<a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute>weiterlesen</a><br /><br />
-								<xsl:for-each select="tag">
-									<a class="tag"><xsl:attribute name="href">blog.xml?tag=<xsl:value-of select="."/></xsl:attribute><xsl:value-of select="."/></a>
-								</xsl:for-each>
-							</article>
-						</xsl:for-each>
+						<xsl:apply-templates select="//article"/>
 					</main>
 					<footer>
 						<div class="one-third column">
@@ -61,5 +53,14 @@
 				</div>
 			</body>
 		</html>
+	</xsl:template>
+	
+	<!-- Article overview -->
+	<xsl:template match="article">
+		<article class="one-third column">
+			<h3><xsl:value-of select="name"/></h3>
+			<p><xsl:value-of select="text"/></p>
+			<a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute>weiterlesen</a><br /><br />
+		</article>
 	</xsl:template>
 </xsl:stylesheet>

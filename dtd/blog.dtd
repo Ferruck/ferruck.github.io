@@ -1,7 +1,7 @@
 <!ELEMENT blog (article*)>
 	<!ELEMENT article (published, title, text, link, tag*)>
 		<!ELEMENT published (#PCDATA)>
-		<!ELEMENT title (#PCDATA)>
+		<!ELEMENT name (#PCDATA)>
 		<!ELEMENT text (#PCDATA)>
 		<!ELEMENT link (#PCDATA)>
 		<!ELEMENT tag (#PCDATA)>

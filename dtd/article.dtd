@@ -1,0 +1,6 @@
+<!ELEMENT article (published, name, text, link, tag*)>
+	<!ELEMENT published (#PCDATA)>
+	<!ELEMENT name (#PCDATA)>
+	<!ELEMENT text (#PCDATA)>
+	<!ELEMENT link (#PCDATA)>
+	<!ELEMENT tag (#PCDATA)>

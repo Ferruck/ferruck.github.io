@@ -29,7 +29,7 @@
 .social_share_privacy_area.vertical li {
     float: none;
     clear: both;
-    width: 150px;
+    width: 190px;
     height: auto;
     margin: 0 0 10px !important;
 }
@@ -40,8 +40,8 @@
     width: 120px;
 }
 .social_share_privacy_area li .dummy_btn {
-    float: left;
-    margin: 0 0 0 10px;
+    float: right;
+    margin: 12px 0 0 10px;
     cursor: pointer;
     padding: 0;
     height: inherit;
@@ -86,6 +86,7 @@
 }
 /* Google+ end */
 /* Switch begin */
+/*
 .social_share_privacy_area li .switch {
     text-indent: -9999em;
     background: transparent url(../images/socialshareprivacy/socialshareprivacy_on_off.png) no-repeat 0 0 scroll;
@@ -106,6 +107,7 @@
 .social_share_privacy_area li .switch.on {
     background-position: 0 -12px; 
 }
+*/
 /* Switch end */
 /* Tooltips begin */
 .social_share_privacy_area li.help_info {
@@ -164,7 +166,7 @@
 	-moz-border-radius: 5px 0 0 5px;
 	-webkit-border-radius: 5px 0 0 5px;
 	border-radius: 5px 0 0 5px;
-    margin: 0;
+    margin: 0 0 0 10px;
     padding: 0;
 }
 .social_share_privacy_area.skin-dark li .help_info.icon {

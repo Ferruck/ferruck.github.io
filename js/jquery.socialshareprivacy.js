@@ -1,1 +1,433 @@
-!function(a){"use strict";function b(a,b){var c=decodeURIComponent(a);if(c.length<=b)return a;var d=c.substring(0,b-1).lastIndexOf(" ");return c=encodeURIComponent(c.substring(0,d))+"…"}function c(b){var c=a('meta[name="'+b+'"]').attr("content");return c||""}function d(){var b=c("DC.title"),d=c("DC.creator");return b.length>0&&d.length>0?b+=" - "+d:b=a("title").text(),encodeURIComponent(b)}function e(){var b=document.location.href,c=a("link[rel=canonical]").attr("href");return c&&c.length>0&&(c.indexOf("http")<0&&(c=document.location.protocol+"//"+document.location.host+c),b=c),b}function f(a,b,c,d,e){var f=new Date;f.setTime(f.getTime()+24*c*60*60*1e3),document.cookie=a+"="+b+"; expires="+f.toUTCString()+"; path="+d+"; domain="+e}function g(a,b,c,d){var e=new Date;e.setTime(e.getTime()-100),document.cookie=a+"="+b+"; expires="+e.toUTCString()+"; path="+c+"; domain="+d}a.fn.socialSharePrivacy=function(c){function h(){var b=a.Deferred();return a.getJSON(j.lang_path+j.language+".lang",function(a){o=a,b.resolve()}).fail(function(a){"undefined"!=typeof console&&console.log("Error "+a.status+" while loading the language file ("+j.lang_path+j.language+".lang)"),b.reject()}),b.promise()}var i={services:{facebook:{status:"on",dummy_img:"socialshareprivacy/images/dummy_facebook.png",perma_option:"on",referrer_track:"",action:"recommend",layout:"button_count",sharer:{status:"off",dummy_img:"socialshareprivacy/images/dummy_facebook_share_de.png",img:"socialshareprivacy/images/dummy_facebook_share_active_de.png"}},twitter:{status:"on",dummy_img:"socialshareprivacy/images/dummy_twitter.png",perma_option:"on",referrer_track:"",tweet_text:d,count:"horizontal"},gplus:{status:"on",dummy_img:"socialshareprivacy/images/dummy_gplus.png",perma_option:"on",referrer_track:"",size:"medium"}},info_link:"http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html",cookie_path:"/",cookie_domain:document.location.host,cookie_expires:"365",css_path:"socialshareprivacy/socialshareprivacy.css",uri:e,language:"de",lang_path:"socialshareprivacy/lang/",skin:"light",alignment:"horizontal",switch_alignment:"left"},j=a.extend(!0,i,c),k="on"===j.services.facebook.status,l="on"===j.services.facebook.sharer.status,m="on"===j.services.twitter.status,n="on"===j.services.gplus.status;if(k||m||n){j.css_path.length>0&&"1"!=a(window).data("socialshareprivacy_css")&&(document.createStyleSheet?document.createStyleSheet(j.css_path):a("head").append('<link rel="stylesheet" type="text/css" href="'+j.css_path+'" />'),a(window).data("socialshareprivacy_css","1"));var o;return this.each(function(){var c=this;a.when(h()).then(function(){a(c).prepend('<ul class="social_share_privacy_area clearfix"></ul>');var d=a(".social_share_privacy_area",c);"dark"==j.skin&&a(d).addClass("skin-dark"),"vertical"==j.alignment&&(a(d).addClass("vertical"),"right"==j.switch_alignment&&(k&&"box_count"==j.services.facebook.layout||!k)&&(m&&"vertical"==j.services.twitter.count||!m)&&(n&&"tall"==j.services.gplus.size||!n)&&a(d).addClass("switch_right"));var e=j.uri;if("function"==typeof e&&(e=e(d)),k){var h,i,p="box_count"==j.services.facebook.layout?"61":"21",q="box_count"==j.services.facebook.layout?"90":"130",r=encodeURIComponent(e+j.services.facebook.referrer_track);l?(h='<img src="'+j.services.facebook.sharer.dummy_img+'" alt="Facebook &quot;Share&quot;-Dummy" class="fb_like_privacy_dummy" />',i='<a href="#" onclick="window.open(\'https://www.facebook.com/sharer/sharer.php?u='+r+"', 'facebook-share-dialog', 'width=626,height=436'); return false;\"><img src=\""+j.services.facebook.sharer.img+'" alt="" /></a>'):(h='<img src="'+j.services.facebook.dummy_img+'" alt="Facebook &quot;Like&quot;-Dummy" class="fb_like_privacy_dummy" />',i='<iframe src="//www.facebook.com/plugins/like.php?locale='+o.services.facebook.language+"&amp;href="+r+"&amp;width="+q+"&amp;layout="+j.services.facebook.layout+"&amp;action="+j.services.facebook.action+"&amp;show_faces=false&amp;share=false&amp;height="+p+"&amp;colorscheme="+j.skin+'" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:'+q+"px; height:"+p+'px;" allowTransparency="true"></iframe>'),d.append('<li class="facebook help_info clearfix"><span class="info">'+o.services.facebook.txt_info+'</span><a href="#" class="switch off">'+o.services.facebook.txt_fb_off+'</a><div class="fb_like dummy_btn">'+h+"</div></li>");var s=a("li.facebook",d);a(d).on("click","li.facebook div.fb_like img.fb_like_privacy_dummy,li.facebook .switch",function(a){a.preventDefault(),s.find(".switch").hasClass("off")?(s.addClass("info_off"),s.find(".switch").addClass("on").removeClass("off").html(o.services.facebook.txt_fb_on),s.find("img.fb_like_privacy_dummy").replaceWith(i)):(s.removeClass("info_off"),s.find(".switch").addClass("off").removeClass("on").html(o.services.facebook.txt_fb_off),s.find(".fb_like").html(h))})}if(m){var t=j.services.twitter.tweet_text;"function"==typeof t&&(t=t()),t=b(t,"120");var u="horizontal"==j.services.twitter.count?"25":"62",v="horizontal"==j.services.twitter.count?"130":"83",w=encodeURIComponent(e+j.services.twitter.referrer_track),x=encodeURIComponent(e),y='<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/tweet_button.html?url='+w+"&amp;counturl="+x+"&amp;text="+t+"&amp;count="+j.services.twitter.count+"&amp;lang="+o.services.twitter.language+'&amp;dnt=true" style="width:'+v+"px; height:"+u+'px;"></iframe>',z='<img src="'+j.services.twitter.dummy_img+'" alt="&quot;Tweet this&quot;-Dummy" class="tweet_this_dummy" />';d.append('<li class="twitter help_info clearfix"><span class="info">'+o.services.twitter.txt_info+'</span><a href="#" class="switch off">'+o.services.twitter.txt_twitter_off+'</a><div class="tweet dummy_btn">'+z+"</div></li>");var A=a("li.twitter",d);a(d).on("click","li.twitter div.tweet img,li.twitter .switch",function(a){a.preventDefault(),A.find(".switch").hasClass("off")?(A.addClass("info_off"),A.find(".switch").addClass("on").removeClass("off").html(o.services.twitter.txt_twitter_on),A.find("img.tweet_this_dummy").replaceWith(y)):(A.removeClass("info_off"),A.find(".switch").addClass("off").removeClass("on").html(o.services.twitter.txt_twitter_off),A.find(".tweet").html(z))})}if(n){var B=e+j.services.gplus.referrer_track,C='<div class="g-plusone" data-size="'+j.services.gplus.size+'" data-href="'+B+'"></div><script type="text/javascript">window.___gcfg = {lang: "'+o.services.gplus.language+'"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/platform.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>',D='<img src="'+j.services.gplus.dummy_img+'" alt="&quot;Google+1&quot;-Dummy" class="gplus_one_dummy" />';d.append('<li class="gplus help_info clearfix"><span class="info">'+o.services.gplus.txt_info+'</span><a href="#" class="switch off">'+o.services.gplus.txt_gplus_off+'</a><div class="gplusone dummy_btn">'+D+"</div></li>");var E=a("li.gplus",d);a(d).on("click","li.gplus div.gplusone img,li.gplus .switch",function(a){a.preventDefault(),E.find(".switch").hasClass("off")?(E.addClass("info_off"),E.find(".switch").addClass("on").removeClass("off").html(o.services.gplus.txt_gplus_on),E.find("img.gplus_one_dummy").replaceWith(C)):(E.removeClass("info_off"),E.find(".switch").addClass("off").removeClass("on").html(o.services.gplus.txt_gplus_off),E.find(".gplusone").html(D))})}d.append('<li class="settings_info"><div class="settings_info_menu off perma_option_off"><a href="'+j.info_link+'"><span class="help_info icon"><span class="info">'+o.txt_help+"</span></span></a></div></li>"),a(d).on("mouseenter",".help_info:not(.info_off)",function(){var b=a(this),c=window.setTimeout(function(){a(b).addClass("display")},500);a(this).data("timeout_id",c)}),a(d).on("mouseleave",".help_info",function(){var b=a(this).data("timeout_id");window.clearTimeout(b),a(this).hasClass("display")&&a(this).removeClass("display")});var F="on"===j.services.facebook.perma_option,G="on"===j.services.twitter.perma_option,H="on"===j.services.gplus.perma_option;if(k&&F||m&&G||n&&H){for(var I=document.cookie.split(";"),J="{",K=0;K<I.length;K+=1){var L=I[K].split("=");L[0]=a.trim(L[0].replace(/"/g,"")),L[1]=a.trim(L[1].replace(/"/g,"")),J+='"'+L[0]+'":"'+L[1]+'"',K<I.length-1&&(J+=",")}J+="}",J=jQuery.parseJSON(J);var M=a("li.settings_info",d);M.find(".settings_info_menu").removeClass("perma_option_off"),M.find(".settings_info_menu").append('<a href="#" class="settings">'+o.settings+"</a><form><fieldset><legend>"+o.settings_perma+"</legend></fieldset></form>");var N="r"+Math.floor(101*Math.random()),O=' checked="checked"';if(k&&F){var P="perma_on"===J.socialSharePrivacy_facebook?O:"";M.find("form fieldset").append('<input type="checkbox" name="perma_status_facebook" id="'+N+'_perma_status_facebook"'+P+' /><label for="'+N+'_perma_status_facebook">'+o.services.facebook.perma_display_name+"</label>")}if(m&&G){var Q="perma_on"===J.socialSharePrivacy_twitter?O:"";M.find("form fieldset").append('<input type="checkbox" name="perma_status_twitter" id="'+N+'_perma_status_twitter"'+Q+' /><label for="'+N+'_perma_status_twitter">'+o.services.twitter.perma_display_name+"</label>")}if(n&&H){var R="perma_on"===J.socialSharePrivacy_gplus?O:"";M.find("form fieldset").append('<input type="checkbox" name="perma_status_gplus" id="'+N+'_perma_status_gplus"'+R+' /><label for="'+N+'_perma_status_gplus">'+o.services.gplus.perma_display_name+"</label>")}a(d).on("click","li.settings_info .settings",function(b){b.preventDefault(),"on"==a(this).data("keyb")?(a("li.settings_info",d).trigger("mouseleave"),a(this).data("keyb","off")):(a("li.settings_info .settings",d).trigger("mouseenter"),a(this).data("keyb","on"))}),a(d).on("mouseenter","li.settings_info .settings",function(){var b=window.setTimeout(function(){M.find(".settings_info_menu").removeClass("off").addClass("on")},500);a(this).data("timeout_id",b)}),a(d).on("mouseleave","li.settings_info",function(){var b=a(this).data("timeout_id");window.clearTimeout(b),M.find(".settings_info_menu").removeClass("on").addClass("off")}),a(d).on("click","li.settings_info fieldset input",function(b){var c=b.target.id,e=c.substr(c.lastIndexOf("_")+1,c.length),h="socialSharePrivacy_"+e;a("#"+b.target.id+":checked").length?(f(h,"perma_on",j.cookie_expires,j.cookie_path,j.cookie_domain),a("form fieldset label[for="+c+"]",d).addClass("checked")):(g(h,"perma_on",j.cookie_path,j.cookie_domain),a("form fieldset label[for="+c+"]",d).removeClass("checked"))}),k&&F&&"perma_on"===J.socialSharePrivacy_facebook&&a("li.facebook .switch",d).click(),m&&G&&"perma_on"===J.socialSharePrivacy_twitter&&a("li.twitter .switch",d).click(),n&&H&&"perma_on"===J.socialSharePrivacy_gplus&&a("li.gplus .switch",d).click()}})})}}}(jQuery);
+/*
+ * jquery.socialshareprivacy.js | 2 Klicks fuer mehr Datenschutz (1.5)
+ *
+ * http://www.heise.de/extras/socialshareprivacy/
+ * http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html
+ *
+ * Copyright (c) 2011-2014 Hilko Holweg, Sebastian Hilbig, Nicolas Heiringhoff, Juergen Schmidt,
+ * Heise Zeitschriften Verlag GmbH & Co. KG, http://www.heise.de
+ *
+ * is released under the MIT License http://www.opensource.org/licenses/mit-license.php
+ *
+ * Spread the word, link to us if you can.
+ */
+(function ($) {
+
+    "use strict";
+
+	//
+	// helper functions
+	// 
+
+    // abbreviate at last blank before length and add "\u2026" (horizontal ellipsis)
+    function abbreviateText(text, length) {
+        var abbreviated = decodeURIComponent(text);
+        if (abbreviated.length <= length) {
+            return text;
+        }
+
+        var lastWhitespaceIndex = abbreviated.substring(0, length - 1).lastIndexOf(' ');
+        abbreviated = encodeURIComponent(abbreviated.substring(0, lastWhitespaceIndex)) + "\u2026";
+
+        return abbreviated;
+    }
+
+    // returns content of <meta name="" content=""> tags or '' if empty/non existant
+    function getMeta(name) {
+        var metaContent = $('meta[name="' + name + '"]').attr('content');
+        return metaContent || '';
+    }
+    
+    // create tweet text from content of <meta name="DC.title"> and <meta name="DC.creator">
+    // fallback to content of <title> tag
+    function getTweetText() {
+        var title = getMeta('DC.title');
+        var creator = getMeta('DC.creator');
+
+        if (title.length > 0 && creator.length > 0) {
+            title += ' - ' + creator;
+        } else {
+            title = $('title').text();
+        }
+
+        return encodeURIComponent(title);
+    }
+
+    // build URI from rel="canonical" or document.location
+    function getURI() {
+        var uri = document.location.href;
+        var canonical = $("link[rel=canonical]").attr("href");
+
+        if (canonical && canonical.length > 0) {
+            if (canonical.indexOf("http") < 0) {
+                canonical = document.location.protocol + "//" + document.location.host + canonical;
+            }
+            uri = canonical;
+        }
+
+        return uri;
+    }
+
+    function cookieSet(name, value, days, path, domain) {
+        var expires = new Date();
+        expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = name + '=' + value + '; expires=' + expires.toUTCString() + '; path=' + path + '; domain=' + domain;
+    }
+    function cookieDel(name, value, path, domain) {
+        var expires = new Date();
+        expires.setTime(expires.getTime() - 100);
+        document.cookie = name + '=' + value + '; expires=' + expires.toUTCString() + '; path=' + path + '; domain=' + domain;
+    }
+
+    // extend jquery with our plugin function
+    $.fn.socialSharePrivacy = function (settings) {
+        var defaults = {
+            'services' : {
+                'facebook' : {
+                    'status'            : 'on',
+                    'dummy_img'         : 'socialshareprivacy/images/dummy_facebook.png',
+                    'perma_option'      : 'on',
+                    'referrer_track'    : '',
+                    'action'            : 'recommend',
+                    'layout'            : 'button_count',
+                    'sharer'            : {
+                        'status'        : 'off',
+                        'dummy_img'     : 'socialshareprivacy/images/dummy_facebook_share_de.png',
+                        'img'           : 'socialshareprivacy/images/dummy_facebook_share_active_de.png'
+                    }
+                }, 
+                'twitter' : {
+                    'status'            : 'on', 
+                    'dummy_img'         : 'socialshareprivacy/images/dummy_twitter.png',
+                    'perma_option'      : 'on',
+                    'referrer_track'    : '', 
+                    'tweet_text'        : getTweetText,
+                    'count'             : 'horizontal'
+                },
+                'gplus' : {
+                    'status'            : 'on',
+                    'dummy_img'         : 'socialshareprivacy/images/dummy_gplus.png',
+                    'perma_option'      : 'on',
+                    'referrer_track'    : '',
+                    'size'              : 'medium'
+                }
+            },
+            'info_link'         : 'http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html',
+            'cookie_path'       : '/',
+            'cookie_domain'     : document.location.host,
+            'cookie_expires'    : '365',
+            'css_path'          : 'socialshareprivacy/socialshareprivacy.css',
+            'uri'               : getURI,
+            'language'          : 'de',
+            'lang_path'         : 'socialshareprivacy/lang/',
+            'skin'              : 'light',
+            'alignment'         : 'horizontal',
+            'switch_alignment'  : 'left'
+        };
+
+        // Standardwerte des Plug-Ins mit den vom User angegebenen Optionen ueberschreiben
+        var options = $.extend(true, defaults, settings);
+
+        var facebook_on        = (options.services.facebook.status === 'on');
+        var facebook_sharer_on = (options.services.facebook.sharer.status === 'on');
+        var twitter_on         = (options.services.twitter.status  === 'on');
+        var gplus_on           = (options.services.gplus.status    === 'on');
+
+        // check if at least one service is "on"
+        if (!facebook_on && !twitter_on && !gplus_on) {
+            return;
+        }
+
+        // insert stylesheet into document and prepend target element
+        if (options.css_path.length > 0 && $(window).data('socialshareprivacy_css') != '1') {
+            // IE fix (noetig fuer IE < 9 - wird hier aber fuer alle IE gemacht)
+            if (document.createStyleSheet) {
+                document.createStyleSheet(options.css_path);
+            } 
+            else {
+                $('head').append('<link rel="stylesheet" type="text/css" href="' + options.css_path + '" />');
+            }
+
+            $(window).data('socialshareprivacy_css','1');
+        }
+
+        var language;
+
+        function loadLangFile() {
+            var d = $.Deferred();
+
+            $.getJSON(options.lang_path + options.language+'.lang', function(data) {
+                language = data;
+                d.resolve();
+            }).fail(function(s){
+                if(typeof console !== "undefined") {
+                    console.log('Error ' + s.status + ' while loading the language file ('+options.lang_path+options.language+'.lang)');
+                }
+                d.reject();
+            });
+
+            return d.promise();
+        }
+
+        return this.each(function () {
+            var iteration = this;
+
+            $.when(
+                loadLangFile())
+            .then( function() {
+                $(iteration).prepend('<ul class="social_share_privacy_area clearfix"></ul>');
+                var context = $('.social_share_privacy_area', iteration);
+
+                // Class for dark skinning
+                if(options.skin == 'dark') {
+                    $(context).addClass('skin-dark');
+                }
+
+                // Class for alignment
+                if(options.alignment == 'vertical') {
+                    $(context).addClass('vertical');
+
+                    if(options.switch_alignment == 'right' && 
+                        ((facebook_on && options.services.facebook.layout == 'box_count') || (!facebook_on)) && 
+                        ((twitter_on && options.services.twitter.count == 'vertical') || (!twitter_on)) && 
+                        ((gplus_on && options.services.gplus.size == 'tall') || (!gplus_on))) {
+                        $(context).addClass('switch_right');
+                    }
+                }
+
+                // canonical uri that will be shared
+                var uri = options.uri;
+                if (typeof uri === 'function') {
+                    uri = uri(context);
+                }
+
+                //
+                // Facebook
+                //
+                if (facebook_on) {
+                    var fb_dummy_btn;
+                    var fb_code;
+
+                    var fb_height = options.services.facebook.layout == 'box_count' ? '61' : '21';
+                    var fb_width  = options.services.facebook.layout == 'box_count' ? '90' : '130';
+
+                    var fb_enc_uri = encodeURIComponent(uri + options.services.facebook.referrer_track);
+
+                    if (facebook_sharer_on) {
+                        fb_dummy_btn = '<img src="' + options.services.facebook.sharer.dummy_img + '" alt="Facebook &quot;Share&quot;-Dummy" class="fb_like_privacy_dummy" />';
+                        fb_code = '<a href="#" onclick="window.open(\'https://www.facebook.com/sharer/sharer.php?u=' + fb_enc_uri + '\', \'facebook-share-dialog\', \'width=626,height=436\'); return false;"><img src="'+options.services.facebook.sharer.img+'" alt="" /></a>';
+                    }
+                    else {
+                        fb_dummy_btn = '<img src="' + options.services.facebook.dummy_img + '" alt="Facebook &quot;Like&quot;-Dummy" class="fb_like_privacy_dummy" />';
+                        fb_code = '<iframe src="//www.facebook.com/plugins/like.php?locale=' + language.services.facebook.language + '&amp;href=' + fb_enc_uri + '&amp;width=' + fb_width + '&amp;layout=' + options.services.facebook.layout + '&amp;action=' + options.services.facebook.action + '&amp;show_faces=false&amp;share=false&amp;height=' + fb_height + '&amp;colorscheme=' + options.skin + '" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:' + fb_width + 'px; height:' + fb_height + 'px;" allowTransparency="true"></iframe>'
+                    }
+                    context.append('<li class="facebook help_info clearfix"><span class="info">' + language.services.facebook.txt_info + '</span><label class="switch switch-green"><input type="checkbox" class="switch-input"/><span class="switch-label" data-on="An" data-off="Aus"></span><span class="switch-handle"></span></label><div class="fb_like dummy_btn">' + fb_dummy_btn + '</div></li>');
+
+                    var $container_fb = $('li.facebook', context);
+                    $(context).on('click', 'li.facebook div.fb_like img.fb_like_privacy_dummy,li.facebook .switch', function (e) {
+                        if ($container_fb.find('.switch').prop('checked', false)) {
+                            $container_fb.find('img.fb_like_privacy_dummy').replaceWith(fb_code);
+                        }
+                        else {
+                            $container_fb.find('.fb_like').html(fb_dummy_btn);
+                        }
+                    });
+                }
+
+                //
+                // Twitter
+                //
+                if (twitter_on) {
+                    var text = options.services.twitter.tweet_text;
+                    if (typeof text === 'function') {
+                        text = text();
+                    }
+                    // 120 is the max character count left after twitters automatic url shortening with t.co
+                    text = abbreviateText(text, '120');
+
+                    var tw_height = options.services.twitter.count == 'horizontal' ? '25' : '62';
+                    var tw_width  = options.services.twitter.count == 'horizontal' ? '130' : '83';
+
+                    var twitter_enc_uri = encodeURIComponent(uri + options.services.twitter.referrer_track);
+                    var twitter_count_url = encodeURIComponent(uri);
+                    var twitter_code = '<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/tweet_button.html?url=' + twitter_enc_uri + '&amp;counturl=' + twitter_count_url + '&amp;text=' + text + '&amp;count=' + options.services.twitter.count + '&amp;lang=' + language.services.twitter.language + '&amp;dnt=true" style="width:' + tw_width + 'px; height:' + tw_height + 'px;"></iframe>';
+                    var twitter_dummy_btn = '<img src="' + options.services.twitter.dummy_img + '" alt="&quot;Tweet this&quot;-Dummy" class="tweet_this_dummy" />';
+
+                    context.append('<li class="twitter help_info clearfix"><span class="info">' + language.services.twitter.txt_info + '</span><label class="switch switch-green"><input type="checkbox" class="switch-input"/><span class="switch-label" data-on="An" data-off="Aus"></span><span class="switch-handle"></span></label></a><div class="tweet dummy_btn">' + twitter_dummy_btn + '</div></li>');
+
+                    var $container_tw = $('li.twitter', context);
+
+                    $(context).on('click', 'li.twitter div.tweet img,li.twitter .switch', function (e) {
+                        if ($container_tw.find('.switch').prop('checked', false)) {
+                            $container_tw.find('img.tweet_this_dummy').replaceWith(twitter_code);
+                        }
+                        else {
+                            $container_tw.find('.tweet').html(twitter_dummy_btn);
+                        }
+                    });
+                }
+
+                //
+                // Google+
+                //
+                if (gplus_on) {
+                    // fuer G+ wird die URL nicht encoded, da das zu einem Fehler fuehrt
+                    var gplus_uri = uri + options.services.gplus.referrer_track;
+                    
+                    // we use the Google+ "asynchronous" code, standard code is flaky if inserted into dom after load
+                    var gplus_code = '<div class="g-plusone" data-size="' + options.services.gplus.size + '" data-href="' + gplus_uri + '"></div><script type="text/javascript">window.___gcfg = {lang: "' + language.services.gplus.language + '"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/platform.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>';
+                    var gplus_dummy_btn = '<img src="' + options.services.gplus.dummy_img + '" alt="&quot;Google+1&quot;-Dummy" class="gplus_one_dummy" />';
+
+                    context.append('<li class="gplus help_info clearfix"><span class="info">' + language.services.gplus.txt_info + '</span><label class="switch switch-green"><input type="checkbox" class="switch-input"/><span class="switch-label" data-on="An" data-off="Aus"></span><span class="switch-handle"></span></label></a><div class="gplusone dummy_btn">' + gplus_dummy_btn + '</div></li>');
+
+                    var $container_gplus = $('li.gplus', context);
+
+                    $(context).on('click', 'li.gplus div.gplusone img,li.gplus .switch', function (e) {
+                        if ($container_gplus.find('.switch').prop('checked', false)) {
+                            $container_gplus.find('img.gplus_one_dummy').replaceWith(gplus_code);
+                        }
+                        else {
+                            $container_gplus.find('.gplusone').html(gplus_dummy_btn);
+                        }
+                    });
+                }
+
+                //
+                // Der Info/Settings-Bereich wird eingebunden
+                //
+                context.append('<li class="settings_info"><div class="settings_info_menu off perma_option_off"><a href="' + options.info_link + '"><span class="help_info icon"><span class="info">' + language.txt_help + '</span></span></a></div></li>');
+
+                // Info-Overlays mit leichter Verzoegerung einblenden
+                $(context).on('mouseenter', '.help_info:not(.info_off)', function () {
+                    var $info_wrapper = $(this);
+                    var timeout_id = window.setTimeout(function () { $($info_wrapper).addClass('display'); }, 500);
+                    $(this).data('timeout_id', timeout_id);
+                });
+                $(context).on('mouseleave', '.help_info', function () {
+                    var timeout_id = $(this).data('timeout_id');
+                    window.clearTimeout(timeout_id);
+                    if ($(this).hasClass('display')) {
+                        $(this).removeClass('display');
+                    }
+                });
+
+                var facebook_perma = (options.services.facebook.perma_option === 'on');
+                var twitter_perma  = (options.services.twitter.perma_option  === 'on');
+                var gplus_perma    = (options.services.gplus.perma_option    === 'on');
+
+                // Menue zum dauerhaften Einblenden der aktiven Dienste via Cookie einbinden
+                if ((facebook_on && facebook_perma) || (twitter_on && twitter_perma) || (gplus_on && gplus_perma)) {
+
+                    // Cookies abrufen
+                    var cookie_list = document.cookie.split(';');
+                    var cookies = '{';
+                    var i = 0;
+                    for (; i < cookie_list.length; i += 1) {
+                        var foo = cookie_list[i].split('=');
+                        // Spaces and Quotes getting removed
+                        foo[0] = $.trim(foo[0].replace(/"/g, ''));
+                        foo[1] = $.trim(foo[1].replace(/"/g, ''));
+                        cookies += '"' + foo[0] + '":"' + foo[1] + '"';
+                        if (i < cookie_list.length - 1) {
+                            cookies += ',';
+                        }
+                    }
+                    cookies += '}';
+                    cookies = jQuery.parseJSON(cookies);
+
+                    // Container definieren
+                    var $container_settings_info = $('li.settings_info', context);
+
+                    // Klasse entfernen, die das i-Icon alleine formatiert, da Perma-Optionen eingeblendet werden
+                    $container_settings_info.find('.settings_info_menu').removeClass('perma_option_off');
+
+                    // Perma-Optionen-Icon (.settings) und Formular (noch versteckt) einbinden
+                    $container_settings_info.find('.settings_info_menu').append('<a href="#" class="settings">' + language.settings + '</a><form><fieldset><legend>' + language.settings_perma + '</legend></fieldset></form>');
+
+
+                    var random = 'r' + Math.floor(Math.random()*101);
+
+                    // Die Dienste mit <input> und <label>, sowie checked-Status laut Cookie, schreiben
+                    var checked = ' checked="checked"';
+                    if (facebook_on && facebook_perma) {
+                        var perma_status_facebook = cookies.socialSharePrivacy_facebook === 'perma_on' ? checked : '';
+                        $container_settings_info.find('form fieldset').append(
+                            '<input type="checkbox" name="perma_status_facebook" id="'+random+'_perma_status_facebook"'
+                                + perma_status_facebook + ' /><label for="'+random+'_perma_status_facebook">'
+                                + language.services.facebook.perma_display_name + '</label>'
+                        );
+                    }
+
+                    if (twitter_on && twitter_perma) {
+                        var perma_status_twitter = cookies.socialSharePrivacy_twitter === 'perma_on' ? checked : '';
+                        $container_settings_info.find('form fieldset').append(
+                            '<input type="checkbox" name="perma_status_twitter" id="'+random+'_perma_status_twitter"'
+                                + perma_status_twitter + ' /><label for="'+random+'_perma_status_twitter">'
+                                + language.services.twitter.perma_display_name + '</label>'
+                        );
+                    }
+
+                    if (gplus_on && gplus_perma) {
+                        var perma_status_gplus = cookies.socialSharePrivacy_gplus === 'perma_on' ? checked : '';
+                        $container_settings_info.find('form fieldset').append(
+                            '<input type="checkbox" name="perma_status_gplus" id="'+random+'_perma_status_gplus"'
+                                + perma_status_gplus + ' /><label for="'+random+'_perma_status_gplus">'
+                                + language.services.gplus.perma_display_name + '</label>'
+                        );
+                    }
+
+                    // Settings-Menue per Tastatur erreichbar machen, die Mouseevents werden getriggert
+                    $(context).on('click', 'li.settings_info .settings', function (e) {
+                        e.preventDefault();
+                        if($(this).data('keyb') == 'on') {
+                            $('li.settings_info', context).trigger('mouseleave');
+                            $(this).data('keyb','off');
+                        }
+                        else {
+                            $('li.settings_info .settings', context).trigger('mouseenter');
+                            $(this).data('keyb','on');
+                        }
+                    });
+
+                    // Einstellungs-Menue bei mouseover ein-/ausblenden
+                    $(context).on('mouseenter', 'li.settings_info .settings', function () {
+                        var timeout_id = window.setTimeout(function () { $container_settings_info.find('.settings_info_menu').removeClass('off').addClass('on'); }, 500);
+                        $(this).data('timeout_id', timeout_id);
+                    }); 
+                    $(context).on('mouseleave', 'li.settings_info', function () {
+                        var timeout_id = $(this).data('timeout_id');
+                        window.clearTimeout(timeout_id);
+                        $container_settings_info.find('.settings_info_menu').removeClass('on').addClass('off');
+                    });
+
+                    // Klick-Interaktion auf <input> um Dienste dauerhaft ein- oder auszuschalten (Cookie wird gesetzt oder geloescht)
+                    $(context).on('click', 'li.settings_info fieldset input', function (event) {
+                        var click = event.target.id;
+                        var service = click.substr(click.lastIndexOf('_') + 1, click.length);
+                        var cookie_name = 'socialSharePrivacy_' + service;
+
+                        if ($('#' + event.target.id + ':checked').length) {
+                            cookieSet(cookie_name, 'perma_on', options.cookie_expires, options.cookie_path, options.cookie_domain);
+                            $('form fieldset label[for=' + click + ']', context).addClass('checked');
+                        } 
+                        else {
+                            cookieDel(cookie_name, 'perma_on', options.cookie_path, options.cookie_domain);
+                            $('form fieldset label[for=' + click + ']', context).removeClass('checked');
+                        }
+                    });
+
+                    // Dienste automatisch einbinden, wenn entsprechendes Cookie vorhanden ist
+                    if (facebook_on && facebook_perma && cookies.socialSharePrivacy_facebook === 'perma_on') {
+                        $('li.facebook .switch', context).click();
+                    }
+                    if (twitter_on && twitter_perma && cookies.socialSharePrivacy_twitter === 'perma_on') {
+                        $('li.twitter .switch', context).click();
+                    }
+                    if (gplus_on && gplus_perma && cookies.socialSharePrivacy_gplus === 'perma_on') {
+                        $('li.gplus .switch', context).click();
+                    }
+                }
+            }); // .then()
+        }); // this.each(function ()
+    }; // $.fn.socialSharePrivacy = function (settings) {
+}(jQuery));

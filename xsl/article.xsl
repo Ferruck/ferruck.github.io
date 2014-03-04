@@ -28,6 +28,20 @@
 				<script type="text/javascript" src="../js/highlight.pack.js"></script>
 				<script type="text/javascript" src="../js/jquery.socialshareprivacy.js"></script>
 				<script type="text/javascript">
+					function showDisqus () {
+						var disqus_shortname = 'phtrommlerblog';
+						var disqus_identifier = '<xsl:value-of select="name"/>';
+						var disqus_title = '<xsl:value-of select="name"/>';
+						var disqus_url = 'http://ferruck.github.io/<xsl:value-of select="link"/>';
+						
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript';
+						dsq.async = true;
+						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+						
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					}
+					
 					jQuery(document).ready(function($){
 						var d = new Date('<xsl:value-of select="published"/>');
 						document.getElementById ('date').innerHTML = d.toLocaleString ();
@@ -56,7 +70,8 @@
 								'uri'		: 'http://ferruck.github.io/<xsl:value-of select="link"/>',
 								'css_path'  : '../stylesheets/socialshareprivacy.css',
 								'lang_path' : '../js/lang/',
-								'language'  : 'de'
+								'language'  : 'de',
+								'alignment' : 'vertical'
 							});
 						}
 					});
@@ -77,25 +92,21 @@
 						<xsl:apply-templates select="text"/>
 						<span class="date-author">Verfasst/zuletzt geändert: <span id="date"></span><span> von <xsl:value-of select="author"/></span></span>
 						<hr />
+						<div class="one-third column">
 						<h5>Social Media</h5>
 						<div id="socialshareprivacy"></div>
-						<hr />
-						<h5>Kommentare</h5>
-						<div id="disqus_thread"></div>
-						<script type="text/javascript">
-							var disqus_shortname = 'phtrommlerblog';
-							var disqus_identifier = '<xsl:value-of select="name"/>';
-							var disqus_title = '<xsl:value-of select="name"/>';
-							var disqus_url = 'http://ferruck.github.io/<xsl:value-of select="link"/>';
-
-							(function() {
-								var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-								dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-								(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-							})();
-						</script>
-						<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-						<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+						</div>
+						<div class="two-thirds column" id="disqus">
+							<h5>Kommentare</h5>
+							<p class="warning">Durch das Aktivieren der Kommentarfunktion werden Daten an Dritte (Disqus) weitergegeben. Aktivieren Sie die Kommentarfunktion nur, wenn Sie sich darüber im Klaren und damit einverstanden sind!</p>
+							<label class="switch switch-green" onClick="showDisqus ()">
+								<input type="checkbox" class="switch-input" checked="checked" />
+								<span class="switch-label" data-on="On" data-off="Off"></span>
+								<span class="switch-handle"></span>
+							</label><span class="switch-text">Kommentarfunktion von Disqus</span>
+							<div id="disqus_thread"></div>
+							<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+						</div>
 					</main>
 					<footer>
 						<div class="one-third column">
@@ -107,7 +118,7 @@
 							</ul>
 						</div>
 						<div class="one-third column">
-							Webseite erstellt mit <a href="http://www.getskeleton.com/" target="_blank">Skeleton</a>, <a href="https://jquery.org/" target="_blank">jQuery</a>, <a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html" target="_blank">2 Klicks für mehr Datenschutz</a>, <a href="http://highlightjs.org/" target="_blank">highlight.js</a> und <a href="http://www.graphicsfuel.com/2012/09/15-free-social-media-icons-psd-png/" target="_blank">Icons von Rafi</a>.
+							Webseite erstellt mit <a href="http://www.getskeleton.com/" target="_blank">Skeleton</a>, <a href="https://jquery.org/" target="_blank">jQuery</a>, <a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html" target="_blank">2 Klicks für mehr Datenschutz</a>, <a href="http://highlightjs.org/" target="_blank">highlight.js</a> und <a href="http://www.graphicsfuel.com/2012/09/15-free-social-media-icons-psd-png/" target="_blank">Icons von Rafi</a> sowie Switches von <a href="http://www.cssflow.com/" target="_blank">Thibaut Courouble</a>.
 						</div>
 						<div class="one-third column">
 							Der Author ist nicht für Inhalte verlinkter Drittseiten verantwortlich.<br/><br/>

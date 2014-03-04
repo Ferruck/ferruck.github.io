@@ -50,7 +50,7 @@
     .container .sixteen.columns                 { width: 940px; }
 
     .container .one-third.column                { width: 290px; }
-    .container .two-thirds.column               { width: 620px; }
+    .container .two-thirds.column               { width: 614px; }
 
     /* Offsets */
     .container .offset-by-one                   { padding-left: 60px;  }
@@ -103,7 +103,7 @@
         .container .sixteen.columns                 { width: 748px; }
 
         .container .one-third.column                { width: 230px; }
-        .container .two-thirds.column               { width: 492px; }
+        .container .two-thirds.column               { width: 482px; }
 
         /* Offsets */
         .container .offset-by-one                   { padding-left: 48px; }

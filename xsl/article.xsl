@@ -107,7 +107,7 @@
 							</ul>
 						</div>
 						<div class="one-third column">
-							Hi!
+							Webseite erstellt mit <a href="http://www.getskeleton.com/" target="_blank">Skeleton</a>, <a href="https://jquery.org/" target="_blank">jQuery</a>, <a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html" target="_blank">2 Klicks für mehr Datenschutz</a>, <a href="http://highlightjs.org/" target="_blank">highlight.js</a> und <a href="http://www.graphicsfuel.com/2012/09/15-free-social-media-icons-psd-png/" target="_blank">Icons von Rafi</a>.
 						</div>
 						<div class="one-third column">
 							Der Author ist nicht für Inhalte verlinkter Drittseiten verantwortlich.<br/><br/>

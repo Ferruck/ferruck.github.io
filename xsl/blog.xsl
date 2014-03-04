@@ -41,17 +41,17 @@
 						<div class="one-third column">
 							<ul>
 								<li><a href="rss" class="rss"></a></li>
-								<li><a href="facebook" class="facebook"></a></li>
-								<li><a href="googleplus" class="googleplus"></a></li>
-								<li><a href="youtube" class="youtube"></a></li>
+								<li><a href="https://www.facebook.com/philipp.trommler" target="_blank" class="facebook"></a></li>
+								<li><a href="https://plus.google.com/+PhilippTrommler" target="_blank" class="googleplus"></a></li>
+								<li><a href="http://www.youtube.com/channel/UCGG3f6yZH4gndb1HXRCqipw" target="_blank" class="youtube"></a></li>
 							</ul>
 						</div>
 						<div class="one-third column">
-							Hi
+							Webseite erstellt mit <a href="http://www.getskeleton.com/" target="_blank">Skeleton</a>, <a href="https://jquery.org/" target="_blank">jQuery</a>, <a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html" target="_blank">2 Klicks für mehr Datenschutz</a>, <a href="http://highlightjs.org/" target="_blank">highlight.js</a> und <a href="http://www.graphicsfuel.com/2012/09/15-free-social-media-icons-psd-png/" target="_blank">Icons von Rafi</a>.
 						</div>
 						<div class="one-third column">
-							Der Author ist nicht für Inhalte verlinkter Drittseiten verantwortlich.<br/><br/>
-							Alle Bilder und auf dieser Website stehen, soweit nicht anders angegeben, unter <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.de">CC-BY-SA 4.0 International Lizenz</a>. Dies gilt nicht für die Social-Media-Icons.<br/><br/>
+							Der Webseitenbetreiber ist nicht für Inhalte verlinkter Drittseiten verantwortlich.<br/><br/>
+							Alle Bilder und auf dieser Website stehen, soweit nicht anders angegeben, unter <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.de" target="_blank">CC-BY-SA 4.0 International Lizenz</a>. Dies gilt nicht für die Social-Media-Icons.<br/><br/>
 							&#169; 2014 Philipp Trommler
 						</div>
 					</footer>

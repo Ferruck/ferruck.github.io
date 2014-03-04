@@ -16,18 +16,24 @@
 				<link rel="stylesheet" href="../stylesheets/skeleton.css"/>
 				<link rel="stylesheet" href="../stylesheets/layout.css"/>
 				<link rel="stylesheet" href="../stylesheets/custom.css"/>
+				<link rel="stylesheet" href="../stylesheets/jquery.lazyloadxt.spinner.css"/>
+				<link rel="stylesheet" href="../stylesheets/pojoaque.css"/>
+				<link rel="shortcut icon" href="../images/favicon.ico"/>
+				<link rel="canonical"><xsl:attribute name="href">http://ferruck.github.io/<xsl:value-of select="link"/></xsl:attribute></link>
 				<!--[if lt IE 9]>
 					<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 				<![endif]-->
-				<link rel="shortcut icon" href="../images/favicon.ico"/>
-				<link rel="canonical"><xsl:attribute name="href">http://ferruck.github.io/<xsl:value-of select="link"/></xsl:attribute></link>
-				<script type="text/javascript" src="../js/jquery.js"></script> 
+				<script type="text/javascript" src="../js/jquery.js"></script>
+				<script type="text/javascript" src="../js/jquery.lazyloadxt.extra.min.js"></script>
+				<script type="text/javascript" src="../js/highlight.pack.js"></script>
 				<script type="text/javascript" src="../js/jquery.socialshareprivacy.js"></script>
 				<script type="text/javascript">
 					jQuery(document).ready(function($){
 						var d = new Date('<xsl:value-of select="published"/>');
 						document.getElementById ('date').innerHTML = d.toLocaleString ();
 						//$('#date').val(d.toLocaleString ());
+					
+						$('.block').each(function(i, e) {hljs.highlightBlock(e)});
 					
 						if($('#socialshareprivacy').length > 0){
 							$('#socialshareprivacy').socialSharePrivacy({
@@ -95,9 +101,9 @@
 						<div class="one-third column">
 							<ul>
 								<li><a href="rss" class="rss"></a></li>
-								<li><a href="facebook" class="facebook"></a></li>
-								<li><a href="googleplus" class="googleplus"></a></li>
-								<li><a href="youtube" class="youtube"></a></li>
+								<li><a href="https://www.facebook.com/philipp.trommler" target="_blank" class="facebook"></a></li>
+								<li><a href="https://plus.google.com/+PhilippTrommler" target="_blank" class="googleplus"></a></li>
+								<li><a href="http://www.youtube.com/channel/UCGG3f6yZH4gndb1HXRCqipw" target="_blank" class="youtube"></a></li>
 							</ul>
 						</div>
 						<div class="one-third column">
@@ -119,10 +125,22 @@
 	</xsl:template>
 	
 	<xsl:template match="text/par">
-		<p><xsl:value-of select="."/></p>
+		<p><xsl:apply-templates/></p>
+	</xsl:template>
+	
+	<xsl:template match="text/par/inlinecode">
+		<pre class="inline"><xsl:value-of select="."/></pre>
+	</xsl:template>
+	
+	<xsl:template match="text/code">
+		<pre><xsl:attribute name="class"><xsl:value-of select="@lang"/> block</xsl:attribute><xsl:value-of select="."/></pre>
 	</xsl:template>
 	
 	<xsl:template match="text/image">
-		<img class="scale-width-grid"><xsl:attribute name="src"><xsl:value-of select="@src"/></xsl:attribute><xsl:attribute name="alt"><xsl:value-of select="@alt"/></xsl:attribute></img>
+		<figure>
+			<img class="lazy scale-with-grid"><xsl:attribute name="data-src"><xsl:value-of select="@src"/></xsl:attribute><xsl:attribute name="alt"><xsl:value-of select="@alt"/></xsl:attribute><xsl:attribute name="height"><xsl:value-of select="@height"/></xsl:attribute><xsl:attribute name="width"><xsl:value-of select="@width"/></xsl:attribute></img>
+			<noscript><img class="scale-width-grid"><xsl:attribute name="src"><xsl:value-of select="@src"/></xsl:attribute><xsl:attribute name="alt"><xsl:value-of select="@alt"/></xsl:attribute><xsl:attribute name="height"><xsl:value-of select="@height"/></xsl:attribute><xsl:attribute name="width"><xsl:value-of select="@width"/></xsl:attribute></img></noscript>
+			<figcaption><xsl:value-of select="caption"/></figcaption>
+		</figure>
 	</xsl:template>
 </xsl:stylesheet>

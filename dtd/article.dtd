@@ -3,11 +3,17 @@
 	<!ELEMENT author (#PCDATA)>
 		<!ATTLIST author link #CDATA IMPLIED>
 	<!ELEMENT name (#PCDATA)>
-	<!ELEMENT text (par*, image*, heading*)>
-		<!ELEMENT par (#PCDATA)>
-		<!ELEMENT image EMPTY>
+	<!ELEMENT text (par*, image*, heading*, code*)>
+		<!ELEMENT par (inlinecode*, #PCDATA)>
+			<!ELEMENT inlinecode (#PCDATA)>
+		<!ELEMENT image (caption)>
 			<!ATTLIST image src #CDATA REQUIRED,
-							alt #CDATA REQUIRED>
+							alt #CDATA REQUIRED,
+							height #CDATA REQUIRED,
+							width #CDATA REQUIRED>
+			<!ELEMENT caption (#PCDATA)>
 		<!ELEMENT heading (#PCDATA)>
+		<!ELEMENT code (#PCDATA)>
+			<!ATTLIST code lang #CDATA REQUIRED>
 	<!ELEMENT link (#PCDATA)>
 	<!ELEMENT tag (#PCDATA)>

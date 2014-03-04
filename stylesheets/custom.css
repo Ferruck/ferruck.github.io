@@ -1,3 +1,4 @@
+/* Misc */
 body {
 	background: url('../images/background.png') 0 0 repeat;
 }
@@ -6,6 +7,7 @@ body {
 	overflow: hidden;
 }
 
+/* Header */
 header img {
 	position: absolute;
 	top: 0;
@@ -57,7 +59,9 @@ nav h2:hover {
 	color: #64d20f;
 }
 
+/* Main content */
 main {
+	width: 944px;
 	display: inline-block;
 	background-color: #ffffff;
 	padding: 1.5rem 0.5rem;
@@ -82,16 +86,45 @@ main:before, main:after {
     border-radius: 100px / 10px;
 }
 
-.date-author {
-	font-size: 11px;
-}
-
 article {
 	padding-bottom: 5px;
 }
 
+p {
+	text-align: justify;
+}
+
+pre {
+	font-family: mono;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
+
+pre.block {
+	margin: 5px !important;
+}
+
+pre.inline {
+	display: inline;
+	padding: 2px;
+	border: 1px solid #ddd;
+}
+
+figure {
+	max-width: 100%;
+	text-align: center;
+	margin: 10px auto;
+}
+
+.date-author, figcaption {
+	font-size: 11px;
+}
+
 .tag {
-	color: #ffffff;
+	color: #fff;
 	text-decoration: none;
 	padding: 2px;
 	padding-bottom: 5px;
@@ -109,15 +142,17 @@ article {
 	color: #4eb400;
 }
 
-.tag:last-of-type {
-	clear: right;
+img.lazy {
+	display: none;
 }
 
+/* Footer */
 footer {
 	font-size: 10px;
 	text-align: justify;
 }
 
+/* Footer Social Media Icons */
 footer ul li {
 	margin-top: 2px;
 	height: 72px;
@@ -148,9 +183,10 @@ a.youtube {
 }
 
 
-/* Extras for mobile view */
+/* Extras for mobile portrait view */
 @media only screen and (max-width: 767px) {
 	main {
+		width: 300px;
 		display: inline-block;
 		background-color: #ffffff;
 		padding: 1.5rem 0;
@@ -163,7 +199,16 @@ a.youtube {
 	h3, h4, h5, p, a.overview, span.date-author {
 		padding: 0 0.5rem;
 	}
-		
+	
+	figure {
+		width: 290px;
+		margin: 5px;
+	}
+	
+	pre.block {
+		width: 275px;
+	}
+	
 	footer ul li {
 		margin-top: 2px;
 		height: 75px;
@@ -176,5 +221,28 @@ a.youtube {
 		height: 72px;
 		width: 72px;
 		margin: 1.5px;
+	}
+}
+
+/* Extras for mobile landscape view */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	main {
+		width: 420px;
+	}
+	
+	figure {
+		width: 410px;
+		margin: 5px;
+	}
+	
+	pre.block {
+		width: 395px;
+	}
+}
+
+/* Extras for tablet landscape view */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	main {
+		width: 752px;
 	}
 }

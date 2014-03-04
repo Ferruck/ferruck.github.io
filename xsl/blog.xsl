@@ -64,8 +64,11 @@
 	<xsl:template match="article">
 		<article class="one-third column">
 			<h3><xsl:value-of select="name"/></h3>
-			<p><xsl:value-of select="text"/></p>
-			<a class="overview"><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute>weiterlesen</a><br /><br />
+			<p><xsl:value-of select="text"/></p><br />
+			<a class="overview"><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute>weiterlesen</a><br />
 		</article>
+		<xsl:if test="position() mod 3 = 0">
+			<br class="clear"/>
+		</xsl:if>
 	</xsl:template>
 </xsl:stylesheet>

@@ -7,12 +7,47 @@
 	<name>Die neue GTK 3.10 HeaderBar in Vala</name>
 	<text>
 		<par>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.</par>
-		<par>Diese HeaderBars können auch einfach in die eigenen Programme integriert werden, wenn die aktuellen Bibliotheken, also libgtk-3-0 und libgtk-3-dev (>= 3.10), installiert sind. Das folgende Minimalbeispiel befolgt die aktuellen Empfehlungen zur Erstellung von GNOME-Apps, erweitert also die Gtk.Application Klasse. Eine HeaderBar besteht im Endeffekt aus drei Bereichen, dem linken und dem rechten, die jeweils mit Gtk.Widgets befüllt werden können, und dem mittleren, der entweder mit Titel und gegebenenfalls Untertitel oder mit einem Gtk.Widget belegt wird.</par>
+		<par>Diese HeaderBars können auch einfach in die eigenen Programme integriert werden, wenn die aktuellen Bibliotheken, also <inlinecode>libgtk-3-0</inlinecode> und <inlinecode>libgtk-3-dev (>= 3.10)</inlinecode>, installiert sind. Das folgende Minimalbeispiel befolgt die aktuellen Empfehlungen zur Erstellung von GNOME-Apps, erweitert also die Gtk.Application Klasse. Eine HeaderBar besteht im Endeffekt aus drei Bereichen, dem linken und dem rechten, die jeweils mit Gtk.Widgets befüllt werden können, und dem mittleren, der entweder mit Titel und gegebenenfalls Untertitel oder mit einem Gtk.Widget belegt wird.</par>
+		<heading>Minimalbeispiel</heading>
+		<image src="../images/articles/headerbar1.png" alt="Minimalbeispiel für die GTK Headerbar" height="475" width="476">
+			<caption>Minimalbeispiel für die GTK Headerbar.</caption>
+		</image>
 		<par>Dieses Minimalbeispiel kann schon mit wenigen Zeilen Code erstellt werden:</par>
-		<par>Besonders gut gefallen mir die dunkelrote Highlight-Farbe, die sich gut vom Rest des Themes abhebt, sowie die Scrollbars, die deutlich unaufdringlicher sind als die Originalen.</par>
-		<par>Das "Schließen"-Icon und der Titel von Fenstern ohne HeaderBar sind für meinen Geschmack etwas zu nah am Fensterrand, der Titel und Untertitel von Fenstern mit HeaderBar hat irgendwie einen seltsamen Font (siehe Bild). Alles in allem gefällt mir das Theme aber sehr gut, ich kann den Kauf zu diesem Preis empfehlen, und ich bin gespannt, was sich das Numix-Team in nächster Zeit noch so aus den Fingern saugt.</par>
-		<par>Da Bilder, insbesondere in so einem Fall wie hier, natürlich mehr sagen als tausend Worte, gibt es hier noch ein paar Screenshots, mit denen ihr selbst für euch entscheiden könnt, ob das Theme etwas für euch ist oder nicht.</par>
-		<par>Und jetzt schön eines der Themes kaufen und damit die Macher unterstützen!</par>
+		<code lang="vala"><![CDATA[class Example : Gtk.Application {
+	public Example () {
+		Object (application_id: "com.example.app", flags: ApplicationFlags.FLAGS_NONE);
+	}
+	
+	protected override void activate () {
+		Gtk.ApplicationWindow window = new Gtk.ApplicationWindow (this);
+		window.set_default_size (500, 500);
+		
+		Gtk.HeaderBar headerBar = new Gtk.HeaderBar ();
+		headerBar.set_title ("Titel");
+		headerBar.set_subtitle ("Untertitel");
+		
+		
+		window.set_titlebar (headerBar);
+		window.show_all ();
+	}
+}
+
+int main (string[] args) {
+	return new Example ().run (args);
+}]]></code>
+		<par>Das ganze wird wie üblich als main.vala gespeichert und mit</par>
+		<code lang="bash"><![CDATA[valac --pkg gtk+-3.0 -o example main.vala]]></code>
+		<par>kompiliert. Interessant ist hier vor allem <inlinecode>window.set_titlebar (headerBar);</inlinecode>, das dem Fenster die erstellte HeaderBar als Titelzeile zuweist.</par>
+		<heading>Die Erweiterung</heading>
+		<par>Soll in der Titelleiste ein "Schließen"-Button angezeigt werden, reicht ein einfacher Befehl:</par>
+		<code lang="vala"><![CDATA[headerBar.set_show_close_button (true);]]></code>
+		<par>Der linke und der rechte Bereich der Titelleiste wird jetzt, wie bei einer <inlinecode>Gtk.Box</inlinecode>, mit <inlinecode>pack_end ()</inlinecode> und <inlinecode>pack_start ()</inlinecode> befüllt, soll also zum Beispiel ein "Öffnen"-Button hinzugefügt werden, reichen die beiden Zeilen:</par>
+		<code lang="vala"><![CDATA[Gtk.Button openButton = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
+headerBar.pack_start (openButton);]]></code>
+		<par>Hierbei wird schon der neue <inlinecode>Gtk.Button.from_icon_name</inlinecode>-Constructor genutzt, da <inlinecode>Gtk.Stock</inlinecode> ab GTK 3.10 als veraltet markiert ist. Die Iconnamen sind dabei standardisiert und nicht mehr GTK-intern, mehr dazu allerdings in einem anderen Blogpost.</par>
+		<image src="../images/articles/headerbar2.png" alt="Erweitertes Minimalbeispiel" height="475" width="476">
+			<caption>Erweitertes Minimalbeispiel mit "öffnen"- und "Schließen"-Buttons.</caption>
+		</image>
 	</text>
 	<link>articles/gtk_3_10_headerbar_vala.xml</link>
 	<tag>flat</tag>

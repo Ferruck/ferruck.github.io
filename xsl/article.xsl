@@ -16,7 +16,7 @@
 				<link rel="stylesheet" href="../stylesheets/skeleton.css"/>
 				<link rel="stylesheet" href="../stylesheets/layout.css"/>
 				<link rel="stylesheet" href="../stylesheets/custom.css"/>
-				<link rel="stylesheet" href="../stylesheets/jquery.lazyloadxt.spinner.css"/>
+				<link rel="stylesheet" href="../stylesheets/jquery.lazyloadxt.spinner.min.css"/>
 				<link rel="stylesheet" href="../stylesheets/pojoaque.css"/>
 				<link rel="shortcut icon" href="../images/favicon.ico"/>
 				<link rel="canonical"><xsl:attribute name="href">http://ferruck.github.io/<xsl:value-of select="link"/></xsl:attribute></link>
@@ -100,8 +100,8 @@
 							<h5>Kommentare</h5>
 							<p class="warning">Durch das Aktivieren der Kommentarfunktion werden Daten an Dritte (Disqus) weitergegeben. Aktivieren Sie die Kommentarfunktion nur, wenn Sie sich darüber im Klaren und damit einverstanden sind!</p>
 							<label class="switch switch-green" onClick="showDisqus ()">
-								<input type="checkbox" class="switch-input" checked="checked" />
-								<span class="switch-label" data-on="On" data-off="Off"></span>
+								<input type="checkbox" class="switch-input"/>
+								<span class="switch-label" data-on="An" data-off="Aus"></span>
 								<span class="switch-handle"></span>
 							</label><span class="switch-text">Kommentarfunktion von Disqus</span>
 							<div id="disqus_thread"></div>

@@ -110,7 +110,4 @@ int main (string[] args) {
 	return new Example ().run (args);
 }]]></code>
 	</text>
-	<tag>3.10</tag>
-	<tag>gtk</tag>
-	<tag>vala</tag>
 </article>

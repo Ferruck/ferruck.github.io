@@ -28,18 +28,32 @@
 				<script type="text/javascript" src="../js/highlight.pack.js"></script>
 				<script type="text/javascript" src="../js/jquery.socialshareprivacy.js"></script>
 				<script type="text/javascript">
+					var shown = 0;
+					
 					function showDisqus () {
-						var disqus_shortname = 'phtrommlerblog';
-						var disqus_identifier = '<xsl:value-of select="title"/>';
-						var disqus_title = '<xsl:value-of select="title"/>';
-						var disqus_url = '<xsl:value-of select="link/@href"/>';
-						
-						var dsq = document.createElement('script');
-						dsq.type = 'text/javascript';
-						dsq.async = true;
-						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-						
-						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+						if (shown == 1) {
+							(document.getElementsByTagName ('head')[0] || document.getElementsByTagName ('body')[0]).removeChild (document.getElementById ('dsq'));
+							(document.getElementsByTagName ('head')[0] || document.getElementsByTagName ('body')[0]).removeChild (document.getElementById ('disqus_thread'));
+							shown = 0;
+						} else {
+							var disqus_shortname = 'phtrommlerblog';
+							var disqus_identifier = '<xsl:value-of select="title"/>';
+							var disqus_title = '<xsl:value-of select="title"/>';
+							var disqus_url = '<xsl:value-of select="link/@href"/>';
+							
+							var dsq = document.createElement('script');
+							dsq.id = 'dsq';
+							dsq.type = 'text/javascript';
+							dsq.async = true;
+							dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+							
+							var disqus_thread = document.createElement ('div');
+							disqus_thread.id = 'disqus_thread';
+							
+							document.getElementById ('disqus').appendChild (disqus_thread);
+							(document.getElementsByTagName ('head')[0] || document.getElementsByTagName ('body')[0]).appendChild (dsq);
+							shown = 1;
+						}
 					}
 					
 					jQuery(document).ready(function($){
@@ -57,7 +71,7 @@
 													'sharer'	: {
 														'status'	: 'on',
 														'dummy_img'	: '../images/socialshareprivacy/dummy_facebook_share_de.png',
-														'img'		: '../images/socialshareprivacy/dummy_facebook_share_active_de.png'
+														'img'		: '../images/socialshareprivacy/facebook_share_de.png'
 													}
 												},
 												twitter	: {
@@ -104,7 +118,6 @@
 								<span class="switch-label" data-on="An" data-off="Aus"></span>
 								<span class="switch-handle"></span>
 							</label><span class="switch-text">Kommentarfunktion von Disqus</span>
-							<div id="disqus_thread"></div>
 							<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 						</div>
 					</main>

@@ -215,7 +215,7 @@
 
                     if (facebook_sharer_on) {
                         fb_dummy_btn = '<img src="' + options.services.facebook.sharer.dummy_img + '" alt="Facebook &quot;Share&quot;-Dummy" class="fb_like_privacy_dummy" />';
-                        fb_code = '<a href="#" onclick="window.open(\'https://www.facebook.com/sharer/sharer.php?u=' + fb_enc_uri + '\', \'facebook-share-dialog\', \'width=626,height=436\'); return false;"><img src="'+options.services.facebook.sharer.img+'" alt="" /></a>';
+                        fb_code = '<a href="#" onclick="window.open(\'https://www.facebook.com/sharer/sharer.php?u=' + fb_enc_uri + '\', \'facebook-share-dialog\', \'width=626,height=436\'); return false;"><img src="'+options.services.facebook.sharer.img+'" alt=""/></a>';
                     }
                     else {
                         fb_dummy_btn = '<img src="' + options.services.facebook.dummy_img + '" alt="Facebook &quot;Like&quot;-Dummy" class="fb_like_privacy_dummy" />';
@@ -225,11 +225,11 @@
 
                     var $container_fb = $('li.facebook', context);
                     $(context).on('click', 'li.facebook div.fb_like img.fb_like_privacy_dummy,li.facebook .switch', function (e) {
-                        if ($container_fb.find('.switch').prop('checked', false)) {
+                        if ($container_fb.find('.switch').find('.switch-input').prop('checked', false)) {
                             $container_fb.find('img.fb_like_privacy_dummy').replaceWith(fb_code);
                         }
                         else {
-                            $container_fb.find('.fb_like').html(fb_dummy_btn);
+                            $container_fb.find('a.fb_like').html(fb_dummy_btn);
                         }
                     });
                 }

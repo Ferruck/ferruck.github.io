@@ -6,6 +6,8 @@
 	<!ELEMENT time (#PCDATA)>
 		<!ATTLIST time		datetime	CDATA REQUIRED>
 	<!ELEMENT link (#PCDATA)>
+		<!ATTLIST link		rel			CDATA REQUIRED
+							href		CDATA REQUIRED>
 	<!ELEMENT author (#PCDATA, a)>
 		<!ELEMENT a EMPTY>
 			<!ATTLIST a		href 		CDATA REQUIRED

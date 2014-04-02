@@ -30,8 +30,8 @@
 				<script type="text/javascript">
 					function showDisqus () {
 						var disqus_shortname = 'phtrommlerblog';
-						var disqus_identifier = '<xsl:value-of select="name"/>';
-						var disqus_title = '<xsl:value-of select="name"/>';
+						var disqus_identifier = '<xsl:value-of select="title"/>';
+						var disqus_title = '<xsl:value-of select="title"/>';
 						var disqus_url = 'http://ferruck.github.io/<xsl:value-of select="link"/>';
 						
 						var dsq = document.createElement('script');
@@ -43,7 +43,7 @@
 					}
 					
 					jQuery(document).ready(function($){
-						var d = new Date('<xsl:value-of select="published"/>');
+						var d = new Date('<xsl:value-of select="time"/>');
 						document.getElementById ('date').innerHTML = d.toLocaleString ();
 						//$('#date').val(d.toLocaleString ());
 					
@@ -131,11 +131,11 @@
 		</html>
 	</xsl:template>
 	
-	<xsl:template match="text/heading">
+	<xsl:template match="text/h4">
 		<h4><xsl:value-of select="."/></h4>
 	</xsl:template>
 	
-	<xsl:template match="text/par">
+	<xsl:template match="text/p">
 		<p><xsl:apply-templates/></p>
 	</xsl:template>
 	
@@ -147,7 +147,7 @@
 		<pre><xsl:attribute name="class"><xsl:value-of select="@lang"/> block</xsl:attribute><xsl:value-of select="."/></pre>
 	</xsl:template>
 	
-	<xsl:template match="text/image">
+	<xsl:template match="text/img">
 		<figure>
 			<img class="lazy scale-with-grid"><xsl:attribute name="data-src"><xsl:value-of select="@src"/></xsl:attribute><xsl:attribute name="alt"><xsl:value-of select="@alt"/></xsl:attribute><xsl:attribute name="height"><xsl:value-of select="@height"/></xsl:attribute><xsl:attribute name="width"><xsl:value-of select="@width"/></xsl:attribute></img>
 			<noscript><img class="scale-width-grid"><xsl:attribute name="src"><xsl:value-of select="@src"/></xsl:attribute><xsl:attribute name="alt"><xsl:value-of select="@alt"/></xsl:attribute><xsl:attribute name="height"><xsl:value-of select="@height"/></xsl:attribute><xsl:attribute name="width"><xsl:value-of select="@width"/></xsl:attribute></img></noscript>

@@ -1,4 +1,4 @@
-<!ELEMENT blog (meta, link, title, article*)>
+<!ELEMENT blog (meta*, link*, title, article*)>
 	<!ATTLIST blog prefix CDATA #REQUIRED
 				   itemscope CDATA #REQUIRED
 				   itemtype CDATA #REQUIRED>
@@ -12,13 +12,14 @@
 					   itemprop CDATA #IMPLIED>
 	<!ELEMENT title (#PCDATA)>
 	<!ELEMENT article (time, h3, p, a)>
-		<!ATTLIST article itemprop CDATA #REQUIRED>
+		<!ATTLIST article itemprop CDATA #REQUIRED
 					      itemscope CDATA #REQUIRED
 					      itemtype CDATA #REQUIRED>
 		<!ELEMENT time (#PCDATA)>
 			<!ATTLIST time datetime CDATA #REQUIRED
 						   itemprop CDATA #REQUIRED>
 		<!ELEMENT h3 (#PCDATA)>
+			<!ATTLIST h3 itemprop CDATA #REQUIRED>
 		<!ELEMENT p (#PCDATA)>
 			<!ATTLIST p itemprop CDATA #REQUIRED>
 		<!ELEMENT a (#PCDATA)>

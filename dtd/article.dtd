@@ -9,14 +9,14 @@
 		<!ATTLIST link rel CDATA #REQUIRED
 					   href CDATA #REQUIRED>
 	<!ELEMENT author (#PCDATA | a)*>
-		<!ELEMENT a (EMPTY | #PCDATA)>
+		<!ELEMENT a (#PCDATA | EMPTY)>
 			<!ATTLIST a href CDATA #REQUIRED
-					    rel CDATA #REQUIRED
+					    rel CDATA #IMPLIED
 					    target CDATA #IMPLIED>
 	<!ELEMENT title (#PCDATA)>
 	<!ELEMENT h3 (#PCDATA)>
-	<!ELEMENT text (p | img | h4 | code | a)*>
-		<!ELEMENT p (#PCDATA | inlinecode)*>
+	<!ELEMENT text (p | img | h4 | code)*>
+		<!ELEMENT p (#PCDATA | inlinecode | a)*>
 			<!ELEMENT inlinecode (#PCDATA)>
 		<!ELEMENT img (caption)>
 			<!ATTLIST img src CDATA #REQUIRED

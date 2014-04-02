@@ -9,7 +9,7 @@
 		<!ATTLIST link rel CDATA #REQUIRED
 					   href CDATA #REQUIRED>
 	<!ELEMENT author (#PCDATA | a)*>
-		<!ELEMENT a (#PCDATA | EMPTY)>
+		<!ELEMENT a (#PCDATA | EMPTY)*>
 			<!ATTLIST a href CDATA #REQUIRED
 					    rel CDATA #IMPLIED
 					    target CDATA #IMPLIED>

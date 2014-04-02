@@ -33,7 +33,7 @@
 					function showDisqus () {
 						if (shown == 1) {
 							(document.getElementsByTagName ('head')[0] || document.getElementsByTagName ('body')[0]).removeChild (document.getElementById ('dsq'));
-							(document.getElementsByTagName ('head')[0] || document.getElementsByTagName ('body')[0]).removeChild (document.getElementById ('disqus_thread'));
+							document.getElementById ('disqus').removeChild (document.getElementById ('disqus_thread'));
 							shown = 0;
 						} else {
 							var disqus_shortname = 'phtrommlerblog';

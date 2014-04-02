@@ -16,13 +16,22 @@
 				<link rel="stylesheet" href="stylesheets/skeleton.css"/>
 				<link rel="stylesheet" href="stylesheets/layout.css"/>
 				<link rel="stylesheet" href="stylesheets/custom.css"/>
-				<!--[if lt IE 9]>
-					<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-				<![endif]-->
 				<link rel="shortcut icon" href="images/favicon.ico"/>
 				<link rel="apple-touch-icon" href="images/apple-touch-icon.png"/>
 				<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png"/>
 				<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"/>
+				<!--[if lt IE 9]>
+					<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+				<![endif]-->
+				<script type="text/javascript" src="js/jquery.js"></script>
+				<script type="text/javascript">
+					jQuery(document).ready(function($){
+						$('.date-author').each(function(i) {
+							var d = new Date($(this).text());
+							$(this).html(d.toLocaleString ());
+						}
+					)});
+				</script>
 			</head>
 			<body>
 				<div class="container">
@@ -63,9 +72,10 @@
 	<!-- Article overview -->
 	<xsl:template match="article">
 		<article class="one-third column">
-			<h3><xsl:value-of select="name"/></h3>
-			<p><xsl:value-of select="text"/></p><br />
-			<a class="overview"><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute>weiterlesen</a><br />
+			<span class="date-author"><xsl:value-of select="time"/></span>
+			<h3><xsl:value-of select="h3"/></h3>
+			<p><xsl:value-of select="p"/></p><br />
+			<a class="overview"><xsl:attribute name="href"><xsl:value-of select="a/@href"/></xsl:attribute><xsl:attribute name="rel"><xsl:value-of select="a/@rel"/></xsl:attribute><xsl:attribute name="target"><xsl:value-of select="a/@target"/></xsl:attribute><xsl:value-of select="a"/></a><br />
 		</article>
 		<xsl:if test="position() mod 3 = 0">
 			<br class="clear"/>

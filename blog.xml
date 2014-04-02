@@ -3,54 +3,21 @@
 <!DOCTYPE blog SYSTEM "http://ferruck.github.io/dtd/blog.dtd">
 <blog>
 	<article>
-		<published>27.02.2014</published>
-		<name>SEO mit XSLT</name>
-		<text>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvoluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore.</text>
-		<link>articles/seo_mit_xslt.xml</link>
-		<tag>seo</tag>
-		<tag>xml</tag>
-		<tag>xslt</tag>
+		<time datetime="2014-01-17T20:00:00+01">Fri, 17 Jan 2014 20:00 +0100</time>
+		<h3>Numix GTK 3 Flat Theme Light Review</h3>
+		<p>Seit ein paar Tagen sind die neuen Flat-Themes von Numix im Software Center und auf deviantART als normale, helle und dunkle Version erhältlich. Ich habe mir die helle Version zugelegt und möchte hier kurz meine Meinung dazu abgeben.</p>
+		<a href="articles/numix_gtk_flat_theme_review.xml" rel="prefetch">weiterlesen</a>
 	</article>
 	<article>
-		<published>17.01.2014</published>
-		<name>Numix GTK 3 Flat Theme Light Review</name>
-		<text>Seit ein paar Tagen sind die neuen Flat-Themes von Numix im Software Center und auf deviantART als normale, helle und dunkle Version erhältlich. Ich habe mir die helle Version zugelegt und möchte hier kurz meine Meinung dazu abgeben.</text>
-		<link>articles/numix_gtk_flat_theme_review.xml</link>
-		<tag>flat</tag>
-		<tag>gtk</tag>
-		<tag>numix</tag>
-		<tag>review</tag>
+		<time datetime="2013-12-21T23:44:00+01">Sat, 21 Dec 2013 23:44 +0100</time>
+		<h3>Die neue GTK 3.10 HeaderBar in Vala</h3>
+		<p>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.</p>
+		<a href="articles/gtk_3_10_headerbar_vala.xml" rel="prefetch">weiterlesen</a>
 	</article>
 	<article>
-		<published>21.12.2013</published>
-		<name>Die neue GTK 3.10 HeaderBar in Vala</name>
-		<text>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.</text>
-		<link>articles/gtk_3_10_headerbar_vala.xml</link>
-		<tag>3.10</tag>
-		<tag>gtk</tag>
-		<tag>vala</tag>
-	</article>
-	<article>
-		<published>08.05.2013</published>
-		<name>Desktop-Verknüpfungen einfach gemacht mit MenuLibre</name>
-		<text>Wer außer mir auch denkt, dass es jedes Mal eine Qual ist, "Desktop-Entries" zu schreiben - einfach weil man es so selten macht und deswegen die benötigten Teile jedes Mal aufs neue vergessen hat und ergoogeln muss - der sollte sich MenuLibre von Sean Davis genauer ansehen. Es ist kostenlos, über sein PPA erhältlich und macht die Menü-Bearbeitung zu einer wahren Freude.</text>
-		<link>articles/desktop_verknupfungen_einfach_menulibre.xml</link>
-		<tag>lubuntu</tag>
-		<tag>menulibre</tag>
-		<tag>ubuntu</tag>
-	</article>
-	<article>
-		<published>03.03.2012</published>
-		<name>Lorem ipsum</name>
-		<text>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvoluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem i</text>
-		<tag>aber</tag>
-		<tag>lorem</tag>
-	</article>
-	<article>
-		<published>03.03.2012</published>
-		<name>Lorem ipsum</name>
-		<text>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvoluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem i</text>
-		<tag>aber</tag>
-		<tag>lorem</tag>
+		<time datetime="2013-05-08T07:08:00+02">Wed, 08 May 2013 07:08 +0200</time>
+		<h3>Desktop-Verknüpfungen einfach gemacht mit MenuLibre</h3>
+		<p>Wer außer mir auch denkt, dass es jedes Mal eine Qual ist, 'Desktop-Entries' zu schreiben - einfach weil man es so selten macht und deswegen die benötigten Teile jedes Mal aufs neue vergessen hat und ergoogeln muss - der sollte sich MenuLibre von Sean Davis genauer ansehen. Es ist kostenlos, über sein PPA erhältlich und macht die Menü-Bearbeitung zu einer wahren Freude.</p>
+		<a href="articles/desktop_verknupfungen_einfach_menulibre.xml" rel="prefetch">weiterlesen</a>
 	</article>
 </blog>

@@ -29,33 +29,23 @@
 				<script type="text/javascript" src="../js/jquery.socialshareprivacy.js"></script>
 				<script type="text/javascript">
 					function showDisqus () {
-						if (document.getElementById ('disqus_switch').checked == true) {
-							(document.getElementsByTagName ('head')[0] || document.getElementsByTagName ('body')[0]).removeChild (document.getElementById ('dsq'));
-							document.getElementById ('disqus').removeChild (document.getElementById ('disqus_thread'));
-						} else {
-							var disqus_shortname = 'phtrommlerblog';
-							var disqus_identifier = '<xsl:value-of select="title"/>';
-							var disqus_title = '<xsl:value-of select="title"/>';
-							var disqus_url = '<xsl:value-of select="link/@href"/>';
-							
-							var dsq = document.createElement('script');
-							dsq.id = 'dsq';
-							dsq.type = 'text/javascript';
-							dsq.async = true;
-							dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-							
-							var disqus_thread = document.createElement ('div');
-							disqus_thread.id = 'disqus_thread';
-							
-							document.getElementById ('disqus').appendChild (disqus_thread);
-							(document.getElementsByTagName ('head')[0] || document.getElementsByTagName ('body')[0]).appendChild (dsq);
-						}
+						var disqus_shortname = 'phtrommlerblog';
+						var disqus_identifier = '<xsl:value-of select="h3"/>';
+						var disqus_title = '<xsl:value-of select="h3"/>';
+						var disqus_url = '<xsl:value-of select="link/@href"/>';
+						
+						var dsq = document.createElement('script');
+						dsq.id = 'dsq';
+						dsq.type = 'text/javascript';
+						dsq.async = true;
+						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+						
+						(document.getElementsByTagName ('head')[0] || document.getElementsByTagName ('body')[0]).appendChild (dsq);
 					}
 					
 					jQuery(document).ready(function($){
 						var d = new Date('<xsl:value-of select="time"/>');
 						document.getElementById ('date').innerHTML = d.toLocaleString ();
-						//$('#date').val(d.toLocaleString ());
 					
 						$('.block').each(function(i, e) {hljs.highlightBlock(e)});
 					
@@ -100,11 +90,12 @@
 					<main>
 						<h3><xsl:value-of select="h3"/></h3>
 						<xsl:apply-templates select="text"/>
-						<span class="date-author">Verfasst/zuletzt geändert: <span id="date"></span><span> von <xsl:value-of select="author"/></span></span>
+						<span class="date-author">Verfasst: <span id="date"></span><span> von <xsl:value-of select="author"/></span></span>
 						<hr />
 						<div class="one-third column">
-						<h5>Social Media</h5>
-						<div id="socialshareprivacy"></div>
+							<h5>Social Media</h5>
+							<p class="warning">Wenn Sie diese Felder durch einen Klick aktivieren, werden Informationen an Facebook, Twitter oder Google in die USA übertragen und unter Umständen auch dort gespeichert. Näheres erfahren Sie durch einen Klick auf das i.</p>
+							<div id="socialshareprivacy"></div>
 						</div>
 						<div class="two-thirds column" id="disqus">
 							<h5>Kommentare</h5>

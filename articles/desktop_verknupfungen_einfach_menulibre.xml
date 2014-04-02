@@ -26,7 +26,7 @@
 		<img src="../images/articles/menulibre1.png" alt="MenuLibre in Lubuntu 13.04" height="800" width="1280">
 			<caption>MenuLibre in Lubuntu 13.04</caption>
 		</img>
-		<p>Die Benutzung ist genauso einfach wie sie auf den ersten Blick scheint, alle wichtigen Einstellungen einer "DesktopEntry" sind über die grafische Benutzeroberfläche erreichbar, inklusive der Quicklists für Unity. Wer volle Kontrolle über die erzeugte Datei benötigt, kann über den eingebauten Editor der Verknüpfung den letzten Schliff verpassen.</p>
+		<p>Die Benutzung ist genauso einfach wie sie auf den ersten Blick scheint, alle wichtigen Einstellungen einer 'DesktopEntry' sind über die grafische Benutzeroberfläche erreichbar, inklusive der Quicklists für Unity. Wer volle Kontrolle über die erzeugte Datei benötigt, kann über den eingebauten Editor der Verknüpfung den letzten Schliff verpassen.</p>
 		<p>Die Installation ist wie gewohnt einfach, der Autor stellt ein regelmäßig mit Updates versorgtes PPA bereit:</p>
 		<p class="warning">Achtung: PPAs können ein potentielles Sicherheitsrisiko darstellen! Fügen Sie sie deswegen nur hinzu, wenn Sie dem Besitzer vertrauen.</p>
 		<code lang="bash"><![CDATA[sudo add-apt-repository ppa:menulibre-dev/devel

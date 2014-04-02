@@ -1,7 +1,10 @@
 <!ELEMENT blog (article*)>
-	<!ELEMENT article (published, title, text, link, tag*)>
-		<!ELEMENT published (#PCDATA)>
-		<!ELEMENT name (#PCDATA)>
-		<!ELEMENT text (#PCDATA)>
-		<!ELEMENT link (#PCDATA)>
-		<!ELEMENT tag (#PCDATA)>
+	<!ELEMENT article (time, h3, p, a)>
+		<!ELEMENT time (#PCDATA)>
+			<!ATTLIST time datetime CDATA #REQUIRED>
+		<!ELEMENT h3 (#PCDATA)>
+		<!ELEMENT p (#PCDATA)>
+		<!ELEMENT a (#PCDATA)>
+			<!ATTLIST a href CDATA #REQUIRED
+						rel CDATA #IMPLIED
+						target CDATA #IMPLIED>

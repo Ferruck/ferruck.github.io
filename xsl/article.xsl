@@ -88,7 +88,7 @@
 						<hr />
 					</header>
 					<main>
-						<h3><xsl:value-of select="title"/></h3>
+						<h3><xsl:value-of select="h3"/></h3>
 						<xsl:apply-templates select="text"/>
 						<span class="date-author">Verfasst/zuletzt geändert: <span id="date"></span><span> von <xsl:value-of select="author"/></span></span>
 						<hr />

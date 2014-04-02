@@ -22,6 +22,7 @@
 	<link rel="canonical" href="http://ferruck.github.io/articles/gtk_3_10_headerbar_vala.xml"/>
 	<author>Philipp Trommler<a href="https://plus.google.com/+PhilippTrommler" rel="author"/></author>
 	<title>Die neue GTK 3.10 HeaderBar in Vala - Philipp Trommler - Blog</title>
+	<h3>Die neue GTK 3.10 HeaderBar in Vala</h3>
 	<text>
 		<p>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.</p>
 		<img src="../images/articles/headerbar5.png" alt="HeaderBar in Nautilus" height="518" width="879">

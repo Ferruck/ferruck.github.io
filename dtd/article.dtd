@@ -1,4 +1,4 @@
-<!ELEMENT article (meta*, time, link, author, title, text)>
+<!ELEMENT article (meta*, time, link, author, title, h3, text)>
 	<!ATTLIST article prefix CDATA #REQUIRED>
 	<!ELEMENT meta EMPTY>
 		<!ATTLIST meta property CDATA #REQUIRED
@@ -13,6 +13,7 @@
 			<!ATTLIST a href CDATA #REQUIRED
 					    rel CDATA #REQUIRED>
 	<!ELEMENT title (#PCDATA)>
+	<!ELEMENT h3 (#PCDATA)>
 	<!ELEMENT text (p | img | h4 | code)*>
 		<!ELEMENT p (#PCDATA | inlinecode)*>
 			<!ELEMENT inlinecode (#PCDATA)>

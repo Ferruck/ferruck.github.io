@@ -7,12 +7,12 @@
 	<title>Die neue GTK 3.10 HeaderBar in Vala</title>
 	<text>
 		<p>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz spen.</p>
-		<img src="../imgs/articles/headerbar5.png" alt="HeaderBar in Nautilus" height="518" width="879">
+		<img src="../images/articles/headerbar5.png" alt="HeaderBar in Nautilus" height="518" width="879">
 			<caption>Die HeaderBar in Nautilus spt Platz.</caption>
 		</img>
 		<p>Diese HeaderBars können auch einfach in die eigenen Programme integriert werden, wenn die aktuellen Bibliotheken, also <inlinecode>libgtk-3-0</inlinecode> und <inlinecode>libgtk-3-dev (>= 3.10)</inlinecode>, installiert sind. Das folgende Minimalbeispiel befolgt die aktuellen Empfehlungen zur Erstellung von GNOME-Apps, erweitert also die Gtk.Application Klasse. Eine HeaderBar besteht im Endeffekt aus drei Bereichen, dem linken und dem rechten, die jeweils mit Gtk.Widgets befüllt werden können, und dem mittleren, der entweder mit Titel und gegebenenfalls Untertitel oder mit einem Gtk.Widget belegt wird.</p>
 		<h4>Minimalbeispiel</h4>
-		<img src="../imgs/articles/headerbar1.png" alt="Minimalbeispiel für die GTK Headerbar" height="475" width="476">
+		<img src="../images/articles/headerbar1.png" alt="Minimalbeispiel für die GTK Headerbar" height="475" width="476">
 			<caption>Minimalbeispiel für die GTK Headerbar.</caption>
 		</img>
 		<p>Dieses Minimalbeispiel kann schon mit wenigen Zeilen Code erstellt werden:</p>
@@ -48,7 +48,7 @@ int main (string[] args) {
 		<code lang="vala"><![CDATA[Gtk.Button openButton = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
 headerBar.pack_start (openButton);]]></code>
 		<p>Hierbei wird schon der neue <inlinecode>Gtk.Button.from_icon_name</inlinecode>-Constructor genutzt, da <inlinecode>Gtk.Stock</inlinecode> ab GTK 3.10 als veraltet markiert ist. Die Iconnamen sind dabei standardisiert und nicht mehr GTK-intern, mehr dazu allerdings in einem anderen Blogpost.</p>
-		<img src="../imgs/articles/headerbar4.png" alt="Erweitertes Minimalbeispiel" height="475" width="476">
+		<img src="../images/articles/headerbar4.png" alt="Erweitertes Minimalbeispiel" height="475" width="476">
 			<caption>Erweitertes Minimalbeispiel mit "öffnen"- und "Schließen"-Buttons.</caption>
 		</img>
 		<h4>Widgets in der Titelleiste</h4>
@@ -56,7 +56,7 @@ headerBar.pack_start (openButton);]]></code>
 		<code lang="vala"><![CDATA[Gtk.Entry entry = new Gtk.Entry ();
 entry.set_icon_from_icon_name (Gtk.EntryIconPosition.PRIMARY, "system-search");
 headerBar.set_custom_title (entry);]]></code>
-		<img src="../imgs/articles/headerbar3.png" alt="Erweitertes Minimalbeispiel mit Widget" height="475" width="476">
+		<img src="../images/articles/headerbar3.png" alt="Erweitertes Minimalbeispiel mit Widget" height="475" width="476">
 			<caption>Erweitertes Minimalbeispiel mit Widget in der Titelleiste.</caption>
 		</img>
 		<p>Auch hier kommen wieder die neuen Iconnamen zum Einsatz. Der Titel und der Untertitel werden durch das <inlinecode>Gtk.Widget</inlinecode> überschrieben, sollen sie wieder angezeigt werden muss der "<inlinecode>custom_title</inlinecode>" null gesetzt werden: </p>

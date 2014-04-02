@@ -1,4 +1,5 @@
-<!ELEMENT blog (article*)>
+<!ELEMENT blog (title, article*)>
+	<!ELEMENT title (#PCDATA)>
 	<!ELEMENT article (time, h3, p, a)>
 		<!ELEMENT time (#PCDATA)>
 			<!ATTLIST time datetime CDATA #REQUIRED>

@@ -8,8 +8,7 @@
 		<!--[if (gte IE 9)|!(IE)]><!--><html lang="de"> <!--<![endif]-->
 			<head>
 				<meta charset="utf-8"/>
-				<title>Philipp Trommler - Blog</title>
-				<meta name="description" content=""/>
+				<title><xsl:value-of select="title"/></title>
 				<meta name="author" content="Philipp Trommler"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 				<link rel="stylesheet" href="stylesheets/base.css"/>

@@ -35,7 +35,6 @@
 						var disqus_url = '<xsl:value-of select="link/@href"/>';
 						
 						var dsq = document.createElement('script');
-						dsq.id = 'dsq';
 						dsq.type = 'text/javascript';
 						dsq.async = true;
 						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';

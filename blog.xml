@@ -2,6 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="xsl/blog.xsl"?>
 <!DOCTYPE blog SYSTEM "http://ferruck.github.io/dtd/blog.dtd">
 <blog>
+	<title>Philipp Trommler - Blog</title>
 	<article>
 		<time datetime="2014-01-17T20:00:00+01">Fri, 17 Jan 2014 20:00 +0100</time>
 		<h3>Numix GTK 3 Flat Theme Light Review</h3>

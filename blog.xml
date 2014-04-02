@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="xsl/blog.xsl"?>
 <!DOCTYPE blog SYSTEM "http://ferruck.github.io/dtd/blog.dtd">
-<blog itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<blog itemscope="" itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
 	<meta property="og:title" content="Philipp Trommler - Blog"/>
 	<meta property="og:site_name" content="Philipp Trommler - Blog"/>
 	<meta property="fb:admins" content="philipp.trommler"/>
@@ -10,19 +10,19 @@
 	<link href="https://plus.google.com/+PhilippTrommler" rel="author"/>
 	<link itemprop="url" href="http://ferruck.github.io/blog.xml" rel="canonical"/>
 	<title>Philipp Trommler - Blog</title>
-	<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<article itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
 		<time itemprop="datePublished" itemprop="dateModified" datetime="2014-01-17T20:00:00+01">Fri, 17 Jan 2014 20:00 +0100</time>
 		<h3 itemprop="headline">Numix GTK 3 Flat Theme Light Review</h3>
 		<p itemprop="articleBody">Seit ein paar Tagen sind die neuen Flat-Themes von Numix im Software Center und auf deviantART als normale, helle und dunkle Version erhältlich. Ich habe mir die helle Version zugelegt und möchte hier kurz meine Meinung dazu abgeben.</p>
 		<a itemprop="url" itemprop="discussionUrl" href="articles/numix_gtk_flat_theme_review.xml" rel="prefetch">weiterlesen</a>
 	</article>
-	<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<article itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
 		<time itemprop="datePublished" itemprop="dateModified" datetime="2013-12-21T23:44:00+01">Sat, 21 Dec 2013 23:44 +0100</time>
 		<h3 itemprop="headline">Die neue GTK 3.10 HeaderBar in Vala</h3>
 		<p itemprop="articleBody">Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.</p>
 		<a itemprop="url" itemprop="discussionUrl" href="articles/gtk_3_10_headerbar_vala.xml" rel="prefetch">weiterlesen</a>
 	</article>
-	<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<article itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
 		<time itemprop="datePublished" itemprop="dateModified" datetime="2013-05-08T07:08:00+02">Wed, 08 May 2013 07:08 +0200</time>
 		<h3 itemprop="headline">Desktop-Verknüpfungen einfach gemacht mit MenuLibre</h3>
 		<p itemprop="articleBody">Wer außer mir auch denkt, dass es jedes Mal eine Qual ist, 'Desktop-Entries' zu schreiben - einfach weil man es so selten macht und deswegen die benötigten Teile jedes Mal aufs neue vergessen hat und ergoogeln muss - der sollte sich MenuLibre von Sean Davis genauer ansehen.</p>

@@ -2,20 +2,20 @@
 <?xml-stylesheet type="text/xsl" href="../xsl/article.xsl"?>
 <!DOCTYPE article SYSTEM "http://ferruck.github.io/dtd/article.dtd">
 <article>
-	<published>Sat, 21 Dec 2013 23:44 +0100</published>
-	<author link="https://plus.google.com/+PhilippTrommler">Philipp Trommler</author>
-	<name>Die neue GTK 3.10 HeaderBar in Vala</name>
+	<time datetime="2013-12-21T23:44:00+01">Sat, 21 Dec 2013 23:44 +0100</time>
+	<author>Philipp Trommler<a href="https://plus.google.com/+PhilippTrommler" rel="author"/></author>
+	<title>Die neue GTK 3.10 HeaderBar in Vala</title>
 	<text>
-		<par>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.</par>
-		<image src="../images/articles/headerbar5.png" alt="HeaderBar in Nautilus" height="518" width="879">
-			<caption>Die HeaderBar in Nautilus spart Platz.</caption>
-		</image>
-		<par>Diese HeaderBars können auch einfach in die eigenen Programme integriert werden, wenn die aktuellen Bibliotheken, also <inlinecode>libgtk-3-0</inlinecode> und <inlinecode>libgtk-3-dev (>= 3.10)</inlinecode>, installiert sind. Das folgende Minimalbeispiel befolgt die aktuellen Empfehlungen zur Erstellung von GNOME-Apps, erweitert also die Gtk.Application Klasse. Eine HeaderBar besteht im Endeffekt aus drei Bereichen, dem linken und dem rechten, die jeweils mit Gtk.Widgets befüllt werden können, und dem mittleren, der entweder mit Titel und gegebenenfalls Untertitel oder mit einem Gtk.Widget belegt wird.</par>
-		<heading>Minimalbeispiel</heading>
-		<image src="../images/articles/headerbar1.png" alt="Minimalbeispiel für die GTK Headerbar" height="475" width="476">
+		<p>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz spen.</p>
+		<img src="../imgs/articles/headerbar5.png" alt="HeaderBar in Nautilus" height="518" width="879">
+			<caption>Die HeaderBar in Nautilus spt Platz.</caption>
+		</img>
+		<p>Diese HeaderBars können auch einfach in die eigenen Programme integriert werden, wenn die aktuellen Bibliotheken, also <inlinecode>libgtk-3-0</inlinecode> und <inlinecode>libgtk-3-dev (>= 3.10)</inlinecode>, installiert sind. Das folgende Minimalbeispiel befolgt die aktuellen Empfehlungen zur Erstellung von GNOME-Apps, erweitert also die Gtk.Application Klasse. Eine HeaderBar besteht im Endeffekt aus drei Bereichen, dem linken und dem rechten, die jeweils mit Gtk.Widgets befüllt werden können, und dem mittleren, der entweder mit Titel und gegebenenfalls Untertitel oder mit einem Gtk.Widget belegt wird.</p>
+		<h4>Minimalbeispiel</h4>
+		<img src="../imgs/articles/headerbar1.png" alt="Minimalbeispiel für die GTK Headerbar" height="475" width="476">
 			<caption>Minimalbeispiel für die GTK Headerbar.</caption>
-		</image>
-		<par>Dieses Minimalbeispiel kann schon mit wenigen Zeilen Code erstellt werden:</par>
+		</img>
+		<p>Dieses Minimalbeispiel kann schon mit wenigen Zeilen Code erstellt werden:</p>
 		<code lang="vala"><![CDATA[class Example : Gtk.Application {
 	public Example () {
 		Object (application_id: "com.example.app", flags: ApplicationFlags.FLAGS_NONE);
@@ -38,30 +38,30 @@
 int main (string[] args) {
 	return new Example ().run (args);
 }]]></code>
-		<par>Das ganze wird wie üblich als main.vala gespeichert und mit</par>
+		<p>Das ganze wird wie üblich als main.vala gespeichert und mit</p>
 		<code lang="bash"><![CDATA[valac --pkg gtk+-3.0 -o example main.vala]]></code>
-		<par>kompiliert. Interessant ist hier vor allem <inlinecode>window.set_titlebar (headerBar);</inlinecode>, das dem Fenster die erstellte HeaderBar als Titelzeile zuweist.</par>
-		<heading>Die Erweiterung</heading>
-		<par>Soll in der Titelleiste ein "Schließen"-Button angezeigt werden, reicht ein einfacher Befehl:</par>
+		<p>kompiliert. Interessant ist hier vor allem <inlinecode>window.set_titlebar (headerBar);</inlinecode>, das dem Fenster die erstellte HeaderBar als Titelzeile zuweist.</p>
+		<h4>Die Erweiterung</h4>
+		<p>Soll in der Titelleiste ein "Schließen"-Button angezeigt werden, reicht ein einfacher Befehl:</p>
 		<code lang="vala"><![CDATA[headerBar.set_show_close_button (true);]]></code>
-		<par>Der linke und der rechte Bereich der Titelleiste wird jetzt, wie bei einer <inlinecode>Gtk.Box</inlinecode>, mit <inlinecode>pack_end ()</inlinecode> und <inlinecode>pack_start ()</inlinecode> befüllt, soll also zum Beispiel ein "Öffnen"-Button hinzugefügt werden, reichen die beiden Zeilen:</par>
+		<p>Der linke und der rechte Bereich der Titelleiste wird jetzt, wie bei einer <inlinecode>Gtk.Box</inlinecode>, mit <inlinecode>pack_end ()</inlinecode> und <inlinecode>pack_start ()</inlinecode> befüllt, soll also zum Beispiel ein "Öffnen"-Button hinzugefügt werden, reichen die beiden Zeilen:</p>
 		<code lang="vala"><![CDATA[Gtk.Button openButton = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
 headerBar.pack_start (openButton);]]></code>
-		<par>Hierbei wird schon der neue <inlinecode>Gtk.Button.from_icon_name</inlinecode>-Constructor genutzt, da <inlinecode>Gtk.Stock</inlinecode> ab GTK 3.10 als veraltet markiert ist. Die Iconnamen sind dabei standardisiert und nicht mehr GTK-intern, mehr dazu allerdings in einem anderen Blogpost.</par>
-		<image src="../images/articles/headerbar4.png" alt="Erweitertes Minimalbeispiel" height="475" width="476">
+		<p>Hierbei wird schon der neue <inlinecode>Gtk.Button.from_icon_name</inlinecode>-Constructor genutzt, da <inlinecode>Gtk.Stock</inlinecode> ab GTK 3.10 als veraltet markiert ist. Die Iconnamen sind dabei standardisiert und nicht mehr GTK-intern, mehr dazu allerdings in einem anderen Blogpost.</p>
+		<img src="../imgs/articles/headerbar4.png" alt="Erweitertes Minimalbeispiel" height="475" width="476">
 			<caption>Erweitertes Minimalbeispiel mit "öffnen"- und "Schließen"-Buttons.</caption>
-		</image>
-		<heading>Widgets in der Titelleiste</heading>
-		<par>Soll der mittlere Bereich nun, statt mit Titel und Untertitel, mit einem <inlinecode>Gtk.Widget</inlinecode> befüllt werden, so geschieht dies mit <inlinecode>headerBar.set_custom_title ()</inlinecode>. Sinnvoll ist das für zentrale Steuerungsobjekte, zum Beispiel ein Suchfeld wie bei der neuen GNOME Karten-App, oder für einen Ansichtswechsel. Mit den folgenden Befehlen lässt sich also ein Suchfeld erstellen:</par>
+		</img>
+		<h4>Widgets in der Titelleiste</h4>
+		<p>Soll der mittlere Bereich nun, statt mit Titel und Untertitel, mit einem <inlinecode>Gtk.Widget</inlinecode> befüllt werden, so geschieht dies mit <inlinecode>headerBar.set_custom_title ()</inlinecode>. Sinnvoll ist das für zentrale Steuerungsobjekte, zum Beispiel ein Suchfeld wie bei der neuen GNOME Karten-App, oder für einen Ansichtswechsel. Mit den folgenden Befehlen lässt sich also ein Suchfeld erstellen:</p>
 		<code lang="vala"><![CDATA[Gtk.Entry entry = new Gtk.Entry ();
 entry.set_icon_from_icon_name (Gtk.EntryIconPosition.PRIMARY, "system-search");
 headerBar.set_custom_title (entry);]]></code>
-		<image src="../images/articles/headerbar3.png" alt="Erweitertes Minimalbeispiel mit Widget" height="475" width="476">
+		<img src="../imgs/articles/headerbar3.png" alt="Erweitertes Minimalbeispiel mit Widget" height="475" width="476">
 			<caption>Erweitertes Minimalbeispiel mit Widget in der Titelleiste.</caption>
-		</image>
-		<par>Auch hier kommen wieder die neuen Iconnamen zum Einsatz. Der Titel und der Untertitel werden durch das <inlinecode>Gtk.Widget</inlinecode> überschrieben, sollen sie wieder angezeigt werden muss der "<inlinecode>custom_title</inlinecode>" null gesetzt werden: </par>
+		</img>
+		<p>Auch hier kommen wieder die neuen Iconnamen zum Einsatz. Der Titel und der Untertitel werden durch das <inlinecode>Gtk.Widget</inlinecode> überschrieben, sollen sie wieder angezeigt werden muss der "<inlinecode>custom_title</inlinecode>" null gesetzt werden: </p>
 		<code lang="vala"><![CDATA[headerBar.set_custom_title (null);]]></code>
-		<par>Einfach, oder? Hier noch einmal der Quelltext des kompletten Minimalbeispiels:</par>
+		<p>Einfach, oder? Hier noch einmal der Quelltext des kompletten Minimalbeispiels:</p>
 		<code lang="vala"><![CDATA[class Example : Gtk.Application {
 	public Example () {
 		Object (application_id: "com.example.app", flags: ApplicationFlags.FLAGS_NONE);

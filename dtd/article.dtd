@@ -1,18 +1,21 @@
-<!ELEMENT article (published, author, name, text, link, tag*)>
-	<!ELEMENT published (#PCDATA)>
-	<!ELEMENT author (#PCDATA)>
-		<!ATTLIST author link #CDATA IMPLIED>
-	<!ELEMENT name (#PCDATA)>
-	<!ELEMENT text (par*, image*, heading*, code*)>
-		<!ELEMENT par (inlinecode*, #PCDATA)>
+<!ELEMENT article (time, author, name, text, link, tag*)>
+	<!ELEMENT time (#PCDATA)>
+		<!ATTLIST datetime (#PCDATA)>
+	<!ELEMENT author (#PCDATA, a)>
+		<!ELEMENT a EMPTY>
+			<!ATTLIST a href #CDATA REQUIRED,
+						rel #CDATA REQUIRED>
+	<!ELEMENT title (#PCDATA)>
+	<!ELEMENT text (p*, img*, h4*, code*)>
+		<!ELEMENT p (inlinecode*, #PCDATA)>
 			<!ELEMENT inlinecode (#PCDATA)>
-		<!ELEMENT image (caption)>
-			<!ATTLIST image src #CDATA REQUIRED,
+		<!ELEMENT img (caption)>
+			<!ATTLIST img src #CDATA REQUIRED,
 							alt #CDATA REQUIRED,
 							height #CDATA REQUIRED,
 							width #CDATA REQUIRED>
 			<!ELEMENT caption (#PCDATA)>
-		<!ELEMENT heading (#PCDATA)>
+		<!ELEMENT h4 (#PCDATA)>
 		<!ELEMENT code (#PCDATA)>
 			<!ATTLIST code lang #CDATA REQUIRED>
 	<!ELEMENT link (#PCDATA)>

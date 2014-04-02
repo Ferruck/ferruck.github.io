@@ -2,17 +2,17 @@
 <?xml-stylesheet type="text/xsl" href="../xsl/article.xsl"?>
 <!DOCTYPE article SYSTEM "http://ferruck.github.io/dtd/article.dtd">
 <article>
-	<published>Fri, 17 Jan 2014 20:00 +0100</published>
-	<author link="https://plus.google.com/+PhilippTrommler">Philipp Trommler</author>
-	<name>Numix GTK 3 Flat Theme Light Review</name>
+	<time datetime="2014-01-17T20:00:00+01">Fri, 17 Jan 2014 20:00 +0100</time>
+	<author>Philipp Trommler<a href="https://plus.google.com/+PhilippTrommler" rel="author"/></author>
+	<title>Numix GTK 3 Flat Theme Light Review</title>
 	<text>
-		<par>Seit ein paar Tagen sind die neuen Flat-Themes von Numix im Software Center und auf deviantART als normale, helle und dunkle Version erhältlich. Ich habe mir die helle Version zugelegt und möchte hier kurz meine Meinung dazu abgeben.</par>
-		<par>Die Themes sind für 2,99$, respektive 2,39€, zu haben, meiner Meinung nach ein durchaus fairer Preis, und besonders gut wirken sie natürlich in Verbindung mit einem der Numix Icon Themes.</par>
-		<par>An manchen Stellen fallen allerdings noch ein paar kleine Ungereimtheiten auf, zum Beispiel haben manche Buttons einen Rand und einen helleren Hintergrund andere nicht. Hoffentlich sind das noch Bugs und keine Features und hoffentlich werden diese auch noch gefixt.</par>
-		<par>Besonders gut gefallen mir die dunkelrote Highlight-Farbe, die sich gut vom Rest des Themes abhebt, sowie die Scrollbars, die deutlich unaufdringlicher sind als die Originalen.</par>
-		<par>Das "Schließen"-Icon und der Titel von Fenstern ohne HeaderBar sind für meinen Geschmack etwas zu nah am Fensterrand, der Titel und Untertitel von Fenstern mit HeaderBar hat irgendwie einen seltsamen Font (siehe Bild). Alles in allem gefällt mir das Theme aber sehr gut, ich kann den Kauf zu diesem Preis empfehlen, und ich bin gespannt, was sich das Numix-Team in nächster Zeit noch so aus den Fingern saugt.</par>
-		<par>Da Bilder, insbesondere in so einem Fall wie hier, natürlich mehr sagen als tausend Worte, gibt es hier noch ein paar Screenshots, mit denen ihr selbst für euch entscheiden könnt, ob das Theme etwas für euch ist oder nicht.</par>
-		<par>Und jetzt schön eines der Themes kaufen und damit die Macher unterstützen!</par>
+		<p>Seit ein paar Tagen sind die neuen Flat-Themes von Numix im Software Center und auf deviantART als normale, helle und dunkle Version erhältlich. Ich habe mir die helle Version zugelegt und möchte hier kurz meine Meinung dazu abgeben.</p>
+		<p>Die Themes sind für 2,99$, respektive 2,39€, zu haben, meiner Meinung nach ein durchaus fairer Preis, und besonders gut wirken sie natürlich in Verbindung mit einem der Numix Icon Themes.</p>
+		<p>An manchen Stellen fallen allerdings noch ein paar kleine Ungereimtheiten auf, zum Beispiel haben manche Buttons einen Rand und einen helleren Hintergrund andere nicht. Hoffentlich sind das noch Bugs und keine Features und hoffentlich werden diese auch noch gefixt.</p>
+		<p>Besonders gut gefallen mir die dunkelrote Highlight-Farbe, die sich gut vom Rest des Themes abhebt, sowie die Scrollbars, die deutlich unaufdringlicher sind als die Originalen.</p>
+		<p>Das "Schließen"-Icon und der Titel von Fenstern ohne HeaderBar sind für meinen Geschmack etwas zu nah am Fensterrand, der Titel und Untertitel von Fenstern mit HeaderBar hat irgendwie einen seltsamen Font (siehe Bild). Alles in allem gefällt mir das Theme aber sehr gut, ich kann den Kauf zu diesem Preis empfehlen, und ich bin gespannt, was sich das Numix-Team in nächster Zeit noch so aus den Fingern saugt.</p>
+		<p>Da Bilder, insbesondere in so einem Fall wie hier, natürlich mehr sagen als tausend Worte, gibt es hier noch ein paar Screenshots, mit denen ihr selbst für euch entscheiden könnt, ob das Theme etwas für euch ist oder nicht.</p>
+		<p>Und jetzt schön eines der Themes kaufen und damit die Macher unterstützen!</p>
 	</text>
 	<link>articles/numix_gtk_flat_theme_review.xml</link>
 	<tag>flat</tag>

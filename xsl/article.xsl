@@ -29,7 +29,7 @@
 				<script type="text/javascript" src="../js/jquery.socialshareprivacy.js"></script>
 				<script type="text/javascript">
 					function showDisqus () {
-						if (document.getElementById ('disqus_switch').attribute ('checked', true)) {
+						if (document.getElementById ('disqus_switch').checked == true) {
 							(document.getElementsByTagName ('head')[0] || document.getElementsByTagName ('body')[0]).removeChild (document.getElementById ('dsq'));
 							document.getElementById ('disqus').removeChild (document.getElementById ('disqus_thread'));
 						} else {

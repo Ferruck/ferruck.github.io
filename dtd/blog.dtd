@@ -1,6 +1,6 @@
 <!ELEMENT blog (meta, link, title, article*)>
 	<!ATTLIST blog prefix CDATA #REQUIRED
-				   itemscope EMPTY #REQUIRED
+				   itemscope CDATA #REQUIRED
 				   itemtype CDATA #REQUIRED>
 	<!ELEMENT meta EMPTY>
 		<!ATTLIST meta itemprop CDATA #IMPLIED
@@ -13,7 +13,7 @@
 	<!ELEMENT title (#PCDATA)>
 	<!ELEMENT article (time, h3, p, a)>
 		<!ATTLIST article itemprop CDATA #REQUIRED>
-					      itemscope EMPTY #REQUIRED
+					      itemscope CDATA #REQUIRED
 					      itemtype CDATA #REQUIRED>
 		<!ELEMENT time (#PCDATA)>
 			<!ATTLIST time datetime CDATA #REQUIRED

@@ -9,7 +9,7 @@
 			<head>
 				<meta charset="utf-8"/>
 				<title><xsl:value-of select="title"/></title>
-				<meta name="description"><xsl:attribute name="content"><xsl:value-of select="text/par"/></xsl:attribute></meta>
+				<meta name="description"><xsl:attribute name="content"><xsl:value-of select="text/p"/></xsl:attribute></meta>
 				<meta name="author" content="Philipp Trommler"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 				<link rel="stylesheet" href="../stylesheets/base.css"/>

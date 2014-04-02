@@ -28,13 +28,10 @@
 				<script type="text/javascript" src="../js/highlight.pack.js"></script>
 				<script type="text/javascript" src="../js/jquery.socialshareprivacy.js"></script>
 				<script type="text/javascript">
-					var shown = 0;
-					
 					function showDisqus () {
-						if (shown == 1) {
+						if (document.getElementById ('disqus_switch').prop ('checked', true)) {
 							(document.getElementsByTagName ('head')[0] || document.getElementsByTagName ('body')[0]).removeChild (document.getElementById ('dsq'));
 							document.getElementById ('disqus').removeChild (document.getElementById ('disqus_thread'));
-							shown = 0;
 						} else {
 							var disqus_shortname = 'phtrommlerblog';
 							var disqus_identifier = '<xsl:value-of select="title"/>';
@@ -52,7 +49,6 @@
 							
 							document.getElementById ('disqus').appendChild (disqus_thread);
 							(document.getElementsByTagName ('head')[0] || document.getElementsByTagName ('body')[0]).appendChild (dsq);
-							shown = 1;
 						}
 					}
 					
@@ -114,7 +110,7 @@
 							<h5>Kommentare</h5>
 							<p class="warning">Durch das Aktivieren der Kommentarfunktion werden Daten an Dritte (Disqus) weitergegeben. Aktivieren Sie die Kommentarfunktion nur, wenn Sie sich darüber im Klaren und damit einverstanden sind!</p>
 							<label class="switch switch-green" onClick="showDisqus ()">
-								<input type="checkbox" class="switch-input"/>
+								<input id="disqus_switch" type="checkbox" class="switch-input"/>
 								<span class="switch-label" data-on="An" data-off="Aus"></span>
 								<span class="switch-handle"></span>
 							</label><span class="switch-text">Kommentarfunktion von Disqus</span>

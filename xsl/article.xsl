@@ -136,7 +136,7 @@
 	</xsl:template>
 	
 	<xsl:template match="text/p">
-		<p><xsl:apply-templates/></p>
+		<p><xsl:attribute name="class"><xsl:value-of select="@class"/></xsl:attribute><xsl:apply-templates/></p>
 	</xsl:template>
 	
 	<xsl:template match="text/par/inlinecode">

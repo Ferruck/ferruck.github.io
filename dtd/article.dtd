@@ -17,6 +17,7 @@
 	<!ELEMENT h3 (#PCDATA)>
 	<!ELEMENT text (p | img | h4 | code)*>
 		<!ELEMENT p (#PCDATA | inlinecode | a)*>
+			<!ATTLIST p class CDATA #IMPLIED>
 			<!ELEMENT inlinecode (#PCDATA)>
 		<!ELEMENT img (caption)>
 			<!ATTLIST img src CDATA #REQUIRED

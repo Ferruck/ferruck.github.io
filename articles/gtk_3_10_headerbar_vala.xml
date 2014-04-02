@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../xsl/article.xsl"?>
 <!DOCTYPE article SYSTEM "http://ferruck.github.io/dtd/article.dtd">
-<article>
+<article prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
 	<meta property="og:title" content="Die neue GTK 3.10 HeaderBar in Vala - Philipp Trommler - Blog"/>
 	<meta property="og:description" content="Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen."/>
 	<meta property="og:type" content="article"/>
-	<meta property="og:article:published_time" content="2013-12-21T23:44:00+01"/>
-	<meta property="og:article:author" content="Philipp Trommler"/>
-	<meta property="og:article:section" content="Technology"/>
-	<meta property="og:article:tag" content="3.10"/>
-	<meta property="og:article:tag" content="GTK"/>
-	<meta property="og:article:tag" content="Vala"/>
+	<meta property="article:published_time" content="2013-12-21T23:44:00+01"/>
+	<meta property="article:author" content="Philipp Trommler"/>
+	<meta property="article:section" content="Technology"/>
+	<meta property="article:tag" content="3.10"/>
+	<meta property="article:tag" content="GTK"/>
+	<meta property="article:tag" content="Vala"/>
+	<meta property="article:publisher" content="philipp.trommler"/>
+	<meta property="fb:admins" content="philipp.trommler"/>
+	<meta property="fb:profile_id" content="philipp.trommler"/>
 	<meta property="og:image" content="http://ferruck.github.io/images/articles/headerbar5.png"/>
 	<meta property="og:url" content="http://ferruck.github.io/articles/gtk_3_10_headerbar_vala.xml"/>
 	<meta property="og:locale" content="de_DE"/>

@@ -1,4 +1,5 @@
 <!ELEMENT article (meta*, time, author, title, text, link, tag*)>
+	<!ATTLIST article prefix #CDATA REQUIRED>
 	<!ELEMENT meta EMPTY>
 		<!ATTLIST meta	property #CDATA REQUIRED,
 						content #CDATA REQUIRED>

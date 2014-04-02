@@ -139,8 +139,12 @@
 		<p><xsl:attribute name="class"><xsl:value-of select="@class"/></xsl:attribute><xsl:apply-templates/></p>
 	</xsl:template>
 	
-	<xsl:template match="text/par/inlinecode">
+	<xsl:template match="text/p/inlinecode">
 		<pre class="inline"><xsl:value-of select="."/></pre>
+	</xsl:template>
+	
+	<xsl:template match="text/p/a">
+		<a><xsl:attribute name="href"><xsl:value-of select="@href"/></xsl:attribute><xsl:attribute name="target"><xsl:value-of select="@target"/></xsl:attribute><xsl:value-of select="."/></a>
 	</xsl:template>
 	
 	<xsl:template match="text/code">

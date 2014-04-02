@@ -1,26 +1,26 @@
-<!ELEMENT article (meta*, time, author, title, text, link, tag*)>
-	<!ATTLIST article prefix #CDATA REQUIRED>
+<!ELEMENT article (meta*, time, link, author, title, text, tag*)>
+	<!ATTLIST article prefix CDATA REQUIRED>
 	<!ELEMENT meta EMPTY>
-		<!ATTLIST meta	property #CDATA REQUIRED,
-						content #CDATA REQUIRED>
+		<!ATTLIST meta	property CDATA REQUIRED,
+						content CDATA REQUIRED>
 	<!ELEMENT time (#PCDATA)>
-		<!ATTLIST datetime (#PCDATA)>
+		<!ATTLIST time datetime CDATA REQUIRED>
+	<!ELEMENT link (#PCDATA)>
 	<!ELEMENT author (#PCDATA, a)>
 		<!ELEMENT a EMPTY>
-			<!ATTLIST a href #CDATA REQUIRED,
-						rel #CDATA REQUIRED>
+			<!ATTLIST a href CDATA REQUIRED,
+						rel CDATA REQUIRED>
 	<!ELEMENT title (#PCDATA)>
-	<!ELEMENT text (p*, img*, h4*, code*)>
-		<!ELEMENT p (inlinecode*, #PCDATA)>
+	<!ELEMENT text (p | img | h4 | code)*>
+		<!ELEMENT p (#PCDATA | inlinecode)*>
 			<!ELEMENT inlinecode (#PCDATA)>
 		<!ELEMENT img (caption)>
-			<!ATTLIST img src #CDATA REQUIRED,
-							alt #CDATA REQUIRED,
-							height #CDATA REQUIRED,
-							width #CDATA REQUIRED>
+			<!ATTLIST img src CDATA REQUIRED,
+							alt CDATA REQUIRED,
+							height CDATA REQUIRED,
+							width CDATA REQUIRED>
 			<!ELEMENT caption (#PCDATA)>
 		<!ELEMENT h4 (#PCDATA)>
 		<!ELEMENT code (#PCDATA)>
-			<!ATTLIST code lang #CDATA REQUIRED>
-	<!ELEMENT link (#PCDATA)>
+			<!ATTLIST code lang CDATA REQUIRED>
 	<!ELEMENT tag (#PCDATA)>

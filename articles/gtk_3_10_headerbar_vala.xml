@@ -2,11 +2,25 @@
 <?xml-stylesheet type="text/xsl" href="../xsl/article.xsl"?>
 <!DOCTYPE article SYSTEM "http://ferruck.github.io/dtd/article.dtd">
 <article>
+	<meta property="og:title" content="Die neue GTK 3.10 HeaderBar in Vala - Philipp Trommler - Blog"/>
+	<meta property="og:description" content="Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen."/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:article:published_time" content="2013-12-21T23:44:00+01"/>
+	<meta property="og:article:author" content="Philipp Trommler"/>
+	<meta property="og:article:section" content="Technology"/>
+	<meta property="og:article:tag" content="3.10"/>
+	<meta property="og:article:tag" content="GTK"/>
+	<meta property="og:article:tag" content="Vala"/>
+	<meta property="og:image" content="http://ferruck.github.io/images/articles/headerbar5.png"/>
+	<meta property="og:url" content="http://ferruck.github.io/articles/gtk_3_10_headerbar_vala.xml"/>
+	<meta property="og:locale" content="de_DE"/>
+	<meta property="og:site_name" content="Philipp Trommler - Blog"/>
 	<time datetime="2013-12-21T23:44:00+01">Sat, 21 Dec 2013 23:44 +0100</time>
+	<link rel="canonical" href="http://ferruck.github.io/articles/gtk_3_10_headerbar_vala.xml"/>
 	<author>Philipp Trommler<a href="https://plus.google.com/+PhilippTrommler" rel="author"/></author>
-	<title>Die neue GTK 3.10 HeaderBar in Vala</title>
+	<title>Die neue GTK 3.10 HeaderBar in Vala - Philipp Trommler - Blog</title>
 	<text>
-		<p>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz spen.</p>
+		<p>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.</p>
 		<img src="../images/articles/headerbar5.png" alt="HeaderBar in Nautilus" height="518" width="879">
 			<caption>Die HeaderBar in Nautilus spt Platz.</caption>
 		</img>
@@ -93,7 +107,6 @@ int main (string[] args) {
 	return new Example ().run (args);
 }]]></code>
 	</text>
-	<link>articles/gtk_3_10_headerbar_vala.xml</link>
 	<tag>3.10</tag>
 	<tag>gtk</tag>
 	<tag>vala</tag>

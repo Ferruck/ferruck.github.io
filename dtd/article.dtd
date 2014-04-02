@@ -1,4 +1,7 @@
-<!ELEMENT article (time, author, name, text, link, tag*)>
+<!ELEMENT article (meta*, time, author, title, text, link, tag*)>
+	<!ELEMENT meta EMPTY>
+		<!ATTLIST meta	property #CDATA REQUIRED,
+						content #CDATA REQUIRED>
 	<!ELEMENT time (#PCDATA)>
 		<!ATTLIST datetime (#PCDATA)>
 	<!ELEMENT author (#PCDATA, a)>

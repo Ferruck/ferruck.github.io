@@ -8,7 +8,7 @@
 		<!--[if (gte IE 9)|!(IE)]><!--><html lang="de"> <!--<![endif]-->
 			<head>
 				<meta charset="utf-8"/>
-				<title><xsl:value-of select="name"/> - Philipp Trommler - Blog</title>
+				<title><xsl:value-of select="title"/></title>
 				<meta name="description"><xsl:attribute name="content"><xsl:value-of select="text/par"/></xsl:attribute></meta>
 				<meta name="author" content="Philipp Trommler"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -19,7 +19,7 @@
 				<link rel="stylesheet" href="../stylesheets/jquery.lazyloadxt.spinner.min.css"/>
 				<link rel="stylesheet" href="../stylesheets/pojoaque.css"/>
 				<link rel="shortcut icon" href="../images/favicon.ico"/>
-				<link rel="canonical"><xsl:attribute name="href">http://ferruck.github.io/<xsl:value-of select="link"/></xsl:attribute></link>
+				<link rel="canonical"><xsl:attribute name="href"><xsl:value-of select="link/@href"/></xsl:attribute></link>
 				<!--[if lt IE 9]>
 					<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 				<![endif]-->
@@ -32,7 +32,7 @@
 						var disqus_shortname = 'phtrommlerblog';
 						var disqus_identifier = '<xsl:value-of select="title"/>';
 						var disqus_title = '<xsl:value-of select="title"/>';
-						var disqus_url = 'http://ferruck.github.io/<xsl:value-of select="link"/>';
+						var disqus_url = '<xsl:value-of select="link/@href"/>';
 						
 						var dsq = document.createElement('script');
 						dsq.type = 'text/javascript';
@@ -67,7 +67,7 @@
 													'dummy_img' : '../images/socialshareprivacy/dummy_gplus.png'
 												}
 								},
-								'uri'		: 'http://ferruck.github.io/<xsl:value-of select="link"/>',
+								'uri'		: '<xsl:value-of select="link/@href"/>',
 								'css_path'  : '../stylesheets/socialshareprivacy.css',
 								'lang_path' : '../js/lang/',
 								'language'  : 'de',

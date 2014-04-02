@@ -104,6 +104,7 @@
 								<span class="switch-label" data-on="An" data-off="Aus"></span>
 								<span class="switch-handle"></span>
 							</label><span class="switch-text">Kommentarfunktion von Disqus</span>
+							<div id="disqus_thread"></div>
 							<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 						</div>
 					</main>

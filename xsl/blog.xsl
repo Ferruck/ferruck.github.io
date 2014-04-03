@@ -39,7 +39,7 @@
 						<div class="two-thirds column">
 							<h1 class="remove-bottom" style="margin-top: 40px">Philipp Trommler</h1>
 						</div>
-						<nav class="one-third column"><a href="index.xml">Home</a> &#183; <a href="projects.xml">Projekte</a> &#183; <a href="blog.xml"><h2>Blog</h2></a> &#183; <a href="about.xml">Über mich</a></nav>
+						<nav class="one-third column"><a href="index.html">Home</a> &#183; <a href="projects.html">Projekte</a> &#183; <a href="blog.xml"><h2>Blog</h2></a> &#183; <a href="about.html">Über mich</a></nav>
 						<hr />
 					</header>
 					<main>
@@ -58,9 +58,8 @@
 							Webseite erstellt mit <a href="http://www.getskeleton.com/" target="_blank">Skeleton</a>, <a href="https://jquery.org/" target="_blank">jQuery</a>, <a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html" target="_blank">2 Klicks für mehr Datenschutz</a>, <a href="http://highlightjs.org/" target="_blank">highlight.js</a> und <a href="http://www.graphicsfuel.com/2012/09/15-free-social-media-icons-psd-png/" target="_blank">Icons von Rafi</a>.
 						</div>
 						<div class="one-third column">
-							Der Webseitenbetreiber ist nicht für Inhalte verlinkter Drittseiten verantwortlich.<br/><br/>
 							Alle Bilder und auf dieser Website stehen, soweit nicht anders angegeben, unter <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.de" target="_blank">CC-BY-SA 4.0 International Lizenz</a>. Dies gilt nicht für die Social-Media-Icons.<br/><br/>
-							&#169; 2014 Philipp Trommler
+							&#169; 2014 Philipp Trommler, zum <a href="impressum.html">Impressum</a> und der <a href="daten.html">Datenschutzerklärung</a>.
 						</div>
 					</footer>
 				</div>

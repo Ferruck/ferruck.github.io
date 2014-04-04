@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="stylesheets/skeleton.css"/>
 		<link rel="stylesheet" href="stylesheets/layout.css"/>
 		<link rel="stylesheet" href="stylesheets/custom.css"/>
+		<link rel="stylesheet" href="stylesheets/jquery.lazyloadxt.spinner.min.css"/>
 		<link rel="shortcut icon" href="images/favicon.ico"/>
 		<link rel="apple-touch-icon" href="images/apple-touch-icon.png"/>
 		<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png"/>
@@ -19,6 +20,8 @@
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.lazyloadxt.extra.min.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -34,7 +37,12 @@
 				<div class="two-thirds column">
 					<h3>Aktuell</h3>
 					<p>Zur Zeit arbeite ich &ndash; neben dem Studium &ndash; vor allem an meiner RSS-App für Firefox OS "Feed the Reader" und an meinem Programm zur Anzeige und Erstellung von Stickvorlagen unter Linux "GStickIt".<br/>
-					Im Blog wird demnächst ein Artikel zur Realisierung von typischen SEO-Maßnahmen in XML-Dokumenten erscheinen &ndash; aus gegebenen Anlass, denn der Blog wurde mit XML und XSLT erstellt.</p><br/>
+					Im Blog wird demnächst ein Artikel zur Realisierung von typischen SEO-Maßnahmen in XML-Dokumenten erscheinen &ndash; aus gegebenen Anlass, denn der Blog wurde mit XML und XSLT erstellt.</p>
+					<figure>
+						<img class="lazy scale-with-grid" data-src="images/index/gstickit.png" height="52" width="548" alt="RAL-Farben in GStickIt">
+						<noscript><img class="scale-width-grid" src="images/index/gstickit.png" height="52" width="548" alt="RAL-Farben in GStickIt"></noscript>
+						<figcaption>GStickit unterstützt bisher nur RAL-Farben, die Paletten der Garnhersteller sollen noch folgen.</figcaption>
+					</figure>
 				</div>
 				<div class="one-third column">
 					<h3>Was gibt es hier?</h3>

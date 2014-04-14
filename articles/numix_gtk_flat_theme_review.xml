@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../xsl/article.xsl"?>
-<!DOCTYPE article SYSTEM "http://ferruck.github.io/dtd/article.dtd">
+<!DOCTYPE article SYSTEM "http://philipp.feige-trommler.de/dtd/article.dtd">
 <article prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
 	<meta property="og:title" content="Numix GTK 3 Flat Theme Light Review - Philipp Trommler - Blog"/>
 	<meta property="og:description" content="Seit ein paar Tagen sind die neuen Flat-Themes von Numix im Software Center und auf deviantART als normale, helle und dunkle Version erhältlich. Ich habe mir die helle Version zugelegt und möchte hier kurz meine Meinung dazu abgeben."/>
@@ -16,12 +16,12 @@
 	<meta property="article:publisher" content="philipp.trommler"/>
 	<meta property="fb:admins" content="philipp.trommler"/>
 	<meta property="fb:profile_id" content="philipp.trommler"/>
-	<meta property="og:image" content="http://ferruck.github.io/images/articles/numix2.png"/>
-	<meta property="og:url" content="http://ferruck.github.io/articles/numix_gtk_flat_theme_review.xml"/>
+	<meta property="og:image" content="http://philipp.feige-trommler.de/images/articles/numix2.png"/>
+	<meta property="og:url" content="http://philipp.feige-trommler.de/articles/numix_gtk_flat_theme_review.xml"/>
 	<meta property="og:locale" content="de_DE"/>
 	<meta property="og:site_name" content="Philipp Trommler - Blog"/>
 	<time datetime="2014-01-17T20:00:00+01">Fri, 17 Jan 2014 20:00 +0100</time>
-	<link rel="canonical" href="http://ferruck.github.io/articles/numix_gtk_flat_theme_review.xml"/>
+	<link rel="canonical" href="http://philipp.feige-trommler.de/articles/numix_gtk_flat_theme_review.xml"/>
 	<author>Philipp Trommler<a href="https://plus.google.com/+PhilippTrommler" rel="author"/></author>
 	<title>Numix GTK 3 Flat Theme Light Review - Philipp Trommler - Blog</title>
 	<h3>Numix GTK 3 Flat Theme Light Review</h3>

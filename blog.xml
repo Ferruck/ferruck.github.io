@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="xsl/blog.xsl"?>
-<!DOCTYPE blog SYSTEM "http://ferruck.github.io/dtd/blog.dtd">
+<!DOCTYPE blog SYSTEM "http://philipp.feige-trommler.de/dtd/blog.dtd">
 <blog itemscope="" itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
 	<meta property="og:title" content="Philipp Trommler - Blog"/>
 	<meta property="og:site_name" content="Philipp Trommler - Blog"/>
@@ -8,7 +8,7 @@
 	<meta property="fb:profile_id" content="philipp.trommler"/>
 	<meta itemprop="isFamilyFriendly" content="true"/>
 	<link href="https://plus.google.com/+PhilippTrommler" rel="author"/>
-	<link itemprop="url" href="http://ferruck.github.io/blog.xml" rel="canonical"/>
+	<link itemprop="url" href="http://philipp.feige-trommler.de/blog.xml" rel="canonical"/>
 	<title>Philipp Trommler - Blog</title>
 	<article itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
 		<time itemprop="datePublished" datetime="2014-01-17T20:00:00+01">Fri, 17 Jan 2014 20:00 +0100</time>

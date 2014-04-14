@@ -185,6 +185,10 @@ nav a {
 	color: #ffffff;
 }
 
+nav a:visited {
+	color: #ffffff;
+}
+
 nav a:hover {
 	color: #64d20f;
 }

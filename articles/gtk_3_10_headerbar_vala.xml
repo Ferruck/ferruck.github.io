@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../xsl/article.xsl"?>
-<!DOCTYPE article SYSTEM "http://ferruck.github.io/dtd/article.dtd">
+<!DOCTYPE article SYSTEM "http://philipp.feige-trommler.de/dtd/article.dtd">
 <article prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
 	<meta property="og:title" content="Die neue GTK 3.10 HeaderBar in Vala - Philipp Trommler - Blog"/>
 	<meta property="og:description" content="Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen."/>
@@ -14,12 +14,12 @@
 	<meta property="article:publisher" content="philipp.trommler"/>
 	<meta property="fb:admins" content="philipp.trommler"/>
 	<meta property="fb:profile_id" content="philipp.trommler"/>
-	<meta property="og:image" content="http://ferruck.github.io/images/articles/headerbar5.png"/>
-	<meta property="og:url" content="http://ferruck.github.io/articles/gtk_3_10_headerbar_vala.xml"/>
+	<meta property="og:image" content="http://philipp.feige-trommler.de/images/articles/headerbar5.png"/>
+	<meta property="og:url" content="http://philipp.feige-trommler.de/articles/gtk_3_10_headerbar_vala.xml"/>
 	<meta property="og:locale" content="de_DE"/>
 	<meta property="og:site_name" content="Philipp Trommler - Blog"/>
 	<time datetime="2013-12-21T23:44:00+01">Sat, 21 Dec 2013 23:44 +0100</time>
-	<link rel="canonical" href="http://ferruck.github.io/articles/gtk_3_10_headerbar_vala.xml"/>
+	<link rel="canonical" href="http://philipp.feige-trommler.de/articles/gtk_3_10_headerbar_vala.xml"/>
 	<author>Philipp Trommler<a href="https://plus.google.com/+PhilippTrommler" rel="author"/></author>
 	<title>Die neue GTK 3.10 HeaderBar in Vala - Philipp Trommler - Blog</title>
 	<h3>Die neue GTK 3.10 HeaderBar in Vala</h3>

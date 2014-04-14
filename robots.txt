@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: http://philipp.feige-trommler.de/sitemap.xml

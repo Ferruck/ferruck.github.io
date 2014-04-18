@@ -23,8 +23,30 @@
 		<![endif]-->
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/jquery.lazyloadxt.extra.min.js"></script>
+		<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+		<script>
+			function init() {
+				map = new OpenLayers.Map("firstMap", { controls: [new OpenLayers.Control.Attribution] });
+				var mapnik = new OpenLayers.Layer.OSM ();
+				map.addLayer(mapnik);
+				map.setCenter(new OpenLayers.LonLat(11.99, 51.35) // Center of the map
+					.transform(
+					new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+					new OpenLayers.Projection("EPSG:900913") // to Spherical Mercator Projection
+				), 12);
+				
+				map2 = new OpenLayers.Map("secondMap", { controls: [new OpenLayers.Control.Attribution] });
+				var mapnik = new OpenLayers.Layer.OSM ();
+				map2.addLayer(mapnik);
+				map2.setCenter(new OpenLayers.LonLat(11.98, 51.75) // Center of the map
+					.transform(
+					new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+					new OpenLayers.Projection("EPSG:900913") // to Spherical Mercator Projection
+				), 12);
+			}
+		</script>
 	</head>
-	<body>
+	<body onLoad="init ()">
 		<div class="container">
 			<header>
 				<img src="images/header.jpg" alt="Background"/>
@@ -40,25 +62,23 @@
 					<p>Es ist nicht genug, zu wissen, man muss auch anwenden. Es ist nicht genug, zu wollen, man muss auch tun.</p>
 					<cite><a href="http://de.wikiquote.org/wiki/Johann_Wolfgang_von_Goethe" target="_blank">Johann Wolfgang von Goethe</a></cite>
 				</blockquote>
-				<h4>Persönliche Angaben</h4>
-				<dl>
-					<dt>Geburtstag:</dt>
-					<dd><time datetime="1990-01-15" itemprop="birthDate">15.01.1990</time></dd>
-					<dt>Geburtsort:</dt>
-					<dd>Merseburg (Saale)</dd>
-					<dt>Eltern:</dt>
-					<dd>Sybille und Peter Trommler</dd>
-					<dt>Geschwister:</dt>
-					<dd>Henry Trommler</dd>
-					<dt>Familienstand:</dt>
-					<dd>ledig</dd>
-				</dl>
-				<h4>Ausbildung</h4>
-					<h5>Schule</h5>
+				<div class="one-third column">
+					<h4>Persönliche Angaben</h4>
 					<dl>
-						<dt>1996-2000</dt>
-						<dd>Grundschule "Solidarität", Köthen</dd>
+						<dt>Geburtstag:</dt>
+						<dd><time datetime="1990-01-15" itemprop="birthDate">15.01.1990</time></dd>
+						<dt>Geburtsort:</dt>
+						<dd>Merseburg (Saale)</dd>
 					</dl>
+					<h4>Ausbildung</h4>
+						<h5>Schule</h5>
+						<dl>
+							<dt>1996-2000</dt>
+							<dd>Grundschule "Solidarität", Köthen</dd>
+						</dl>
+				</div>
+				<div class="two-thirds column" id="firstMap" style="height: 200px; margin: 3px;"></div><br class="clear"/>
+				<div class="one-third column" id="secondMap" style="height: 200px;"></div>
 			</main>
 			<footer>
 				<div class="one-third column">

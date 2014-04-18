@@ -57,6 +57,12 @@
 					<p>Meinen Code findet man, ebenso wie diese Website, auf <a href="https://github.com/Ferruck" target="_blank">GitHub</a>. Weitere Informationen über meine Programme sind zudem über <a href="http://www.ohloh.net/accounts/Ferruck" target="_blank">ohloh.net</a> erhältlich.</p>
 					<p>Auch auf <a href="https://plus.google.com/+PhilippTrommler" target="_blank">Google+</a> und <a href="https://www.facebook.com/philipp.trommler" target="_blank">Facebook</a> treibe ich mich herum, nur Twitter hat mich noch nicht gefangen&hellip;</p>
 				</div>
+				<div class="two-thirds column">
+					<h3>Ubuntu 14.04 Update Probleme</h3>
+					<p>Bei meinem heutigen Update von Ubuntu auf die Version 14.04 kam es zu Problemen: Während der Aktualisierung beendete sich der XServer und ließ sich auch nicht neu starten. Kurze Zeit später lief auch die Aktualisierung nicht mehr weiter (zumindest zeigte die Festplattenkontrollleuchte nichts mehr an).<br/>
+					Wem es wie mir ergeht, dem kann geholfen werden: Zuerst den PC neu starten und nach dem Splashscreen <kbd>Shift</kbd> halten, um in die GRUB-Auswahl zu kommen. Hier den Wiederherstellungsmodus unter erweiterte Optionen wählen und in ebendiesem Continue. Nachdem sich auf der Konsole nichts mehr ändert, mit <kbd>Strg</kbd>+<kbd>Alt</kbd>+<kbd>F6</kbd> in ein anderes Terminal wechseln.<br/>
+					Dort kann mit <pre class="inline">sudo apt-get dist-upgrade -f</pre> das Update fortgesetzt werden. Sollte es erneut zu Fehlern kommen, einfach den Befehl noch mal wiederholen, so hat es zumindest bei mir funktioniert. Viel Erfolg!</p>
+				</div>
 			</main>
 			<footer>
 				<div class="one-third column">

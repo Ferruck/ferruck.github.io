@@ -151,7 +151,7 @@
 		<b><xsl:apply-templates/></b>
 	</xsl:template>
 	
-	<xsl:template match="ul">
+	<xsl:template match="ol">
 		<ol><xsl:apply-templates/></ol>
 	</xsl:template>
 	

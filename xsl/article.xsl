@@ -118,11 +118,12 @@
 							</ul>
 						</div>
 						<div class="one-third column">
-							Webseite erstellt mit <a href="http://www.getskeleton.com/" target="_blank">Skeleton</a>, <a href="https://jquery.org/" target="_blank">jQuery</a>, <a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html" target="_blank">2 Klicks für mehr Datenschutz</a>, <a href="http://highlightjs.org/" target="_blank">highlight.js</a> und <a href="http://www.graphicsfuel.com/2012/09/15-free-social-media-icons-psd-png/" target="_blank">Icons von Rafi</a> sowie Switches von <a href="http://www.cssflow.com/" target="_blank">Thibaut Courouble</a>.
+							Webseite erstellt mit <a href="http://www.getskeleton.com/" target="_blank">Skeleton</a>, <a href="https://jquery.org/" target="_blank">jQuery</a>, <a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html" target="_blank">2 Klicks für mehr Datenschutz</a>, <a href="http://highlightjs.org/" target="_blank">highlight.js</a> und <a href="http://www.graphicsfuel.com/2012/09/15-free-social-media-icons-psd-png/" target="_blank">Icons von Rafi</a> sowie Switches von <a href="http://www.cssflow.com/" target="_blank">Thibaut Courouble</a>.<br />
+							Die Schriftarten <a href="http://www.fontsquirrel.com/license/ubuntu-mono" rel="license" target="_blank">'Ubuntu Mono'</a> und <a href="http://www.fontsquirrel.com/license/fira-sans" rel="license" target="_blank">'Fira Sans'</a> stehen unter der SIL Open Font License.
 						</div>
 						<div class="one-third column">
 							Alle Bilder und auf dieser Website stehen, soweit nicht anders angegeben, unter <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.de" target="_blank">CC-BY-SA 4.0 International Lizenz</a>. Dies gilt nicht für die Social-Media-Icons.<br/><br/>
-							&#169; 2014 Philipp Trommler, zum <a href="impressum.html">Impressum</a> und der <a href="daten.html">Datenschutzerklärung</a>.
+							&#169; 2014 Philipp Trommler, zum <a href="../impressum.html">Impressum</a> und der <a href="../daten.html">Datenschutzerklärung</a>.
 						</div>
 					</footer>
 				</div>
@@ -130,27 +131,39 @@
 		</html>
 	</xsl:template>
 	
-	<xsl:template match="text/h4">
+	<xsl:template match="h4">
 		<h4><xsl:value-of select="."/></h4>
 	</xsl:template>
 	
-	<xsl:template match="text/p">
+	<xsl:template match="p">
 		<p><xsl:attribute name="class"><xsl:value-of select="@class"/></xsl:attribute><xsl:apply-templates/></p>
 	</xsl:template>
 	
-	<xsl:template match="text/p/inlinecode">
+	<xsl:template match="inlinecode">
 		<pre class="inline"><xsl:value-of select="."/></pre>
 	</xsl:template>
 	
-	<xsl:template match="text/p/a">
+	<xsl:template match="a">
 		<a><xsl:attribute name="href"><xsl:value-of select="@href"/></xsl:attribute><xsl:attribute name="target"><xsl:value-of select="@target"/></xsl:attribute><xsl:value-of select="."/></a>
 	</xsl:template>
 	
-	<xsl:template match="text/code">
+	<xsl:template match="b">
+		<b><xsl:apply-templates/></b>
+	</xsl:template>
+	
+	<xsl:template match="ul">
+		<ol><xsl:apply-templates/></ol>
+	</xsl:template>
+	
+	<xsl:template match="li">
+		<li><xsl:apply-templates/></li>
+	</xsl:template>
+	
+	<xsl:template match="code">
 		<pre><xsl:attribute name="class"><xsl:value-of select="@lang"/> block</xsl:attribute><xsl:value-of select="."/></pre>
 	</xsl:template>
 	
-	<xsl:template match="text/img">
+	<xsl:template match="img">
 		<figure>
 			<img class="lazy scale-with-grid"><xsl:attribute name="data-src"><xsl:value-of select="@src"/></xsl:attribute><xsl:attribute name="alt"><xsl:value-of select="@alt"/></xsl:attribute><xsl:attribute name="height"><xsl:value-of select="@height"/></xsl:attribute><xsl:attribute name="width"><xsl:value-of select="@width"/></xsl:attribute></img>
 			<noscript><img class="scale-width-grid"><xsl:attribute name="src"><xsl:value-of select="@src"/></xsl:attribute><xsl:attribute name="alt"><xsl:value-of select="@alt"/></xsl:attribute><xsl:attribute name="height"><xsl:value-of select="@height"/></xsl:attribute><xsl:attribute name="width"><xsl:value-of select="@width"/></xsl:attribute></img></noscript>

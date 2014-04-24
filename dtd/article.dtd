@@ -15,9 +15,10 @@
 					    target CDATA #IMPLIED>
 	<!ELEMENT title (#PCDATA)>
 	<!ELEMENT h3 (#PCDATA)>
-	<!ELEMENT text (p | img | h4 | code)*>
-		<!ELEMENT p (#PCDATA | inlinecode | a)*>
+	<!ELEMENT text (p | img | h4 | code | ol)*>
+		<!ELEMENT p (#PCDATA | inlinecode | a | b)*>
 			<!ATTLIST p class CDATA #IMPLIED>
+			<!ELEMENT b (#PCDATA)>
 			<!ELEMENT inlinecode (#PCDATA)>
 		<!ELEMENT img (caption)>
 			<!ATTLIST img src CDATA #REQUIRED
@@ -28,3 +29,5 @@
 		<!ELEMENT h4 (#PCDATA)>
 		<!ELEMENT code (#PCDATA)>
 			<!ATTLIST code lang CDATA #REQUIRED>
+		<!ELEMENT ol (li*)>
+			<!ELEMENT li (#PCDATA | inlinecode)*>

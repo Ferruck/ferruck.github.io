@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../xsl/article.xsl"?>
 <!DOCTYPE article SYSTEM "http://philipp.feige-trommler.de/dtd/article.dtd">
-<article prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<article itemscope="" itemtype="http://schema.org/BlogPosting" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
 	<meta property="og:title" content="Desktop-Verknüpfungen einfach gemacht mit MenuLibre - Philipp Trommler - Blog"/>
-	<meta property="og:description" content="Wer außer mir auch denkt, dass es jedes Mal eine Qual ist, 'Desktop-Entries' zu schreiben - einfach weil man es so selten macht und deswegen die benötigten Teile jedes Mal aufs neue vergessen hat und ergoogeln muss - der sollte sich MenuLibre von Sean Davis genauer ansehen. Es ist kostenlos, über sein PPA erhältlich und macht die Menü-Bearbeitung zu einer wahren Freude."/>
+	<meta itemprop="description" property="og:description" content="Wer außer mir auch denkt, dass es jedes Mal eine Qual ist, 'Desktop-Entries' zu schreiben - einfach weil man es so selten macht und deswegen die benötigten Teile jedes Mal aufs neue vergessen hat und ergoogeln muss - der sollte sich MenuLibre von Sean Davis genauer ansehen. Es ist kostenlos, über sein PPA erhältlich und macht die Menü-Bearbeitung zu einer wahren Freude."/>
 	<meta property="og:type" content="article"/>
-	<meta property="article:published_time" content="2013-05-08T07:08:00+02"/>
+	<meta itemprop="datePublished" property="article:published_time" content="2013-05-08T07:08:00+02"/>
 	<meta property="article:author" content="philipp.trommler"/>
 	<meta property="article:section" content="Technology"/>
 	<meta property="article:tag" content="Tutorial"/>
 	<meta property="article:publisher" content="philipp.trommler"/>
 	<meta property="fb:admins" content="philipp.trommler"/>
 	<meta property="fb:profile_id" content="philipp.trommler"/>
-	<meta property="og:image" content="http://philipp.feige-trommler.de/images/articles/menulibre1.png"/>
-	<meta property="og:url" content="http://philipp.feige-trommler.de/articles/desktop_verknupfungen_einfach_menulibre.xml"/>
-	<meta property="og:locale" content="de_DE"/>
+	<meta itemprop="thumbnailUrl" property="og:image" content="http://philipp.feige-trommler.de/images/articles/menulibre1.png"/>
+	<meta itemprop="url" property="og:url" content="http://philipp.feige-trommler.de/articles/desktop_verknupfungen_einfach_menulibre.xml"/>
+	<meta itemprop="inLanguage" property="og:locale" content="de_DE"/>
 	<meta property="og:site_name" content="Philipp Trommler - Blog"/>
 	<time datetime="2013-05-08T07:08:00+02">Wed, 08 May 2013 07:08 +0200</time>
 	<link rel="canonical" href="http://philipp.feige-trommler.de/articles/desktop_verknupfungen_einfach_menulibre.xml"/>
 	<author>Philipp Trommler<a href="https://plus.google.com/+PhilippTrommler" rel="author"/></author>
 	<title>Desktop-Verknüpfungen einfach gemacht mit MenuLibre - Philipp Trommler - Blog</title>
-	<h3>Desktop-Verknüpfungen einfach gemacht mit MenuLibre</h3>
-	<text>
+	<h3 itemprop="headline">Desktop-Verknüpfungen einfach gemacht mit MenuLibre</h3>
+	<text itemprop="articleBody">
 		<p>Wer außer mir auch denkt, dass es jedes Mal eine Qual ist, 'Desktop-Entries' zu schreiben - einfach weil man es so selten macht und deswegen die benötigten Teile jedes Mal aufs neue vergessen hat und ergoogeln muss - der sollte sich <a href="https://launchpad.net/menulibre" target="_blank">MenuLibre</a> von Sean Davis genauer ansehen. Es ist kostenlos, über sein PPA erhältlich und macht die Menü-Bearbeitung zu einer wahren Freude.</p>
 		<img src="../images/articles/menulibre1.png" alt="MenuLibre in Lubuntu 13.04" height="800" width="1280">
 			<caption>MenuLibre in Lubuntu 13.04</caption>

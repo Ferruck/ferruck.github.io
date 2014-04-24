@@ -11,6 +11,12 @@
 	<link itemprop="url" href="http://philipp.feige-trommler.de/blog.xml" rel="canonical"/>
 	<title>Philipp Trommler - Blog</title>
 	<article itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
+		<time itemprop="datePublished" datetime="2014-04-24T21:05:00+02">Thu, 24 Apr 2014 21:05 +0200</time>
+		<h3 itemprop="headline">Die neuen GTK 3.12 Popover in Vala</h3>
+		<p itemprop="articleBody">Die neuen Popovers aus GTK 3.12 sollen die klassischen Menüs ersetzen, denn sie sehen besser aus und bilden ein konsistentes Design mit den Menüs der GNOME Shell. Zudem sind sie sehr flexibel: in ihnen können viele verschiedene Widgets platziert werden.</p>
+		<a itemprop="url" href="articles/gtk_3_12_popover_vala.xml" rel="prefetch">weiterlesen</a>
+	</article>
+	<article itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
 		<time itemprop="datePublished" datetime="2014-01-17T20:00:00+01">Fri, 17 Jan 2014 20:00 +0100</time>
 		<h3 itemprop="headline">Numix GTK 3 Flat Theme Light Review</h3>
 		<p itemprop="articleBody">Seit ein paar Tagen sind die neuen Flat-Themes von Numix im Software Center und auf deviantART als normale, helle und dunkle Version erhältlich. Ich habe mir die helle Version zugelegt und möchte hier kurz meine Meinung dazu abgeben.</p>

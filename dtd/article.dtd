@@ -1,6 +1,6 @@
 <!ELEMENT article (meta*, time, link, author, title, h3, text)>
 	<!ATTLIST article prefix CDATA #REQUIRED
-					  itemscope EMPTY #IMPLIED
+					  itemscope CDATA #IMPLIED
 					  itemtype CDATA #IMPLIED>
 	<!ELEMENT meta EMPTY>
 		<!ATTLIST meta property CDATA #REQUIRED

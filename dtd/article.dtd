@@ -21,7 +21,7 @@
 		<!ATTLIST h3 itemprop CDATA #IMPLIED>
 	<!ELEMENT text (p | img | h4 | code | ol)*>
 		<!ATTLIST text itemprop CDATA #IMPLIED> 
-		<!ELEMENT p (#PCDATA | inlinecode | a | b)*>
+		<!ELEMENT p (#PCDATA | inlinecode | a | b | ol)*>
 			<!ATTLIST p class CDATA #IMPLIED>
 			<!ELEMENT b (#PCDATA)>
 			<!ELEMENT inlinecode (#PCDATA)>

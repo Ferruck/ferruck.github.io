@@ -26,15 +26,21 @@
 	</url>
 	<url>
 		<loc>http://philipp.feige-trommler.de/about.html</loc>
-		<lastmod>2014-04-14</lastmod>
+		<lastmod>2014-04-24</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
 		<loc>http://philipp.feige-trommler.de/projects.html</loc>
-		<lastmod>2014-04-14</lastmod>
+		<lastmod>2014-04-24</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>http://philipp.feige-trommler.de/gstickit/</loc>
+		<lastmod>2013-12-01</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.4</priority>
 	</url>
 	<!-- Blogeinträge -->
 	<url>

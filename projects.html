@@ -17,34 +17,12 @@
 		<link rel="apple-touch-icon" href="images/apple-touch-icon.png"/>
 		<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png"/>
 		<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"/>
-		<link itemprop="url" href="http://philipp.feige-trommler.de/about.html" rel="canonical"/>
+		<link itemprop="url" href="http://philipp.feige-trommler.de/projects.html" rel="canonical"/>
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/jquery.lazyloadxt.extra.min.js"></script>
-		<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
-		<script>
-			function init() {
-				map = new OpenLayers.Map("firstMap", { controls: [new OpenLayers.Control.Attribution] });
-				var mapnik = new OpenLayers.Layer.OSM ();
-				map.addLayer(mapnik);
-				map.setCenter(new OpenLayers.LonLat(11.99, 51.35) // Center of the map
-					.transform(
-					new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-					new OpenLayers.Projection("EPSG:900913") // to Spherical Mercator Projection
-				), 12);
-				
-				map2 = new OpenLayers.Map("secondMap", { controls: [new OpenLayers.Control.Attribution] });
-				var mapnik = new OpenLayers.Layer.OSM ();
-				map2.addLayer(mapnik);
-				map2.setCenter(new OpenLayers.LonLat(11.98, 51.75) // Center of the map
-					.transform(
-					new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-					new OpenLayers.Projection("EPSG:900913") // to Spherical Mercator Projection
-				), 12);
-			}
-		</script>
 	</head>
 	<body onLoad="init ()">
 		<div class="container">
@@ -53,35 +31,12 @@
 				<div class="two-thirds column">
 					<h1 class="remove-bottom" style="margin-top: 40px">Philipp Trommler</h1>
 				</div>
-				<nav class="one-third column"><a href="index.html">Home</a> &#183; <a href="projects.html">Projekte</a> &#183; <a href="blog.xml">Blog</a> &#183; <a href="about.html"><h2>Über mich</h2></a></nav>
+				<nav class="one-third column"><a href="index.html">Home</a> &#183; <a href="projects.html"><h2>Projekte</h2></a> &#183; <a href="blog.xml">Blog</a> &#183; <a href="about.html">Über mich</a></nav>
 				<hr />
 			</header>
 			<main>
-				<h3>Lebenslauf</h3>
-				<blockquote>
-					<p>Es ist nicht genug, zu wissen, man muss auch anwenden. Es ist nicht genug, zu wollen, man muss auch tun.</p>
-					<cite><a href="http://de.wikiquote.org/wiki/Johann_Wolfgang_von_Goethe" target="_blank">Johann Wolfgang von Goethe</a></cite>
-				</blockquote>
+				<h3>Projekte</h3>
 				<p><b>Kommt bald!</b></p>
-<!--
-				<div class="one-third column">
-					<h4>Persönliche Angaben</h4>
-					<dl>
-						<dt>Geburtstag:</dt>
-						<dd><time datetime="1990-01-15" itemprop="birthDate">15.01.1990</time></dd>
-						<dt>Geburtsort:</dt>
-						<dd>Merseburg (Saale)</dd>
-					</dl>
-					<h4>Ausbildung</h4>
-						<h5>Schule</h5>
-						<dl>
-							<dt>1996-2000</dt>
-							<dd>Grundschule "Solidarität", Köthen</dd>
-						</dl>
-				</div>
-				<div class="two-thirds column" id="firstMap" style="height: 200px; margin: 3px;"></div><br class="clear"/>
-				<div class="one-third column" id="secondMap" style="height: 200px;"></div>
--->
 			</main>
 			<footer>
 				<div class="one-third column">

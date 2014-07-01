@@ -18,7 +18,6 @@
 	<meta property="article:publisher" content="philipp.trommler"/>
 	<meta property="fb:admins" content="philipp.trommler"/>
 	<meta property="fb:profile_id" content="philipp.trommler"/>
-	<meta itemprop="thumbnailUrl" property="og:image" content="http://philipp.feige-trommler.de/images/articles/popover1.png"/>
 	<meta itemprop="url" property="og:url" content="http://philipp.feige-trommler.de/articles/intel_cilk_gcc_4_9_linux.xml"/>
 	<meta itemprop="inLanguage" property="og:locale" content="de_DE"/>
 	<meta property="og:site_name" content="Philipp Trommler - Blog"/>

@@ -11,6 +11,12 @@
 	<link itemprop="url" href="http://philipp.feige-trommler.de/blog.xml" rel="canonical"/>
 	<title>Philipp Trommler - Blog</title>
 	<article itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
+		<time itemprop="datePublished" datetime="2014-07-01T09:05:13+02">Tue, 01 Jul 2014 09:05 +0200</time>
+		<h3 itemprop="headline">Intel® Cilk™ mit GCC 4.9 unter Linux</h3>
+		<p itemprop="articleBody">Mit der aktuellen (beziehungsweise in Ubuntu kommenden) Version 4.9 der GNU Compiler Collection GCC hält auch Intels® Multithreading Werkzeug Cilk™ Einzug in den C- und C++-Compiler.</p>
+		<a itemprop="url" href="articles/intel_cilk_gcc_4_9_linux.xml" rel="prefetch">weiterlesen</a>
+	</article>
+	<article itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
 		<time itemprop="datePublished" datetime="2014-04-24T21:05:00+02">Thu, 24 Apr 2014 21:05 +0200</time>
 		<h3 itemprop="headline">Die neuen GTK 3.12 Popover in Vala</h3>
 		<p itemprop="articleBody">Die neuen Popovers aus GTK 3.12 sollen die klassischen Menüs ersetzen, denn sie sehen besser aus und bilden ein konsistentes Design mit den Menüs der GNOME Shell. Zudem sind sie sehr flexibel: in ihnen können viele verschiedene Widgets platziert werden.</p>

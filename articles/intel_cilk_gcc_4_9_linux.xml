@@ -114,7 +114,7 @@ Time with Intel (R) Cilk (TM): 34 sec (CLOCKS_PER_SEC: 1000000)]]></code>
 		<p>Bis dahin: Wie sehen eure Ergebnisse mit Cilk™ aus? Übersehe ich nur etwas? Liegt es vielleicht an meinem alten Rechner und wie verhält es sich mit AMD Prozessoren? Schreibt einfach in die Kommentare!</p>
 		<h4>AMD Quad Core (Update)</h4>
 		<p>Ich habe gerade zum Vergleich das Programm auf meinem zweiten Rechner (AMD Athlon™ II X4 645 Processor × 4) kompiliert und ausgeführt, leider auch hier ähnliche Ergebnisse:</p>
-		<code lang )"bash"><![CDATA[$ > ./fibo 40
+		<code lang="bash"><![CDATA[$ > ./fibo 40
 Testing Intel (R) Cilk (TM) with Fibonacci (n = 40)
 102334155
 Time without Intel (R) Cilk (TM): 1 sec (CLOCKS_PER_SEC: 1000000)

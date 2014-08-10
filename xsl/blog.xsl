@@ -35,12 +35,10 @@
 			<body>
 				<div class="container">
 					<header>
-						<img src="images/header.jpg" alt="Background"/>
 						<div class="two-thirds column">
 							<h1 class="remove-bottom" style="margin-top: 40px">Philipp Trommler</h1>
 						</div>
 						<nav class="one-third column"><a href="index.html">Home</a> &#183; <a href="projects.html">Projekte</a> &#183; <a href="blog.xml"><h2>Blog</h2></a> &#183; <a href="about.html">Über mich</a></nav>
-						<hr />
 					</header>
 					<main>
 						<xsl:apply-templates select="//article"/>
@@ -56,7 +54,7 @@
 						</div>
 						<div class="one-third column">
 							Webseite erstellt mit <a href="http://www.getskeleton.com/" target="_blank">Skeleton</a>, <a href="https://jquery.org/" target="_blank">jQuery</a>, <a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html" target="_blank">2 Klicks für mehr Datenschutz</a>, <a href="http://highlightjs.org/" target="_blank">highlight.js</a> und <a href="http://www.graphicsfuel.com/2012/09/15-free-social-media-icons-psd-png/" target="_blank">Icons von Rafi</a>.<br />
-							Die Schriftarten <a href="http://www.fontsquirrel.com/license/ubuntu-mono" rel="license" target="_blank">'Ubuntu Mono'</a> und <a href="http://www.fontsquirrel.com/license/fira-sans" rel="license" target="_blank">'Fira Sans'</a> stehen unter der SIL Open Font License.
+							Die Schriftarten <a href="http://www.fontsquirrel.com/license/ubuntu-mono" rel="license" target="_blank">'Ubuntu Mono'</a> und <a href="http://www.fontsquirrel.com/license/fira-sans" rel="license" target="_blank">'Fira Sans'</a> stehen unter der SIL Open Font License, die <a href="https://github.com/numixproject/numix-icon-theme-circle/" rel="license" target="_blank">'Numix-Circle'</a>-Icons stehen unter GPLv3-Lizenz.
 						</div>
 						<div class="one-third column">
 							Alle Bilder und auf dieser Website stehen, soweit nicht anders angegeben, unter <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.de" target="_blank">CC-BY-SA 4.0 International Lizenz</a>. Dies gilt nicht für die Social-Media-Icons.<br/><br/>

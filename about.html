@@ -4,9 +4,9 @@
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="de" itemscope itemtype="http://schema.org/Person"> <!--<![endif]-->
 	<head>
 		<meta charset="utf-8"/>
-		<title itemprop="name">Philipp Trommler</title>
-		<meta name="author" content="Philipp Trommler"/>
-		<meta name="description" content="Die Webpräsenz des Informatikstudenten Philipp Trommler aus Dresden."/>
+		<title>Über mich - Philipp Trommler</title>
+		<meta itemprop="name" name="author" content="Philipp Trommler"/>
+		<meta name="description" content="Interessantes über und der Lebenslauf von Philipp Trommler."/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 		<link rel="stylesheet" href="stylesheets/base.css"/>
 		<link rel="stylesheet" href="stylesheets/skeleton.css"/>
@@ -23,28 +23,6 @@
 		<![endif]-->
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/jquery.lazyloadxt.extra.min.js"></script>
-		<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
-		<script>
-			function init() {
-				map = new OpenLayers.Map("firstMap", { controls: [new OpenLayers.Control.Attribution] });
-				var mapnik = new OpenLayers.Layer.OSM ();
-				map.addLayer(mapnik);
-				map.setCenter(new OpenLayers.LonLat(11.99, 51.35) // Center of the map
-					.transform(
-					new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-					new OpenLayers.Projection("EPSG:900913") // to Spherical Mercator Projection
-				), 12);
-				
-				map2 = new OpenLayers.Map("secondMap", { controls: [new OpenLayers.Control.Attribution] });
-				var mapnik = new OpenLayers.Layer.OSM ();
-				map2.addLayer(mapnik);
-				map2.setCenter(new OpenLayers.LonLat(11.98, 51.75) // Center of the map
-					.transform(
-					new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-					new OpenLayers.Projection("EPSG:900913") // to Spherical Mercator Projection
-				), 12);
-			}
-		</script>
 	</head>
 	<body onLoad="init ()">
 		<div class="container">
@@ -63,25 +41,6 @@
 					<cite><a href="http://de.wikiquote.org/wiki/Johann_Wolfgang_von_Goethe" target="_blank">Johann Wolfgang von Goethe</a></cite>
 				</blockquote>
 				<p><b>Kommt bald!</b></p>
-<!--
-				<div class="one-third column">
-					<h4>Persönliche Angaben</h4>
-					<dl>
-						<dt>Geburtstag:</dt>
-						<dd><time datetime="1990-01-15" itemprop="birthDate">15.01.1990</time></dd>
-						<dt>Geburtsort:</dt>
-						<dd>Merseburg (Saale)</dd>
-					</dl>
-					<h4>Ausbildung</h4>
-						<h5>Schule</h5>
-						<dl>
-							<dt>1996-2000</dt>
-							<dd>Grundschule "Solidarität", Köthen</dd>
-						</dl>
-				</div>
-				<div class="two-thirds column" id="firstMap" style="height: 200px; margin: 3px;"></div><br class="clear"/>
-				<div class="one-third column" id="secondMap" style="height: 200px;"></div>
--->
 			</main>
 			<footer>
 				<div class="one-third column">
@@ -94,7 +53,7 @@
 				</div>
 				<div class="one-third column">
 					Webseite erstellt mit <a href="http://www.getskeleton.com/" target="_blank">Skeleton</a>, <a href="https://jquery.org/" target="_blank">jQuery</a>, <a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html" target="_blank">2 Klicks für mehr Datenschutz</a>, <a href="http://highlightjs.org/" target="_blank">highlight.js</a> und <a href="http://www.graphicsfuel.com/2012/09/15-free-social-media-icons-psd-png/" target="_blank">Icons von Rafi</a>.<br />
-							Die Schriftarten <a href="http://www.fontsquirrel.com/license/ubuntu-mono" rel="license" target="_blank">'Ubuntu Mono'</a> und <a href="http://www.fontsquirrel.com/license/fira-sans" rel="license" target="_blank">'Fira Sans'</a> stehen unter der SIL Open Font License.
+					Die Schriftarten <a href="http://www.fontsquirrel.com/license/ubuntu-mono" rel="license" target="_blank">'Ubuntu Mono'</a> und <a href="http://www.fontsquirrel.com/license/fira-sans" rel="license" target="_blank">'Fira Sans'</a> stehen unter der SIL Open Font License, die <a href="https://github.com/numixproject/numix-icon-theme-circle/" rel="license" target="_blank">'Numix-Circle'</a>-Icons stehen unter GPLv3-Lizenz.
 				</div>
 				<div class="one-third column">
 					Alle Bilder und auf dieser Website stehen, soweit nicht anders angegeben, unter <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.de" target="_blank">CC-BY-SA 4.0 International Lizenz</a>. Dies gilt nicht für die Social-Media-Icons.<br/><br/>

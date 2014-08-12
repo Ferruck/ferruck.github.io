@@ -19,22 +19,22 @@
 				<link rel="stylesheet" href="../stylesheets/jquery.lazyloadxt.spinner.min.css"/>
 				<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css"/>
 				<link rel="alternate" type="application/rss+xml" title="RSS" href="http://philipp.feige-trommler.de/rss.xml"/> 
-				<link rel="apple-touch-icon" sizes="57x57" href="../images/apple-touch-icon-57x57.png"/>
-				<link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
-				<link rel="apple-touch-icon" sizes="76x76" href="../images/apple-touch-icon-76x76.png"/>
-				<link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
-				<link rel="apple-touch-icon" sizes="144x144" href="../images/apple-touch-icon-144x144.png"/>  
-				<link rel="apple-touch-icon" sizes="152x152" href="../images/apple-touch-icon-152x152.png"/>  
-				<link rel="apple-touch-icon-precomposed" href="http://philipp.feige-trommler.de/../images/apple-touch-icon-152x152.png"/>
-				<link rel="icon" type="image/png" href="../images/ico32.png"/>
-				<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico"/>
-				<!--[if IE]><link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../images/favicon.ico"/><![endif]-->
+				<link rel="apple-touch-icon" sizes="57x57" href="../apple-touch-icon-57x57.png"/>
+				<link rel="apple-touch-icon" sizes="72x72" href="../apple-touch-icon-72x72.png"/>
+				<link rel="apple-touch-icon" sizes="76x76" href="../apple-touch-icon-76x76.png"/>
+				<link rel="apple-touch-icon" sizes="114x114" href="../apple-touch-icon-114x114.png"/>
+				<link rel="apple-touch-icon" sizes="144x144" href="../apple-touch-icon-144x144.png"/>  
+				<link rel="apple-touch-icon" sizes="152x152" href="../apple-touch-icon-152x152.png"/>  
+				<link rel="apple-touch-icon-precomposed" href="http://philipp.feige-trommler.de/../apple-touch-icon-152x152.png"/>
+				<link rel="icon" type="image/png" href="../ico32.png"/>
+				<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"/>
+				<!--[if IE]><link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../favicon.ico"/><![endif]-->
 				<meta name="application-name" content=" "/>
 				<meta name="msapplication-TileColor" content="#cddc39"/>
-				<meta name="msapplication-square70x70logo" content="../images/tiny.png"/>
-				<meta name="msapplication-square150x150logo" content="../images/square.png"/>
-				<meta name="msapplication-wide310x150logo" content="../images/wide.png"/>
-				<meta name="msapplication-square310x310logo" content="../images/large.png"/>
+				<meta name="msapplication-square70x70logo" content="../tiny.png"/>
+				<meta name="msapplication-square150x150logo" content="../square.png"/>
+				<meta name="msapplication-wide310x150logo" content="../wide.png"/>
+				<meta name="msapplication-square310x310logo" content="../large.png"/>
 				<meta name="msapplication-notification" content="frequency=30;polling-uri=http://notifications.buildmypinnedsite.com/?feed=http://philipp.feige-trommler.de/rss.xml&amp;id=1;polling-uri2=http://notifications.buildmypinnedsite.com/?feed=http://philipp.feige-trommler.de/rss.xml&amp;id=2;polling-uri3=http://notifications.buildmypinnedsite.com/?feed=http://philipp.feige-trommler.de/rss.xml&amp;id=3;polling-uri4=http://notifications.buildmypinnedsite.com/?feed=http://philipp.feige-trommler.de/rss.xml&amp;id=4;polling-uri5=http://notifications.buildmypinnedsite.com/?feed=http://philipp.feige-trommler.de/rss.xml&amp;id=5; cycle=1"/>
 				<link rel="canonical"><xsl:attribute name="href"><xsl:value-of select="link/@href"/></xsl:attribute></link>
 				<!--[if lt IE 9]>

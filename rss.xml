@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+	<channel>
+		<title>Philipp Trommlers Blog</title>
+		<link>http://philipp.feige-trommler.de/blog.xml</link>
+		<description>Themen rund um Technik, Programmierung, Linux, Vala und C++.</description>
+		<language>de-de</language>
+		<copyright>2014 Philipp Trommler</copyright>
+		<pubDate>Tue, 12 Aug 2014 11:52 +0200</pubDate>
+		<lastBuildDate>Tue, 12 Aug 2014 11:52 +0200</lastBuildDate>
+		<managingEditor>ph.trommler@gmail.com</managingEditor>
+		<webMaster>ph.trommler@gmail.com</webMaster>
+		<image>
+			<title>Philipp Trommlers Blog</title>
+			<url>http://philipp.feige-trommler.de/images/touch-icon-iphone-retina.png</url>
+			<link>http://philipp.feige-trommler.de/blog.xml</link>
+		</image>
+		<!-- Begin feed -->
+		<!--
+		<item>
+			<title></title>
+			<link>http://philipp.feige-trommler.de/articles/</link>
+			<guid>http://philipp.feige-trommler.de/articles/</guid>
+			<pubDate></pubDate>
+			<description></description>
+		</item>
+		-->
+		<item>
+			<title>Intel® Cilk™ mit GCC 4.9 unter Linux</title>
+			<link>http://philipp.feige-trommler.de/articles/intel_cilk_gcc_4_9_linux.xml</link>
+			<guid>http://philipp.feige-trommler.de/articles/intel_cilk_gcc_4_9_linux.xml</guid>
+			<pubDate>Tue, 1 Jul 2014 09:05 +0200</pubDate>
+			<description>Mit der aktuellen (beziehungsweise in Ubuntu kommenden) Version 4.9 der GNU Compiler Collection GCC hält auch Intels® Multithreading Werkzeug Cilk™ Einzug in den C- und C++-Compiler.</description>
+		</item>
+		<item>
+			<title>Die neuen GTK 3.12 Popover in Vala</title>
+			<link>http://philipp.feige-trommler.de/articles/gtk_3_12_popover_vala.xml</link>
+			<guid>http://philipp.feige-trommler.de/articles/gtk_3_12_popover_vala.xml</guid>
+			<pubDate>Thu, 24 Apr 2014 21:05 +0200</pubDate>
+			<description>Die neuen Popovers aus GTK 3.12 sollen die klassischen Menüs ersetzen, denn sie sehen besser aus und bilden ein konsistentes Design mit den Menüs der GNOME Shell. Zudem sind sie sehr flexibel: in ihnen können viele verschiedene Widgets platziert werden.</description>
+		</item>
+		<item>
+			<title>Numix GTK 3 Flat Theme Light Review</title>
+			<link>http://philipp.feige-trommler.de/articles/numix_gtk_flat_theme_review.xml</link>
+			<guid>http://philipp.feige-trommler.de/articles/numix_gtk_flat_theme_review.xml</guid>
+			<pubDate>Fri, 17 Jan 2014 20:00 +0100</pubDate>
+			<description>Seit ein paar Tagen sind die neuen Flat-Themes von Numix im Software Center und auf deviantART als normale, helle und dunkle Version erhältlich. Ich habe mir die helle Version zugelegt und möchte hier kurz meine Meinung dazu abgeben.</description>
+		</item>
+		<item>
+			<title>Die neue GTK 3.10 HeaderBar in Vala</title>
+			<link>http://philipp.feige-trommler.de/articles/gtk_3_10_headerbar_vala.xml</link>
+			<guid>http://philipp.feige-trommler.de/articles/gtk_3_10_headerbar_vala.xml</guid>
+			<pubDate>Sat, 21 Dec 2013 23:44 +0100</pubDate>
+			<description>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.</description>
+		</item>
+		<item>
+			<title>Desktop-Verknüpfungen einfach gemacht mit MenuLibre</title>
+			<link>http://philipp.feige-trommler.de/articles/desktop_verknupfungen_einfach_menulibre.xml</link>
+			<guid>http://philipp.feige-trommler.de/articles/desktop_verknupfungen_einfach_menulibre.xml</guid>
+			<pubDate>Wed, 08 May 2013 07:08 +0200</pubDate>
+			<description>Wer außer mir auch denkt, dass es jedes Mal eine Qual ist, 'Desktop-Entries' zu schreiben - einfach weil man es so selten macht und deswegen die benötigten Teile jedes Mal aufs neue vergessen hat und ergoogeln muss - der sollte sich MenuLibre von Sean Davis genauer ansehen.</description>
+		</item>
+	</channel>
+</rss>

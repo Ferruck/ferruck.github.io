@@ -303,6 +303,7 @@ footer ul li a {
 	display: inline-block;
 	height: 72px;
 	width: 72px;
+	background-size: 72px 72px;
 }
 
 a.rss {

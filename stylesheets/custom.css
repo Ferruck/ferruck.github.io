@@ -321,6 +321,42 @@ a.youtube {
 	background-image: url('../images/youtube.png');
 }
 
+/* Social icons high res */
+@media screen and (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+	a.rss {
+		background-image: url('../images/rssx15.png');
+	}
+	
+	a.facebook {
+		background-image: url('../images/facebookx15.png');
+	}
+	
+	a.googleplus {
+		background-image: url('../images/googleplusx15.png');
+	}
+	
+	a.youtube {
+		background-image: url('../images/youtubex15.png');
+	}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	a.rss {
+		background-image: url('../images/rssx2.png');
+	}
+	
+	a.facebook {
+		background-image: url('../images/facebookx2.png');
+	}
+	
+	a.googleplus {
+		background-image: url('../images/googleplusx2.png');
+	}
+	
+	a.youtube {
+		background-image: url('../images/youtubex2.png');
+	}
+}
 
 /* Extras for mobile portrait view */
 @media only screen and (max-width: 767px) {

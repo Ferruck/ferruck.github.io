@@ -28,7 +28,7 @@
 	<link rel="icon" type="image/png" href="images/ico32.png"/>
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
 	<!--[if IE]><link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/favicon.ico"/><![endif]-->
-	<meta name="application-name" content="&nbsp;"/>
+	<meta name="application-name" content=" "/>
 	<meta name="msapplication-TileColor" content="#cddc39"/>
 	<meta name="msapplication-square70x70logo" content="images/tiny.png"/>
 	<meta name="msapplication-square150x150logo" content="images/square.png"/>

@@ -94,6 +94,7 @@
 				</script>
 			</head>
 			<body>
+				<script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 				<div class="container">
 					<header>
 						<div class="two-thirds column">
@@ -147,6 +148,11 @@
 	</xsl:template>
 	
 	<xsl:template match="h4">
+		<!-- Artikel -->
+		<ins class="adsbygoogle artikel" style="display:inline-block" data-ad-client="ca-pub-3606679938871797" data-ad-slot="2519001262"></ins>
+		<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
 		<h4><xsl:value-of select="."/></h4>
 	</xsl:template>
 	

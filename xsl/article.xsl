@@ -42,7 +42,7 @@
 				<![endif]-->
 				<script type="text/javascript" src="../js/jquery.js"></script>
 				<script type="text/javascript" src="../js/jquery.lazyloadxt.extra.min.js"></script>
-				<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js"></script>
+				<script type="text/javascript" src="../js/highlight.pack.js"></script>
 				<script type="text/javascript" src="../js/jquery.socialshareprivacy.js"></script>
 				<script type="text/javascript">
 					function showDisqus () {

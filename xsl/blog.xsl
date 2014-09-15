@@ -57,6 +57,14 @@
 					</header>
 					<main>
 						<xsl:apply-templates select="//article"/>
+						<article class="one-third column">
+							<script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<!-- Standard -->
+							<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3606679938871797" data-ad-slot="3602441669" data-ad-format="auto"></ins>
+							<script>
+								(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
+						</article>
 					</main>
 					<footer>
 						<div class="one-third column">

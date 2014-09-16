@@ -38,11 +38,13 @@
 					<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 				<![endif]-->
 				<script type="text/javascript" src="js/jquery.js"></script>
+				<script type="text/javascript" src="js/cookiechoices.js"></script>
 				<script type="text/javascript">
 					jQuery(document).ready(function($){
 						$('.date-author').each(function(i) {
 							var d = new Date($(this).text());
 							$(this).html(d.toLocaleString ());
+							cookieChoices.showCookieConsentBar('Werbetreibende und Anbieter von Social-Media-Plugins speichern eventuell Cookies über diese Website auf Ihrem Computer. Wenn Sie dies nicht wünschen, sollten Sie diese Website jetzt verlassen.', 'Schließen', 'Mehr Informationen', 'http://philipp.feige-trommler.de/daten.html');
 						}
 					)});
 				</script>
@@ -58,11 +60,14 @@
 					<main>
 						<xsl:apply-templates select="//article"/>
 						<article class="one-third column">
+							<span class="adsense">Werbung</span>
 							<script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 							<!-- Standard -->
 							<ins class="adsbygoogle standard" style="display:inline-block" data-ad-client="ca-pub-3606679938871797" data-ad-slot="3602441669"></ins>
 							<script>
-								(adsbygoogle = window.adsbygoogle || []).push({});
+								if (document.cookie.match(new RegExp('displayCookieConsent' + '=([^;]+)'))) {
+									(adsbygoogle = window.adsbygoogle || []).push({});
+								}
 							</script>
 						</article>
 					</main>
@@ -77,7 +82,7 @@
 						</div>
 						<div class="one-third column">
 							Webseite erstellt mit <a href="http://www.getskeleton.com/" target="_blank">Skeleton</a>, <a href="https://jquery.org/" target="_blank">jQuery</a>, <a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html" target="_blank">2 Klicks für mehr Datenschutz</a>, <a href="http://highlightjs.org/" target="_blank">highlight.js</a> und <a href="http://www.graphicsfuel.com/2012/09/15-free-social-media-icons-psd-png/" target="_blank">Icons von Rafi</a>.<br />
-							Die Schriftarten <a href="http://www.fontsquirrel.com/license/ubuntu-mono" rel="license" target="_blank">'Ubuntu Mono'</a> und <a href="http://www.fontsquirrel.com/license/fira-sans" rel="license" target="_blank">'Fira Sans'</a> stehen unter der SIL Open Font License, die <a href="https://github.com/numixproject/numix-icon-theme-circle/" rel="license" target="_blank">'Numix-Circle'</a>-Icons stehen unter GPLv3-Lizenz.
+							Die Schriftarten <a href="http://www.fontsquirrel.com/license/ubuntu-mono" rel="license" target="_blank">'Ubuntu Mono'</a> und <a href="http://www.fontsquirrel.com/license/fira-sans" rel="license" target="_blank">'Fira Sans'</a> stehen unter der SIL Open Font License, die <a href="http://socicon.com/" target="_blank">'Socicon'</a>-Social-Media-Icons ebenfalls.
 						</div>
 						<div class="one-third column">
 							Alle Bilder und auf dieser Website stehen, soweit nicht anders angegeben, unter <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.de" target="_blank">CC-BY-SA 4.0 International Lizenz</a>. Dies gilt nicht für die Social-Media-Icons.<br/><br/>

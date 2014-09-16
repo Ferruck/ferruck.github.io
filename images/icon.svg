@@ -14,9 +14,9 @@
    width="100%"
    height="100%"
    sodipodi:docname="icon.svg"
-   inkscape:export-filename="/home/philipp/Programme/Blog/images/favicon.ico.png"
-   inkscape:export-xdpi="30"
-   inkscape:export-ydpi="30">
+   inkscape:export-filename="/home/philipp/Programme/Blog/ico32.png"
+   inkscape:export-xdpi="60"
+   inkscape:export-ydpi="60">
   <metadata
      id="metadata6172">
     <rdf:RDF>
@@ -38,17 +38,17 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1280"
-     inkscape:window-height="739"
+     inkscape:window-width="1440"
+     inkscape:window-height="865"
      id="namedview6170"
      showgrid="false"
-     inkscape:zoom="10.729167"
-     inkscape:cx="24"
-     inkscape:cy="24"
-     inkscape:window-x="0"
-     inkscape:window-y="26"
+     inkscape:zoom="7.0729167"
+     inkscape:cx="12.538088"
+     inkscape:cy="16.469425"
+     inkscape:window-x="1680"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g6150" />
+     inkscape:current-layer="svg6095" />
   <defs
      id="defs6097">
     <linearGradient
@@ -93,123 +93,7 @@
     </clipPath>
   </defs>
   <g
-     id="g6114">
-    <g
-       transform="translate(0,-1004.3622)"
-       id="g6116">
-      <path
-         d="m 25 1006.36 c -12.703 0 -23 10.298 -23 23 0 6.367 2.601 12.12 6.781 16.281 4.085 3.712 9.514 5.969 15.469 5.969 12.703 0 23 -10.297 23 -23 0 -5.954 -2.256 -11.384 -5.969 -15.469 -4.165 -4.181 -9.914 -6.781 -16.281 -6.781 z m 16.281 6.781 c 3.854 4.113 6.219 9.637 6.219 15.719 0 12.703 -10.297 23 -23 23 -6.081 0 -11.606 -2.364 -15.719 -6.219 4.16 4.144 9.883 6.719 16.219 6.719 12.703 0 23 -10.297 23 -23 0 -6.335 -2.575 -12.06 -6.719 -16.219 z"
-         opacity="0.05"
-         id="path6118" />
-      <path
-         d="m 41.28 1013.14 c 3.712 4.085 5.969 9.514 5.969 15.469 0 12.703 -10.297 23 -23 23 -5.954 0 -11.384 -2.256 -15.469 -5.969 4.113 3.854 9.637 6.219 15.719 6.219 12.703 0 23 -10.297 23 -23 0 -6.081 -2.364 -11.606 -6.219 -15.719 z"
-         opacity="0.1"
-         id="path6120" />
-      <path
-         transform="matrix(15.333333,0,0,11.5,415.24999,879.11222)"
-         d="m -24 13 a 1.5 2 0 1 1 -3 0 1.5 2 0 1 1 3 0 z"
-         opacity="0.2"
-         id="path6122" />
-    </g>
-  </g>
-  <g
-     id="g6124">
-    <path
-       d="m 24 1 c 12.703 0 23 10.297 23 23 c 0 12.703 -10.297 23 -23 23 -12.703 0 -23 -10.297 -23 -23 0 -12.703 10.297 -23 23 -23 z"
-       fill="url(#linearGradient3764)"
-       fill-opacity="1"
-       id="path6126" />
-  </g>
-  <g
      id="g6128" />
-  <g
-     id="g6130">
-    <g
-       clip-path="url(#clipPath-556079698)"
-       id="g6132">
-      <g
-         transform="translate(0,1)"
-         id="g6134">
-        <g
-           opacity="0.1"
-           id="g6136">
-          <!-- color: #d93f3f -->
-          <g
-             id="g6138">
-            <path
-               d="m 24 24 m 0 0"
-               stroke-opacity="1"
-               fill="#000"
-               stroke="#000"
-               stroke-linejoin="miter"
-               stroke-linecap="butt"
-               stroke-width="0.999"
-               stroke-miterlimit="4"
-               id="path6140" />
-            <path
-               d="m 12 28.363 c 0 0 0 5.453 6 5.453 l 12 0 c 6 0 6 -5.453 6 -5.453 l 0 -10.91 c 0 -5.453 -6 -5.453 -6 -5.453 l -12 0 c -6 0 -6 5.453 -6 5.453 m 0 10.91"
-               fill="#000"
-               stroke="none"
-               fill-rule="nonzero"
-               fill-opacity="1"
-               id="path6142" />
-            <path
-               d="m 30 36 c 6 0 6 -7.637 6 -7.637 c 0 0 0 5.453 -6 5.453 l -12 0 c -6 0 -6 -5.453 -6 -5.453 c 0 0 0 7.637 6 7.637 m 12 0"
-               fill="#000"
-               stroke="none"
-               fill-rule="nonzero"
-               fill-opacity="1"
-               id="path6144" />
-            <path
-               d="m 23.898 27.867 l -1.285 -3.125 l -4.133 0 l -1.27 3.125 l -1.211 0 l 4.074 -9.867 l 1.012 0 l 4.055 9.867 l -1.242 0 m -1.656 -4.156 l -1.199 -3.043 c -0.156 -0.387 -0.316 -0.859 -0.48 -1.418 c -0.105 0.43 -0.25 0.902 -0.445 1.418 l -1.211 3.043 l 3.336 0"
-               fill="#000"
-               stroke="none"
-               fill-rule="nonzero"
-               fill-opacity="1"
-               id="path6146" />
-            <path
-               d="m 31.13 27.867 l -0.234 -1.051 l -0.055 0 c -0.387 0.461 -0.77 0.777 -1.156 0.941 c -0.383 0.16 -0.859 0.242 -1.434 0.242 c -0.766 0 -1.367 -0.188 -1.805 -0.566 c -0.43 -0.375 -0.648 -0.91 -0.648 -1.605 c 0 -1.484 1.25 -2.266 3.746 -2.336 l 1.313 -0.043 l 0 -0.457 c 0 -0.578 -0.133 -1 -0.398 -1.277 c -0.258 -0.277 -0.672 -0.414 -1.246 -0.414 c -0.645 0 -1.371 0.188 -2.188 0.563 l -0.359 -0.852 c 0.383 -0.199 0.797 -0.352 1.25 -0.465 c 0.457 -0.113 0.91 -0.168 1.367 -0.168 c 0.922 0 1.602 0.195 2.047 0.586 c 0.445 0.387 0.668 1.012 0.668 1.875 l 0 5.03 l -0.867 0 m -2.645 -0.789 c 0.73 0 1.301 -0.188 1.715 -0.57 c 0.418 -0.379 0.625 -0.914 0.625 -1.598 l 0 -0.668 l -1.168 0.047 c -0.934 0.031 -1.605 0.172 -2.02 0.418 c -0.406 0.242 -0.613 0.621 -0.613 1.137 c 0 0.402 0.129 0.711 0.383 0.918 c 0.258 0.211 0.617 0.316 1.078 0.316"
-               fill="#000"
-               stroke="none"
-               fill-rule="nonzero"
-               fill-opacity="1"
-               id="path6148" />
-          </g>
-        </g>
-      </g>
-    </g>
-  </g>
-  <g
-     id="g6150">
-    <path
-       d="m 24,24 m 0,0"
-       stroke-miterlimit="4"
-       id="path6156"
-       inkscape:connector-curvature="0"
-       style="fill:none;stroke:#000000;stroke-width:0.99900001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
-    <path
-       d="m 12,28.363 c 0,0 0,5.453 6,5.453 l 12,0 c 6,0 6,-5.453 6,-5.453 l 0,-10.91 C 36,12 30,12 30,12 l -12,0 c -6,0 -6,5.453 -6,5.453 m 0,10.91"
-       id="path6158"
-       inkscape:connector-curvature="0"
-       style="fill:#f9f9f9;fill-opacity:1;fill-rule:nonzero;stroke:none" />
-    <path
-       d="m 30,36 c 6,0 6,-7.637 6,-7.637 0,0 0,5.453 -6,5.453 l -12,0 c -6,0 -6,-5.453 -6,-5.453 0,0 0,7.637 6,7.637 m 12,0"
-       id="path6160"
-       inkscape:connector-curvature="0"
-       style="fill:#dcdcdc;fill-opacity:1;fill-rule:nonzero;stroke:none" />
-    <text
-       xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#868686;fill-opacity:1;stroke:none;font-family:Sawasdee;-inkscape-font-specification:Sawasdee;font-stretch:normal;font-variant:normal"
-       x="16.776697"
-       y="28.011652"
-       id="text6185"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan6187"
-         x="16.776697"
-         y="28.011652"
-         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#868686;fill-opacity:1;font-family:Sawasdee;-inkscape-font-specification:Sawasdee">pt</tspan></text>
-  </g>
   <g
      id="g6166">
     <path
@@ -217,4 +101,35 @@
        opacity="0.1"
        id="path6168" />
   </g>
+  <path
+     transform="matrix(0.96687264,0,0,0.96500247,1.5,1.4999981)"
+     d="m 48.093201,24.093204 a 24.0466,24.093203 0 1 1 -48.093201,0 24.0466,24.093203 0 1 1 48.093201,0 z"
+     sodipodi:ry="24.093203"
+     sodipodi:rx="24.0466"
+     sodipodi:cy="24.093204"
+     sodipodi:cx="24.0466"
+     id="path3786"
+     style="fill:#607d8b;fill-opacity:1;stroke:none"
+     sodipodi:type="arc" />
+  <path
+     sodipodi:type="arc"
+     style="fill:#eceff1;fill-opacity:1;stroke:#e51c23;stroke-opacity:1"
+     id="path3016"
+     sodipodi:cx="24.0466"
+     sodipodi:cy="24.093204"
+     sodipodi:rx="24.0466"
+     sodipodi:ry="24.093203"
+     d="m 48.093201,24.093204 a 24.0466,24.093203 0 1 1 -48.093201,0 24.0466,24.093203 0 1 1 48.093201,0 z"
+     transform="matrix(0.93701177,0,0,0.93519935,1.4680525,1.4680506)" />
+  <text
+     xml:space="preserve"
+     style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#e51c23;fill-opacity:1;stroke:none;font-family:Sawasdee;-inkscape-font-specification:Sawasdee"
+     x="4.3172483"
+     y="30.25626"
+     id="text3788"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3790"
+       x="4.3172483"
+       y="30.25626">ph.t</tspan></text>
 </svg>

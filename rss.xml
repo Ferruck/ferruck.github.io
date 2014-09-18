@@ -30,7 +30,7 @@
 			<title>Intel® Cilk™ mit GCC 4.9 unter Linux</title>
 			<link>http://philipp.feige-trommler.de/articles/intel_cilk_gcc_4_9_linux.xml</link>
 			<guid>http://philipp.feige-trommler.de/articles/intel_cilk_gcc_4_9_linux.xml</guid>
-			<pubDate>Tue, 1 Jul 2014 09:05 +0200</pubDate>
+			<pubDate>Tue, 01 Jul 2014 09:05 +0200</pubDate>
 			<description>Mit der aktuellen (beziehungsweise in Ubuntu kommenden) Version 4.9 der GNU Compiler Collection GCC hält auch Intels® Multithreading Werkzeug Cilk™ Einzug in den C- und C++-Compiler.</description>
 		</item>
 		<item>

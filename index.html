@@ -1,99 +1,403 @@
-<!--[if lt IE 7 ]><html class="ie ie6" lang="de"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="de"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="de"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="de" itemscope itemtype="http://schema.org/Person"> <!--<![endif]-->
+<!DOCTYPE html>
+<html lang="de" prefix="og: http://ogp.me/ns#, article: http://ogp.me/ns/article#">
 	<head>
-		<meta charset="utf-8"/>
-		<title itemprop="name">Philipp Trommler</title>
-		<meta name="author" content="Philipp Trommler"/>
-		<meta name="description" content="Die Webpräsenz des Informatik- und Forstwissenschaftsstudenten Philipp Trommler aus Dresden."/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-		<link rel="stylesheet" href="stylesheets/base.css"/>
-		<link rel="stylesheet" href="stylesheets/skeleton.css"/>
-		<link rel="stylesheet" href="stylesheets/layout.css"/>
-		<link rel="stylesheet" href="stylesheets/custom.css"/>
-		<link rel="stylesheet" href="stylesheets/jquery.lazyloadxt.spinner.min.css"/>
-		<link rel="alternate" type="application/rss+xml" title="RSS" href="http://philipp.feige-trommler.de/rss.xml"/> 
-		<link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png"/>
-		<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png"/>
-		<link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png"/>
-		<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png"/>
-		<link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png"/>  
-		<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png"/>  
-		<link rel="apple-touch-icon-precomposed" href="http://philipp.feige-trommler.de/apple-touch-icon-152x152.png"/>
-		<link rel="icon" type="image/png" href="ico32.png"/>
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
-		<!--[if IE]><link rel="shortcut icon" type="image/vnd.microsoft.icon" href="favicon.ico"/><![endif]-->
-		<meta name="application-name" content="&nbsp;"/>
-		<meta name="msapplication-TileColor" content="#cddc39"/>
-		<meta name="msapplication-square70x70logo" content="tiny.png"/>
-		<meta name="msapplication-square150x150logo" content="square.png"/>
-		<meta name="msapplication-wide310x150logo" content="wide.png"/>
-		<meta name="msapplication-square310x310logo" content="large.png"/>
-		<meta name="msapplication-notification" content="frequency=30;polling-uri=http://notifications.buildmypinnedsite.com/?feed=http://philipp.feige-trommler.de/rss.xml&amp;id=1;polling-uri2=http://notifications.buildmypinnedsite.com/?feed=http://philipp.feige-trommler.de/rss.xml&amp;id=2;polling-uri3=http://notifications.buildmypinnedsite.com/?feed=http://philipp.feige-trommler.de/rss.xml&amp;id=3;polling-uri4=http://notifications.buildmypinnedsite.com/?feed=http://philipp.feige-trommler.de/rss.xml&amp;id=4;polling-uri5=http://notifications.buildmypinnedsite.com/?feed=http://philipp.feige-trommler.de/rss.xml&amp;id=5; cycle=1"/>
-		<link itemprop="url" href="http://philipp.feige-trommler.de/" rel="canonical"/>
-		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/jquery.lazyloadxt.extra.min.js"></script>
-	</head>
-	<body>
-		<div class="container">
-			<header>
-				<div class="two-thirds column">
-					<h1 class="remove-bottom" style="margin-top: 40px">Philipp Trommler</h1>
-				</div>
-				<nav class="one-third column"><a href="index.html"><h2>Home</h2></a> &#183; <a href="projects.html">Projekte</a> &#183; <a href="blog.xml">Blog</a> &#183; <a href="about.html">Über mich</a></nav>
-			</header>
-			<main>
-				<div class="two-thirds column">
-					<h3>Aktuell</h3>
-					<p>Zur Zeit arbeite ich &ndash; neben dem Studium &ndash; vor allem an meiner RSS-App für Firefox OS "Feed the Reader" und an meinem Programm zur Anzeige und Erstellung von Stickvorlagen unter Linux "GStickIt".<br/>
-					Im Blog wird demnächst ein Artikel zur Realisierung von typischen SEO-Maßnahmen in XML-Dokumenten erscheinen &ndash; aus gegebenen Anlass, denn der Blog wurde mit XML und XSLT erstellt.</p>
-					<figure>
-						<img class="lazy scale-with-grid" data-src="images/index/gstickit.png" height="52" width="548" alt="RAL-Farben in GStickIt">
-						<noscript><img class="scale-width-grid" src="images/index/gstickit.png" height="52" width="548" alt="RAL-Farben in GStickIt"></noscript>
-						<figcaption>GStickit unterstützt bisher nur RAL-Farben, die Paletten der Garnhersteller sollen noch folgen.</figcaption>
-					</figure>
-				</div>
-				<div class="one-third column">
-					<h3>Was gibt es hier?</h3>
-					<p>Apps für Firefox OS, Programme für Linux, Hardwarebasteleien und vieles mehr gibt es bei den <a href="projects.html">Projekten</a> zu sehen.</p>
-					<p>Technik, Programmierung, Linux aber auch Forst und Umwelt, über all das finden Sie Artikel in meinem <a href="blog.xml">Blog</a>.</p>
-					<p>Informationen zu meinem bisherigen Leben und zu meinen Qualifikationen/Referenzen finden Sie im Bereich <a href="about.html">Über mich</a>.</p>
-				</div>
-				<br class="clear"/>
-				<div class="one-third column">
-					<h3>Wo findet man mich noch?</h3>
-					<p>Meinen Code findet man, ebenso wie diese Website, auf <a href="https://github.com/Ferruck" target="_blank">GitHub</a>. Weitere Informationen über meine Programme sind zudem über <a href="http://www.ohloh.net/accounts/Ferruck" target="_blank">ohloh.net</a> erhältlich.</p>
-					<p>Auch auf <a href="https://plus.google.com/+PhilippTrommler" target="_blank">Google+</a> und <a href="https://www.facebook.com/philipp.trommler" target="_blank">Facebook</a> treibe ich mich herum, nur Twitter hat mich noch nicht gefangen&hellip;<br/></p>
-				</div>
-				<div class="two-thirds column">
-					<h3>Ubuntu 14.04 Update Probleme</h3>
-					<p>Bei meinem heutigen Update von Ubuntu auf die Version 14.04 kam es zu Problemen: Während der Aktualisierung beendete sich der XServer und ließ sich auch nicht neu starten. Kurze Zeit später lief auch die Aktualisierung nicht mehr weiter (zumindest zeigte die Festplattenkontrollleuchte nichts mehr an).<br/>
-					Wem es wie mir ergeht, dem kann geholfen werden: Zuerst den PC neu starten und nach dem Splashscreen <kbd>Shift</kbd> halten, um in die GRUB-Auswahl zu kommen. Hier den Wiederherstellungsmodus unter erweiterte Optionen wählen und in ebendiesem Continue. Nachdem sich auf der Konsole nichts mehr ändert, mit <kbd>Strg</kbd>+<kbd>Alt</kbd>+<kbd>F6</kbd> in ein anderes Terminal wechseln.<br/>
-					Dort kann mit <pre class="inline">sudo apt-get dist-upgrade -f</pre> das Update fortgesetzt werden. Sollte es erneut zu Fehlern kommen, einfach den Befehl noch mal wiederholen, so hat es zumindest bei mir funktioniert. Viel Erfolg!</p>
-				</div>
-			</main>
-			<footer>
-				<div class="one-third column">
-					<ul>
-						<li><a href="http://philipp.feige-trommler.de/rss.xml" class="rss"></a></li>
-						<li><a href="https://www.facebook.com/philipp.trommler" target="_blank" class="facebook"></a></li>
-						<li><a href="https://plus.google.com/+PhilippTrommler" target="_blank" class="googleplus" rel="author"></a></li>
-						<li><a href="http://www.youtube.com/channel/UCGG3f6yZH4gndb1HXRCqipw" target="_blank" class="youtube"></a></li>
-					</ul>
-				</div>
-				<div class="one-third column">
-					Webseite erstellt mit <a href="http://www.getskeleton.com/" target="_blank">Skeleton</a>, <a href="https://jquery.org/" target="_blank">jQuery</a>, <a href="http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html" target="_blank">2 Klicks für mehr Datenschutz</a>, <a href="http://highlightjs.org/" target="_blank">highlight.js</a> und <a href="http://www.graphicsfuel.com/2012/09/15-free-social-media-icons-psd-png/" target="_blank">Icons von Rafi</a>.<br />
-					Die Schriftarten <a href="http://www.fontsquirrel.com/license/ubuntu-mono" rel="license" target="_blank">'Ubuntu Mono'</a> und <a href="http://www.fontsquirrel.com/license/fira-sans" rel="license" target="_blank">'Fira Sans'</a> stehen unter der SIL Open Font License, die <a href="http://socicon.com/" target="_blank">'Socicon'</a>-Social-Media-Icons ebenfalls.
-				</div>
-				<div class="one-third column">
-					Alle Bilder und auf dieser Website stehen, soweit nicht anders angegeben, unter <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.de" target="_blank">CC-BY-SA 4.0 International Lizenz</a>. Dies gilt nicht für die Social-Media-Icons.<br/><br/>
-					&#169; 2014 Philipp Trommler, zum <a href="impressum.html">Impressum</a> und der <a href="daten.html">Datenschutzerklärung</a>.
-				</div>
-			</footer>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <title>Philipp Trommler</title>
+    
+    <meta property="og:type" content="website">
+    
+    <meta name="description" property="og:description" content="Informatiker und Forstwissenschaftler, immer auf der Suche nach neuen Herausforderungen und für Auftragsarbeiten zu haben.
+">
+    <meta property="og:url" content="http://philipp-trommler.me/">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="alternate" type="application/rss+xml" href="http://philipp-trommler.me/feed.xml">
+    <link rel="canonical" href="http://philipp-trommler.me/">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png"/>
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png"/>
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png"/>
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png"/>
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png"/>  
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png"/>  
+	<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-152x152.png"/>
+	<link rel="icon" type="image/png" href="/ico32.png"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+	<!--[if IE]><link rel="shortcut icon" type="image/vnd.microsoft.icon" href="favicon.ico"/><![endif]-->
+</head>
+
+	<body itemscope itemtype="http://schema.org/Blog">
+	<header class="site-header">
+  <div class="wrapper">
+    <a class="site-title" href="/">Philipp Trommler</a>
+
+  </div>
+</header>
+
+	<div class="page-content">
+		<div class="wrapper">
+		<div class="home">
+  <h1>Beiträge</h1>
+  <ul class="post-list">
+    
+      <li itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+        <span class="post-meta">
+
+
+10.  
+
+  
+
+März  
+     
+
+2015
+
+</span>
+        <h2>
+          <a class="post-link" href="/2015/03/10/das-ende-des-xml-experiments.html"><span itemprop="headline">Das Ende des XML-Experiments</span></a>
+        </h2>
+        <p>Vor etwas über einem Jahr habe ich meinen Blog gestartet. Zugegeben, allzu viel ist seitdem nicht passiert. Das liegt weniger daran, dass es nichts zu berichten gäbe, als viel mehr an meiner knappen Zeit. Es gibt allerdings noch viele Dinge, zu denen ich hier kleine Tutorials schreiben möchte (zum einen für die Leser, zum anderen aber auch für mich als Gedächtnisstütze), doch zuvor musste etwas an meinem Blog selbst erledigt werden.</p>
+
+
+        
+		  <span class="post-meta">Tags: 
+			
+				<a href="/tags/tools/">tools</a>
+			
+				<a href="/tags/xml/">xml</a>
+			
+				<a href="/tags/xslt/">xslt</a>
+			
+				<a href="/tags/jekyll/">jekyll</a>
+			
+				<a href="/tags/seo/">seo</a>
+			
+				<a href="/tags/social-media/">social-media</a>
+			
+		  </span>
+		
+		
+		<meta itemprop="description" content="Vor etwas über einem Jahr habe ich meinen Blog gestartet. Zugegeben, allzu viel ist seitdem nicht passiert. Das liegt weniger daran, dass es nichts zu berichten gäbe, als viel mehr an meiner knappen Zeit. Es gibt allerdings noch viele Dinge, zu denen ich hier kleine Tutorials schreiben möchte (zum einen für die Leser, zum anderen aber auch für mich als Gedächtnisstütze), doch zuvor musste etwas an meinem Blog selbst erledigt werden.
+
+">
+		<meta property="og:locale" itemprop="inLanguage" content="de-DE">
+		<meta itemprop="datePublished" content="2015-03-10T13:00:00+01:00">
+		<meta itemprop="isFamilyFriendly" content="True">
+		<meta itemprop="typicalAgeRange" content="14-">
+		<meta itemprop="url" content="http://philipp-trommler.me/2015/03/10/das-ende-des-xml-experiments.html">
+      </li>
+    
+      <li itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+        <span class="post-meta">
+
+
+3.  
+
+  
+
+Juli  
+     
+
+2014
+
+</span>
+        <h2>
+          <a class="post-link" href="/2014/07/03/intel-cilk-mit-gcc-4-9-unter-linux.html"><span itemprop="headline">Intel® Cilk™ mit GCC 4.9 unter Linux</span></a>
+        </h2>
+        <p>Mit der aktuellen (beziehungsweise in Ubuntu kommenden) Version 4.9 der GNU Compiler Collection GCC hält auch Intels® Multithreading Werkzeug Cilk™ Einzug in den C- und C++-Compiler. Mit Cilk™ soll es (unter anderem) äußerst einfach sein, die Last von Programmen gleichmäßig auf alle verfügbare Prozessorkerne zu verteilen.</p>
+
+
+        
+		  <span class="post-meta">Tags: 
+			
+				<a href="/tags/tools/">tools</a>
+			
+				<a href="/tags/gcc/">gcc</a>
+			
+				<a href="/tags/intel/">intel</a>
+			
+				<a href="/tags/cilk/">cilk</a>
+			
+				<a href="/tags/linux/">linux</a>
+			
+				<a href="/tags/c/">c</a>
+			
+				<a href="/tags/c++/">c++</a>
+			
+				<a href="/tags/cpp/">cpp</a>
+			
+		  </span>
+		
+		
+		<meta itemprop="description" content="Mit der aktuellen (beziehungsweise in Ubuntu kommenden) Version 4.9 der GNU Compiler Collection GCC hält auch Intels® Multithreading Werkzeug Cilk™ Einzug in den C- und C++-Compiler. Mit Cilk™ soll es (unter anderem) äußerst einfach sein, die Last von Programmen gleichmäßig auf alle verfügbare Prozessorkerne zu verteilen.
+
+">
+		<meta property="og:locale" itemprop="inLanguage" content="de-DE">
+		<meta itemprop="datePublished" content="2014-07-03T15:19:34+02:00">
+		<meta itemprop="isFamilyFriendly" content="True">
+		<meta itemprop="typicalAgeRange" content="14-">
+		<meta itemprop="url" content="http://philipp-trommler.me/2014/07/03/intel-cilk-mit-gcc-4-9-unter-linux.html">
+      </li>
+    
+      <li itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+        <span class="post-meta">
+
+
+24.  
+
+  
+
+April  
+     
+
+2014
+
+</span>
+        <h2>
+          <a class="post-link" href="/2014/04/24/die-neuen-gtk-3-12-popover-in-vala.html"><span itemprop="headline">Die neuen GTK 3.12 Popover in Vala</span></a>
+        </h2>
+        <p>Die neuen Popovers aus GTK 3.12 sollen die klassischen Menüs ersetzen, denn sie sehen besser aus und bilden ein konsistentes Design mit den Menüs der GNOME Shell. Zudem sind sie sehr flexibel: in ihnen können viele verschiedene Widgets platziert werden.</p>
+
+
+        
+		  <span class="post-meta">Tags: 
+			
+				<a href="/tags/gtk3/">gtk3</a>
+			
+				<a href="/tags/gtk/">gtk</a>
+			
+				<a href="/tags/vala/">vala</a>
+			
+				<a href="/tags/popover/">popover</a>
+			
+				<a href="/tags/headerbar/">headerbar</a>
+			
+		  </span>
+		
+		
+		<meta itemprop="description" content="Die neuen Popovers aus GTK 3.12 sollen die klassischen Menüs ersetzen, denn sie sehen besser aus und bilden ein konsistentes Design mit den Menüs der GNOME Shell. Zudem sind sie sehr flexibel: in ihnen können viele verschiedene Widgets platziert werden.
+
+">
+		<meta property="og:locale" itemprop="inLanguage" content="de-DE">
+		<meta itemprop="datePublished" content="2014-04-24T23:05:00+02:00">
+		<meta itemprop="isFamilyFriendly" content="True">
+		<meta itemprop="typicalAgeRange" content="14-">
+		<meta itemprop="url" content="http://philipp-trommler.me/2014/04/24/die-neuen-gtk-3-12-popover-in-vala.html">
+      </li>
+    
+      <li itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+        <span class="post-meta">
+
+
+17.  
+
+  
+
+Januar  
+     
+
+2014
+
+</span>
+        <h2>
+          <a class="post-link" href="/2014/01/17/numix-gtk-3-flat-theme-light-review.html"><span itemprop="headline">Numix GTK 3 Flat Theme Light Review</span></a>
+        </h2>
+        <p>Seit ein paar Tagen sind die neuen Flat-Themes von Numix im <a href="https://apps.ubuntu.com/cat/applications/numix-gtk3-flat-theme-light/">Software Center</a> und auf <a href="http://me4oslav.deviantart.com/art/Numix-Flat-GTK-3-theme-425422073">deviantART</a> als normale, helle und dunkle Version erhältlich. Ich habe mir die helle Version zugelegt und möchte hier kurz meine Meinung dazu abgeben.</p>
+
+
+        
+		  <span class="post-meta">Tags: 
+			
+				<a href="/tags/gnome/">gnome</a>
+			
+				<a href="/tags/gtk3/">gtk3</a>
+			
+				<a href="/tags/gtk/">gtk</a>
+			
+				<a href="/tags/numix/">numix</a>
+			
+				<a href="/tags/theme/">theme</a>
+			
+				<a href="/tags/flat/">flat</a>
+			
+				<a href="/tags/review/">review</a>
+			
+		  </span>
+		
+		
+		<meta itemprop="description" content="Seit ein paar Tagen sind die neuen Flat-Themes von Numix im Software Center und auf deviantART als normale, helle und dunkle Version erhältlich. Ich habe mir die helle Version zugelegt und möchte hier kurz meine Meinung dazu abgeben.
+
+">
+		<meta property="og:locale" itemprop="inLanguage" content="de-DE">
+		<meta itemprop="datePublished" content="2014-01-17T21:00:00+01:00">
+		<meta itemprop="isFamilyFriendly" content="True">
+		<meta itemprop="typicalAgeRange" content="14-">
+		<meta itemprop="url" content="http://philipp-trommler.me/2014/01/17/numix-gtk-3-flat-theme-light-review.html">
+      </li>
+    
+      <li itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+        <span class="post-meta">
+
+
+22.  
+
+  
+
+Dezember  
+   
+
+2013
+
+</span>
+        <h2>
+          <a class="post-link" href="/2013/12/22/die-neue-gtk-3-10-headerbar-in-vala.html"><span itemprop="headline">Die neue GTK 3.10 HeaderBar in Vala</span></a>
+        </h2>
+        <p>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.</p>
+
+
+        
+		  <span class="post-meta">Tags: 
+			
+				<a href="/tags/gtk3/">gtk3</a>
+			
+				<a href="/tags/gtk/">gtk</a>
+			
+				<a href="/tags/vala/">vala</a>
+			
+				<a href="/tags/headerbar/">headerbar</a>
+			
+		  </span>
+		
+		
+		<meta itemprop="description" content="Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.
+
+">
+		<meta property="og:locale" itemprop="inLanguage" content="de-DE">
+		<meta itemprop="datePublished" content="2013-12-22T00:44:00+01:00">
+		<meta itemprop="isFamilyFriendly" content="True">
+		<meta itemprop="typicalAgeRange" content="14-">
+		<meta itemprop="url" content="http://philipp-trommler.me/2013/12/22/die-neue-gtk-3-10-headerbar-in-vala.html">
+      </li>
+    
+      <li itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+        <span class="post-meta">
+
+
+8.  
+
+  
+
+Mai  
+     
+
+2013
+
+</span>
+        <h2>
+          <a class="post-link" href="/2013/05/08/desktop-verknupfungen-einfach-gemacht-mit-menulibre.html"><span itemprop="headline">Desktop-Verknüpfungen einfach gemacht mit MenuLibre</span></a>
+        </h2>
+        <p>Wer außer mir auch denkt, dass es jedes Mal eine Qual ist, ‘Desktop-Entries’ zu schreiben - einfach weil man es so selten macht und deswegen die benötigten Teile jedes Mal aufs neue vergessen hat und ergoogeln muss - der sollte sich <a href="https://launchpad.net/menulibre">MenuLibre</a> von Sean Davis genauer ansehen. Es ist kostenlos, über sein PPA erhältlich und macht die Menü-Bearbeitung zu einer wahren Freude.</p>
+
+
+        
+		  <span class="post-meta">Tags: 
+			
+				<a href="/tags/menulibre/">menulibre</a>
+			
+				<a href="/tags/gnome/">gnome</a>
+			
+				<a href="/tags/program/">program</a>
+			
+				<a href="/tags/tools/">tools</a>
+			
+		  </span>
+		
+		
+		<meta itemprop="description" content="Wer außer mir auch denkt, dass es jedes Mal eine Qual ist, ‘Desktop-Entries’ zu schreiben - einfach weil man es so selten macht und deswegen die benötigten Teile jedes Mal aufs neue vergessen hat und ergoogeln muss - der sollte sich MenuLibre von Sean Davis genauer ansehen. Es ist kostenlos, über sein PPA erhältlich und macht die Menü-Bearbeitung zu einer wahren Freude.
+
+">
+		<meta property="og:locale" itemprop="inLanguage" content="de-DE">
+		<meta itemprop="datePublished" content="2013-05-08T09:08:00+02:00">
+		<meta itemprop="isFamilyFriendly" content="True">
+		<meta itemprop="typicalAgeRange" content="14-">
+		<meta itemprop="url" content="http://philipp-trommler.me/2013/05/08/desktop-verknupfungen-einfach-gemacht-mit-menulibre.html">
+      </li>
+    
+  </ul>
+  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+  <h1>Tag Cloud</h1>
+    <span style='font-size: 73%'><a href='/tags/menulibre/'>menulibre</a></span>
+<span style='font-size: 147%'><a href='/tags/gnome/'>gnome</a></span>
+<span style='font-size: 73%'><a href='/tags/program/'>program</a></span>
+<span style='font-size: 220%'><a href='/tags/tools/'>tools</a></span>
+<span style='font-size: 220%'><a href='/tags/gtk3/'>gtk3</a></span>
+<span style='font-size: 220%'><a href='/tags/gtk/'>gtk</a></span>
+<span style='font-size: 147%'><a href='/tags/vala/'>vala</a></span>
+<span style='font-size: 147%'><a href='/tags/headerbar/'>headerbar</a></span>
+<span style='font-size: 73%'><a href='/tags/numix/'>numix</a></span>
+<span style='font-size: 73%'><a href='/tags/theme/'>theme</a></span>
+<span style='font-size: 73%'><a href='/tags/flat/'>flat</a></span>
+<span style='font-size: 73%'><a href='/tags/review/'>review</a></span>
+<span style='font-size: 73%'><a href='/tags/popover/'>popover</a></span>
+<span style='font-size: 73%'><a href='/tags/gcc/'>gcc</a></span>
+<span style='font-size: 73%'><a href='/tags/intel/'>intel</a></span>
+<span style='font-size: 73%'><a href='/tags/cilk/'>cilk</a></span>
+<span style='font-size: 73%'><a href='/tags/linux/'>linux</a></span>
+<span style='font-size: 73%'><a href='/tags/c/'>c</a></span>
+<span style='font-size: 73%'><a href='/tags/c++/'>c++</a></span>
+<span style='font-size: 73%'><a href='/tags/cpp/'>cpp</a></span>
+<span style='font-size: 73%'><a href='/tags/xml/'>xml</a></span>
+<span style='font-size: 73%'><a href='/tags/xslt/'>xslt</a></span>
+<span style='font-size: 73%'><a href='/tags/jekyll/'>jekyll</a></span>
+<span style='font-size: 73%'><a href='/tags/seo/'>seo</a></span>
+<span style='font-size: 73%'><a href='/tags/social-media/'>social-media</a></span>
+
+</div>
+
 		</div>
+	</div>
+	<footer class="site-footer">
+  <div class="wrapper">
+    <h2 class="footer-heading">Philipp Trommler</h2>
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Kontakt:</li>
+          <li><a href="mailto:mail@philipp-trommler.me">mail@philipp-trommler.me</a></li>
+          <li><a href="/impressum/">Impressum & Datenschutzerklärung</a></li>
+        </ul>
+      </div>
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          <li>
+              <span class="fa fa-google-plus fa-fw"></span>
+              <span class="username"><a href="https://plus.google.com/+PhilippTrommler/posts" target="_blank">Philipp Trommler</a></span>
+          </li>
+          <li>
+              <span class="fa fa-twitter fa-fw"></span>
+              <span class="username"><a href="https://twitter.com/PhTrommler" target="_blank">PhTrommler</a></span>
+          </li>
+          <li>
+              <span class="fa fa-github fa-fw"></span>
+              <span class="username"><a href="https://github.com/Ferruck" target="_blank">Ferruck</a></span>
+          </li>
+          <li>
+			  <span class="fa fa-youtube-play fa-fw"></span>
+			  <span class="username"><a href="https://www.youtube.com/channel/UCGG3f6yZH4gndb1HXRCqipw" target="_blank">Philipp Trommler</a></span>
+          </li>
+          <li>
+			  <span class="fa fa-xing fa-fw"></span>
+			  <span class="username"><a href="https://www.xing.com/profile/Philipp_Trommler2" target="_blank">Philipp Trommler</a></span>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-col  footer-col-3">
+        <p class="text">Informatiker und Forstwissenschaftler, immer auf der Suche nach neuen Herausforderungen und für Auftragsarbeiten zu haben.
+</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
 	</body>
 </html>

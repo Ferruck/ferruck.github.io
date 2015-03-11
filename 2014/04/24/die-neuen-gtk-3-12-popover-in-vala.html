@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="de" prefix="og: http://ogp.me/ns#, article: http://ogp.me/ns/article#">
+	<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <title>Die neuen GTK 3.12 Popover in Vala</title>
+    
+    <meta property="og:type" content="article">
+    
+    <meta name="description" property="og:description" content="Die neuen Popovers aus GTK 3.12 sollen die klassischen Menüs ersetzen, denn sie sehen besser aus und bilden ein konsistentes Design mit den Menüs der GNOME Shell. Zudem sind sie sehr flexibel: in ihnen können viele verschiedene Widgets platziert werden.
+
+">
+    <meta property="og:url" content="http://philipp-trommler.me/2014/04/24/die-neuen-gtk-3-12-popover-in-vala.html">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="alternate" type="application/rss+xml" href="http://philipp-trommler.me/feed.xml">
+    <link rel="canonical" href="http://philipp-trommler.me/2014/04/24/die-neuen-gtk-3-12-popover-in-vala.html">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png"/>
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png"/>
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png"/>
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png"/>
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png"/>  
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png"/>  
+	<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-152x152.png"/>
+	<link rel="icon" type="image/png" href="/ico32.png"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+	<!--[if IE]><link rel="shortcut icon" type="image/vnd.microsoft.icon" href="favicon.ico"/><![endif]-->
+</head>
+
+	<body itemscope itemtype="http://schema.org/Blog">
+	<header class="site-header">
+  <div class="wrapper">
+    <a class="site-title" href="/">Philipp Trommler</a>
+
+  </div>
+</header>
+
+	<div class="page-content">
+		<div class="wrapper">
+		<div class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<header class="post-header">
+		<h1 class="post-title" itemprop="headline">Die neuen GTK 3.12 Popover in Vala</h1>
+		<p class="post-meta">
+24.  
+
+  
+
+April  
+     
+
+2014
+
+
+
+ • Philipp Trommler • Tags: <meta property="article:tag" content="gtk3"><a href="/tags/gtk3/">gtk3</a> <meta property="article:tag" content="gtk"><a href="/tags/gtk/">gtk</a> <meta property="article:tag" content="vala"><a href="/tags/vala/">vala</a> <meta property="article:tag" content="popover"><a href="/tags/popover/">popover</a> <meta property="article:tag" content="headerbar"><a href="/tags/headerbar/">headerbar</a></p>
+	</header>
+	<article class="post-content" itemprop="articleBody">
+	<p>Die neuen Popovers aus GTK 3.12 sollen die klassischen Menüs ersetzen, denn sie sehen besser aus und bilden ein konsistentes Design mit den Menüs der GNOME Shell. Zudem sind sie sehr flexibel: in ihnen können viele verschiedene Widgets platziert werden.</p>
+
+<h1 id="minimalbeispiel">Minimalbeispiel</h1>
+
+<p><img src="/images/popover1.png" alt="GTK Popover im Minimalbeispiel aus dem letzten Tutorial." /></p>
+
+<p>Wie schon im <a href="/2013/12/22/die-neue-gtk-3-10-headerbar-in-vala.html">letzten Tutorial</a> zu HeaderBars, will ich euch die Verwendung der Popovers an einem Minimalbeispiel näherbringen. Das oben gezeigte Programm kann mit dem nur um einige Zeilen erweiterten Quelltext aus dem HeaderBar-Tutorial erzeugt werden:</p>
+
+<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="kd">class</span> <span class="nc">Example</span> <span class="o">:</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Application</span> <span class="p">{</span>
+	<span class="kd">public</span> <span class="n">Example</span> <span class="p">()</span> <span class="p">{</span>
+		<span class="n">Object</span> <span class="p">(</span><span class="n">application_id</span><span class="o">:</span> <span class="s">&quot;com.example.app&quot;</span><span class="p">,</span> <span class="n">flags</span><span class="o">:</span> <span class="n">ApplicationFlags</span><span class="p">.</span><span class="n">FLAGS_NONE</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="kd">protected</span> <span class="kd">override</span> <span class="kt">void</span> <span class="n">activate</span> <span class="p">()</span> <span class="p">{</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">ApplicationWindow</span> <span class="n">window</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">ApplicationWindow</span> <span class="p">(</span><span class="k">this</span><span class="p">);</span>
+		<span class="n">window</span><span class="p">.</span><span class="n">set_default_size</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
+		
+		<span class="cm">/*</span>
+<span class="cm">		 * HeaderBar - siehe letztes Tutorial</span>
+<span class="cm">		 */</span>
+		
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">HeaderBar</span> <span class="n">headerBar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">HeaderBar</span> <span class="p">();</span>
+		<span class="n">headerBar</span><span class="p">.</span><span class="n">set_show_close_button</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+	
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">SearchEntry</span> <span class="n">entry</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">SearchEntry</span> <span class="p">();</span>
+		<span class="n">entry</span><span class="p">.</span><span class="n">set_placeholder_text</span> <span class="p">(</span><span class="s">&quot;Suchen...&quot;</span><span class="p">);</span>
+		<span class="n">headerBar</span><span class="p">.</span><span class="n">set_custom_title</span> <span class="p">(</span><span class="n">entry</span><span class="p">);</span>
+	
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">openButton</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;document-open&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">LARGE_TOOLBAR</span><span class="p">);</span>
+		<span class="n">headerBar</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">openButton</span><span class="p">);</span>
+	
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">closeButton</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;document-save-as&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">LARGE_TOOLBAR</span><span class="p">);</span>
+		<span class="n">headerBar</span><span class="p">.</span><span class="n">pack_end</span> <span class="p">(</span><span class="n">closeButton</span><span class="p">);</span>
+	
+		<span class="n">window</span><span class="p">.</span><span class="n">set_titlebar</span> <span class="p">(</span><span class="n">headerBar</span><span class="p">);</span>
+		
+		<span class="cm">/*</span>
+<span class="cm">		 *	Ab hier Popover</span>
+<span class="cm">		 */</span>
+		
+		<span class="n">GLib</span><span class="p">.</span><span class="n">SimpleAction</span> <span class="n">test</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GLib</span><span class="p">.</span><span class="n">SimpleAction</span> <span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">,</span> <span class="nb">null</span><span class="p">);</span>
+		<span class="k">this</span><span class="p">.</span><span class="n">add_action</span> <span class="p">(</span><span class="n">test</span><span class="p">);</span>
+		
+		<span class="n">GLib</span><span class="p">.</span><span class="n">Menu</span> <span class="n">menu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GLib</span><span class="p">.</span><span class="n">Menu</span> <span class="p">();</span>
+		<span class="n">menu</span><span class="p">.</span><span class="n">append</span> <span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">,</span> <span class="s">&quot;test&quot;</span><span class="p">);</span>
+		
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Popover</span> <span class="n">pop</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Popover</span> <span class="p">(</span><span class="n">closeButton</span><span class="p">);</span>
+		<span class="n">pop</span><span class="p">.</span><span class="n">bind_model</span> <span class="p">(</span><span class="n">menu</span><span class="p">,</span> <span class="s">&quot;app&quot;</span><span class="p">);</span>
+		
+		<span class="n">closeButton</span><span class="p">.</span><span class="n">clicked</span><span class="p">.</span><span class="n">connect</span> <span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+			<span class="n">pop</span><span class="p">.</span><span class="n">set_visible</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+		<span class="p">});</span>
+		
+		<span class="n">window</span><span class="p">.</span><span class="n">show_all</span> <span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="k">new</span> <span class="n">Example</span> <span class="p">().</span><span class="n">run</span> <span class="p">(</span><span class="n">args</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Drei Dinge sind hierbei besonders zu beachten:</p>
+
+<ol>
+  <li>Ein Popover ist immer einem Widget zugeordnet, das dem Konstruktor übergeben wird. Hiervon ist auch die Ausrichtung des Popovers abhängig, die allerdings auch nachträglich geändert werden kann.</li>
+  <li>Ein Popover darf nicht gleich beim Öffnen des Fensters gezeigt werden, dies führt zu Fehlverhalten. Erst nachträglich sollte es in einem Event-listener mit <code>set_visible (true)</code> gezeigt werden. Um das Verbergen des Popovers muss man sich nicht kümmern, es erfolgt automatisch.</li>
+  <li>Wird ein Menü an das Popover gebunden, werden Menüeinträge, zu denen keine <code>GLib.Action</code> gefunden wird, ausgegraut und inaktiv. Dafür erwartet die Funktion <code>bind_model</code> als zweiten Parameter ein Präfix, das allen Aktionen vorangestellt wird. Diese Präfixe werden automatisch durch <code>add_action</code> erzeugt und lauten <code>app</code>, wenn die Aktion der <code>Gtk.Application</code> zugeordnet wird, und <code>win</code>, wenn sie einem <code>Gtk.Window</code> zugeordnet wird.</li>
+</ol>
+
+<p>Am Befehl für die Kompilierung hat sich natürlich nichts geändert: Einfach als <code>popover.vala</code> speichern und mit</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">valac --pkg gtk+-3.0 -o popover popover.vala</code></pre></div>
+
+<p>kompilieren. Zu beachten ist, dass die aktuellen Versionen <code>libgtk-3-0</code> und <code>libgtk-3-dev (&gt;= 3.12)</code> benötigt werden, um das Programm zu übersetzen.</p>
+
+<h1 id="aufhbschen">Aufhübschen</h1>
+
+<p>Damit die Menüeinträge ein bisschen mehr her machen, können sie mit Icons versehen werden, dafür muss das <code>menu.append ()</code> durch ein <code>menu.append_item ()</code> ersetzt und die entsprechenden Menü-Items gebaut werden:</p>
+
+<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="n">GLib</span><span class="p">.</span><span class="n">SimpleAction</span> <span class="n">save</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GLib</span><span class="p">.</span><span class="n">SimpleAction</span> <span class="p">(</span><span class="s">&quot;save&quot;</span><span class="p">,</span> <span class="nb">null</span><span class="p">);</span>
+<span class="n">save</span><span class="p">.</span><span class="n">activate</span><span class="p">.</span><span class="n">connect</span> <span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="c1">// Datei speichern</span>
+<span class="p">});</span>
+<span class="k">this</span><span class="p">.</span><span class="n">add_action</span> <span class="p">(</span><span class="n">save</span><span class="p">);</span>
+
+<span class="n">GLib</span><span class="p">.</span><span class="n">MenuItem</span> <span class="n">saveItem</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GLib</span><span class="p">.</span><span class="n">MenuItem</span> <span class="p">(</span><span class="s">&quot;Speichern&quot;</span><span class="p">,</span> <span class="s">&quot;save&quot;</span><span class="p">);</span>
+<span class="n">saveItem</span><span class="p">.</span><span class="n">set_icon</span> <span class="p">(</span><span class="k">new</span> <span class="n">GLib</span><span class="p">.</span><span class="n">ThemedIcon</span> <span class="p">(</span><span class="s">&quot;document-save&quot;</span><span class="p">));</span>
+
+<span class="n">GLib</span><span class="p">.</span><span class="n">SimpleAction</span> <span class="n">save_as</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GLib</span><span class="p">.</span><span class="n">SimpleAction</span> <span class="p">(</span><span class="s">&quot;save_as&quot;</span><span class="p">,</span> <span class="nb">null</span><span class="p">);</span>
+<span class="n">save_as</span><span class="p">.</span><span class="n">activate</span><span class="p">.</span><span class="n">connect</span> <span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="c1">// Datei speichern unter</span>
+<span class="p">});</span>
+<span class="k">this</span><span class="p">.</span><span class="n">add_action</span> <span class="p">(</span><span class="n">save_as</span><span class="p">);</span>
+
+<span class="n">GLib</span><span class="p">.</span><span class="n">MenuItem</span> <span class="n">saveAsItem</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GLib</span><span class="p">.</span><span class="n">MenuItem</span> <span class="p">(</span><span class="s">&quot;Speichern unter&quot;</span><span class="p">,</span> <span class="s">&quot;save_as&quot;</span><span class="p">);</span>
+<span class="n">saveAsItem</span><span class="p">.</span><span class="n">set_icon</span> <span class="p">(</span><span class="k">new</span> <span class="n">GLib</span><span class="p">.</span><span class="n">ThemedIcon</span> <span class="p">(</span><span class="s">&quot;document-save-as&quot;</span><span class="p">));</span>
+
+<span class="n">GLib</span><span class="p">.</span><span class="n">Menu</span> <span class="n">menu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GLib</span><span class="p">.</span><span class="n">Menu</span> <span class="p">();</span>
+<span class="n">menu</span><span class="p">.</span><span class="n">append_item</span> <span class="p">(</span><span class="n">saveItem</span><span class="p">);</span>
+<span class="n">menu</span><span class="p">.</span><span class="n">append_item</span> <span class="p">(</span><span class="n">saveAsItem</span><span class="p">);</span></code></pre></div>
+
+<p>Das funktioniert zwar, allerdings entspricht das Ergebnis wohl nicht ganz dem, was der Benutzer von einem Popover erwartet:</p>
+
+<p><img src="/images/popover2.png" alt="Nicht ganz passend, aber möglich: Icons im GTK Popover." /></p>
+
+<h1 id="auswahl">Auswahl</h1>
+
+<p>Ein besonders passender Anwendungsfall für Popover sind Auswahlmöglichkeiten, die das Verhalten eines anderes Widgets beeinflussen, da sie genau hierfür konzipiert wurden: Sie sollen eine Möglichkeit bieten, einfache und häufig geänderte Einstellungen ‘an Ort und Stelle’ erreichbar zu machen.</p>
+
+<p>Sehen wir uns also das Suchfeld – welches im Übrigen der Aktualität halber durch ein <code>Gtk.SearchEntry</code> ersetzt wurde – der Beispielanwendung an: Vorstellbar ist zum Beispiel, dass es eine Auswahlmöglichkeit gibt, ob im Internet oder nur lokal gesucht werden soll. Dies lässt sich leicht durch die Verwendung einer <code>Gtk.Box</code> oder eines <code>Gtk.Grid</code> erreichen:</p>
+
+<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="n">Gtk</span><span class="p">.</span><span class="n">Grid</span> <span class="n">search_grid</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Grid</span> <span class="p">();</span>
+<span class="n">search_grid</span><span class="p">.</span><span class="n">set_column_spacing</span> <span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">search_grid</span><span class="p">.</span><span class="n">set_margin_top</span> <span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">search_grid</span><span class="p">.</span><span class="n">set_margin_end</span> <span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">search_grid</span><span class="p">.</span><span class="n">set_margin_bottom</span> <span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">search_grid</span><span class="p">.</span><span class="n">set_margin_start</span> <span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+<span class="n">Gtk</span><span class="p">.</span><span class="n">Label</span> <span class="n">search_label</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Label</span> <span class="p">(</span><span class="s">&quot;Im Internet suchen&quot;</span><span class="p">);</span>
+<span class="n">search_grid</span><span class="p">.</span><span class="n">attach</span> <span class="p">(</span><span class="n">search_label</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="n">Gtk</span><span class="p">.</span><span class="n">Switch</span> <span class="n">search_switch</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Switch</span> <span class="p">();</span>
+<span class="n">search_grid</span><span class="p">.</span><span class="n">attach</span> <span class="p">(</span><span class="n">search_switch</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="n">search_grid</span><span class="p">.</span><span class="n">show_all</span> <span class="p">();</span>
+
+<span class="n">Gtk</span><span class="p">.</span><span class="n">Popover</span> <span class="n">search_pop</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Popover</span> <span class="p">(</span><span class="n">entry</span><span class="p">);</span>
+<span class="n">search_pop</span><span class="p">.</span><span class="n">add</span> <span class="p">(</span><span class="n">search_grid</span><span class="p">);</span>
+
+<span class="n">entry</span><span class="p">.</span><span class="n">enter_notify_event</span><span class="p">.</span><span class="n">connect</span> <span class="p">((</span><span class="n">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="n">search_pop</span><span class="p">.</span><span class="n">set_visible</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+	<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">});</span></code></pre></div>
+
+<p><img src="/images/popover3.png" alt="Auch Gtk.Box und Gtk.Grid sind im Popover möglich." /></p>
+
+<p>Über diese Container sind natürlich sehr komplexe Inhalte für Popover möglich, fast alle Widgets, die in eine <code>Gtk.Box</code> oder ein <code>Gtk.Grid</code> gepackt werden können, können somit auch Inhalt eines Popover werden.</p>
+
+<p>In diesem Sinne viel Spaß mit dieser neuen Fähigkeit von GTK und erfolgreiches Coden!</p>
+
+	</article>
+	<div class="social">
+		<a class="fb" href="https://www.facebook.com/share.php?u=http://philipp-trommler.me/2014/04/24/die-neuen-gtk-3-12-popover-in-vala.html" target="_blank"><span class="fa fa-facebook fa-fw"></span>Share</a>
+		<a class="gp" href="https://plus.google.com/share?url=http://philipp-trommler.me/2014/04/24/die-neuen-gtk-3-12-popover-in-vala.html" target="_blank"><span class="fa fa-google-plus fa-fw"></span>+1</a>
+		<a class="tw" href="https://twitter.com/home?status=Die+neuen+GTK+3.12+Popover+in+Vala+http://philipp-trommler.me/2014/04/24/die-neuen-gtk-3-12-popover-in-vala.html" target="_blank"><span class="fa fa-twitter fa-fw"></span>Tweet</a>
+	</div>
+	
+	<meta property="og:image" itemprop="image" content="http://philipp-trommler.me/images/popover1.png">
+	<meta itemprop="thumbnailUrl" content="http://philipp-trommler.me/images/popover1.png">
+	
+	<meta itemprop="description" content="Die neuen Popovers aus GTK 3.12 sollen die klassischen Menüs ersetzen, denn sie sehen besser aus und bilden ein konsistentes Design mit den Menüs der GNOME Shell. Zudem sind sie sehr flexibel: in ihnen können viele verschiedene Widgets platziert werden.
+
+">
+	<meta property="og:locale" itemprop="inLanguage" content="de-DE">
+	<meta property="article:published_time" itemprop="datePublished" content="2014-04-24T23:05:00+02:00">
+	<meta itemprop="isFamilyFriendly" content="True">
+	<meta itemprop="typicalAgeRange" content="14-">
+	<meta itemprop="url" content="http://philipp-trommler.me/2014/04/24/die-neuen-gtk-3-12-popover-in-vala.html">
+</div>
+
+		</div>
+	</div>
+	<footer class="site-footer">
+  <div class="wrapper">
+    <h2 class="footer-heading">Philipp Trommler</h2>
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Kontakt:</li>
+          <li><a href="mailto:mail@philipp-trommler.me">mail@philipp-trommler.me</a></li>
+          <li><a href="/impressum/">Impressum & Datenschutzerklärung</a></li>
+        </ul>
+      </div>
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          <li>
+              <span class="fa fa-google-plus fa-fw"></span>
+              <span class="username"><a href="https://plus.google.com/+PhilippTrommler/posts" target="_blank">Philipp Trommler</a></span>
+          </li>
+          <li>
+              <span class="fa fa-twitter fa-fw"></span>
+              <span class="username"><a href="https://twitter.com/PhTrommler" target="_blank">PhTrommler</a></span>
+          </li>
+          <li>
+              <span class="fa fa-github fa-fw"></span>
+              <span class="username"><a href="https://github.com/Ferruck" target="_blank">Ferruck</a></span>
+          </li>
+          <li>
+			  <span class="fa fa-youtube-play fa-fw"></span>
+			  <span class="username"><a href="https://www.youtube.com/channel/UCGG3f6yZH4gndb1HXRCqipw" target="_blank">Philipp Trommler</a></span>
+          </li>
+          <li>
+			  <span class="fa fa-xing fa-fw"></span>
+			  <span class="username"><a href="https://www.xing.com/profile/Philipp_Trommler2" target="_blank">Philipp Trommler</a></span>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-col  footer-col-3">
+        <p class="text">Informatiker und Forstwissenschaftler, immer auf der Suche nach neuen Herausforderungen und für Auftragsarbeiten zu haben.
+</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+	</body>
+</html>

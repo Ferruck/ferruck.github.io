@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="de" prefix="og: http://ogp.me/ns#, article: http://ogp.me/ns/article#">
+	<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <title>Die neue GTK 3.10 HeaderBar in Vala</title>
+    
+    <meta property="og:type" content="article">
+    
+    <meta name="description" property="og:description" content="Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.
+
+">
+    <meta property="og:url" content="http://philipp-trommler.me/2013/12/22/die-neue-gtk-3-10-headerbar-in-vala.html">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="alternate" type="application/rss+xml" href="http://philipp-trommler.me/feed.xml">
+    <link rel="canonical" href="http://philipp-trommler.me/2013/12/22/die-neue-gtk-3-10-headerbar-in-vala.html">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png"/>
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png"/>
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png"/>
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png"/>
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png"/>  
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png"/>  
+	<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-152x152.png"/>
+	<link rel="icon" type="image/png" href="/ico32.png"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+	<!--[if IE]><link rel="shortcut icon" type="image/vnd.microsoft.icon" href="favicon.ico"/><![endif]-->
+</head>
+
+	<body itemscope itemtype="http://schema.org/Blog">
+	<header class="site-header">
+  <div class="wrapper">
+    <a class="site-title" href="/">Philipp Trommler</a>
+
+  </div>
+</header>
+
+	<div class="page-content">
+		<div class="wrapper">
+		<div class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<header class="post-header">
+		<h1 class="post-title" itemprop="headline">Die neue GTK 3.10 HeaderBar in Vala</h1>
+		<p class="post-meta">
+22.  
+
+  
+
+Dezember  
+   
+
+2013
+
+
+
+ • Philipp Trommler • Tags: <meta property="article:tag" content="gtk3"><a href="/tags/gtk3/">gtk3</a> <meta property="article:tag" content="gtk"><a href="/tags/gtk/">gtk</a> <meta property="article:tag" content="vala"><a href="/tags/vala/">vala</a> <meta property="article:tag" content="headerbar"><a href="/tags/headerbar/">headerbar</a></p>
+	</header>
+	<article class="post-content" itemprop="articleBody">
+	<p>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.</p>
+
+<p><img src="/images/headerbar5.png" alt="Die HeaderBar in Nautilus spart Platz." /></p>
+
+<p>Diese HeaderBars können auch einfach in die eigenen Programme integriert werden, wenn die aktuellen Bibliotheken, also <code>libgtk-3-0</code> und <code>libgtk-3-dev (&gt;= 3.10)</code>, installiert sind. Das folgende Minimalbeispiel befolgt die aktuellen Empfehlungen zur Erstellung von GNOME-Apps, erweitert also die <code>Gtk.Application</code> Klasse. Eine HeaderBar besteht im Endeffekt aus drei Bereichen, dem linken und dem rechten, die jeweils mit <code>Gtk.Widget</code>s befüllt werden können, und dem mittleren, der entweder mit Titel und gegebenenfalls Untertitel oder mit einem <code>Gtk.Widget</code> belegt wird.</p>
+
+<h1 id="minimalbeispiel">Minimalbeispiel</h1>
+
+<p><img src="/images/headerbar1.png" alt="Minimalbeispiel für die GTK Headerbar." /></p>
+
+<p>Dieses Minimalbeispiel kann schon mit wenigen Zeilen Code erstellt werden:</p>
+
+<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="kd">class</span> <span class="nc">Example</span> <span class="o">:</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Application</span> <span class="p">{</span>
+	<span class="kd">public</span> <span class="n">Example</span> <span class="p">()</span> <span class="p">{</span>
+		<span class="n">Object</span> <span class="p">(</span><span class="n">application_id</span><span class="o">:</span> <span class="s">&quot;com.example.app&quot;</span><span class="p">,</span> <span class="n">flags</span><span class="o">:</span> <span class="n">ApplicationFlags</span><span class="p">.</span><span class="n">FLAGS_NONE</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="kd">protected</span> <span class="kd">override</span> <span class="kt">void</span> <span class="n">activate</span> <span class="p">()</span> <span class="p">{</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">ApplicationWindow</span> <span class="n">window</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">ApplicationWindow</span> <span class="p">(</span><span class="k">this</span><span class="p">);</span>
+		<span class="n">window</span><span class="p">.</span><span class="n">set_default_size</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
+		
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">HeaderBar</span> <span class="n">headerBar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">HeaderBar</span> <span class="p">();</span>
+		<span class="n">headerBar</span><span class="p">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s">&quot;Titel&quot;</span><span class="p">);</span>
+		<span class="n">headerBar</span><span class="p">.</span><span class="n">set_subtitle</span> <span class="p">(</span><span class="s">&quot;Untertitel&quot;</span><span class="p">);</span>
+		
+		
+		<span class="n">window</span><span class="p">.</span><span class="n">set_titlebar</span> <span class="p">(</span><span class="n">headerBar</span><span class="p">);</span>
+		<span class="n">window</span><span class="p">.</span><span class="n">show_all</span> <span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="k">new</span> <span class="n">Example</span> <span class="p">().</span><span class="n">run</span> <span class="p">(</span><span class="n">args</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Das ganze wird wie üblich als <code>main.vala</code> gespeichert und mit</p>
+
+<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="n">valac</span> <span class="o">--</span><span class="n">pkg</span> <span class="n">gtk</span><span class="o">+-</span><span class="mf">3.0</span> <span class="o">-</span><span class="n">o</span> <span class="n">example</span> <span class="n">main</span><span class="p">.</span><span class="n">vala</span></code></pre></div>
+
+<p>kompiliert. Interessant ist hier vor allem <code>window.set_titlebar (headerBar);</code>, das dem Fenster die erstellte HeaderBar als Titelzeile zuweist.</p>
+
+<h1 id="die-erweiterung">Die Erweiterung</h1>
+
+<p>Soll in der Titelleiste ein “Schließen”-Button angezeigt werden, reicht ein einfacher Befehl:</p>
+
+<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="n">headerBar</span><span class="p">.</span><span class="n">set_show_close_button</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span></code></pre></div>
+
+<p>Der linke und der rechte Bereich der Titelleiste wird jetzt, wie bei einer <code>Gtk.Box</code>, mit <code>pack_end ()</code> und <code>pack_start ()</code> befüllt, soll also zum Beispiel ein “Öffnen”-Button hinzugefügt werden, reichen die beiden Zeilen:</p>
+
+<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">openButton</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;document-open&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">LARGE_TOOLBAR</span><span class="p">);</span>
+<span class="n">headerBar</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">openButton</span><span class="p">);</span></code></pre></div>
+
+<p>Hierbei wird schon der neue <code>Gtk.Button.from_icon_name</code>-Constructor genutzt, da <code>Gtk.Stock</code> ab GTK 3.10 als veraltet markiert ist. Die Iconnamen sind dabei standardisiert und nicht mehr GTK-intern, mehr dazu allerdings in einem anderen Blogpost.</p>
+
+<p><img src="/images/headerbar4.png" alt="Erweitertes Minimalbeispiel mit &quot;öffnen&quot;- und &quot;Schließen&quot;-Buttons." /></p>
+
+<h1 id="widgets-in-der-titelleiste">Widgets in der Titelleiste</h1>
+
+<p>Soll der mittlere Bereich nun, statt mit Titel und Untertitel, mit einem <code>Gtk.Widget</code> befüllt werden, so geschieht dies mit <code>headerBar.set_custom_title ()</code>. Sinnvoll ist das für zentrale Steuerungsobjekte, zum Beispiel ein Suchfeld wie bei der neuen GNOME Karten-App, oder für einen Ansichtswechsel. Mit den folgenden Befehlen lässt sich also ein Suchfeld erstellen:</p>
+
+<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="n">Gtk</span><span class="p">.</span><span class="n">Entry</span> <span class="n">entry</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Entry</span> <span class="p">();</span>
+<span class="n">entry</span><span class="p">.</span><span class="n">set_icon_from_icon_name</span> <span class="p">(</span><span class="n">Gtk</span><span class="p">.</span><span class="n">EntryIconPosition</span><span class="p">.</span><span class="n">PRIMARY</span><span class="p">,</span> <span class="s">&quot;system-search&quot;</span><span class="p">);</span>
+<span class="n">headerBar</span><span class="p">.</span><span class="n">set_custom_title</span> <span class="p">(</span><span class="n">entry</span><span class="p">);</span></code></pre></div>
+
+<p><img src="/images/headerbar3.png" alt="Erweitertes Minimalbeispiel mit Widget in der Titelleiste." /></p>
+
+<p>Auch hier kommen wieder die neuen Iconnamen zum Einsatz. Der Titel und der Untertitel werden durch das <code>Gtk.Widget</code> überschrieben, sollen sie wieder angezeigt werden muss der “<code>custom_title</code>” null gesetzt werden:</p>
+
+<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="n">headerBar</span><span class="p">.</span><span class="n">set_custom_title</span> <span class="p">(</span><span class="nb">null</span><span class="p">);</span></code></pre></div>
+
+<p>Einfach, oder? Hier noch einmal der Quelltext des kompletten Minimalbeispiels:</p>
+
+<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="kd">class</span> <span class="nc">Example</span> <span class="o">:</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Application</span> <span class="p">{</span>
+	<span class="kd">public</span> <span class="n">Example</span> <span class="p">()</span> <span class="p">{</span>
+		<span class="n">Object</span> <span class="p">(</span><span class="n">application_id</span><span class="o">:</span> <span class="s">&quot;com.example.app&quot;</span><span class="p">,</span> <span class="n">flags</span><span class="o">:</span> <span class="n">ApplicationFlags</span><span class="p">.</span><span class="n">FLAGS_NONE</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="kd">protected</span> <span class="kd">override</span> <span class="kt">void</span> <span class="n">activate</span> <span class="p">()</span> <span class="p">{</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">ApplicationWindow</span> <span class="n">window</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">ApplicationWindow</span> <span class="p">(</span><span class="k">this</span><span class="p">);</span>
+		<span class="n">window</span><span class="p">.</span><span class="n">set_default_size</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
+	
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">HeaderBar</span> <span class="n">headerBar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">HeaderBar</span> <span class="p">();</span>
+		<span class="n">headerBar</span><span class="p">.</span><span class="n">set_show_close_button</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+	
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Entry</span> <span class="n">entry</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Entry</span> <span class="p">();</span>
+		<span class="n">entry</span><span class="p">.</span><span class="n">set_icon_from_icon_name</span> <span class="p">(</span><span class="n">Gtk</span><span class="p">.</span><span class="n">EntryIconPosition</span><span class="p">.</span><span class="n">PRIMARY</span><span class="p">,</span> <span class="s">&quot;system-search&quot;</span><span class="p">);</span>
+		<span class="n">headerBar</span><span class="p">.</span><span class="n">set_custom_title</span> <span class="p">(</span><span class="n">entry</span><span class="p">);</span>
+	
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">openButton</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;document-open&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">LARGE_TOOLBAR</span><span class="p">);</span>
+		<span class="n">headerBar</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">openButton</span><span class="p">);</span>
+	
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">closeButton</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;document-save-as&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">LARGE_TOOLBAR</span><span class="p">);</span>
+		<span class="n">headerBar</span><span class="p">.</span><span class="n">pack_end</span> <span class="p">(</span><span class="n">closeButton</span><span class="p">);</span>
+	
+		<span class="n">window</span><span class="p">.</span><span class="n">set_titlebar</span> <span class="p">(</span><span class="n">headerBar</span><span class="p">);</span>
+		<span class="n">window</span><span class="p">.</span><span class="n">show_all</span> <span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="k">new</span> <span class="n">Example</span> <span class="p">().</span><span class="n">run</span> <span class="p">(</span><span class="n">args</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+
+<p><strong>Update (24.04.2014):</strong> Natürlich kann und sollte man auch das extra für Suchfelder gedachte <code>Gtk.SearchEntry</code> anstelle eines einfachen <code>Gtk.Entry</code>s benutzen.</p>
+
+	</article>
+	<div class="social">
+		<a class="fb" href="https://www.facebook.com/share.php?u=http://philipp-trommler.me/2013/12/22/die-neue-gtk-3-10-headerbar-in-vala.html" target="_blank"><span class="fa fa-facebook fa-fw"></span>Share</a>
+		<a class="gp" href="https://plus.google.com/share?url=http://philipp-trommler.me/2013/12/22/die-neue-gtk-3-10-headerbar-in-vala.html" target="_blank"><span class="fa fa-google-plus fa-fw"></span>+1</a>
+		<a class="tw" href="https://twitter.com/home?status=Die+neue+GTK+3.10+HeaderBar+in+Vala+http://philipp-trommler.me/2013/12/22/die-neue-gtk-3-10-headerbar-in-vala.html" target="_blank"><span class="fa fa-twitter fa-fw"></span>Tweet</a>
+	</div>
+	
+	<meta property="og:image" itemprop="image" content="http://philipp-trommler.me/images/headerbar5.png">
+	<meta itemprop="thumbnailUrl" content="http://philipp-trommler.me/images/headerbar5.png">
+	
+	<meta itemprop="description" content="Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.
+
+">
+	<meta property="og:locale" itemprop="inLanguage" content="de-DE">
+	<meta property="article:published_time" itemprop="datePublished" content="2013-12-22T00:44:00+01:00">
+	<meta itemprop="isFamilyFriendly" content="True">
+	<meta itemprop="typicalAgeRange" content="14-">
+	<meta itemprop="url" content="http://philipp-trommler.me/2013/12/22/die-neue-gtk-3-10-headerbar-in-vala.html">
+</div>
+
+		</div>
+	</div>
+	<footer class="site-footer">
+  <div class="wrapper">
+    <h2 class="footer-heading">Philipp Trommler</h2>
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Kontakt:</li>
+          <li><a href="mailto:mail@philipp-trommler.me">mail@philipp-trommler.me</a></li>
+          <li><a href="/impressum/">Impressum & Datenschutzerklärung</a></li>
+        </ul>
+      </div>
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          <li>
+              <span class="fa fa-google-plus fa-fw"></span>
+              <span class="username"><a href="https://plus.google.com/+PhilippTrommler/posts" target="_blank">Philipp Trommler</a></span>
+          </li>
+          <li>
+              <span class="fa fa-twitter fa-fw"></span>
+              <span class="username"><a href="https://twitter.com/PhTrommler" target="_blank">PhTrommler</a></span>
+          </li>
+          <li>
+              <span class="fa fa-github fa-fw"></span>
+              <span class="username"><a href="https://github.com/Ferruck" target="_blank">Ferruck</a></span>
+          </li>
+          <li>
+			  <span class="fa fa-youtube-play fa-fw"></span>
+			  <span class="username"><a href="https://www.youtube.com/channel/UCGG3f6yZH4gndb1HXRCqipw" target="_blank">Philipp Trommler</a></span>
+          </li>
+          <li>
+			  <span class="fa fa-xing fa-fw"></span>
+			  <span class="username"><a href="https://www.xing.com/profile/Philipp_Trommler2" target="_blank">Philipp Trommler</a></span>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-col  footer-col-3">
+        <p class="text">Informatiker und Forstwissenschaftler, immer auf der Suche nach neuen Herausforderungen und für Auftragsarbeiten zu haben.
+</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+	</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de" prefix="og: http://ogp.me/ns#, article: http://ogp.me/ns/article#">
+	<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <title>Intel® Cilk™ mit GCC 4.9 unter Linux</title>
+    
+    <meta property="og:type" content="article">
+    
+    <meta name="description" property="og:description" content="Mit der aktuellen (beziehungsweise in Ubuntu kommenden) Version 4.9 der GNU Compiler Collection GCC hält auch Intels® Multithreading Werkzeug Cilk™ Einzug in den C- und C++-Compiler. Mit Cilk™ soll es (unter anderem) äußerst einfach sein, die Last von Programmen gleichmäßig auf alle verfügbare Prozessorkerne zu verteilen.
+
+">
+    <meta property="og:url" content="http://philipp-trommler.me/2014/07/03/intel-cilk-mit-gcc-4-9-unter-linux.html">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="alternate" type="application/rss+xml" href="http://philipp-trommler.me/feed.xml">
+    <link rel="canonical" href="http://philipp-trommler.me/2014/07/03/intel-cilk-mit-gcc-4-9-unter-linux.html">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png"/>
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png"/>
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png"/>
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png"/>
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png"/>  
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png"/>  
+	<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-152x152.png"/>
+	<link rel="icon" type="image/png" href="/ico32.png"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+	<!--[if IE]><link rel="shortcut icon" type="image/vnd.microsoft.icon" href="favicon.ico"/><![endif]-->
+</head>
+
+	<body itemscope itemtype="http://schema.org/Blog">
+	<header class="site-header">
+  <div class="wrapper">
+    <a class="site-title" href="/">Philipp Trommler</a>
+
+  </div>
+</header>
+
+	<div class="page-content">
+		<div class="wrapper">
+		<div class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<header class="post-header">
+		<h1 class="post-title" itemprop="headline">Intel® Cilk™ mit GCC 4.9 unter Linux</h1>
+		<p class="post-meta">
+3.  
+
+  
+
+Juli  
+     
+
+2014
+
+
+
+ • Philipp Trommler • Tags: <meta property="article:tag" content="tools"><a href="/tags/tools/">tools</a> <meta property="article:tag" content="gcc"><a href="/tags/gcc/">gcc</a> <meta property="article:tag" content="intel"><a href="/tags/intel/">intel</a> <meta property="article:tag" content="cilk"><a href="/tags/cilk/">cilk</a> <meta property="article:tag" content="linux"><a href="/tags/linux/">linux</a> <meta property="article:tag" content="c"><a href="/tags/c/">c</a> <meta property="article:tag" content="c++"><a href="/tags/c++/">c++</a> <meta property="article:tag" content="cpp"><a href="/tags/cpp/">cpp</a></p>
+	</header>
+	<article class="post-content" itemprop="articleBody">
+	<p>Mit der aktuellen (beziehungsweise in Ubuntu kommenden) Version 4.9 der GNU Compiler Collection GCC hält auch Intels® Multithreading Werkzeug Cilk™ Einzug in den C- und C++-Compiler. Mit Cilk™ soll es (unter anderem) äußerst einfach sein, die Last von Programmen gleichmäßig auf alle verfügbare Prozessorkerne zu verteilen.</p>
+
+<h1 id="vorbereitungen">Vorbereitungen</h1>
+
+<p>Um Cilk™ mit Ubuntu nutzen zu können, bedarf es Vorbereitung, da es, wie der Titel es schon vermuten lässt, erst ab Version 4.9 in den Compilern enthalten ist. Diese Version wird wohl aber erst unter Ubuntu 14.10 zum Standard werden, also muss GCC auf eine der folgenden Weisen aktualisiert werden:</p>
+
+<ul>
+  <li>Aus den Quellen kompilieren, wobei ich hierauf nicht weiter eingehen möchte, da der Aufwand nur zum Testen von Cilk™ zu hoch und unnötig und die Vorgehensweise ausreichend im Internet dargelegt ist.</li>
+  <li>Über das Ubuntu Toolchain PPA installieren.</li>
+</ul>
+
+<p>Das PPA kann mittels <code>sudo add-apt-repository ppa:ubuntu-toolchain-r/test</code> ins System eingepflegt werden, anschließend werden mit dem Befehl <code>sudo apt-get install gcc-4.9 g++-4.9</code> die Compiler installiert. In den deb-Paketen scheint allerdings noch eine Datei zu fehlen, die somit manuell angelegt werden muss, also mit <code>sudo nano /usr/lib/libcilkrts.spec</code> die Datei öffnen und folgendes einfügen:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">This spec file is <span class="nb">read </span>by gcc when linking.  It is used to specify the
+<span class="c"># standard libraries we need in order to link with libcilkrts.</span>
+*link_cilkrts: /usr/lib/gcc/i686-linux-gnu/4.9/libcilkrts.so</code></pre></div>
+
+<p>Der Pfad zur Shared Library muss auf 64-bit Systemen entsprechend angepasst werden. Damit sollte die Installation eigentlich abgeschlossen sein (einfacher als GCC selbst zu kompilieren, oder?).</p>
+
+<h1 id="tests">Tests</h1>
+
+<p>Um die Performance von Cilk™ unter Linux zu messen, bediene ich mich der Beispiele, die Intel® <a href="http://www.cilkplus.org/cilk-plus-tutorial">auf den entsprechenden Webseiten</a> angibt. Als erstes das Fibonacci-Beispiel, mit dem sich <code>cilk_spawn</code> und <code>cilk_sync</code> für rekursive Algorithmen testen lässt:</p>
+
+<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include &lt;iostream&gt;</span>
+<span class="cp">#include &lt;cilk/cilk.h&gt;</span>
+<span class="cp">#include &lt;cilk/cilk_api.h&gt;</span>
+<span class="cp">#include &lt;sstream&gt;</span>
+
+<span class="kt">int</span> <span class="nf">fibo_wo</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+
+	<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">fibo_wo</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+	<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fibo_wo</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+
+	<span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">fibo_w</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+
+	<span class="c1">// Spawn one recursion as a new thread</span>
+	<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">cilk_spawn</span> <span class="n">fibo_w</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+	<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fibo_w</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+
+	<span class="c1">// Wait for all spawned threads to finish</span>
+	<span class="n">cilk_sync</span><span class="p">;</span>
+
+	<span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+	<span class="c1">// Thanks to Thomas for char to int conversion (&lt;http://stackoverflow.com/questions/2797813/convert-c-argument-to-int&gt;)</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">istringstream</span> <span class="n">ss</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+	<span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">ss</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">))</span>
+	<span class="p">{</span>
+		<span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Invalid number &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Testing Intel (R) Cilk (TM) with Fibonacci (n = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="kt">clock_t</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">;</span>
+	<span class="n">start</span> <span class="o">=</span> <span class="n">clock</span> <span class="p">();</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fibo_wo</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="n">end</span> <span class="o">=</span> <span class="n">clock</span> <span class="p">();</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Time without Intel (R) Cilk (TM): &quot;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">CLOCKS_PER_SEC</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; sec (CLOCKS_PER_SEC: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">CLOCKS_PER_SEC</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="n">start</span> <span class="o">=</span> <span class="n">clock</span> <span class="p">();</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fibo_w</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="n">end</span> <span class="o">=</span> <span class="n">clock</span> <span class="p">();</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Time with Intel (R) Cilk (TM): &quot;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">CLOCKS_PER_SEC</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; sec (CLOCKS_PER_SEC: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">CLOCKS_PER_SEC</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Ich habe das Beispiel etwas angepasst, damit sich leichter vergleichbare Ergebnisse erzielen lassen. Die Datei einfach als <code>fibo.cpp</code> speichern und mit</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">g++-4.9 -fcilkplus -I/usr/include/c++/4.9/ -o fibo fibo.cpp</code></pre></div>
+
+<p>kompilieren. Ein Aufruf mit <code>./fibo 40</code> gibt bei mir folgende, interessante Ergebnisse:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">Testing Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span> with Fibonacci <span class="o">(</span><span class="nv">n</span> <span class="o">=</span> 40<span class="o">)</span>
+102334155
+Time without Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">3</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span>
+102334155
+Time with Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">35</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span></code></pre></div>
+
+<p>Mal abgesehen davon, dass beide Funktionen das gleiche Ergebnis liefern (Glück gehabt!) und mein Computer echt langsam ist, fällt vor allem auf, dass die Version mit Intel® Cilk™ mehr als die zehnfache Laufzeit hat. Ob das an Problemen zwischen meinem betagten Prozessor (Genuine Intel® CPU T2250 @ 1.73GHz × 2) und der doch recht neuen Implementierung von Cilk™ liegt oder daran, dass der Compiler die ‘normale’ Funktion einfach so stark optimiert (die Option <code>-O0</code> bringt keine Veränderung), kann ich nicht sagen. Allerdings scheint die Cilk™ Funktion tatsächlich nicht (so stark) optimiert zu werden, da nach der Kompilierung mit <code>-O3</code> folgendes Ergebnis erscheint:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">Testing Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span> with Fibonacci <span class="o">(</span><span class="nv">n</span> <span class="o">=</span> 40<span class="o">)</span>
+102334155
+Time without Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">1</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span>
+102334155
+Time with Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">34</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span></code></pre></div>
+
+<p>Das Ergebnis der Cilk™ Funktion ändert sich also nicht, das der normalen wird um zwei Drittel reduziert. Vielleicht bringt die neue <code>for</code>-Schleife etwas, allerdings hat es <code>cilk_for</code> noch nicht in die GCC geschafft, vielleicht in 4.10.</p>
+
+<p>Bis dahin: Wie sehen eure Ergebnisse mit Cilk™ aus? Übersehe ich nur etwas? Liegt es vielleicht an meinem alten Rechner und wie verhält es sich mit AMD Prozessoren? Schreibt einfach in die Kommentare!</p>
+
+<h1 id="amd-quad-core-update">AMD Quad Core (Update)</h1>
+
+<p>Ich habe gerade zum Vergleich das Programm auf meinem zweiten Rechner (AMD Athlon™ II X4 645 Processor × 4) kompiliert und ausgeführt, leider auch hier ähnliche Ergebnisse:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>&gt; ./fibo 40
+Testing Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span> with Fibonacci <span class="o">(</span><span class="nv">n</span> <span class="o">=</span> 40<span class="o">)</span>
+102334155
+Time without Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">1</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span>
+102334155
+Time with Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">12</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span>
+<span class="nv">$ </span>&gt; ./fibo 45
+Testing Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span> with Fibonacci <span class="o">(</span><span class="nv">n</span> <span class="o">=</span> 45<span class="o">)</span>
+1134903170
+Time without Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">12</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span>
+1134903170
+Time with Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">134</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span></code></pre></div>
+
+<p>Es scheint mir langsam wirklich so, als würde ich etwas übersehen, habt ihr Ideen?</p>
+
+	</article>
+	<div class="social">
+		<a class="fb" href="https://www.facebook.com/share.php?u=http://philipp-trommler.me/2014/07/03/intel-cilk-mit-gcc-4-9-unter-linux.html" target="_blank"><span class="fa fa-facebook fa-fw"></span>Share</a>
+		<a class="gp" href="https://plus.google.com/share?url=http://philipp-trommler.me/2014/07/03/intel-cilk-mit-gcc-4-9-unter-linux.html" target="_blank"><span class="fa fa-google-plus fa-fw"></span>+1</a>
+		<a class="tw" href="https://twitter.com/home?status=Intel%C2%AE+Cilk%E2%84%A2+mit+GCC+4.9+unter+Linux+http://philipp-trommler.me/2014/07/03/intel-cilk-mit-gcc-4-9-unter-linux.html" target="_blank"><span class="fa fa-twitter fa-fw"></span>Tweet</a>
+	</div>
+	
+	<meta itemprop="description" content="Mit der aktuellen (beziehungsweise in Ubuntu kommenden) Version 4.9 der GNU Compiler Collection GCC hält auch Intels® Multithreading Werkzeug Cilk™ Einzug in den C- und C++-Compiler. Mit Cilk™ soll es (unter anderem) äußerst einfach sein, die Last von Programmen gleichmäßig auf alle verfügbare Prozessorkerne zu verteilen.
+
+">
+	<meta property="og:locale" itemprop="inLanguage" content="de-DE">
+	<meta property="article:published_time" itemprop="datePublished" content="2014-07-03T15:19:34+02:00">
+	<meta itemprop="isFamilyFriendly" content="True">
+	<meta itemprop="typicalAgeRange" content="14-">
+	<meta itemprop="url" content="http://philipp-trommler.me/2014/07/03/intel-cilk-mit-gcc-4-9-unter-linux.html">
+</div>
+
+		</div>
+	</div>
+	<footer class="site-footer">
+  <div class="wrapper">
+    <h2 class="footer-heading">Philipp Trommler</h2>
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Kontakt:</li>
+          <li><a href="mailto:mail@philipp-trommler.me">mail@philipp-trommler.me</a></li>
+          <li><a href="/impressum/">Impressum & Datenschutzerklärung</a></li>
+        </ul>
+      </div>
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          <li>
+              <span class="fa fa-google-plus fa-fw"></span>
+              <span class="username"><a href="https://plus.google.com/+PhilippTrommler/posts" target="_blank">Philipp Trommler</a></span>
+          </li>
+          <li>
+              <span class="fa fa-twitter fa-fw"></span>
+              <span class="username"><a href="https://twitter.com/PhTrommler" target="_blank">PhTrommler</a></span>
+          </li>
+          <li>
+              <span class="fa fa-github fa-fw"></span>
+              <span class="username"><a href="https://github.com/Ferruck" target="_blank">Ferruck</a></span>
+          </li>
+          <li>
+			  <span class="fa fa-youtube-play fa-fw"></span>
+			  <span class="username"><a href="https://www.youtube.com/channel/UCGG3f6yZH4gndb1HXRCqipw" target="_blank">Philipp Trommler</a></span>
+          </li>
+          <li>
+			  <span class="fa fa-xing fa-fw"></span>
+			  <span class="username"><a href="https://www.xing.com/profile/Philipp_Trommler2" target="_blank">Philipp Trommler</a></span>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-col  footer-col-3">
+        <p class="text">Informatiker und Forstwissenschaftler, immer auf der Suche nach neuen Herausforderungen und für Auftragsarbeiten zu haben.
+</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+	</body>
+</html>

@@ -1,0 +1,23 @@
+BEGIN:VCARD
+VERSION:2.1
+N:Trommler;Philipp;;
+FN:Philipp Trommler
+ORG:
+TEL;HOME;FAX:+4935130911167
+TEL;CELL;VOICE:+4917656505670
+TEL;HOME;VOICE:+4935130914163
+ADR;WORK:;;;;;;
+LABEL;WORK;ENCODING=QUOTED-PRINTABLE:=0D=0A=
+ Philipp Trommler=0D=0A=
+=0D=0A=
+
+ADR;HOME:;Bürgerstraße 2;;Dresden;Sachsen;01127;Deutschland
+LABEL;HOME;ENCODING=QUOTED-PRINTABLE: Philipp Trommler=0D=0A=
+ Bürgerstraße 2=0D=0A=
+ 01127 Dresden, Sachsen, Deutschland
+X-WAB-GENDER:1
+URL;HOME:http://philipp-trommler.me
+BDAY:19900215
+EMAIL;PREF;INTERNET:mail@philipp-trommler.me
+REV:20150311T170238Z
+END:VCARD

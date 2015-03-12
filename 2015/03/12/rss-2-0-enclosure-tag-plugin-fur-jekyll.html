@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+	<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <title>RSS 2.0 Enclosure-Tag Plugin für Jekyll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta property="og:title" content="RSS 2.0 Enclosure-Tag Plugin für Jekyll">
+    <meta property="og:description" name="description" content="Da ich in den letzten Tagen meinen Blog auf Jekyll umgebaut habe, habe ich mich natürlich auch mit dem von Jekyll erzeugten RSS-Feed auseinandergesetzt. Dabei fiel mir auf, dass Bilder nur im Lauftext eingebunden werden, also weder &lt;media:thumbnail …&gt; noch &lt;enclosure …&gt; Tags hinzugefügt werden.
+
+">
+    <meta property="og:url" content="http://philipp-trommler.me/2015/03/12/rss-2-0-enclosure-tag-plugin-fur-jekyll.html">
+    
+	
+    <meta property="og:type" content="article">
+	<meta property="article:published_time" content="2015-03-12T12:45:27+01:00">
+	
+	<meta property="article:tag" content="ruby">
+	
+	<meta property="article:tag" content="rss">
+	
+	<meta property="article:tag" content="jekyll">
+	
+	<meta property="article:tag" content="enclosure-tag">
+	
+    
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="alternate" type="application/rss+xml" href="http://philipp-trommler.me/feed.xml">
+    <link rel="canonical" href="http://philipp-trommler.me/2015/03/12/rss-2-0-enclosure-tag-plugin-fur-jekyll.html">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png"/>
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png"/>
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png"/>
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png"/>
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png"/>  
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png"/>  
+	<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-152x152.png"/>
+	<link rel="icon" type="image/png" href="/ico32.png"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+	<!--[if IE]><link rel="shortcut icon" type="image/vnd.microsoft.icon" href="favicon.ico"/><![endif]-->
+</head>
+
+	<body itemscope itemtype="http://schema.org/Blog">
+	<header class="site-header">
+  <div class="wrapper">
+    <a class="site-title" href="/">Philipp Trommler</a>
+
+  </div>
+</header>
+
+	<div class="page-content">
+		<div class="wrapper">
+		<div class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<header class="post-header">
+		<h1 class="post-title" itemprop="headline">RSS 2.0 Enclosure-Tag Plugin für Jekyll</h1>
+		<p class="post-meta">
+12.  
+
+  
+
+März  
+     
+
+2015
+
+
+
+ • Philipp Trommler • Tags: <a href="/tags/ruby/">ruby</a> <a href="/tags/rss/">rss</a> <a href="/tags/jekyll/">jekyll</a> <a href="/tags/enclosure-tag/">enclosure-tag</a></p>
+	</header>
+	<article class="post-content" itemprop="articleBody">
+	<p>Da ich in den letzten Tagen meinen Blog auf Jekyll umgebaut habe, habe ich mich natürlich auch mit dem von Jekyll erzeugten RSS-Feed auseinandergesetzt. Dabei fiel mir auf, dass Bilder nur im Lauftext eingebunden werden, also weder <code>&lt;media:thumbnail …&gt;</code> noch <code>&lt;enclosure …&gt;</code> Tags hinzugefügt werden.</p>
+
+<p>Während erstere noch recht einfach mittels</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;media:thumbnail</span> <span class="na">url=</span><span class="s">&quot;{{ post.images[0].url | prepend: site.baseurl | prepend: site.url }}&quot;</span> <span class="nt">/&gt;</span></code></pre></div>
+
+<p>hinzugefügt werden können, sieht das ganze für <code>&lt;enclosure …&gt;</code> Tags schon etwas anders aus, da die Länge der Datei in Bytes und der Mime-Type zwingend benötigt werden. Da ich im Internet nichts dazu gefunden habe (erstaunlicherweise!), habe ich mir direkt mal daran versucht, ein Jekyll-Plugin zu schreiben. Es ist das erste Mal, dass ich etwas in Ruby geschrieben habe, ich bin also offen für alle Verbesserungsvorschläge. Ansonsten kann es natürlich gerne für die eigenen Zwecke verwendet werden!</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s2">&quot;mimemagic&quot;</span>
+
+<span class="k">module</span> <span class="nn">Jekyll</span>
+	<span class="k">class</span> <span class="nc">RSSEnclosureTag</span> <span class="o">&lt;</span> <span class="no">Liquid</span><span class="o">::</span><span class="no">Tag</span>
+		<span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">tag_name</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">tokens</span><span class="p">)</span>
+			<span class="k">super</span>
+			<span class="vi">@text</span> <span class="o">=</span> <span class="n">text</span>
+		<span class="k">end</span>
+		
+		<span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+			<span class="n">file</span> <span class="o">=</span> <span class="n">context</span><span class="o">[</span><span class="vi">@text</span><span class="o">]</span> <span class="o">||</span> <span class="vi">@text</span>
+			<span class="n">xml</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+			<span class="n">baseurl</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">config</span><span class="o">[</span><span class="s1">&#39;url&#39;</span><span class="o">]</span> <span class="o">+</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">baseurl</span>
+			<span class="k">if</span> <span class="no">File</span><span class="o">.</span><span class="n">exist?</span><span class="p">(</span><span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">file</span><span class="p">)</span>
+				<span class="n">xml</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;&lt;enclosure url=&#39;</span><span class="si">#{</span><span class="n">baseurl</span> <span class="o">+</span> <span class="n">file</span><span class="si">}</span><span class="s2">&#39; length=&#39;</span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2">&#39; type=&#39;</span><span class="si">#{</span><span class="no">MimeMagic</span><span class="o">.</span><span class="n">by_magic</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">file</span><span class="p">))</span><span class="si">}</span><span class="s2">&#39; /&gt;&quot;</span>
+			<span class="k">end</span>
+			<span class="n">xml</span>
+		<span class="k">end</span>
+	<span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Liquid</span><span class="o">::</span><span class="no">Template</span><span class="o">.</span><span class="n">register_tag</span><span class="p">(</span><span class="s1">&#39;rss_enclosure&#39;</span><span class="p">,</span> <span class="no">Jekyll</span><span class="o">::</span><span class="no">RSSEnclosureTag</span><span class="p">)</span></code></pre></div>
+
+<p>Eingebunden wird das ganze dann mit</p>
+
+<div class="highlight"><pre><code class="language-liquid" data-lang="liquid"><span class="p">{%</span><span class="w"> </span><span class="nt">rss_enclosure</span><span class="w"> </span>{{<span class="w"> </span>post.images[<span class="mi">0</span>].url<span class="w"> </span>}}<span class="w"> </span><span class="p">%}</span></code></pre></div>
+
+<p>in der <code>feed.xml</code>. Offensichtlich wird das <code>mimemagic</code>-Gem benötigt, ansonsten sollte alles so funktionieren, zumindest tut es das für mich.</p>
+
+<p>Ich frage vorher noch ab, ob der Beitrag überhaupt ein Bild enthält, sodass sich insgesamt folgender Code ergibt:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml">{% if post.images %}
+	<span class="nt">&lt;media:thumbnail</span> <span class="na">url=</span><span class="s">&quot;{{ post.images[0].url | prepend: site.baseurl | prepend: site.url }}&quot;</span> <span class="nt">/&gt;</span>
+	{% rss_enclosure {{ post.images[0].url }} %}
+{% endif %}</code></pre></div>
+
+<p>Viel Spaß damit!</p>
+
+	</article>
+	<div class="social">
+		<a class="fb" href="https://www.facebook.com/share.php?u=http%3A%2F%2Fphilipp-trommler.me%2F2015%2F03%2F12%2Frss-2-0-enclosure-tag-plugin-fur-jekyll.html" target="_blank"><span class="fa fa-facebook fa-fw"></span>Share</a>
+		<a class="gp" href="https://plus.google.com/share?url=http%3A%2F%2Fphilipp-trommler.me%2F2015%2F03%2F12%2Frss-2-0-enclosure-tag-plugin-fur-jekyll.html" target="_blank"><span class="fa fa-google-plus fa-fw"></span>+1</a>
+		<a class="tw" href="https://twitter.com/share?text=RSS+2.0+Enclosure-Tag+Plugin+f%C3%BCr+Jekyll&url=http%3A%2F%2Fphilipp-trommler.me%2F2015%2F03%2F12%2Frss-2-0-enclosure-tag-plugin-fur-jekyll.html&related=PhTrommler%3ADer+Autor" target="_blank"><span class="fa fa-twitter fa-fw"></span>Tweet</a>
+		<a class="wa" href="whatsapp://send?text=RSS+2.0+Enclosure-Tag+Plugin+f%C3%BCr+Jekyll+http%3A%2F%2Fphilipp-trommler.me%2F2015%2F03%2F12%2Frss-2-0-enclosure-tag-plugin-fur-jekyll.html"><span class="fa fa-whatsapp fa-fw"></span>Weitersagen</a>
+	</div>
+	
+	<meta itemprop="description" content="Da ich in den letzten Tagen meinen Blog auf Jekyll umgebaut habe, habe ich mich natürlich auch mit dem von Jekyll erzeugten RSS-Feed auseinandergesetzt. Dabei fiel mir auf, dass Bilder nur im Lauftext eingebunden werden, also weder &lt;media:thumbnail …&gt; noch &lt;enclosure …&gt; Tags hinzugefügt werden.
+
+">
+	<meta itemprop="inLanguage" content="de-DE">
+	<meta itemprop="datePublished" content="2015-03-12T12:45:27+01:00">
+	<meta itemprop="isFamilyFriendly" content="True">
+	<meta itemprop="typicalAgeRange" content="14-">
+	<meta itemprop="url" content="http://philipp-trommler.me/2015/03/12/rss-2-0-enclosure-tag-plugin-fur-jekyll.html">
+</div>
+
+		</div>
+	</div>
+	<footer class="site-footer">
+  <div class="wrapper">
+    <h2 class="footer-heading">Philipp Trommler</h2>
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Kontakt:</li>
+          <li><a href="mailto:mail@philipp-trommler.me">mail@philipp-trommler.me</a></li>
+          <li><a href="/impressum/">Impressum & Datenschutzerklärung</a></li>
+        </ul>
+      </div>
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          <li>
+              <span class="fa fa-google-plus fa-fw"></span>
+              <span class="username"><a href="https://plus.google.com/+PhilippTrommler/posts" target="_blank">Philipp Trommler</a></span>
+          </li>
+          <li>
+              <span class="fa fa-twitter fa-fw"></span>
+              <span class="username"><a href="https://twitter.com/PhTrommler" target="_blank">PhTrommler</a></span>
+          </li>
+          <li>
+              <span class="fa fa-github fa-fw"></span>
+              <span class="username"><a href="https://github.com/Ferruck" target="_blank">Ferruck</a></span>
+          </li>
+          <li>
+			  <span class="fa fa-youtube-play fa-fw"></span>
+			  <span class="username"><a href="https://www.youtube.com/channel/UCGG3f6yZH4gndb1HXRCqipw" target="_blank">Philipp Trommler</a></span>
+          </li>
+          <li>
+			  <span class="fa fa-xing fa-fw"></span>
+			  <span class="username"><a href="https://www.xing.com/profile/Philipp_Trommler2" target="_blank">Philipp Trommler</a></span>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-col  footer-col-3">
+        <p class="text">Informatiker und Forstwissenschaftler, immer auf der Suche nach neuen Herausforderungen und für Auftragsarbeiten zu haben.
+</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+	</body>
+</html>

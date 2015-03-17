@@ -15,8 +15,8 @@
 </description>
 	</image>
     <atom:link href="http://philipp-trommler.me/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 12 Mar 2015 11:27:25 +0100</pubDate>
-    <lastBuildDate>Thu, 12 Mar 2015 11:27:25 +0100</lastBuildDate>
+    <pubDate>Tue, 17 Mar 2015 10:08:47 +0100</pubDate>
+    <lastBuildDate>Tue, 17 Mar 2015 10:08:47 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -521,8 +521,6 @@ Time with Intel &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;R&lt;span class=&q
         <category>linux</category>
         
         <category>c</category>
-        
-        <category>c++</category>
         
         <category>cpp</category>
         

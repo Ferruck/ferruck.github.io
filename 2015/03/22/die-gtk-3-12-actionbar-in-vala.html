@@ -10,10 +10,10 @@
 	<meta name="twitter:site" content="@PhTrommler">
 	<meta name="twitter:creator" content="@PhTrommler">
 	<meta name="twitter:title" content="Die GTK 3.12 ActionBar in Vala">
-	<meta name="twitter:description" content="Auch wenn es die Gtk.ActionBar schon seit GTK 3.12 und somit schon ein bisschen länger gibt, habe ich bisher kaum Anleitungen dazu im Internet gefunden und keine einzige für Vala. Daher möchte ich hiermit ein kleines Tutorial nachliefern, auch wenn sich die Verwendung eigentlich nicht sonderlich von einer Gtk.Box oder einer Gtk.Toolbar unterscheidet.
+	<meta name="twitter:description" content="Auch wenn es die Gtk.ActionBar schon seit GTK 3.12 und somit schon ein bisschen länger gibt, habe ich bisher kaum Anleitungen dazu im Internet gefunden und kein einziges für Vala. Daher möchte ich hiermit ein kleines Tutorial nachliefern, auch wenn sich die Verwendung eigentlich nicht sonderlich von einer Gtk.Box oder einer Gtk.Toolbar unterscheidet.
 
 ">
-    <meta property="og:description" name="description" content="Auch wenn es die Gtk.ActionBar schon seit GTK 3.12 und somit schon ein bisschen länger gibt, habe ich bisher kaum Anleitungen dazu im Internet gefunden und keine einzige für Vala. Daher möchte ich hiermit ein kleines Tutorial nachliefern, auch wenn sich die Verwendung eigentlich nicht sonderlich von einer Gtk.Box oder einer Gtk.Toolbar unterscheidet.
+    <meta property="og:description" name="description" content="Auch wenn es die Gtk.ActionBar schon seit GTK 3.12 und somit schon ein bisschen länger gibt, habe ich bisher kaum Anleitungen dazu im Internet gefunden und kein einziges für Vala. Daher möchte ich hiermit ein kleines Tutorial nachliefern, auch wenn sich die Verwendung eigentlich nicht sonderlich von einer Gtk.Box oder einer Gtk.Toolbar unterscheidet.
 
 ">
     <meta property="og:url" content="http://philipp-trommler.me/2015/03/22/die-gtk-3-12-actionbar-in-vala.html">
@@ -77,11 +77,16 @@ März
  • Philipp Trommler • Tags: <a href="/tags/gtk3/">gtk3</a> <a href="/tags/gtk/">gtk</a> <a href="/tags/vala/">vala</a> <a href="/tags/actionbar/">actionbar</a></p>
 	</header>
 	<article class="post-content" itemprop="articleBody">
-	<p>Auch wenn es die <code>Gtk.ActionBar</code> schon seit GTK 3.12 und somit schon ein bisschen länger gibt, habe ich bisher kaum Anleitungen dazu im Internet gefunden und keine einzige für Vala. Daher möchte ich hiermit ein kleines Tutorial nachliefern, auch wenn sich die Verwendung eigentlich nicht sonderlich von einer <code>Gtk.Box</code> oder einer <code>Gtk.Toolbar</code> unterscheidet.</p>
+	<p>Auch wenn es die <code>Gtk.ActionBar</code> schon seit GTK 3.12 und somit schon ein bisschen länger gibt, habe ich bisher kaum Anleitungen dazu im Internet gefunden und kein einziges für Vala. Daher möchte ich hiermit ein kleines Tutorial nachliefern, auch wenn sich die Verwendung eigentlich nicht sonderlich von einer <code>Gtk.Box</code> oder einer <code>Gtk.Toolbar</code> unterscheidet.</p>
 
 <p>ActionBars sind eigentlich wie eine Toolbar, nur sollen sie kontextsensitiv verwendet werden und sich unter dem Widget befinden, für das sie zuständig sind. Die Unterschiede sind also eher semantisch. Die Benutzung erinnert stark an eine <code>Gtk.Box</code> mit horizontaler Ausrichtung, es werden also mit <code>pack_start ()</code> <code>Gtk.Widget</code>s an den linken Rand gesetzt, mit <code>pack_end ()</code> an den rechten. Zusätzlich kann aber noch <em>ein</em> <code>Gtk.Widget</code> mit <code>set_center_widget ()</code> mittig in die <code>Gtk.ActionBar</code> gesetzt werden, wobei mittig absolut gemeint ist, also unabhängig von Anzahl und Größe der <code>Gtk.Widget</code>s an den Seiten. Sollen in der Mitte mehrere <code>Gtk.Widget</code>s platziert werden, müssen diese vorher in einen <code>Gtk.Container</code> gepackt werden, also zum Beispiel in eine <code>Gtk.Box</code>.</p>
 
-<p><img src="/images/actionbar1.png" alt="GTK ActionBar Beispielanwendung" /></p>
+<figure>
+	<a href="/images/actionbar1.png">
+		<img src="/images/actionbar1.png" alt="GTK ActionBar Beispielanwendung." />
+	</a>
+	<figcaption>GTK ActionBar Beispielanwendung.</figcaption>
+</figure>
 
 <p>So habe ich es auch in meiner obligatorischen kleinen Beispielanwendung gemacht, die als Grundlage für einen minimalistischen Bildbetrachter fungieren könnte. Natürlich fehlt noch jegliche Logik im Beispiel, aber hier soll es ja auch nur um die Benutzung der <code>Gtk.ActionBar</code> gehen. Eingebaut habe ich das ganze wie immer in eine <code>Gtk.Application</code>.</p>
 
@@ -150,7 +155,7 @@ März
 	<span class="k">return</span> <span class="k">new</span> <span class="n">Example</span> <span class="p">().</span><span class="n">run</span> <span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="p">}</span></code></pre></div>
 
-<p>Einfach als <code>actionbar.vala</code> abspeichern und wie immer mit </p>
+<p>Einfach als <code>actionbar.vala</code> abspeichern und wie immer mit</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">valac --pkg gtk+-3.0 -o actionbar actionbar.vala</code></pre></div>
 
@@ -167,7 +172,7 @@ März
 	<meta itemprop="image" content="http://philipp-trommler.me/images/actionbar1.png">
 	<meta itemprop="thumbnailUrl" content="http://philipp-trommler.me/images/actionbar1.png">
 	
-	<meta itemprop="description" content="Auch wenn es die Gtk.ActionBar schon seit GTK 3.12 und somit schon ein bisschen länger gibt, habe ich bisher kaum Anleitungen dazu im Internet gefunden und keine einzige für Vala. Daher möchte ich hiermit ein kleines Tutorial nachliefern, auch wenn sich die Verwendung eigentlich nicht sonderlich von einer Gtk.Box oder einer Gtk.Toolbar unterscheidet.
+	<meta itemprop="description" content="Auch wenn es die Gtk.ActionBar schon seit GTK 3.12 und somit schon ein bisschen länger gibt, habe ich bisher kaum Anleitungen dazu im Internet gefunden und kein einziges für Vala. Daher möchte ich hiermit ein kleines Tutorial nachliefern, auch wenn sich die Verwendung eigentlich nicht sonderlich von einer Gtk.Box oder einer Gtk.Toolbar unterscheidet.
 
 ">
 	<meta itemprop="inLanguage" content="de-DE">

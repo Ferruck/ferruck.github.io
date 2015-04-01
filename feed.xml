@@ -15,17 +15,22 @@
 </description>
 	</image>
     <atom:link href="http://philipp-trommler.me/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 24 Mar 2015 09:20:41 +0100</pubDate>
-    <lastBuildDate>Tue, 24 Mar 2015 09:20:41 +0100</lastBuildDate>
+    <pubDate>Wed, 01 Apr 2015 10:58:10 +0200</pubDate>
+    <lastBuildDate>Wed, 01 Apr 2015 10:58:10 +0200</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
         <title>Die GTK 3.12 ActionBar in Vala</title>
-        <description>&lt;p&gt;Auch wenn es die &lt;code&gt;Gtk.ActionBar&lt;/code&gt; schon seit GTK 3.12 und somit schon ein bisschen länger gibt, habe ich bisher kaum Anleitungen dazu im Internet gefunden und keine einzige für Vala. Daher möchte ich hiermit ein kleines Tutorial nachliefern, auch wenn sich die Verwendung eigentlich nicht sonderlich von einer &lt;code&gt;Gtk.Box&lt;/code&gt; oder einer &lt;code&gt;Gtk.Toolbar&lt;/code&gt; unterscheidet.&lt;/p&gt;
+        <description>&lt;p&gt;Auch wenn es die &lt;code&gt;Gtk.ActionBar&lt;/code&gt; schon seit GTK 3.12 und somit schon ein bisschen länger gibt, habe ich bisher kaum Anleitungen dazu im Internet gefunden und kein einziges für Vala. Daher möchte ich hiermit ein kleines Tutorial nachliefern, auch wenn sich die Verwendung eigentlich nicht sonderlich von einer &lt;code&gt;Gtk.Box&lt;/code&gt; oder einer &lt;code&gt;Gtk.Toolbar&lt;/code&gt; unterscheidet.&lt;/p&gt;
 
 &lt;p&gt;ActionBars sind eigentlich wie eine Toolbar, nur sollen sie kontextsensitiv verwendet werden und sich unter dem Widget befinden, für das sie zuständig sind. Die Unterschiede sind also eher semantisch. Die Benutzung erinnert stark an eine &lt;code&gt;Gtk.Box&lt;/code&gt; mit horizontaler Ausrichtung, es werden also mit &lt;code&gt;pack_start ()&lt;/code&gt; &lt;code&gt;Gtk.Widget&lt;/code&gt;s an den linken Rand gesetzt, mit &lt;code&gt;pack_end ()&lt;/code&gt; an den rechten. Zusätzlich kann aber noch &lt;em&gt;ein&lt;/em&gt; &lt;code&gt;Gtk.Widget&lt;/code&gt; mit &lt;code&gt;set_center_widget ()&lt;/code&gt; mittig in die &lt;code&gt;Gtk.ActionBar&lt;/code&gt; gesetzt werden, wobei mittig absolut gemeint ist, also unabhängig von Anzahl und Größe der &lt;code&gt;Gtk.Widget&lt;/code&gt;s an den Seiten. Sollen in der Mitte mehrere &lt;code&gt;Gtk.Widget&lt;/code&gt;s platziert werden, müssen diese vorher in einen &lt;code&gt;Gtk.Container&lt;/code&gt; gepackt werden, also zum Beispiel in eine &lt;code&gt;Gtk.Box&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/actionbar1.png&quot; alt=&quot;GTK ActionBar Beispielanwendung&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/actionbar1.png&quot;&gt;
+		&lt;img src=&quot;/images/actionbar1.png&quot; alt=&quot;GTK ActionBar Beispielanwendung.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;GTK ActionBar Beispielanwendung.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;So habe ich es auch in meiner obligatorischen kleinen Beispielanwendung gemacht, die als Grundlage für einen minimalistischen Bildbetrachter fungieren könnte. Natürlich fehlt noch jegliche Logik im Beispiel, aber hier soll es ja auch nur um die Benutzung der &lt;code&gt;Gtk.ActionBar&lt;/code&gt; gehen. Eingebaut habe ich das ganze wie immer in eine &lt;code&gt;Gtk.Application&lt;/code&gt;.&lt;/p&gt;
 
@@ -94,7 +99,7 @@
 	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Example&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Einfach als &lt;code&gt;actionbar.vala&lt;/code&gt; abspeichern und wie immer mit &lt;/p&gt;
+&lt;p&gt;Einfach als &lt;code&gt;actionbar.vala&lt;/code&gt; abspeichern und wie immer mit&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;valac --pkg gtk+-3.0 -o actionbar actionbar.vala&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -634,7 +639,12 @@ Time with Intel &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;R&lt;span class=&q
 
 &lt;h1 id=&quot;minimalbeispiel&quot;&gt;Minimalbeispiel&lt;/h1&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/popover1.png&quot; alt=&quot;GTK Popover im Minimalbeispiel aus dem letzten Tutorial.&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/popover1.png&quot;&gt;
+		&lt;img src=&quot;/images/popover1.png&quot; alt=&quot;GTK Popover im Minimalbeispiel aus dem letzten Tutorial.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;GTK Popover im Minimalbeispiel aus dem letzten Tutorial.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;Wie schon im &lt;a href=&quot;/2013/12/22/die-neue-gtk-3-10-headerbar-in-vala.html&quot;&gt;letzten Tutorial&lt;/a&gt; zu HeaderBars, will ich euch die Verwendung der Popovers an einem Minimalbeispiel näherbringen. Das oben gezeigte Programm kann mit dem nur um einige Zeilen erweiterten Quelltext aus dem HeaderBar-Tutorial erzeugt werden:&lt;/p&gt;
 
@@ -733,7 +743,12 @@ Time with Intel &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;R&lt;span class=&q
 
 &lt;p&gt;Das funktioniert zwar, allerdings entspricht das Ergebnis wohl nicht ganz dem, was der Benutzer von einem Popover erwartet:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/popover2.png&quot; alt=&quot;Nicht ganz passend, aber möglich: Icons im GTK Popover.&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/popover2.png&quot;&gt;
+		&lt;img src=&quot;/images/popover2.png&quot; alt=&quot;Nicht ganz passend, aber möglich: Icons im GTK Popover.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Nicht ganz passend, aber möglich: Icons im GTK Popover.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;h1 id=&quot;auswahl&quot;&gt;Auswahl&lt;/h1&gt;
 
@@ -764,7 +779,12 @@ Time with Intel &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;R&lt;span class=&q
 	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/popover3.png&quot; alt=&quot;Auch Gtk.Box und Gtk.Grid sind im Popover möglich.&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/popover3.png&quot;&gt;
+		&lt;img src=&quot;/images/popover3.png&quot; alt=&quot;Auch Gtk.Box und Gtk.Grid sind im Popover möglich.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Auch Gtk.Box und Gtk.Grid sind im Popover möglich.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;Über diese Container sind natürlich sehr komplexe Inhalte für Popover möglich, fast alle Widgets, die in eine &lt;code&gt;Gtk.Box&lt;/code&gt; oder ein &lt;code&gt;Gtk.Grid&lt;/code&gt; gepackt werden können, können somit auch Inhalt eines Popover werden.&lt;/p&gt;
 
@@ -795,31 +815,71 @@ Time with Intel &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;R&lt;span class=&q
         <title>Numix GTK 3 Flat Theme Light Review</title>
         <description>&lt;p&gt;Seit ein paar Tagen sind die neuen Flat-Themes von Numix im &lt;a href=&quot;https://apps.ubuntu.com/cat/applications/numix-gtk3-flat-theme-light/&quot;&gt;Software Center&lt;/a&gt; und auf &lt;a href=&quot;http://me4oslav.deviantart.com/art/Numix-Flat-GTK-3-theme-425422073&quot;&gt;deviantART&lt;/a&gt; als normale, helle und dunkle Version erhältlich. Ich habe mir die helle Version zugelegt und möchte hier kurz meine Meinung dazu abgeben.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/numix1.png&quot; alt=&quot;Das Theme im Software Center und das Software Center im Theme.&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/numix1.png&quot;&gt;
+		&lt;img src=&quot;/images/numix1.png&quot; alt=&quot;Das Theme im Software Center und das Software Center im Theme.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Das Theme im Software Center und das Software Center im Theme.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;Die Themes sind für 2,99$, respektive 2,39€, zu haben, meiner Meinung nach ein durchaus fairer Preis, und besonders gut wirken sie natürlich in Verbindung mit einem der Numix Icon Themes.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/numix2.png&quot; alt=&quot;Wetter-App im neuen Theme als Beispiel einer dunklen App mit HeaderBar.&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/numix2.png&quot;&gt;
+		&lt;img src=&quot;/images/numix2.png&quot; alt=&quot;Wetter-App im neuen Theme als Beispiel einer dunklen App mit HeaderBar.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Wetter-App im neuen Theme als Beispiel einer dunklen App mit HeaderBar.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;An manchen Stellen fallen allerdings noch ein paar kleine Ungereimtheiten auf, zum Beispiel haben manche Buttons einen Rand und einen helleren Hintergrund andere nicht. Hoffentlich sind das noch Bugs und keine Features und hoffentlich werden diese auch noch gefixt.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/numix3.png&quot; alt=&quot;Nautilus im Theme als Beispiel einer hellen App mit HeaderBar, gut zu sehen sind die umrandeten Buttons mit hellerem Hintergrund, Buttons mit Menü haben beides nicht.&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/numix3.png&quot;&gt;
+		&lt;img src=&quot;/images/numix3.png&quot; alt=&quot;Nautilus im Theme als Beispiel einer hellen App mit HeaderBar, gut zu sehen sind die umrandeten Buttons mit hellerem Hintergrund, Buttons mit Menü haben beides nicht.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Nautilus im Theme als Beispiel einer hellen App mit HeaderBar, gut zu sehen sind die umrandeten Buttons mit hellerem Hintergrund, Buttons mit Menü haben beides nicht.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;Besonders gut gefallen mir die dunkelrote Highlight-Farbe, die sich gut vom Rest des Themes abhebt, sowie die Scrollbars, die deutlich unaufdringlicher sind als die Originalen.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/numix4.png&quot; alt=&quot;Terminal, zu beachten sind die schlichten Scrollbars.&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/numix4.png&quot;&gt;
+		&lt;img src=&quot;/images/numix4.png&quot; alt=&quot;Terminal, zu beachten sind die schlichten Scrollbars.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Terminal, zu beachten sind die schlichten Scrollbars.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;Das “Schließen”-Icon und der Titel von Fenstern ohne HeaderBar sind für meinen Geschmack etwas zu nah am Fensterrand, der Titel und Untertitel von Fenstern mit HeaderBar hat irgendwie einen seltsamen Font (siehe Bild). Alles in allem gefällt mir das Theme aber sehr gut, ich kann den Kauf zu diesem Preis empfehlen, und ich bin gespannt, was sich das Numix-Team in nächster Zeit noch so aus den Fingern saugt.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/numix5.png&quot; alt=&quot;Video-App im Light Theme.&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/numix5.png&quot;&gt;
+		&lt;img src=&quot;/images/numix5.png&quot; alt=&quot;Video-App im Light Theme.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Video-App im Light Theme.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;Da Bilder, insbesondere in so einem Fall wie hier, natürlich mehr sagen als tausend Worte, gibt es hier noch ein paar Screenshots, mit denen ihr selbst für euch entscheiden könnt, ob das Theme etwas für euch ist oder nicht.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/numix6.png&quot; alt=&quot;Rythmbox im Numix GTK 3 Flat Theme Light.&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/numix6.png&quot;&gt;
+		&lt;img src=&quot;/images/numix6.png&quot; alt=&quot;Rythmbox im Numix GTK 3 Flat Theme Light.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Rythmbox im Numix GTK 3 Flat Theme Light.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/numix7.png&quot; alt=&quot;Beispiel-App aus dem letzten Tutorial mit dem neuen Theme.&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/numix7.png&quot;&gt;
+		&lt;img src=&quot;/images/numix7.png&quot; alt=&quot;Beispiel-App aus dem letzten Tutorial mit dem neuen Theme.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Beispiel-App aus dem letzten Tutorial mit dem neuen Theme.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/numix8.png&quot; alt=&quot;Beispiel-App aus dem letzten Tutorial mit dem neuen Theme.&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/numix8.png&quot;&gt;
+		&lt;img src=&quot;/images/numix8.png&quot; alt=&quot;Beispiel-App aus dem letzten Tutorial mit dem neuen Theme.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Beispiel-App aus dem letzten Tutorial mit dem neuen Theme.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;Und jetzt schön eines der Themes &lt;a href=&quot;https://apps.ubuntu.com/cat/applications/numix-gtk3-flat-theme-light/&quot;&gt;kaufen&lt;/a&gt; und damit die Macher unterstützen!&lt;/p&gt;
 </description>
@@ -852,13 +912,23 @@ Time with Intel &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;R&lt;span class=&q
         <title>Die neue GTK 3.10 HeaderBar in Vala</title>
         <description>&lt;p&gt;Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/headerbar5.png&quot; alt=&quot;Die HeaderBar in Nautilus spart Platz.&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/headerbar5.png&quot;&gt;
+		&lt;img src=&quot;/images/headerbar5.png&quot; alt=&quot;Die HeaderBar in Nautilus spart Platz.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Die HeaderBar in Nautilus spart Platz.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;Diese HeaderBars können auch einfach in die eigenen Programme integriert werden, wenn die aktuellen Bibliotheken, also &lt;code&gt;libgtk-3-0&lt;/code&gt; und &lt;code&gt;libgtk-3-dev (&amp;gt;= 3.10)&lt;/code&gt;, installiert sind. Das folgende Minimalbeispiel befolgt die aktuellen Empfehlungen zur Erstellung von GNOME-Apps, erweitert also die &lt;code&gt;Gtk.Application&lt;/code&gt; Klasse. Eine HeaderBar besteht im Endeffekt aus drei Bereichen, dem linken und dem rechten, die jeweils mit &lt;code&gt;Gtk.Widget&lt;/code&gt;s befüllt werden können, und dem mittleren, der entweder mit Titel und gegebenenfalls Untertitel oder mit einem &lt;code&gt;Gtk.Widget&lt;/code&gt; belegt wird.&lt;/p&gt;
 
 &lt;h1 id=&quot;minimalbeispiel&quot;&gt;Minimalbeispiel&lt;/h1&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/headerbar1.png&quot; alt=&quot;Minimalbeispiel für die GTK Headerbar.&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/headerbar1.png&quot;&gt;
+		&lt;img src=&quot;/images/headerbar1.png&quot; alt=&quot;Minimalbeispiel für die GTK HeaderBar.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Minimalbeispiel für die GTK HeaderBar.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;Dieses Minimalbeispiel kann schon mit wenigen Zeilen Code erstellt werden:&lt;/p&gt;
 
@@ -904,7 +974,12 @@ Time with Intel &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;R&lt;span class=&q
 
 &lt;p&gt;Hierbei wird schon der neue &lt;code&gt;Gtk.Button.from_icon_name&lt;/code&gt;-Constructor genutzt, da &lt;code&gt;Gtk.Stock&lt;/code&gt; ab GTK 3.10 als veraltet markiert ist. Die Iconnamen sind dabei standardisiert und nicht mehr GTK-intern, mehr dazu allerdings in einem anderen Blogpost.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/headerbar4.png&quot; alt=&quot;Erweitertes Minimalbeispiel mit &amp;quot;öffnen&amp;quot;- und &amp;quot;Schließen&amp;quot;-Buttons.&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/headerbar4.png&quot;&gt;
+		&lt;img src=&quot;/images/headerbar4.png&quot; alt=&quot;Erweitertes Minimalbeispiel mit &#39;Öffnen&#39;- und &#39;Schließen&#39;-Buttons.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Erweitertes Minimalbeispiel mit &#39;Öffnen&#39;- und &#39;Schließen&#39;-Buttons.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;h1 id=&quot;widgets-in-der-titelleiste&quot;&gt;Widgets in der Titelleiste&lt;/h1&gt;
 
@@ -914,7 +989,12 @@ Time with Intel &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;R&lt;span class=&q
 &lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_icon_from_icon_name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Gtk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EntryIconPosition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PRIMARY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;system-search&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;headerBar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_custom_title&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/headerbar3.png&quot; alt=&quot;Erweitertes Minimalbeispiel mit Widget in der Titelleiste.&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/headerbar3.png&quot;&gt;
+		&lt;img src=&quot;/images/headerbar3.png&quot; alt=&quot;Erweitertes Minimalbeispiel mit Widget in der Titelleiste.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Erweitertes Minimalbeispiel mit Widget in der Titelleiste.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;Auch hier kommen wieder die neuen Iconnamen zum Einsatz. Der Titel und der Untertitel werden durch das &lt;code&gt;Gtk.Widget&lt;/code&gt; überschrieben, sollen sie wieder angezeigt werden muss der “&lt;code&gt;custom_title&lt;/code&gt;” null gesetzt werden:&lt;/p&gt;
 
@@ -978,7 +1058,12 @@ Time with Intel &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;R&lt;span class=&q
         <title>Desktop-Verknüpfungen einfach gemacht mit MenuLibre</title>
         <description>&lt;p&gt;Wer außer mir auch denkt, dass es jedes Mal eine Qual ist, ‘Desktop-Entries’ zu schreiben - einfach weil man es so selten macht und deswegen die benötigten Teile jedes Mal aufs neue vergessen hat und ergoogeln muss - der sollte sich &lt;a href=&quot;https://launchpad.net/menulibre&quot;&gt;MenuLibre&lt;/a&gt; von Sean Davis genauer ansehen. Es ist kostenlos, über sein PPA erhältlich und macht die Menü-Bearbeitung zu einer wahren Freude.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/menulibre1.png&quot; alt=&quot;MenuLibre in Lubuntu 13.04&quot; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/images/menulibre1.png&quot;&gt;
+		&lt;img src=&quot;/images/menulibre1.png&quot; alt=&quot;MenuLibre in Lubuntu 13.04&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;MenuLibre in Lubuntu 13.04&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;Die Benutzung ist genauso einfach wie sie auf den ersten Blick scheint, alle wichtigen Einstellungen einer ‘DesktopEntry’ sind über die grafische Benutzeroberfläche erreichbar, inklusive der Quicklists für Unity. Wer volle Kontrolle über die erzeugte Datei benötigt, kann über den eingebauten Editor der Verknüpfung den letzten Schliff verpassen.&lt;/p&gt;
 

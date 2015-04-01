@@ -79,13 +79,23 @@ Dezember
 	<article class="post-content" itemprop="articleBody">
 	<p>Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.</p>
 
-<p><img src="/images/headerbar5.png" alt="Die HeaderBar in Nautilus spart Platz." /></p>
+<figure>
+	<a href="/images/headerbar5.png">
+		<img src="/images/headerbar5.png" alt="Die HeaderBar in Nautilus spart Platz." />
+	</a>
+	<figcaption>Die HeaderBar in Nautilus spart Platz.</figcaption>
+</figure>
 
 <p>Diese HeaderBars können auch einfach in die eigenen Programme integriert werden, wenn die aktuellen Bibliotheken, also <code>libgtk-3-0</code> und <code>libgtk-3-dev (&gt;= 3.10)</code>, installiert sind. Das folgende Minimalbeispiel befolgt die aktuellen Empfehlungen zur Erstellung von GNOME-Apps, erweitert also die <code>Gtk.Application</code> Klasse. Eine HeaderBar besteht im Endeffekt aus drei Bereichen, dem linken und dem rechten, die jeweils mit <code>Gtk.Widget</code>s befüllt werden können, und dem mittleren, der entweder mit Titel und gegebenenfalls Untertitel oder mit einem <code>Gtk.Widget</code> belegt wird.</p>
 
 <h1 id="minimalbeispiel">Minimalbeispiel</h1>
 
-<p><img src="/images/headerbar1.png" alt="Minimalbeispiel für die GTK Headerbar." /></p>
+<figure>
+	<a href="/images/headerbar1.png">
+		<img src="/images/headerbar1.png" alt="Minimalbeispiel für die GTK HeaderBar." />
+	</a>
+	<figcaption>Minimalbeispiel für die GTK HeaderBar.</figcaption>
+</figure>
 
 <p>Dieses Minimalbeispiel kann schon mit wenigen Zeilen Code erstellt werden:</p>
 
@@ -131,7 +141,12 @@ Dezember
 
 <p>Hierbei wird schon der neue <code>Gtk.Button.from_icon_name</code>-Constructor genutzt, da <code>Gtk.Stock</code> ab GTK 3.10 als veraltet markiert ist. Die Iconnamen sind dabei standardisiert und nicht mehr GTK-intern, mehr dazu allerdings in einem anderen Blogpost.</p>
 
-<p><img src="/images/headerbar4.png" alt="Erweitertes Minimalbeispiel mit &quot;öffnen&quot;- und &quot;Schließen&quot;-Buttons." /></p>
+<figure>
+	<a href="/images/headerbar4.png">
+		<img src="/images/headerbar4.png" alt="Erweitertes Minimalbeispiel mit 'Öffnen'- und 'Schließen'-Buttons." />
+	</a>
+	<figcaption>Erweitertes Minimalbeispiel mit 'Öffnen'- und 'Schließen'-Buttons.</figcaption>
+</figure>
 
 <h1 id="widgets-in-der-titelleiste">Widgets in der Titelleiste</h1>
 
@@ -141,7 +156,12 @@ Dezember
 <span class="n">entry</span><span class="p">.</span><span class="n">set_icon_from_icon_name</span> <span class="p">(</span><span class="n">Gtk</span><span class="p">.</span><span class="n">EntryIconPosition</span><span class="p">.</span><span class="n">PRIMARY</span><span class="p">,</span> <span class="s">&quot;system-search&quot;</span><span class="p">);</span>
 <span class="n">headerBar</span><span class="p">.</span><span class="n">set_custom_title</span> <span class="p">(</span><span class="n">entry</span><span class="p">);</span></code></pre></div>
 
-<p><img src="/images/headerbar3.png" alt="Erweitertes Minimalbeispiel mit Widget in der Titelleiste." /></p>
+<figure>
+	<a href="/images/headerbar3.png">
+		<img src="/images/headerbar3.png" alt="Erweitertes Minimalbeispiel mit Widget in der Titelleiste." />
+	</a>
+	<figcaption>Erweitertes Minimalbeispiel mit Widget in der Titelleiste.</figcaption>
+</figure>
 
 <p>Auch hier kommen wieder die neuen Iconnamen zum Einsatz. Der Titel und der Untertitel werden durch das <code>Gtk.Widget</code> überschrieben, sollen sie wieder angezeigt werden muss der “<code>custom_title</code>” null gesetzt werden:</p>
 

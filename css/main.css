@@ -2353,7 +2353,8 @@ img, figcaption {
 
 .social a {
   display: inline-block;
-  width: 200px;
+  width: 19%;
+  min-width: 130px;
   height: 40px;
   margin: 2px auto;
   color: white;
@@ -2367,7 +2368,9 @@ img, figcaption {
   .social a.gp {
     background-color: #D34836; }
   .social a.tw {
-    background-color: #54ABEE; }
+    background-color: #54ACEE; }
+  .social a.xi {
+    background-color: #006567; }
   .social a.wa {
     background-color: #29B200; }
 

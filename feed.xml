@@ -15,13 +15,13 @@
 </description>
 	</image>
     <atom:link href="http://philipp-trommler.me/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 01 Apr 2015 10:58:10 +0200</pubDate>
-    <lastBuildDate>Wed, 01 Apr 2015 10:58:10 +0200</lastBuildDate>
+    <pubDate>Wed, 01 Apr 2015 11:06:21 +0200</pubDate>
+    <lastBuildDate>Wed, 01 Apr 2015 11:06:21 +0200</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
         <title>Die GTK 3.12 ActionBar in Vala</title>
-        <description>&lt;p&gt;Auch wenn es die &lt;code&gt;Gtk.ActionBar&lt;/code&gt; schon seit GTK 3.12 und somit schon ein bisschen länger gibt, habe ich bisher kaum Anleitungen dazu im Internet gefunden und kein einziges für Vala. Daher möchte ich hiermit ein kleines Tutorial nachliefern, auch wenn sich die Verwendung eigentlich nicht sonderlich von einer &lt;code&gt;Gtk.Box&lt;/code&gt; oder einer &lt;code&gt;Gtk.Toolbar&lt;/code&gt; unterscheidet.&lt;/p&gt;
+        <description>&lt;p&gt;Auch wenn es die &lt;code&gt;Gtk.ActionBar&lt;/code&gt; schon seit GTK 3.12 und somit schon ein bisschen länger gibt, habe ich bisher kaum Anleitungen dazu im Internet gefunden und keine einzige für Vala. Daher möchte ich hiermit ein kleines Tutorial nachliefern, auch wenn sich die Verwendung eigentlich nicht sonderlich von einer &lt;code&gt;Gtk.Box&lt;/code&gt; oder einer &lt;code&gt;Gtk.Toolbar&lt;/code&gt; unterscheidet.&lt;/p&gt;
 
 &lt;p&gt;ActionBars sind eigentlich wie eine Toolbar, nur sollen sie kontextsensitiv verwendet werden und sich unter dem Widget befinden, für das sie zuständig sind. Die Unterschiede sind also eher semantisch. Die Benutzung erinnert stark an eine &lt;code&gt;Gtk.Box&lt;/code&gt; mit horizontaler Ausrichtung, es werden also mit &lt;code&gt;pack_start ()&lt;/code&gt; &lt;code&gt;Gtk.Widget&lt;/code&gt;s an den linken Rand gesetzt, mit &lt;code&gt;pack_end ()&lt;/code&gt; an den rechten. Zusätzlich kann aber noch &lt;em&gt;ein&lt;/em&gt; &lt;code&gt;Gtk.Widget&lt;/code&gt; mit &lt;code&gt;set_center_widget ()&lt;/code&gt; mittig in die &lt;code&gt;Gtk.ActionBar&lt;/code&gt; gesetzt werden, wobei mittig absolut gemeint ist, also unabhängig von Anzahl und Größe der &lt;code&gt;Gtk.Widget&lt;/code&gt;s an den Seiten. Sollen in der Mitte mehrere &lt;code&gt;Gtk.Widget&lt;/code&gt;s platziert werden, müssen diese vorher in einen &lt;code&gt;Gtk.Container&lt;/code&gt; gepackt werden, also zum Beispiel in eine &lt;code&gt;Gtk.Box&lt;/code&gt;.&lt;/p&gt;
 

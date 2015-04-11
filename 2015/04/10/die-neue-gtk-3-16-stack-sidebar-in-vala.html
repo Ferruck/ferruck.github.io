@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="de" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+	<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <title>Die neue GTK 3.16 StackSidebar in Vala</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta property="og:title" content="Die neue GTK 3.16 StackSidebar in Vala">
+    <meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@PhTrommler">
+	<meta name="twitter:creator" content="@PhTrommler">
+	<meta name="twitter:title" content="Die neue GTK 3.16 StackSidebar in Vala">
+	<meta name="twitter:description" content="Neben vielen anderen großartigen Verbesserungen, die GNOME 3.16 seinen Nutzern beschert, bringt natürlich auch GTK+ wieder Neuerungen mit. Eine davon ist die neue Gtk.StackSidebar, die als Übersicht für die schon älteren Gtk.Stacks dient und aussieht wie eine klassische Gtk.List.
+
+">
+    <meta property="og:description" name="description" content="Neben vielen anderen großartigen Verbesserungen, die GNOME 3.16 seinen Nutzern beschert, bringt natürlich auch GTK+ wieder Neuerungen mit. Eine davon ist die neue Gtk.StackSidebar, die als Übersicht für die schon älteren Gtk.Stacks dient und aussieht wie eine klassische Gtk.List.
+
+">
+    <meta property="og:url" content="http://www.philipp-trommler.me/2015/04/10/die-neue-gtk-3-16-stack-sidebar-in-vala.html">
+    
+	
+	<meta property="og:image" content="http://www.philipp-trommler.me/images/stacksidebar1.png">
+	<meta name="twitter:image:src" content="http://www.philipp-trommler.me/images/stacksidebar1.png">
+	
+    <meta property="og:type" content="article">
+	<meta property="article:published_time" content="2015-04-10T22:30:26+02:00">
+	
+	<meta property="article:tag" content="gtk3">
+	
+	<meta property="article:tag" content="gtk">
+	
+	<meta property="article:tag" content="vala">
+	
+	<meta property="article:tag" content="stack">
+	
+	<meta property="article:tag" content="stacksidebar">
+	
+    
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="alternate" type="application/rss+xml" href="http://www.philipp-trommler.me/feed.xml">
+    <link rel="canonical" href="http://www.philipp-trommler.me/2015/04/10/die-neue-gtk-3-16-stack-sidebar-in-vala.html">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png"/>
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png"/>
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png"/>
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png"/>
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png"/>  
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png"/>  
+	<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-152x152.png"/>
+	<link rel="icon" type="image/png" href="/ico32.png"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+	<!--[if IE]><link rel="shortcut icon" type="image/vnd.microsoft.icon" href="favicon.ico"/><![endif]-->
+</head>
+
+	<body itemscope itemtype="http://schema.org/Blog">
+	<header class="site-header">
+  <div class="wrapper">
+    <a class="site-title" href="/">Philipp Trommler</a>
+
+  </div>
+</header>
+
+	<div class="page-content">
+		<div class="wrapper">
+		<div class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<header class="post-header">
+		<h1 class="post-title" itemprop="headline">Die neue GTK 3.16 StackSidebar in Vala</h1>
+		<p class="post-meta">
+10.  
+
+  
+
+April  
+     
+
+2015
+
+
+
+ • Philipp Trommler • Tags: <a href="/tags/gtk3/">gtk3</a> <a href="/tags/gtk/">gtk</a> <a href="/tags/vala/">vala</a> <a href="/tags/stack/">stack</a> <a href="/tags/stacksidebar/">stacksidebar</a></p>
+	</header>
+	<article class="post-content" itemprop="articleBody">
+	<p>Neben vielen anderen großartigen Verbesserungen, die GNOME 3.16 seinen Nutzern beschert, bringt natürlich auch GTK+ wieder Neuerungen mit. Eine davon ist die neue <code>Gtk.StackSidebar</code>, die als Übersicht für die schon älteren <code>Gtk.Stack</code>s dient und aussieht wie eine klassische <code>Gtk.List</code>.</p>
+
+<p>Über ebendiese ließe sich auch ein ähnliches Verhalten erzeugen, wie es die <code>Gtk.StackSidebar</code> an den Tag legt: Bei einem Klick (oder Drücken) auf ein Item in der Liste wird das jeweilige Element des <code>Gtk.Stack</code>s angezeigt. Mit diesem neuen Widget nimmt man jedoch ganz klar eine Abkürzung! Denn während man sich mit einer <code>Gtk.List</code> mit Signalen und dergleichen rumärgern müsste, reicht es bei der <code>Gtk.StackSidebar</code> den <code>Gtk.Stack</code> anzugeben, mit dem man arbeiten will. Alles weitere wird intern geregelt und betrifft den Programmierer (also uns) nicht weiter. Das klingt doch super!</p>
+
+<h1 id="minimalbeispiel">Minimalbeispiel</h1>
+
+<p>Wie immer bei mir folgt nun das obligatorische Minimalbeispiel. Diesmal habe ich mich wieder dazu entschlossen, ein anderes wiederzuverwenden, in diesem Fall den <a href="/2015/03/22/die-gtk-3-12-actionbar-in-vala.html">minimalistischen Bildbetrachter aus dem ActionBar-Tutorial</a>. Diesem stünde doch eine Übersicht über die Bilder – vielleicht in Form von Dateinamen – nicht schlecht, oder? Da ich allerdings hier wie auch im ursprünglichen Tutorial zu Anschauungszwecken mit Stock-Icons arbeite, habe ich ihnen einfach Namen gegeben, das Vorgehen sollte aber klar sein.</p>
+
+<figure>
+	<a href="/images/stacksidebar1.png">
+		<img src="/images/stacksidebar1.png" alt="Die StackSidebar als Erweiterung für den Bildbetrachter aus dem ActionBar-Tutorial." />
+	</a>
+	<figcaption>Die StackSidebar als Erweiterung für den Bildbetrachter aus dem ActionBar-Tutorial.</figcaption>
+</figure>
+
+<p>Zunächst muss also ein neuer <code>Gtk.Stack</code> erzeugt werden. Diesem können anschließend beliebige <code>Gtk.Widget</code>s hinzugefügt werden. Wichtig ist bei der Benutzung der <code>Gtk.StackSidebar</code> nur, dass die <code>Gtk.Widget</code>s betitelt übergeben werden, also mit</p>
+
+<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="n">add_titled</span> <span class="p">(</span><span class="n">Gtk</span><span class="p">.</span><span class="n">Widget</span> <span class="n">child</span><span class="p">,</span> <span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="kt">string</span> <span class="n">title</span><span class="p">)</span></code></pre></div>
+
+<p>da der String <code>title</code> das ist, was in der <code>Gtk.StackSidebar</code> angezeigt wird. <code>Gtk.Widget</code>s ohne Titel werden stillschweigend ignoriert.</p>
+
+<p>Dies ist allerdings nicht der einzige Fallstrick, der bei der Benutzung der <code>Gtk.StackSidebar</code> lauert: Sie muss <em>zwingend</em> in einer <code>Gtk.Box</code> o. Ä. mit <em>horizontaler</em> Ausrichtung eingefügt werden, ansonsten wird sie schlicht und ergreifend nicht angezeigt (ohne Fehlermeldung). Aufgrund dessen und da sie – im Gegensatz zur <code>Gtk.List</code> – auch nur Strings enthalten kann, können mit ihr leider keine Slideshows unter der großen Bildansicht gebaut werden – schade!</p>
+
+<p>Ansonsten ist die Benutzung wirklich mehr als einfach: <code>Gtk.StackSidebar</code> erzeugen und dem <code>Gtk.Stack</code> zuordnen, der verwendet werden soll.</p>
+
+<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="n">Gtk</span><span class="p">.</span><span class="n">StackSidebar</span> <span class="n">ssidebar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">StackSidebar</span> <span class="p">();</span>
+<span class="n">ssidebar</span><span class="p">.</span><span class="n">set_stack</span> <span class="p">(</span><span class="n">stack</span><span class="p">);</span></code></pre></div>
+
+<p>Wo die <code>Gtk.StackSidebar</code> dann am Ende im Fenster angezeigt werden soll, ist egal. Sie muss nicht direkt neben dem <code>Gtk.Stack</code> auftauchen. Hauptsache, sie befindet sich in einer horizontalen Umgebung (siehe oben).</p>
+
+<p>Zusammen sieht das ganze dann so aus:</p>
+
+<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="kd">class</span> <span class="nc">Example</span> <span class="o">:</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Application</span> <span class="p">{</span>
+	<span class="kd">public</span> <span class="n">Example</span> <span class="p">()</span> <span class="p">{</span>
+		<span class="n">Object</span> <span class="p">(</span><span class="n">application_id</span><span class="o">:</span> <span class="s">&quot;com.example.app&quot;</span><span class="p">,</span> <span class="n">flags</span><span class="o">:</span> <span class="n">ApplicationFlags</span><span class="p">.</span><span class="n">FLAGS_NONE</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="kd">protected</span> <span class="kd">override</span> <span class="kt">void</span> <span class="n">activate</span> <span class="p">()</span> <span class="p">{</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Settings</span><span class="p">.</span><span class="n">get_default</span> <span class="p">().</span><span class="n">gtk_application_prefer_dark_theme</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">ApplicationWindow</span> <span class="n">window</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">ApplicationWindow</span> <span class="p">(</span><span class="k">this</span><span class="p">);</span>
+		<span class="n">window</span><span class="p">.</span><span class="n">set_default_size</span> <span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
+		<span class="n">window</span><span class="p">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s">&quot;StackSidebar&quot;</span><span class="p">);</span>
+		
+		<span class="cm">/*</span>
+<span class="cm">		 * Primäre Box</span>
+<span class="cm">		 */</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="n">primary_box</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="p">(</span><span class="n">Gtk</span><span class="p">.</span><span class="n">Orientation</span><span class="p">.</span><span class="n">HORIZONTAL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+		
+		<span class="cm">/*</span>
+<span class="cm">		 * Innere Box</span>
+<span class="cm">		 */</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="n">inner_box</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="p">(</span><span class="n">Gtk</span><span class="p">.</span><span class="n">Orientation</span><span class="p">.</span><span class="n">VERTICAL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+		<span class="n">primary_box</span><span class="p">.</span><span class="n">pack_end</span> <span class="p">(</span><span class="n">inner_box</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+		
+		<span class="cm">/*</span>
+<span class="cm">		 * Stack</span>
+<span class="cm">		 */</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Stack</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Stack</span> <span class="p">();</span>
+		<span class="n">stack</span><span class="p">.</span><span class="n">set_transition_type</span> <span class="p">(</span><span class="n">Gtk</span><span class="p">.</span><span class="n">StackTransitionType</span><span class="p">.</span><span class="n">SLIDE_UP</span><span class="p">);</span>
+		<span class="n">stack</span><span class="p">.</span><span class="n">add_titled</span> <span class="p">(</span><span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Image</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;document-open&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">DND</span><span class="p">),</span> <span class="s">&quot;open&quot;</span><span class="p">,</span> <span class="s">&quot;Öffnen&quot;</span><span class="p">);</span>
+		<span class="n">stack</span><span class="p">.</span><span class="n">add_titled</span> <span class="p">(</span><span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Image</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;document-save&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">DND</span><span class="p">),</span> <span class="s">&quot;save&quot;</span><span class="p">,</span> <span class="s">&quot;Speichern&quot;</span><span class="p">);</span>
+		
+		<span class="n">inner_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+		
+		<span class="cm">/*</span>
+<span class="cm">		 * StackSidebar</span>
+<span class="cm">		 */</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">StackSidebar</span> <span class="n">ssidebar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">StackSidebar</span> <span class="p">();</span>
+		<span class="n">ssidebar</span><span class="p">.</span><span class="n">set_stack</span> <span class="p">(</span><span class="n">stack</span><span class="p">);</span>
+		
+		<span class="n">primary_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">ssidebar</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+		
+		
+		
+		<span class="cm">/*</span>
+<span class="cm">		 * Ab hier Actionbar</span>
+<span class="cm">		 * </span>
+<span class="cm">		 * Näheres siehe letztes Tutorial.</span>
+<span class="cm">		 */</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">ActionBar</span> <span class="n">action_bar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">ActionBar</span> <span class="p">();</span>
+		
+		<span class="c1">// Linke Buttons</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">left_button1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;go-first&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
+		<span class="n">action_bar</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">left_button1</span><span class="p">);</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">left_button2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;go-previous&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
+		<span class="n">action_bar</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">left_button2</span><span class="p">);</span>
+		
+		<span class="c1">// Rechte Buttons</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">right_button1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;go-last&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
+		<span class="n">action_bar</span><span class="p">.</span><span class="n">pack_end</span> <span class="p">(</span><span class="n">right_button1</span><span class="p">);</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">right_button2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;go-next&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
+		<span class="n">action_bar</span><span class="p">.</span><span class="n">pack_end</span> <span class="p">(</span><span class="n">right_button2</span><span class="p">);</span>
+		
+		<span class="c1">// Mittlere Buttons</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="n">secondary_box</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="p">(</span><span class="n">Gtk</span><span class="p">.</span><span class="n">Orientation</span><span class="p">.</span><span class="n">HORIZONTAL</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+		
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">center_button1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;zoom-original&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
+		<span class="n">secondary_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">center_button1</span><span class="p">);</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">center_button2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;zoom-out&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
+		<span class="n">secondary_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">center_button2</span><span class="p">);</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">center_button3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;zoom-in&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
+		<span class="n">secondary_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">center_button3</span><span class="p">);</span>
+		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">center_button4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;zoom-fit-best&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
+		<span class="n">secondary_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">center_button4</span><span class="p">);</span>
+		
+		<span class="n">action_bar</span><span class="p">.</span><span class="n">set_center_widget</span> <span class="p">(</span><span class="n">secondary_box</span><span class="p">);</span>
+		
+		<span class="n">inner_box</span><span class="p">.</span><span class="n">pack_end</span> <span class="p">(</span><span class="n">action_bar</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+		
+		<span class="n">window</span><span class="p">.</span><span class="n">add</span> <span class="p">(</span><span class="n">primary_box</span><span class="p">);</span>
+		<span class="n">window</span><span class="p">.</span><span class="n">show_all</span> <span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="k">new</span> <span class="n">Example</span> <span class="p">().</span><span class="n">run</span> <span class="p">(</span><span class="n">args</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Das Ganze in einer Datei namens <code>stacksidebar.vala</code> abspeichern und mit</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">valac --pkg<span class="o">=</span>gtk+-3.0 stacksidebar.vala</code></pre></div>
+
+<p>kompilieren, fertig!</p>
+
+<p>Viel Spaß damit!</p>
+
+	</article>
+	<div class="social">
+		<a class="fb" href="https://www.facebook.com/share.php?u=http%3A%2F%2Fwww.philipp-trommler.me%2F2015%2F04%2F10%2Fdie-neue-gtk-3-16-stack-sidebar-in-vala.html" target="_blank"><span class="fa fa-facebook fa-fw"></span>Share</a>
+		<a class="gp" href="https://plus.google.com/share?url=http%3A%2F%2Fwww.philipp-trommler.me%2F2015%2F04%2F10%2Fdie-neue-gtk-3-16-stack-sidebar-in-vala.html" target="_blank"><span class="fa fa-google-plus fa-fw"></span>+1</a>
+		<a class="tw" href="https://twitter.com/share?text=Die+neue+GTK+3.16+StackSidebar+in+Vala&url=http%3A%2F%2Fwww.philipp-trommler.me%2F2015%2F04%2F10%2Fdie-neue-gtk-3-16-stack-sidebar-in-vala.html&related=PhTrommler%3ADer+Autor" target="_blank"><span class="fa fa-twitter fa-fw"></span>Tweet</a>
+		<a class="xi" href="https://www.xing.com/spi/shares/new?url=http%3A%2F%2Fwww.philipp-trommler.me%2F2015%2F04%2F10%2Fdie-neue-gtk-3-16-stack-sidebar-in-vala.html" target="_blank"><span class="fa fa-xing fa-fw"></span>XING</a>
+		<a class="wa" href="whatsapp://send?text=Die+neue+GTK+3.16+StackSidebar+in+Vala+http%3A%2F%2Fwww.philipp-trommler.me%2F2015%2F04%2F10%2Fdie-neue-gtk-3-16-stack-sidebar-in-vala.html"><span class="fa fa-whatsapp fa-fw"></span>Weitersagen</a>
+	</div>
+	
+	<meta itemprop="image" content="http://www.philipp-trommler.me/images/stacksidebar1.png">
+	<meta itemprop="thumbnailUrl" content="http://www.philipp-trommler.me/images/stacksidebar1.png">
+	
+	<meta itemprop="description" content="Neben vielen anderen großartigen Verbesserungen, die GNOME 3.16 seinen Nutzern beschert, bringt natürlich auch GTK+ wieder Neuerungen mit. Eine davon ist die neue Gtk.StackSidebar, die als Übersicht für die schon älteren Gtk.Stacks dient und aussieht wie eine klassische Gtk.List.
+
+">
+	<meta itemprop="inLanguage" content="de-DE">
+	<meta itemprop="datePublished" content="2015-04-10T22:30:26+02:00">
+	<meta itemprop="isFamilyFriendly" content="True">
+	<meta itemprop="typicalAgeRange" content="14-">
+	<meta itemprop="url" content="http://www.philipp-trommler.me/2015/04/10/die-neue-gtk-3-16-stack-sidebar-in-vala.html">
+</div>
+
+		</div>
+	</div>
+	<footer class="site-footer">
+  <div class="wrapper">
+    <h2 class="footer-heading">Philipp Trommler</h2>
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Kontakt:</li>
+          <li><a href="mailto:mail@philipp-trommler.me">mail@philipp-trommler.me</a></li>
+          <li><a href="/impressum/">Impressum & Datenschutzerklärung</a></li>
+        </ul>
+      </div>
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          <li>
+              <span class="fa fa-google-plus fa-fw"></span>
+              <span class="username"><a href="https://plus.google.com/+PhilippTrommler/posts" target="_blank">Philipp Trommler</a></span>
+          </li>
+          <li>
+              <span class="fa fa-twitter fa-fw"></span>
+              <span class="username"><a href="https://twitter.com/PhTrommler" target="_blank">PhTrommler</a></span>
+          </li>
+          <li>
+              <span class="fa fa-github fa-fw"></span>
+              <span class="username"><a href="https://github.com/Ferruck" target="_blank">Ferruck</a></span>
+          </li>
+          <li>
+			  <span class="fa fa-youtube-play fa-fw"></span>
+			  <span class="username"><a href="https://www.youtube.com/channel/UCGG3f6yZH4gndb1HXRCqipw" target="_blank">Philipp Trommler</a></span>
+          </li>
+          <li>
+			  <span class="fa fa-xing fa-fw"></span>
+			  <span class="username"><a href="https://www.xing.com/profile/Philipp_Trommler2" target="_blank">Philipp Trommler</a></span>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-col  footer-col-3">
+        <p class="text">Informatiker und Forstwissenschaftler, immer auf der Suche nach neuen Herausforderungen und für Auftragsarbeiten zu haben.
+</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+	</body>
+</html>

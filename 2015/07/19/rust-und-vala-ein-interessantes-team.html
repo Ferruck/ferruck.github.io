@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="de" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+	<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <title>Rust und Vala: Ein interessantes Team</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta property="og:title" content="Rust und Vala: Ein interessantes Team">
+    <meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@PhTrommler">
+	<meta name="twitter:creator" content="@PhTrommler">
+	<meta name="twitter:title" content="Rust und Vala: Ein interessantes Team">
+	<meta name="twitter:description" content="Ich bin vor einigen Tagen zufällig über Mozillas (relativ) neue Programmiersprache Rust gestolpert und war direkt angetan. Natürlich war die erste Frage, die sich mir stellte, ob man Rust wohl auch von Vala aus nutzen kann, da es für geschwindigkeitskritische Anwendung sehr gut geeignet scheint.
+
+">
+    <meta property="og:description" name="description" content="Ich bin vor einigen Tagen zufällig über Mozillas (relativ) neue Programmiersprache Rust gestolpert und war direkt angetan. Natürlich war die erste Frage, die sich mir stellte, ob man Rust wohl auch von Vala aus nutzen kann, da es für geschwindigkeitskritische Anwendung sehr gut geeignet scheint.
+
+">
+    <meta property="og:url" content="http://www.philipp-trommler.me/2015/07/19/rust-und-vala-ein-interessantes-team.html">
+    
+	
+    <meta property="og:type" content="article">
+	<meta property="article:published_time" content="2015-07-19T21:05:22+02:00">
+	
+	<meta property="article:tag" content="rust">
+	
+	<meta property="article:tag" content="vala">
+	
+	<meta property="article:tag" content="c">
+	
+	<meta property="article:tag" content="ffi">
+	
+    
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="alternate" type="application/rss+xml" href="http://www.philipp-trommler.me/feed.xml">
+    <link rel="canonical" href="http://www.philipp-trommler.me/2015/07/19/rust-und-vala-ein-interessantes-team.html">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png"/>
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png"/>
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png"/>
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png"/>
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png"/>  
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png"/>  
+	<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-152x152.png"/>
+	<link rel="icon" type="image/png" href="/ico32.png"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+	<!--[if IE]><link rel="shortcut icon" type="image/vnd.microsoft.icon" href="favicon.ico"/><![endif]-->
+</head>
+
+	<body itemscope itemtype="http://schema.org/Blog">
+	<header class="site-header">
+  <div class="wrapper">
+    <a class="site-title" href="/">Philipp Trommler</a>
+
+  </div>
+</header>
+
+	<div class="page-content">
+		<div class="wrapper">
+		<div class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<header class="post-header">
+		<h1 class="post-title" itemprop="headline">Rust und Vala: Ein interessantes Team</h1>
+		<p class="post-meta">
+19.  
+
+  
+
+Juli  
+     
+
+2015
+
+
+
+ • Philipp Trommler • Tags: <a href="/tags/rust/">rust</a> <a href="/tags/vala/">vala</a> <a href="/tags/c/">c</a> <a href="/tags/ffi/">ffi</a></p>
+	</header>
+	<article class="post-content" itemprop="articleBody">
+	<p>Ich bin vor einigen Tagen zufällig über Mozillas (relativ) neue Programmiersprache <a href="http://www.rust-lang.org">Rust</a> gestolpert und war direkt angetan. Natürlich war die erste Frage, die sich mir stellte, ob man Rust wohl auch von Vala aus nutzen kann, da es für geschwindigkeitskritische Anwendung sehr gut geeignet scheint.</p>
+
+<p>Wie <a href="https://doc.rust-lang.org/stable/book/rust-inside-other-languages.html">in der Anleitung</a> gut beschrieben ist, lassen sich Rust-Bibliotheken von anderen Sprachen aus nutzen, darunter natürlich auch C. Da Vala zu C kompiliert wird, lag der Verdacht also nah, dass es auch möglich sein muss, Rust von Vala aus zu nutzen. Und der Weg dorthin wird durch diese Annahme eigentlich auch schon vorgegeben.</p>
+
+<p>Schreiben wir uns also eine kleine Rust-Bibliothek, die uns als Test dienen soll. Ich habe von Anfang an <a href="https://crates.io/">Cargo</a> genutzt, da es sich einfach bedienen lässt und lästige Routineaufgaben übernimmt. Erstellen wir also ein leeres Cargo-Projekt:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">cargo new vala_test</code></pre></div>
+
+<p>Nachdem wir in das erzeugte Verzeichnis <code>vala_test</code> gewechselt sind, müssen wir zunächst</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>lib<span class="o">]</span>
+<span class="nv">name</span> <span class="o">=</span> <span class="s2">&quot;valatest&quot;</span>
+crate-type <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;dylib&quot;</span><span class="o">]</span></code></pre></div>
+
+<p>an die Datei <code>Cargo.toml</code> anhängen, um Cargo mitzuteilen, dass wir eine dynamisch gelinkte Bibliothek (<code>crate-type = ["dylib"]</code>) mit dem Namen <code>libvalatest.so</code> (<code>name = "valatest"</code>) erstellen wollen.</p>
+
+<p>Anschließend öffnen wir die bereits vorhandene <code>lib.rs</code> im Ordner <code>src</code> und fügen folgenden Quelltext ein:</p>
+
+<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span class="k">pub</span> <span class="k">struct</span> <span class="n">TestType</span> <span class="p">{</span>
+    <span class="n">int1</span><span class="o">:</span> <span class="kt">i32</span><span class="p">,</span>
+    <span class="n">int2</span><span class="o">:</span> <span class="kt">u8</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="cp">#[no_mangle]</span>
+<span class="k">pub</span> <span class="k">extern</span> <span class="k">fn</span> <span class="n">test</span><span class="p">(</span><span class="n">int1</span><span class="o">:</span> <span class="kt">i32</span><span class="p">,</span> <span class="n">int2</span><span class="o">:</span> <span class="kt">i64</span><span class="p">,</span> <span class="n">uint1</span><span class="o">:</span> <span class="kt">u8</span><span class="p">,</span> <span class="n">text</span><span class="o">:</span> <span class="n">char</span><span class="p">,</span> <span class="n">slice</span><span class="o">:</span> <span class="o">&amp;</span><span class="p">[</span><span class="kt">u32</span><span class="p">],</span> <span class="n">test_type</span><span class="o">:</span> <span class="o">&amp;</span><span class="n">TestType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;int1: {}&quot;</span><span class="p">,</span> <span class="n">int1</span><span class="p">);</span>
+    <span class="nb">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;int2: {}&quot;</span><span class="p">,</span> <span class="n">int2</span><span class="p">);</span>
+    <span class="nb">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;uint1: {}&quot;</span><span class="p">,</span> <span class="n">uint1</span><span class="p">);</span>
+    <span class="nb">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;text: {}&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="n">element</span> <span class="k">in</span> <span class="n">slice</span> <span class="p">{</span>
+        <span class="nb">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;slice: {}&quot;</span><span class="p">,</span> <span class="n">element</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nb">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;TestType int1: {}&quot;</span><span class="p">,</span> <span class="n">test_type</span><span class="p">.</span><span class="n">int1</span><span class="p">);</span>
+    <span class="nb">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;TestType int2: {}&quot;</span><span class="p">,</span> <span class="n">test_type</span><span class="p">.</span><span class="n">int2</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Wie man leicht erkennt, handelt es sich bloß um eine einfache Funktion, die die übergebenen Paramter auf der Konsole ausgibt. Aber genau das ist es, was wir brauchen, um zu sehen, ob unser Programm richtig funktioniert. Zum weiteren Testen habe ich außerdem ein <code>struct</code> eingefügt.</p>
+
+<p>Wichtig ist hier vor allem das <code>pub extern</code>, das angibt, dass diese Funktion von außerhalb genutzt werden soll, sowie <code>#[no_mangle]</code>, das verhindert, dass die automatische, interne Namensänderung von Rust stattfindet.</p>
+
+<p>Nun muss die Bibliothek noch kompiliert werden. Dies erledigt der Befehl <code>cargo build</code>, das Shared Object befindet sich danach im Ordner <code>target/debug</code>.</p>
+
+<p>In der Rust-Dokumentation wird richtig erklärt, dass man natürlich eine C-Header-Datei benötigt, um auf die Funktionen der Rust-Bibliothek zugreifen zu können. Schreiben wir uns also so eine Header-Datei <code>libvalatest.h</code>:</p>
+
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#ifndef LIBVALATEST_H_</span>
+<span class="cp">#define LIBVALATEST_H_</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">TestType</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">int1</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">int2</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">TestType</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">test</span><span class="p">(</span><span class="kt">int</span> <span class="n">int1</span><span class="p">,</span> <span class="kt">long</span> <span class="n">int2</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">uint1</span><span class="p">,</span> <span class="kt">char</span> <span class="n">text</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">slice</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">slice_length</span><span class="p">,</span> <span class="n">TestType</span> <span class="o">*</span><span class="n">test_type</span><span class="p">);</span>
+
+<span class="cp">#endif</span></code></pre></div>
+
+<p>Wie man sieht, ist auch dies relativ trivial. Es müssen lediglich die Rust-Typen auf ihre entsprechenden C-Typen umgemapped werden. Nun folgt der Standard-Vala-Weg, also das Schreiben des VAPIs <code>libvalatest.vapi</code>:</p>
+
+<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="p">[</span><span class="nd">CCode</span> <span class="p">(</span><span class="n">cheader_filename</span> <span class="o">=</span> <span class="s">&quot;libvalatest.h&quot;</span><span class="p">)]</span>
+<span class="kn">namespace</span> <span class="nn">ValaTest</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nd">CCode</span> <span class="p">(</span><span class="n">cname</span> <span class="o">=</span> <span class="s">&quot;TestType&quot;</span><span class="p">,</span> <span class="n">has_type_id</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)]</span>
+    <span class="kd">public</span> <span class="kd">struct</span> <span class="nc">TestType</span> <span class="p">{</span>
+        <span class="kd">public</span> <span class="kt">int</span> <span class="n">int1</span><span class="p">;</span>
+        <span class="kd">public</span> <span class="kt">uint8</span> <span class="n">int2</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="p">[</span><span class="nd">CCode</span> <span class="p">(</span><span class="n">cname</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span><span class="p">)]</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">test</span> <span class="p">(</span><span class="kt">int</span> <span class="n">int1</span><span class="p">,</span> <span class="kt">int64</span> <span class="n">int2</span><span class="p">,</span> <span class="kt">uint8</span> <span class="n">uint1</span><span class="p">,</span> <span class="kt">char</span> <span class="n">text</span><span class="p">,</span> <span class="kt">uint</span><span class="p">[]</span> <span class="n">slice</span><span class="p">,</span> <span class="n">TestType</span> <span class="n">testType</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Wie dem aufmerksamen Betrachter nun vielleicht schon aufgefallen ist, hat die Funktion <code>test</code> in der C-Header-Datei einen zusätzlichen Parameter vom Typ <code>int</code>. Dieser wird von Vala automatisch eingefügt, wenn in einem VAPI vor einem Array kein <code>[CCode (array_length = false)]</code> steht. Und nach meiner Erfahrung in der Zusammenstellung dieses Beispiels sollte man das auch nicht tun. Fehlt die Länge des Arrays in der Funktion, läuft die Schleife <code>for element in slice</code> in Rust bis zum Erreichen eines Segmentation faults (ich vermute durch den gesamten dem Programm zur Verfügung stehenden Speicher). Warum das so ist, und wie Rust intern die Länge des Arrays aus dem Funktionsaufruf übernimmt kann ich nicht beantworten. Hier wäre jemand mit mehr Erfahrung in Rust wohl der bessere Ansprechpartner.</p>
+
+<p>Nun folgt abschließend ein kleines Vala-Programm <code>main.vala</code>, dass die Rust-Funktion aufruft und den Datentyp nutzt:</p>
+
+<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="kn">using</span> <span class="nn">ValaTest</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="n">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">TestType</span> <span class="n">testType</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">123456789</span><span class="p">,</span> <span class="mi">255</span> <span class="p">};</span>
+
+    <span class="kt">uint</span><span class="p">[]</span> <span class="n">slice</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">255</span> <span class="p">};</span>
+
+    <span class="n">test</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="sc">&#39;T&#39;</span><span class="p">,</span> <span class="n">slice</span><span class="p">,</span> <span class="n">testType</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Der Befehl zum Kompilieren ist diesmal ein wenig länger, da alle Komponenten nicht in Standardverzeichnissen liegen:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">valac --vapidir<span class="o">=</span>./ --pkg<span class="o">=</span>libvalatest main.vala -X -I./ -X -L./target/debug -X -lvalatest</code></pre></div>
+
+<p>Zudem muss das Verzeichnis <code>target/debug</code> noch zu den Verzeichnissen hinzugefügt werden, in denen nach Shared Objects gesucht wird. Dies erledigt ein:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>./target/debug</code></pre></div>
+
+<p>Gestartet wird das Programm nun mit <code>./main</code> und tatsächlich, auf der Konsole erscheint die erwartete Ausgabe:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">int1: 1
+int2: 2
+uint1: 3
+text: T
+slice: 1
+slice: 2
+slice: 255
+TestType int1: 123456789
+TestType int2: 255</code></pre></div>
+
+<p>Es ist also sehr gut möglich, von Vala aus Rust zu nutzen, und ich denke, ich werde das in nächster Zeit auch mal tun. Im Laufe dessen werde ich hier natürlich weitere Anleitungen, zum Beispiel zu weiteren Typen wie <code>String</code>/<code>str</code>, veröffentlichen.</p>
+
+<p>Bis dahin erst mal viel Spaß mit den neuen Möglichkeiten!</p>
+
+	</article>
+	<div class="social">
+		<a class="fb" href="https://www.facebook.com/share.php?u=http%3A%2F%2Fwww.philipp-trommler.me%2F2015%2F07%2F19%2Frust-und-vala-ein-interessantes-team.html" target="_blank"><span class="fa fa-facebook fa-fw"></span>Share</a>
+		<a class="gp" href="https://plus.google.com/share?url=http%3A%2F%2Fwww.philipp-trommler.me%2F2015%2F07%2F19%2Frust-und-vala-ein-interessantes-team.html" target="_blank"><span class="fa fa-google-plus fa-fw"></span>+1</a>
+		<a class="tw" href="https://twitter.com/share?text=Rust+und+Vala%3A+Ein+interessantes+Team&url=http%3A%2F%2Fwww.philipp-trommler.me%2F2015%2F07%2F19%2Frust-und-vala-ein-interessantes-team.html&related=PhTrommler%3ADer+Autor" target="_blank"><span class="fa fa-twitter fa-fw"></span>Tweet</a>
+		<a class="xi" href="https://www.xing.com/spi/shares/new?url=http%3A%2F%2Fwww.philipp-trommler.me%2F2015%2F07%2F19%2Frust-und-vala-ein-interessantes-team.html" target="_blank"><span class="fa fa-xing fa-fw"></span>XING</a>
+		<a class="wa" href="whatsapp://send?text=Rust+und+Vala%3A+Ein+interessantes+Team+http%3A%2F%2Fwww.philipp-trommler.me%2F2015%2F07%2F19%2Frust-und-vala-ein-interessantes-team.html"><span class="fa fa-whatsapp fa-fw"></span>Weitersagen</a>
+	</div>
+	
+	<meta itemprop="description" content="Ich bin vor einigen Tagen zufällig über Mozillas (relativ) neue Programmiersprache Rust gestolpert und war direkt angetan. Natürlich war die erste Frage, die sich mir stellte, ob man Rust wohl auch von Vala aus nutzen kann, da es für geschwindigkeitskritische Anwendung sehr gut geeignet scheint.
+
+">
+	<meta itemprop="inLanguage" content="de-DE">
+	<meta itemprop="datePublished" content="2015-07-19T21:05:22+02:00">
+	<meta itemprop="isFamilyFriendly" content="True">
+	<meta itemprop="typicalAgeRange" content="14-">
+	<meta itemprop="url" content="http://www.philipp-trommler.me/2015/07/19/rust-und-vala-ein-interessantes-team.html">
+</div>
+
+		</div>
+	</div>
+	<footer class="site-footer">
+  <div class="wrapper">
+    <h2 class="footer-heading">Philipp Trommler</h2>
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Kontakt:</li>
+          <li><a href="mailto:mail@philipp-trommler.me">mail@philipp-trommler.me</a></li>
+          <li><a href="/impressum/">Impressum & Datenschutzerklärung</a></li>
+        </ul>
+      </div>
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          <li>
+              <span class="fa fa-google-plus fa-fw"></span>
+              <span class="username"><a href="https://plus.google.com/+PhilippTrommler/posts" target="_blank">Philipp Trommler</a></span>
+          </li>
+          <li>
+              <span class="fa fa-twitter fa-fw"></span>
+              <span class="username"><a href="https://twitter.com/PhTrommler" target="_blank">PhTrommler</a></span>
+          </li>
+          <li>
+              <span class="fa fa-github fa-fw"></span>
+              <span class="username"><a href="https://github.com/Ferruck" target="_blank">Ferruck</a></span>
+          </li>
+          <li>
+			  <span class="fa fa-youtube-play fa-fw"></span>
+			  <span class="username"><a href="https://www.youtube.com/channel/UCGG3f6yZH4gndb1HXRCqipw" target="_blank">Philipp Trommler</a></span>
+          </li>
+          <li>
+			  <span class="fa fa-xing fa-fw"></span>
+			  <span class="username"><a href="https://www.xing.com/profile/Philipp_Trommler2" target="_blank">Philipp Trommler</a></span>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-col  footer-col-3">
+        <p class="text">Informatiker und Forstwissenschaftler, immer auf der Suche nach neuen Herausforderungen und für Auftragsarbeiten zu haben.
+</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+	</body>
+</html>

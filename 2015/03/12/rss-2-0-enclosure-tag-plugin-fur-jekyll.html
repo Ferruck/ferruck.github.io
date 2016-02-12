@@ -74,15 +74,15 @@ März
  • Philipp Trommler • Tags: <a href="/tags/ruby/">ruby</a> <a href="/tags/rss/">rss</a> <a href="/tags/jekyll/">jekyll</a> <a href="/tags/enclosure-tag/">enclosure-tag</a></p>
 	</header>
 	<article class="post-content" itemprop="articleBody">
-	<p>Da ich in den letzten Tagen meinen Blog auf Jekyll umgebaut habe, habe ich mich natürlich auch mit dem von Jekyll erzeugten RSS-Feed auseinandergesetzt. Dabei fiel mir auf, dass Bilder nur im Lauftext eingebunden werden, also weder <code>&lt;media:thumbnail …&gt;</code> noch <code>&lt;enclosure …&gt;</code> Tags hinzugefügt werden.</p>
+	<p>Da ich in den letzten Tagen meinen Blog auf Jekyll umgebaut habe, habe ich mich natürlich auch mit dem von Jekyll erzeugten RSS-Feed auseinandergesetzt. Dabei fiel mir auf, dass Bilder nur im Lauftext eingebunden werden, also weder <code class="highlighter-rouge">&lt;media:thumbnail …&gt;</code> noch <code class="highlighter-rouge">&lt;enclosure …&gt;</code> Tags hinzugefügt werden.</p>
 
 <p>Während erstere noch recht einfach mittels</p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;media:thumbnail</span> <span class="na">url=</span><span class="s">&quot;{{ post.images[0].url | prepend: site.baseurl | prepend: site.url }}&quot;</span> <span class="nt">/&gt;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;media:thumbnail</span> <span class="na">url=</span><span class="s">"{{ post.images[0].url | prepend: site.baseurl | prepend: site.url }}"</span> <span class="nt">/&gt;</span></code></pre></figure>
 
-<p>hinzugefügt werden können, sieht das ganze für <code>&lt;enclosure …&gt;</code> Tags schon etwas anders aus, da die Länge der Datei in Bytes und der Mime-Type zwingend benötigt werden. Da ich im Internet nichts dazu gefunden habe (erstaunlicherweise!), habe ich mir direkt mal daran versucht, ein Jekyll-Plugin zu schreiben. Es ist das erste Mal, dass ich etwas in Ruby geschrieben habe, ich bin also offen für alle Verbesserungsvorschläge. Ansonsten kann es natürlich gerne für die eigenen Zwecke verwendet werden!</p>
+<p>hinzugefügt werden können, sieht das ganze für <code class="highlighter-rouge">&lt;enclosure …&gt;</code> Tags schon etwas anders aus, da die Länge der Datei in Bytes und der Mime-Type zwingend benötigt werden. Da ich im Internet nichts dazu gefunden habe (erstaunlicherweise!), habe ich mir direkt mal daran versucht, ein Jekyll-Plugin zu schreiben. Es ist das erste Mal, dass ich etwas in Ruby geschrieben habe, ich bin also offen für alle Verbesserungsvorschläge. Ansonsten kann es natürlich gerne für die eigenen Zwecke verwendet werden!</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s2">&quot;mimemagic&quot;</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s2">"mimemagic"</span>
 
 <span class="k">module</span> <span class="nn">Jekyll</span>
 	<span class="k">class</span> <span class="nc">RSSEnclosureTag</span> <span class="o">&lt;</span> <span class="no">Liquid</span><span class="o">::</span><span class="no">Tag</span>
@@ -92,31 +92,31 @@ März
 		<span class="k">end</span>
 		
 		<span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-			<span class="n">file</span> <span class="o">=</span> <span class="n">context</span><span class="o">[</span><span class="vi">@text</span><span class="o">]</span> <span class="o">||</span> <span class="vi">@text</span>
-			<span class="n">xml</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-			<span class="n">baseurl</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">config</span><span class="o">[</span><span class="s1">&#39;url&#39;</span><span class="o">]</span> <span class="o">+</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">baseurl</span>
-			<span class="k">if</span> <span class="no">File</span><span class="o">.</span><span class="n">exist?</span><span class="p">(</span><span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">file</span><span class="p">)</span>
-				<span class="n">xml</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;&lt;enclosure url=&#39;</span><span class="si">#{</span><span class="n">baseurl</span> <span class="o">+</span> <span class="n">file</span><span class="si">}</span><span class="s2">&#39; length=&#39;</span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2">&#39; type=&#39;</span><span class="si">#{</span><span class="no">MimeMagic</span><span class="o">.</span><span class="n">by_magic</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">file</span><span class="p">))</span><span class="si">}</span><span class="s2">&#39; /&gt;&quot;</span>
+			<span class="n">file</span> <span class="o">=</span> <span class="n">context</span><span class="p">[</span><span class="vi">@text</span><span class="p">]</span> <span class="o">||</span> <span class="vi">@text</span>
+			<span class="n">xml</span> <span class="o">=</span> <span class="s2">""</span>
+			<span class="n">baseurl</span> <span class="o">=</span> <span class="n">context</span><span class="p">.</span><span class="nf">registers</span><span class="p">[</span><span class="ss">:site</span><span class="p">].</span><span class="nf">config</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]</span> <span class="o">+</span> <span class="n">context</span><span class="p">.</span><span class="nf">registers</span><span class="p">[</span><span class="ss">:site</span><span class="p">].</span><span class="nf">baseurl</span>
+			<span class="k">if</span> <span class="no">File</span><span class="p">.</span><span class="nf">exist?</span><span class="p">(</span><span class="s2">"."</span> <span class="o">+</span> <span class="n">file</span><span class="p">)</span>
+				<span class="n">xml</span> <span class="o">&lt;&lt;</span> <span class="s2">"&lt;enclosure url='</span><span class="si">#{</span><span class="n">baseurl</span> <span class="o">+</span> <span class="n">file</span><span class="si">}</span><span class="s2">' length='</span><span class="si">#{</span><span class="no">File</span><span class="p">.</span><span class="nf">stat</span><span class="p">(</span><span class="s2">"."</span> <span class="o">+</span> <span class="n">file</span><span class="p">).</span><span class="nf">size</span><span class="si">}</span><span class="s2">' type='</span><span class="si">#{</span><span class="no">MimeMagic</span><span class="p">.</span><span class="nf">by_magic</span><span class="p">(</span><span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s2">"."</span> <span class="o">+</span> <span class="n">file</span><span class="p">))</span><span class="si">}</span><span class="s2">' /&gt;"</span>
 			<span class="k">end</span>
 			<span class="n">xml</span>
 		<span class="k">end</span>
 	<span class="k">end</span>
 <span class="k">end</span>
 
-<span class="no">Liquid</span><span class="o">::</span><span class="no">Template</span><span class="o">.</span><span class="n">register_tag</span><span class="p">(</span><span class="s1">&#39;rss_enclosure&#39;</span><span class="p">,</span> <span class="no">Jekyll</span><span class="o">::</span><span class="no">RSSEnclosureTag</span><span class="p">)</span></code></pre></div>
+<span class="no">Liquid</span><span class="o">::</span><span class="no">Template</span><span class="p">.</span><span class="nf">register_tag</span><span class="p">(</span><span class="s1">'rss_enclosure'</span><span class="p">,</span> <span class="no">Jekyll</span><span class="o">::</span><span class="no">RSSEnclosureTag</span><span class="p">)</span></code></pre></figure>
 
 <p>Eingebunden wird das ganze dann mit</p>
 
-<div class="highlight"><pre><code class="language-liquid" data-lang="liquid"><span class="p">{%</span><span class="w"> </span><span class="nt">rss_enclosure</span><span class="w"> </span>{{<span class="w"> </span>post.images[<span class="mi">0</span>].url<span class="w"> </span>}}<span class="w"> </span><span class="p">%}</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-liquid" data-lang="liquid"><span class="p">{%</span><span class="w"> </span><span class="nt">rss_enclosure</span><span class="w"> </span>{{<span class="w"> </span>post.images[<span class="mi">0</span>].url<span class="w"> </span>}}<span class="w"> </span><span class="p">%}</span></code></pre></figure>
 
-<p>in der <code>feed.xml</code>. Offensichtlich wird das <code>mimemagic</code>-Gem benötigt, ansonsten sollte alles so funktionieren, zumindest tut es das für mich.</p>
+<p>in der <code class="highlighter-rouge">feed.xml</code>. Offensichtlich wird das <code class="highlighter-rouge">mimemagic</code>-Gem benötigt, ansonsten sollte alles so funktionieren, zumindest tut es das für mich.</p>
 
 <p>Ich frage vorher noch ab, ob der Beitrag überhaupt ein Bild enthält, sodass sich insgesamt folgender Code ergibt:</p>
 
-<div class="highlight"><pre><code class="language-xml" data-lang="xml">{% if post.images %}
-	<span class="nt">&lt;media:thumbnail</span> <span class="na">url=</span><span class="s">&quot;{{ post.images[0].url | prepend: site.baseurl | prepend: site.url }}&quot;</span> <span class="nt">/&gt;</span>
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml">{% if post.images %}
+	<span class="nt">&lt;media:thumbnail</span> <span class="na">url=</span><span class="s">"{{ post.images[0].url | prepend: site.baseurl | prepend: site.url }}"</span> <span class="nt">/&gt;</span>
 	{% rss_enclosure {{ post.images[0].url }} %}
-{% endif %}</code></pre></div>
+{% endif %}</code></pre></figure>
 
 <p>Viel Spaß damit!</p>
 

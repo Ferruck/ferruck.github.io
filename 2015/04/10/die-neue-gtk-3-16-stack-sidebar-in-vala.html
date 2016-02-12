@@ -79,9 +79,9 @@ April
  • Philipp Trommler • Tags: <a href="/tags/gtk3/">gtk3</a> <a href="/tags/gtk/">gtk</a> <a href="/tags/vala/">vala</a> <a href="/tags/stack/">stack</a> <a href="/tags/stacksidebar/">stacksidebar</a></p>
 	</header>
 	<article class="post-content" itemprop="articleBody">
-	<p>Neben vielen anderen großartigen Verbesserungen, die GNOME 3.16 seinen Nutzern beschert, bringt natürlich auch GTK+ wieder Neuerungen mit. Eine davon ist die neue <code>Gtk.StackSidebar</code>, die als Übersicht für die schon älteren <code>Gtk.Stack</code>s dient und aussieht wie eine klassische <code>Gtk.List</code>.</p>
+	<p>Neben vielen anderen großartigen Verbesserungen, die GNOME 3.16 seinen Nutzern beschert, bringt natürlich auch GTK+ wieder Neuerungen mit. Eine davon ist die neue <code class="highlighter-rouge">Gtk.StackSidebar</code>, die als Übersicht für die schon älteren <code class="highlighter-rouge">Gtk.Stack</code>s dient und aussieht wie eine klassische <code class="highlighter-rouge">Gtk.List</code>.</p>
 
-<p>Über ebendiese ließe sich auch ein ähnliches Verhalten erzeugen, wie es die <code>Gtk.StackSidebar</code> an den Tag legt: Bei einem Klick (oder Drücken) auf ein Item in der Liste wird das jeweilige Element des <code>Gtk.Stack</code>s angezeigt. Mit diesem neuen Widget nimmt man jedoch ganz klar eine Abkürzung! Denn während man sich mit einer <code>Gtk.List</code> mit Signalen und dergleichen rumärgern müsste, reicht es bei der <code>Gtk.StackSidebar</code> den <code>Gtk.Stack</code> anzugeben, mit dem man arbeiten will. Alles weitere wird intern geregelt und betrifft den Programmierer (also uns) nicht weiter. Das klingt doch super!</p>
+<p>Über ebendiese ließe sich auch ein ähnliches Verhalten erzeugen, wie es die <code class="highlighter-rouge">Gtk.StackSidebar</code> an den Tag legt: Bei einem Klick (oder Drücken) auf ein Item in der Liste wird das jeweilige Element des <code class="highlighter-rouge">Gtk.Stack</code>s angezeigt. Mit diesem neuen Widget nimmt man jedoch ganz klar eine Abkürzung! Denn während man sich mit einer <code class="highlighter-rouge">Gtk.List</code> mit Signalen und dergleichen rumärgern müsste, reicht es bei der <code class="highlighter-rouge">Gtk.StackSidebar</code> den <code class="highlighter-rouge">Gtk.Stack</code> anzugeben, mit dem man arbeiten will. Alles weitere wird intern geregelt und betrifft den Programmierer (also uns) nicht weiter. Das klingt doch super!</p>
 
 <h1 id="minimalbeispiel">Minimalbeispiel</h1>
 
@@ -94,112 +94,112 @@ April
 	<figcaption>Die StackSidebar als Erweiterung für den Bildbetrachter aus dem ActionBar-Tutorial.</figcaption>
 </figure>
 
-<p>Zunächst muss also ein neuer <code>Gtk.Stack</code> erzeugt werden. Diesem können anschließend beliebige <code>Gtk.Widget</code>s hinzugefügt werden. Wichtig ist bei der Benutzung der <code>Gtk.StackSidebar</code> nur, dass die <code>Gtk.Widget</code>s betitelt übergeben werden, also mit</p>
+<p>Zunächst muss also ein neuer <code class="highlighter-rouge">Gtk.Stack</code> erzeugt werden. Diesem können anschließend beliebige <code class="highlighter-rouge">Gtk.Widget</code>s hinzugefügt werden. Wichtig ist bei der Benutzung der <code class="highlighter-rouge">Gtk.StackSidebar</code> nur, dass die <code class="highlighter-rouge">Gtk.Widget</code>s betitelt übergeben werden, also mit</p>
 
-<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="n">add_titled</span> <span class="p">(</span><span class="n">Gtk</span><span class="p">.</span><span class="n">Widget</span> <span class="n">child</span><span class="p">,</span> <span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="kt">string</span> <span class="n">title</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-vala" data-lang="vala">add_titled (Gtk.Widget child, string name, string title)</code></pre></figure>
 
-<p>da der String <code>title</code> das ist, was in der <code>Gtk.StackSidebar</code> angezeigt wird. <code>Gtk.Widget</code>s ohne Titel werden stillschweigend ignoriert.</p>
+<p>da der String <code class="highlighter-rouge">title</code> das ist, was in der <code class="highlighter-rouge">Gtk.StackSidebar</code> angezeigt wird. <code class="highlighter-rouge">Gtk.Widget</code>s ohne Titel werden stillschweigend ignoriert.</p>
 
-<p>Dies ist allerdings nicht der einzige Fallstrick, der bei der Benutzung der <code>Gtk.StackSidebar</code> lauert: Sie muss <em>zwingend</em> in einer <code>Gtk.Box</code> o. Ä. mit <em>horizontaler</em> Ausrichtung eingefügt werden, ansonsten wird sie schlicht und ergreifend nicht angezeigt (ohne Fehlermeldung). Aufgrund dessen und da sie – im Gegensatz zur <code>Gtk.List</code> – auch nur Strings enthalten kann, können mit ihr leider keine Slideshows unter der großen Bildansicht gebaut werden – schade!</p>
+<p>Dies ist allerdings nicht der einzige Fallstrick, der bei der Benutzung der <code class="highlighter-rouge">Gtk.StackSidebar</code> lauert: Sie muss <em>zwingend</em> in einer <code class="highlighter-rouge">Gtk.Box</code> o. Ä. mit <em>horizontaler</em> Ausrichtung eingefügt werden, ansonsten wird sie schlicht und ergreifend nicht angezeigt (ohne Fehlermeldung). Aufgrund dessen und da sie – im Gegensatz zur <code class="highlighter-rouge">Gtk.List</code> – auch nur Strings enthalten kann, können mit ihr leider keine Slideshows unter der großen Bildansicht gebaut werden – schade!</p>
 
-<p>Ansonsten ist die Benutzung wirklich mehr als einfach: <code>Gtk.StackSidebar</code> erzeugen und dem <code>Gtk.Stack</code> zuordnen, der verwendet werden soll.</p>
+<p>Ansonsten ist die Benutzung wirklich mehr als einfach: <code class="highlighter-rouge">Gtk.StackSidebar</code> erzeugen und dem <code class="highlighter-rouge">Gtk.Stack</code> zuordnen, der verwendet werden soll.</p>
 
-<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="n">Gtk</span><span class="p">.</span><span class="n">StackSidebar</span> <span class="n">ssidebar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">StackSidebar</span> <span class="p">();</span>
-<span class="n">ssidebar</span><span class="p">.</span><span class="n">set_stack</span> <span class="p">(</span><span class="n">stack</span><span class="p">);</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-vala" data-lang="vala">Gtk.StackSidebar ssidebar = new Gtk.StackSidebar ();
+ssidebar.set_stack (stack);</code></pre></figure>
 
-<p>Wo die <code>Gtk.StackSidebar</code> dann am Ende im Fenster angezeigt werden soll, ist egal. Sie muss nicht direkt neben dem <code>Gtk.Stack</code> auftauchen. Hauptsache, sie befindet sich in einer horizontalen Umgebung (siehe oben).</p>
+<p>Wo die <code class="highlighter-rouge">Gtk.StackSidebar</code> dann am Ende im Fenster angezeigt werden soll, ist egal. Sie muss nicht direkt neben dem <code class="highlighter-rouge">Gtk.Stack</code> auftauchen. Hauptsache, sie befindet sich in einer horizontalen Umgebung (siehe oben).</p>
 
 <p>Zusammen sieht das ganze dann so aus:</p>
 
-<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="kd">class</span> <span class="nc">Example</span> <span class="o">:</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Application</span> <span class="p">{</span>
-	<span class="kd">public</span> <span class="n">Example</span> <span class="p">()</span> <span class="p">{</span>
-		<span class="n">Object</span> <span class="p">(</span><span class="n">application_id</span><span class="o">:</span> <span class="s">&quot;com.example.app&quot;</span><span class="p">,</span> <span class="n">flags</span><span class="o">:</span> <span class="n">ApplicationFlags</span><span class="p">.</span><span class="n">FLAGS_NONE</span><span class="p">);</span>
-	<span class="p">}</span>
+<figure class="highlight"><pre><code class="language-vala" data-lang="vala">class Example : Gtk.Application {
+	public Example () {
+		Object (application_id: "com.example.app", flags: ApplicationFlags.FLAGS_NONE);
+	}
 
-	<span class="kd">protected</span> <span class="kd">override</span> <span class="kt">void</span> <span class="n">activate</span> <span class="p">()</span> <span class="p">{</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Settings</span><span class="p">.</span><span class="n">get_default</span> <span class="p">().</span><span class="n">gtk_application_prefer_dark_theme</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">ApplicationWindow</span> <span class="n">window</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">ApplicationWindow</span> <span class="p">(</span><span class="k">this</span><span class="p">);</span>
-		<span class="n">window</span><span class="p">.</span><span class="n">set_default_size</span> <span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
-		<span class="n">window</span><span class="p">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s">&quot;StackSidebar&quot;</span><span class="p">);</span>
+	protected override void activate () {
+		Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
+		Gtk.ApplicationWindow window = new Gtk.ApplicationWindow (this);
+		window.set_default_size (800, 500);
+		window.set_title ("StackSidebar");
 		
-		<span class="cm">/*</span>
-<span class="cm">		 * Primäre Box</span>
-<span class="cm">		 */</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="n">primary_box</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="p">(</span><span class="n">Gtk</span><span class="p">.</span><span class="n">Orientation</span><span class="p">.</span><span class="n">HORIZONTAL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+		/*
+		 * Primäre Box
+		 */
+		Gtk.Box primary_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
 		
-		<span class="cm">/*</span>
-<span class="cm">		 * Innere Box</span>
-<span class="cm">		 */</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="n">inner_box</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="p">(</span><span class="n">Gtk</span><span class="p">.</span><span class="n">Orientation</span><span class="p">.</span><span class="n">VERTICAL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-		<span class="n">primary_box</span><span class="p">.</span><span class="n">pack_end</span> <span class="p">(</span><span class="n">inner_box</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+		/*
+		 * Innere Box
+		 */
+		Gtk.Box inner_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+		primary_box.pack_end (inner_box, true);
 		
-		<span class="cm">/*</span>
-<span class="cm">		 * Stack</span>
-<span class="cm">		 */</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Stack</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Stack</span> <span class="p">();</span>
-		<span class="n">stack</span><span class="p">.</span><span class="n">set_transition_type</span> <span class="p">(</span><span class="n">Gtk</span><span class="p">.</span><span class="n">StackTransitionType</span><span class="p">.</span><span class="n">SLIDE_UP</span><span class="p">);</span>
-		<span class="n">stack</span><span class="p">.</span><span class="n">add_titled</span> <span class="p">(</span><span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Image</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;document-open&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">DND</span><span class="p">),</span> <span class="s">&quot;open&quot;</span><span class="p">,</span> <span class="s">&quot;Öffnen&quot;</span><span class="p">);</span>
-		<span class="n">stack</span><span class="p">.</span><span class="n">add_titled</span> <span class="p">(</span><span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Image</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;document-save&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">DND</span><span class="p">),</span> <span class="s">&quot;save&quot;</span><span class="p">,</span> <span class="s">&quot;Speichern&quot;</span><span class="p">);</span>
+		/*
+		 * Stack
+		 */
+		Gtk.Stack stack = new Gtk.Stack ();
+		stack.set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
+		stack.add_titled (new Gtk.Image.from_icon_name ("document-open", Gtk.IconSize.DND), "open", "Öffnen");
+		stack.add_titled (new Gtk.Image.from_icon_name ("document-save", Gtk.IconSize.DND), "save", "Speichern");
 		
-		<span class="n">inner_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+		inner_box.pack_start (stack, true);
 		
-		<span class="cm">/*</span>
-<span class="cm">		 * StackSidebar</span>
-<span class="cm">		 */</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">StackSidebar</span> <span class="n">ssidebar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">StackSidebar</span> <span class="p">();</span>
-		<span class="n">ssidebar</span><span class="p">.</span><span class="n">set_stack</span> <span class="p">(</span><span class="n">stack</span><span class="p">);</span>
+		/*
+		 * StackSidebar
+		 */
+		Gtk.StackSidebar ssidebar = new Gtk.StackSidebar ();
+		ssidebar.set_stack (stack);
 		
-		<span class="n">primary_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">ssidebar</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+		primary_box.pack_start (ssidebar, false);
 		
 		
 		
-		<span class="cm">/*</span>
-<span class="cm">		 * Ab hier Actionbar</span>
-<span class="cm">		 * </span>
-<span class="cm">		 * Näheres siehe letztes Tutorial.</span>
-<span class="cm">		 */</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">ActionBar</span> <span class="n">action_bar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">ActionBar</span> <span class="p">();</span>
+		/*
+		 * Ab hier Actionbar
+		 * 
+		 * Näheres siehe letztes Tutorial.
+		 */
+		Gtk.ActionBar action_bar = new Gtk.ActionBar ();
 		
-		<span class="c1">// Linke Buttons</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">left_button1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;go-first&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">action_bar</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">left_button1</span><span class="p">);</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">left_button2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;go-previous&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">action_bar</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">left_button2</span><span class="p">);</span>
+		// Linke Buttons
+		Gtk.Button left_button1 = new Gtk.Button.from_icon_name ("go-first", Gtk.IconSize.SMALL_TOOLBAR);
+		action_bar.pack_start (left_button1);
+		Gtk.Button left_button2 = new Gtk.Button.from_icon_name ("go-previous", Gtk.IconSize.SMALL_TOOLBAR);
+		action_bar.pack_start (left_button2);
 		
-		<span class="c1">// Rechte Buttons</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">right_button1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;go-last&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">action_bar</span><span class="p">.</span><span class="n">pack_end</span> <span class="p">(</span><span class="n">right_button1</span><span class="p">);</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">right_button2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;go-next&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">action_bar</span><span class="p">.</span><span class="n">pack_end</span> <span class="p">(</span><span class="n">right_button2</span><span class="p">);</span>
+		// Rechte Buttons
+		Gtk.Button right_button1 = new Gtk.Button.from_icon_name ("go-last", Gtk.IconSize.SMALL_TOOLBAR);
+		action_bar.pack_end (right_button1);
+		Gtk.Button right_button2 = new Gtk.Button.from_icon_name ("go-next", Gtk.IconSize.SMALL_TOOLBAR);
+		action_bar.pack_end (right_button2);
 		
-		<span class="c1">// Mittlere Buttons</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="n">secondary_box</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="p">(</span><span class="n">Gtk</span><span class="p">.</span><span class="n">Orientation</span><span class="p">.</span><span class="n">HORIZONTAL</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+		// Mittlere Buttons
+		Gtk.Box secondary_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 3);
 		
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">center_button1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;zoom-original&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">secondary_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">center_button1</span><span class="p">);</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">center_button2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;zoom-out&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">secondary_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">center_button2</span><span class="p">);</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">center_button3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;zoom-in&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">secondary_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">center_button3</span><span class="p">);</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">center_button4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;zoom-fit-best&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">secondary_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">center_button4</span><span class="p">);</span>
+		Gtk.Button center_button1 = new Gtk.Button.from_icon_name ("zoom-original", Gtk.IconSize.SMALL_TOOLBAR);
+		secondary_box.pack_start (center_button1);
+		Gtk.Button center_button2 = new Gtk.Button.from_icon_name ("zoom-out", Gtk.IconSize.SMALL_TOOLBAR);
+		secondary_box.pack_start (center_button2);
+		Gtk.Button center_button3 = new Gtk.Button.from_icon_name ("zoom-in", Gtk.IconSize.SMALL_TOOLBAR);
+		secondary_box.pack_start (center_button3);
+		Gtk.Button center_button4 = new Gtk.Button.from_icon_name ("zoom-fit-best", Gtk.IconSize.SMALL_TOOLBAR);
+		secondary_box.pack_start (center_button4);
 		
-		<span class="n">action_bar</span><span class="p">.</span><span class="n">set_center_widget</span> <span class="p">(</span><span class="n">secondary_box</span><span class="p">);</span>
+		action_bar.set_center_widget (secondary_box);
 		
-		<span class="n">inner_box</span><span class="p">.</span><span class="n">pack_end</span> <span class="p">(</span><span class="n">action_bar</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+		inner_box.pack_end (action_bar, false);
 		
-		<span class="n">window</span><span class="p">.</span><span class="n">add</span> <span class="p">(</span><span class="n">primary_box</span><span class="p">);</span>
-		<span class="n">window</span><span class="p">.</span><span class="n">show_all</span> <span class="p">();</span>
-	<span class="p">}</span>
-<span class="p">}</span>
+		window.add (primary_box);
+		window.show_all ();
+	}
+}
 
-<span class="kt">int</span> <span class="n">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="k">new</span> <span class="n">Example</span> <span class="p">().</span><span class="n">run</span> <span class="p">(</span><span class="n">args</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+int main (string[] args) {
+	return new Example ().run (args);
+}</code></pre></figure>
 
-<p>Das Ganze in einer Datei namens <code>stacksidebar.vala</code> abspeichern und mit</p>
+<p>Das Ganze in einer Datei namens <code class="highlighter-rouge">stacksidebar.vala</code> abspeichern und mit</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">valac --pkg<span class="o">=</span>gtk+-3.0 stacksidebar.vala</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">valac --pkg<span class="o">=</span>gtk+-3.0 stacksidebar.vala</code></pre></figure>
 
 <p>kompilieren, fertig!</p>
 

@@ -91,23 +91,23 @@ Juli
   <li>Über das Ubuntu Toolchain PPA installieren.</li>
 </ul>
 
-<p>Das PPA kann mittels <code>sudo add-apt-repository ppa:ubuntu-toolchain-r/test</code> ins System eingepflegt werden, anschließend werden mit dem Befehl <code>sudo apt-get install gcc-4.9 g++-4.9</code> die Compiler installiert. In den deb-Paketen scheint allerdings noch eine Datei zu fehlen, die somit manuell angelegt werden muss, also mit <code>sudo nano /usr/lib/libcilkrts.spec</code> die Datei öffnen und folgendes einfügen:</p>
+<p>Das PPA kann mittels <code class="highlighter-rouge">sudo add-apt-repository ppa:ubuntu-toolchain-r/test</code> ins System eingepflegt werden, anschließend werden mit dem Befehl <code class="highlighter-rouge">sudo apt-get install gcc-4.9 g++-4.9</code> die Compiler installiert. In den deb-Paketen scheint allerdings noch eine Datei zu fehlen, die somit manuell angelegt werden muss, also mit <code class="highlighter-rouge">sudo nano /usr/lib/libcilkrts.spec</code> die Datei öffnen und folgendes einfügen:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">This spec file is <span class="nb">read </span>by gcc when linking.  It is used to specify the
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">This spec file is <span class="nb">read </span>by gcc when linking.  It is used to specify the
 <span class="c"># standard libraries we need in order to link with libcilkrts.</span>
-*link_cilkrts: /usr/lib/gcc/i686-linux-gnu/4.9/libcilkrts.so</code></pre></div>
+<span class="k">*</span>link_cilkrts: /usr/lib/gcc/i686-linux-gnu/4.9/libcilkrts.so</code></pre></figure>
 
 <p>Der Pfad zur Shared Library muss auf 64-bit Systemen entsprechend angepasst werden. Damit sollte die Installation eigentlich abgeschlossen sein (einfacher als GCC selbst zu kompilieren, oder?).</p>
 
 <h1 id="tests">Tests</h1>
 
-<p>Um die Performance von Cilk™ unter Linux zu messen, bediene ich mich der Beispiele, die Intel® <a href="http://www.cilkplus.org/cilk-plus-tutorial">auf den entsprechenden Webseiten</a> angibt. Als erstes das Fibonacci-Beispiel, mit dem sich <code>cilk_spawn</code> und <code>cilk_sync</code> für rekursive Algorithmen testen lässt:</p>
+<p>Um die Performance von Cilk™ unter Linux zu messen, bediene ich mich der Beispiele, die Intel® <a href="http://www.cilkplus.org/cilk-plus-tutorial">auf den entsprechenden Webseiten</a> angibt. Als erstes das Fibonacci-Beispiel, mit dem sich <code class="highlighter-rouge">cilk_spawn</code> und <code class="highlighter-rouge">cilk_sync</code> für rekursive Algorithmen testen lässt:</p>
 
-<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include &lt;iostream&gt;</span>
-<span class="cp">#include &lt;cilk/cilk.h&gt;</span>
-<span class="cp">#include &lt;cilk/cilk_api.h&gt;</span>
-<span class="cp">#include &lt;sstream&gt;</span>
-
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include &lt;iostream&gt;
+#include &lt;cilk/cilk.h&gt;
+#include &lt;cilk/cilk_api.h&gt;
+#include &lt;sstream&gt;
+</span>
 <span class="kt">int</span> <span class="nf">fibo_wo</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
 <span class="p">{</span>
 	<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span>
@@ -124,61 +124,61 @@ Juli
 	<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span>
 		<span class="k">return</span> <span class="n">n</span><span class="p">;</span>
 
-	<span class="c1">// Spawn one recursion as a new thread</span>
-	<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">cilk_spawn</span> <span class="n">fibo_w</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+	<span class="c1">// Spawn one recursion as a new thread
+</span>	<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">cilk_spawn</span> <span class="n">fibo_w</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
 	<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fibo_w</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
 
-	<span class="c1">// Wait for all spawned threads to finish</span>
-	<span class="n">cilk_sync</span><span class="p">;</span>
+	<span class="c1">// Wait for all spawned threads to finish
+</span>	<span class="n">cilk_sync</span><span class="p">;</span>
 
 	<span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
 <span class="p">{</span>
-	<span class="c1">// Thanks to Thomas for char to int conversion (&lt;http://stackoverflow.com/questions/2797813/convert-c-argument-to-int&gt;)</span>
-	<span class="n">std</span><span class="o">::</span><span class="n">istringstream</span> <span class="n">ss</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+	<span class="c1">// Thanks to Thomas for char to int conversion (&lt;http://stackoverflow.com/questions/2797813/convert-c-argument-to-int&gt;)
+</span>	<span class="n">std</span><span class="o">::</span><span class="n">istringstream</span> <span class="n">ss</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
 	<span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
 	<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">ss</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">))</span>
 	<span class="p">{</span>
-		<span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Invalid number &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+		<span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"Invalid number "</span> <span class="o">&lt;&lt;</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
 	<span class="p">}</span>
 	
-	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Testing Intel (R) Cilk (TM) with Fibonacci (n = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Testing Intel (R) Cilk (TM) with Fibonacci (n = "</span> <span class="o">&lt;&lt;</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">")"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 	<span class="kt">clock_t</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">;</span>
 	<span class="n">start</span> <span class="o">=</span> <span class="n">clock</span> <span class="p">();</span>
 	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fibo_wo</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 	<span class="n">end</span> <span class="o">=</span> <span class="n">clock</span> <span class="p">();</span>
-	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Time without Intel (R) Cilk (TM): &quot;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">CLOCKS_PER_SEC</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; sec (CLOCKS_PER_SEC: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">CLOCKS_PER_SEC</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Time without Intel (R) Cilk (TM): "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">CLOCKS_PER_SEC</span> <span class="o">&lt;&lt;</span> <span class="s">" sec (CLOCKS_PER_SEC: "</span> <span class="o">&lt;&lt;</span> <span class="n">CLOCKS_PER_SEC</span> <span class="o">&lt;&lt;</span> <span class="s">")"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 	<span class="n">start</span> <span class="o">=</span> <span class="n">clock</span> <span class="p">();</span>
 	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fibo_w</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 	<span class="n">end</span> <span class="o">=</span> <span class="n">clock</span> <span class="p">();</span>
-	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Time with Intel (R) Cilk (TM): &quot;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">CLOCKS_PER_SEC</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; sec (CLOCKS_PER_SEC: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">CLOCKS_PER_SEC</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Time with Intel (R) Cilk (TM): "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">CLOCKS_PER_SEC</span> <span class="o">&lt;&lt;</span> <span class="s">" sec (CLOCKS_PER_SEC: "</span> <span class="o">&lt;&lt;</span> <span class="n">CLOCKS_PER_SEC</span> <span class="o">&lt;&lt;</span> <span class="s">")"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 	
 	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
-<p>Ich habe das Beispiel etwas angepasst, damit sich leichter vergleichbare Ergebnisse erzielen lassen. Die Datei einfach als <code>fibo.cpp</code> speichern und mit</p>
+<p>Ich habe das Beispiel etwas angepasst, damit sich leichter vergleichbare Ergebnisse erzielen lassen. Die Datei einfach als <code class="highlighter-rouge">fibo.cpp</code> speichern und mit</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">g++-4.9 -fcilkplus -I/usr/include/c++/4.9/ -o fibo fibo.cpp</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">g++-4.9 -fcilkplus -I/usr/include/c++/4.9/ -o fibo fibo.cpp</code></pre></figure>
 
-<p>kompilieren. Ein Aufruf mit <code>./fibo 40</code> gibt bei mir folgende, interessante Ergebnisse:</p>
+<p>kompilieren. Ein Aufruf mit <code class="highlighter-rouge">./fibo 40</code> gibt bei mir folgende, interessante Ergebnisse:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">Testing Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span> with Fibonacci <span class="o">(</span><span class="nv">n</span> <span class="o">=</span> 40<span class="o">)</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Testing Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span> with Fibonacci <span class="o">(</span>n <span class="o">=</span> 40<span class="o">)</span>
 102334155
-Time without Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">3</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span>
+Time without Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: 3 sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span>
 102334155
-Time with Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">35</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span></code></pre></div>
+Time with Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: 35 sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span></code></pre></figure>
 
-<p>Mal abgesehen davon, dass beide Funktionen das gleiche Ergebnis liefern (Glück gehabt!) und mein Computer echt langsam ist, fällt vor allem auf, dass die Version mit Intel® Cilk™ mehr als die zehnfache Laufzeit hat. Ob das an Problemen zwischen meinem betagten Prozessor (Genuine Intel® CPU T2250 @ 1.73GHz × 2) und der doch recht neuen Implementierung von Cilk™ liegt oder daran, dass der Compiler die ‘normale’ Funktion einfach so stark optimiert (die Option <code>-O0</code> bringt keine Veränderung), kann ich nicht sagen. Allerdings scheint die Cilk™ Funktion tatsächlich nicht (so stark) optimiert zu werden, da nach der Kompilierung mit <code>-O3</code> folgendes Ergebnis erscheint:</p>
+<p>Mal abgesehen davon, dass beide Funktionen das gleiche Ergebnis liefern (Glück gehabt!) und mein Computer echt langsam ist, fällt vor allem auf, dass die Version mit Intel® Cilk™ mehr als die zehnfache Laufzeit hat. Ob das an Problemen zwischen meinem betagten Prozessor (Genuine Intel® CPU T2250 @ 1.73GHz × 2) und der doch recht neuen Implementierung von Cilk™ liegt oder daran, dass der Compiler die ‘normale’ Funktion einfach so stark optimiert (die Option <code class="highlighter-rouge">-O0</code> bringt keine Veränderung), kann ich nicht sagen. Allerdings scheint die Cilk™ Funktion tatsächlich nicht (so stark) optimiert zu werden, da nach der Kompilierung mit <code class="highlighter-rouge">-O3</code> folgendes Ergebnis erscheint:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">Testing Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span> with Fibonacci <span class="o">(</span><span class="nv">n</span> <span class="o">=</span> 40<span class="o">)</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Testing Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span> with Fibonacci <span class="o">(</span>n <span class="o">=</span> 40<span class="o">)</span>
 102334155
-Time without Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">1</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span>
+Time without Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: 1 sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span>
 102334155
-Time with Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">34</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span></code></pre></div>
+Time with Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: 34 sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span></code></pre></figure>
 
-<p>Das Ergebnis der Cilk™ Funktion ändert sich also nicht, das der normalen wird um zwei Drittel reduziert. Vielleicht bringt die neue <code>for</code>-Schleife etwas, allerdings hat es <code>cilk_for</code> noch nicht in die GCC geschafft, vielleicht in 4.10.</p>
+<p>Das Ergebnis der Cilk™ Funktion ändert sich also nicht, das der normalen wird um zwei Drittel reduziert. Vielleicht bringt die neue <code class="highlighter-rouge">for</code>-Schleife etwas, allerdings hat es <code class="highlighter-rouge">cilk_for</code> noch nicht in die GCC geschafft, vielleicht in 4.10.</p>
 
 <p>Bis dahin: Wie sehen eure Ergebnisse mit Cilk™ aus? Übersehe ich nur etwas? Liegt es vielleicht an meinem alten Rechner und wie verhält es sich mit AMD Prozessoren? Schreibt einfach in die Kommentare!</p>
 
@@ -186,18 +186,18 @@ Time with Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span cla
 
 <p>Ich habe gerade zum Vergleich das Programm auf meinem zweiten Rechner (AMD Athlon™ II X4 645 Processor × 4) kompiliert und ausgeführt, leider auch hier ähnliche Ergebnisse:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>&gt; ./fibo 40
-Testing Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span> with Fibonacci <span class="o">(</span><span class="nv">n</span> <span class="o">=</span> 40<span class="o">)</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>&gt; ./fibo 40
+Testing Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span> with Fibonacci <span class="o">(</span>n <span class="o">=</span> 40<span class="o">)</span>
 102334155
-Time without Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">1</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span>
+Time without Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: 1 sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span>
 102334155
-Time with Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">12</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span>
-<span class="nv">$ </span>&gt; ./fibo 45
-Testing Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span> with Fibonacci <span class="o">(</span><span class="nv">n</span> <span class="o">=</span> 45<span class="o">)</span>
+Time with Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: 12 sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span>
+<span class="gp">$ </span>&gt; ./fibo 45
+Testing Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span> with Fibonacci <span class="o">(</span>n <span class="o">=</span> 45<span class="o">)</span>
 1134903170
-Time without Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">12</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span>
+Time without Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: 12 sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span>
 1134903170
-Time with Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: <span class="m">134</span> sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span></code></pre></div>
+Time with Intel <span class="o">(</span>R<span class="o">)</span> Cilk <span class="o">(</span>TM<span class="o">)</span>: 134 sec <span class="o">(</span>CLOCKS_PER_SEC: 1000000<span class="o">)</span></code></pre></figure>
 
 <p>Es scheint mir langsam wirklich so, als würde ich etwas übersehen, habt ihr Ideen?</p>
 

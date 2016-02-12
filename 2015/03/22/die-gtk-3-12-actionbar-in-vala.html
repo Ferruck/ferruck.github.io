@@ -77,9 +77,9 @@ März
  • Philipp Trommler • Tags: <a href="/tags/gtk3/">gtk3</a> <a href="/tags/gtk/">gtk</a> <a href="/tags/vala/">vala</a> <a href="/tags/actionbar/">actionbar</a></p>
 	</header>
 	<article class="post-content" itemprop="articleBody">
-	<p>Auch wenn es die <code>Gtk.ActionBar</code> schon seit GTK 3.12 und somit schon ein bisschen länger gibt, habe ich bisher kaum Anleitungen dazu im Internet gefunden und keine einzige für Vala. Daher möchte ich hiermit ein kleines Tutorial nachliefern, auch wenn sich die Verwendung eigentlich nicht sonderlich von einer <code>Gtk.Box</code> oder einer <code>Gtk.Toolbar</code> unterscheidet.</p>
+	<p>Auch wenn es die <code class="highlighter-rouge">Gtk.ActionBar</code> schon seit GTK 3.12 und somit schon ein bisschen länger gibt, habe ich bisher kaum Anleitungen dazu im Internet gefunden und keine einzige für Vala. Daher möchte ich hiermit ein kleines Tutorial nachliefern, auch wenn sich die Verwendung eigentlich nicht sonderlich von einer <code class="highlighter-rouge">Gtk.Box</code> oder einer <code class="highlighter-rouge">Gtk.Toolbar</code> unterscheidet.</p>
 
-<p>ActionBars sind eigentlich wie eine Toolbar, nur sollen sie kontextsensitiv verwendet werden und sich unter dem Widget befinden, für das sie zuständig sind. Die Unterschiede sind also eher semantisch. Die Benutzung erinnert stark an eine <code>Gtk.Box</code> mit horizontaler Ausrichtung, es werden also mit <code>pack_start ()</code> <code>Gtk.Widget</code>s an den linken Rand gesetzt, mit <code>pack_end ()</code> an den rechten. Zusätzlich kann aber noch <em>ein</em> <code>Gtk.Widget</code> mit <code>set_center_widget ()</code> mittig in die <code>Gtk.ActionBar</code> gesetzt werden, wobei mittig absolut gemeint ist, also unabhängig von Anzahl und Größe der <code>Gtk.Widget</code>s an den Seiten. Sollen in der Mitte mehrere <code>Gtk.Widget</code>s platziert werden, müssen diese vorher in einen <code>Gtk.Container</code> gepackt werden, also zum Beispiel in eine <code>Gtk.Box</code>.</p>
+<p>ActionBars sind eigentlich wie eine Toolbar, nur sollen sie kontextsensitiv verwendet werden und sich unter dem Widget befinden, für das sie zuständig sind. Die Unterschiede sind also eher semantisch. Die Benutzung erinnert stark an eine <code class="highlighter-rouge">Gtk.Box</code> mit horizontaler Ausrichtung, es werden also mit <code class="highlighter-rouge">pack_start ()</code> <code class="highlighter-rouge">Gtk.Widget</code>s an den linken Rand gesetzt, mit <code class="highlighter-rouge">pack_end ()</code> an den rechten. Zusätzlich kann aber noch <em>ein</em> <code class="highlighter-rouge">Gtk.Widget</code> mit <code class="highlighter-rouge">set_center_widget ()</code> mittig in die <code class="highlighter-rouge">Gtk.ActionBar</code> gesetzt werden, wobei mittig absolut gemeint ist, also unabhängig von Anzahl und Größe der <code class="highlighter-rouge">Gtk.Widget</code>s an den Seiten. Sollen in der Mitte mehrere <code class="highlighter-rouge">Gtk.Widget</code>s platziert werden, müssen diese vorher in einen <code class="highlighter-rouge">Gtk.Container</code> gepackt werden, also zum Beispiel in eine <code class="highlighter-rouge">Gtk.Box</code>.</p>
 
 <figure>
 	<a href="/images/actionbar1.png">
@@ -88,76 +88,76 @@ März
 	<figcaption>GTK ActionBar Beispielanwendung.</figcaption>
 </figure>
 
-<p>So habe ich es auch in meiner obligatorischen kleinen Beispielanwendung gemacht, die als Grundlage für einen minimalistischen Bildbetrachter fungieren könnte. Natürlich fehlt noch jegliche Logik im Beispiel, aber hier soll es ja auch nur um die Benutzung der <code>Gtk.ActionBar</code> gehen. Eingebaut habe ich das ganze wie immer in eine <code>Gtk.Application</code>.</p>
+<p>So habe ich es auch in meiner obligatorischen kleinen Beispielanwendung gemacht, die als Grundlage für einen minimalistischen Bildbetrachter fungieren könnte. Natürlich fehlt noch jegliche Logik im Beispiel, aber hier soll es ja auch nur um die Benutzung der <code class="highlighter-rouge">Gtk.ActionBar</code> gehen. Eingebaut habe ich das ganze wie immer in eine <code class="highlighter-rouge">Gtk.Application</code>.</p>
 
-<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="kd">class</span> <span class="nc">Example</span> <span class="o">:</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Application</span> <span class="p">{</span>
-	<span class="kd">public</span> <span class="n">Example</span> <span class="p">()</span> <span class="p">{</span>
-		<span class="n">Object</span> <span class="p">(</span><span class="n">application_id</span><span class="o">:</span> <span class="s">&quot;com.example.app&quot;</span><span class="p">,</span> <span class="n">flags</span><span class="o">:</span> <span class="n">ApplicationFlags</span><span class="p">.</span><span class="n">FLAGS_NONE</span><span class="p">);</span>
-	<span class="p">}</span>
+<figure class="highlight"><pre><code class="language-vala" data-lang="vala">class Example : Gtk.Application {
+	public Example () {
+		Object (application_id: "com.example.app", flags: ApplicationFlags.FLAGS_NONE);
+	}
 
-	<span class="kd">protected</span> <span class="kd">override</span> <span class="kt">void</span> <span class="n">activate</span> <span class="p">()</span> <span class="p">{</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Settings</span><span class="p">.</span><span class="n">get_default</span> <span class="p">().</span><span class="n">gtk_application_prefer_dark_theme</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">ApplicationWindow</span> <span class="n">window</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">ApplicationWindow</span> <span class="p">(</span><span class="k">this</span><span class="p">);</span>
-		<span class="n">window</span><span class="p">.</span><span class="n">set_default_size</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
-		<span class="n">window</span><span class="p">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s">&quot;Actionbar&quot;</span><span class="p">);</span>
+	protected override void activate () {
+		Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
+		Gtk.ApplicationWindow window = new Gtk.ApplicationWindow (this);
+		window.set_default_size (500, 500);
+		window.set_title ("Actionbar");
 		
-		<span class="cm">/*</span>
-<span class="cm">		 * Primäre Box</span>
-<span class="cm">		 */</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="n">primary_box</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="p">(</span><span class="n">Gtk</span><span class="p">.</span><span class="n">Orientation</span><span class="p">.</span><span class="n">VERTICAL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+		/*
+		 * Primäre Box
+		 */
+		Gtk.Box primary_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 		
-		<span class="cm">/*</span>
-<span class="cm">		 * Als Beispiel ein Bild</span>
-<span class="cm">		 */</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Image</span> <span class="n">image</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Image</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;document-open&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">DIALOG</span><span class="p">);</span>
-		<span class="n">primary_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">image</span><span class="p">);</span>
+		/*
+		 * Als Beispiel ein Bild
+		 */
+		Gtk.Image image = new Gtk.Image.from_icon_name ("document-open", Gtk.IconSize.DIALOG);
+		primary_box.pack_start (image);
 		
-		<span class="cm">/*</span>
-<span class="cm">		 * Ab hier Actionbar</span>
-<span class="cm">		 */</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">ActionBar</span> <span class="n">action_bar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">ActionBar</span> <span class="p">();</span>
+		/*
+		 * Ab hier Actionbar
+		 */
+		Gtk.ActionBar action_bar = new Gtk.ActionBar ();
 		
-		<span class="c1">// Linke Buttons</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">left_button1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;go-first&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">action_bar</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">left_button1</span><span class="p">);</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">left_button2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;go-previous&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">action_bar</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">left_button2</span><span class="p">);</span>
+		// Linke Buttons
+		Gtk.Button left_button1 = new Gtk.Button.from_icon_name ("go-first", Gtk.IconSize.SMALL_TOOLBAR);
+		action_bar.pack_start (left_button1);
+		Gtk.Button left_button2 = new Gtk.Button.from_icon_name ("go-previous", Gtk.IconSize.SMALL_TOOLBAR);
+		action_bar.pack_start (left_button2);
 		
-		<span class="c1">// Rechte Buttons</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">right_button1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;go-last&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">action_bar</span><span class="p">.</span><span class="n">pack_end</span> <span class="p">(</span><span class="n">right_button1</span><span class="p">);</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">right_button2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;go-next&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">action_bar</span><span class="p">.</span><span class="n">pack_end</span> <span class="p">(</span><span class="n">right_button2</span><span class="p">);</span>
+		// Rechte Buttons
+		Gtk.Button right_button1 = new Gtk.Button.from_icon_name ("go-last", Gtk.IconSize.SMALL_TOOLBAR);
+		action_bar.pack_end (right_button1);
+		Gtk.Button right_button2 = new Gtk.Button.from_icon_name ("go-next", Gtk.IconSize.SMALL_TOOLBAR);
+		action_bar.pack_end (right_button2);
 		
-		<span class="c1">// Mittlere Buttons</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="n">secondary_box</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Box</span> <span class="p">(</span><span class="n">Gtk</span><span class="p">.</span><span class="n">Orientation</span><span class="p">.</span><span class="n">HORIZONTAL</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+		// Mittlere Buttons
+		Gtk.Box secondary_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 3);
 		
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">center_button1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;zoom-original&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">secondary_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">center_button1</span><span class="p">);</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">center_button2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;zoom-out&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">secondary_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">center_button2</span><span class="p">);</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">center_button3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;zoom-in&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">secondary_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">center_button3</span><span class="p">);</span>
-		<span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span> <span class="n">center_button4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Button</span><span class="p">.</span><span class="n">from_icon_name</span> <span class="p">(</span><span class="s">&quot;zoom-fit-best&quot;</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">IconSize</span><span class="p">.</span><span class="n">SMALL_TOOLBAR</span><span class="p">);</span>
-		<span class="n">secondary_box</span><span class="p">.</span><span class="n">pack_start</span> <span class="p">(</span><span class="n">center_button4</span><span class="p">);</span>
+		Gtk.Button center_button1 = new Gtk.Button.from_icon_name ("zoom-original", Gtk.IconSize.SMALL_TOOLBAR);
+		secondary_box.pack_start (center_button1);
+		Gtk.Button center_button2 = new Gtk.Button.from_icon_name ("zoom-out", Gtk.IconSize.SMALL_TOOLBAR);
+		secondary_box.pack_start (center_button2);
+		Gtk.Button center_button3 = new Gtk.Button.from_icon_name ("zoom-in", Gtk.IconSize.SMALL_TOOLBAR);
+		secondary_box.pack_start (center_button3);
+		Gtk.Button center_button4 = new Gtk.Button.from_icon_name ("zoom-fit-best", Gtk.IconSize.SMALL_TOOLBAR);
+		secondary_box.pack_start (center_button4);
 		
-		<span class="n">action_bar</span><span class="p">.</span><span class="n">set_center_widget</span> <span class="p">(</span><span class="n">secondary_box</span><span class="p">);</span>
+		action_bar.set_center_widget (secondary_box);
 		
 		
-		<span class="n">primary_box</span><span class="p">.</span><span class="n">pack_end</span> <span class="p">(</span><span class="n">action_bar</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+		primary_box.pack_end (action_bar, false);
 		
-		<span class="n">window</span><span class="p">.</span><span class="n">add</span> <span class="p">(</span><span class="n">primary_box</span><span class="p">);</span>
-		<span class="n">window</span><span class="p">.</span><span class="n">show_all</span> <span class="p">();</span>
-	<span class="p">}</span>
-<span class="p">}</span>
+		window.add (primary_box);
+		window.show_all ();
+	}
+}
 
-<span class="kt">int</span> <span class="n">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="k">new</span> <span class="n">Example</span> <span class="p">().</span><span class="n">run</span> <span class="p">(</span><span class="n">args</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+int main (string[] args) {
+	return new Example ().run (args);
+}</code></pre></figure>
 
-<p>Einfach als <code>actionbar.vala</code> abspeichern und wie immer mit</p>
+<p>Einfach als <code class="highlighter-rouge">actionbar.vala</code> abspeichern und wie immer mit</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">valac --pkg gtk+-3.0 -o actionbar actionbar.vala</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">valac --pkg gtk+-3.0 -o actionbar actionbar.vala</code></pre></figure>
 
 <p>kompilieren. Ich hoffe, ich konnte denjenigen unter euch, denen das Nachlesen im Valadoc manchmal nicht reicht, ein bisschen helfen, und wünsche viel Spaß mit den ActionBars!</p>
 

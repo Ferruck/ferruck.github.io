@@ -80,97 +80,97 @@ Juli
 
 <p>Schreiben wir uns also eine kleine Rust-Bibliothek, die uns als Test dienen soll. Ich habe von Anfang an <a href="https://crates.io/">Cargo</a> genutzt, da es sich einfach bedienen lässt und lästige Routineaufgaben übernimmt. Erstellen wir also ein leeres Cargo-Projekt:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">cargo new vala_test</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">cargo new vala_test</code></pre></figure>
 
-<p>Nachdem wir in das erzeugte Verzeichnis <code>vala_test</code> gewechselt sind, müssen wir zunächst</p>
+<p>Nachdem wir in das erzeugte Verzeichnis <code class="highlighter-rouge">vala_test</code> gewechselt sind, müssen wir zunächst</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>lib<span class="o">]</span>
-<span class="nv">name</span> <span class="o">=</span> <span class="s2">&quot;valatest&quot;</span>
-crate-type <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;dylib&quot;</span><span class="o">]</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>lib]
+name <span class="o">=</span> <span class="s2">"valatest"</span>
+crate-type <span class="o">=</span> <span class="o">[</span><span class="s2">"dylib"</span><span class="o">]</span></code></pre></figure>
 
-<p>an die Datei <code>Cargo.toml</code> anhängen, um Cargo mitzuteilen, dass wir eine dynamisch gelinkte Bibliothek (<code>crate-type = ["dylib"]</code>) mit dem Namen <code>libvalatest.so</code> (<code>name = "valatest"</code>) erstellen wollen.</p>
+<p>an die Datei <code class="highlighter-rouge">Cargo.toml</code> anhängen, um Cargo mitzuteilen, dass wir eine dynamisch gelinkte Bibliothek (<code class="highlighter-rouge">crate-type = ["dylib"]</code>) mit dem Namen <code class="highlighter-rouge">libvalatest.so</code> (<code class="highlighter-rouge">name = "valatest"</code>) erstellen wollen.</p>
 
-<p>Anschließend öffnen wir die bereits vorhandene <code>lib.rs</code> im Ordner <code>src</code> und fügen folgenden Quelltext ein:</p>
+<p>Anschließend öffnen wir die bereits vorhandene <code class="highlighter-rouge">lib.rs</code> im Ordner <code class="highlighter-rouge">src</code> und fügen folgenden Quelltext ein:</p>
 
-<div class="highlight"><pre><code class="language-rust" data-lang="rust"><span class="k">pub</span> <span class="k">struct</span> <span class="n">TestType</span> <span class="p">{</span>
-    <span class="n">int1</span><span class="o">:</span> <span class="kt">i32</span><span class="p">,</span>
-    <span class="n">int2</span><span class="o">:</span> <span class="kt">u8</span><span class="p">,</span>
+<figure class="highlight"><pre><code class="language-rust" data-lang="rust"><span class="k">pub</span> <span class="k">struct</span> <span class="n">TestType</span> <span class="p">{</span>
+    <span class="n">int1</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span>
+    <span class="n">int2</span><span class="p">:</span> <span class="nb">u8</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="cp">#[no_mangle]</span>
-<span class="k">pub</span> <span class="k">extern</span> <span class="k">fn</span> <span class="n">test</span><span class="p">(</span><span class="n">int1</span><span class="o">:</span> <span class="kt">i32</span><span class="p">,</span> <span class="n">int2</span><span class="o">:</span> <span class="kt">i64</span><span class="p">,</span> <span class="n">uint1</span><span class="o">:</span> <span class="kt">u8</span><span class="p">,</span> <span class="n">text</span><span class="o">:</span> <span class="n">char</span><span class="p">,</span> <span class="n">slice</span><span class="o">:</span> <span class="o">&amp;</span><span class="p">[</span><span class="kt">u32</span><span class="p">],</span> <span class="n">test_type</span><span class="o">:</span> <span class="o">&amp;</span><span class="n">TestType</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nb">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;int1: {}&quot;</span><span class="p">,</span> <span class="n">int1</span><span class="p">);</span>
-    <span class="nb">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;int2: {}&quot;</span><span class="p">,</span> <span class="n">int2</span><span class="p">);</span>
-    <span class="nb">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;uint1: {}&quot;</span><span class="p">,</span> <span class="n">uint1</span><span class="p">);</span>
-    <span class="nb">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;text: {}&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
+<span class="k">pub</span> <span class="k">extern</span> <span class="k">fn</span> <span class="nf">test</span><span class="p">(</span><span class="n">int1</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span> <span class="n">int2</span><span class="p">:</span> <span class="nb">i64</span><span class="p">,</span> <span class="n">uint1</span><span class="p">:</span> <span class="nb">u8</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">char</span><span class="p">,</span> <span class="n">slice</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[</span><span class="nb">u32</span><span class="p">],</span> <span class="n">test_type</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">TestType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"int1: {}"</span><span class="p">,</span> <span class="n">int1</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"int2: {}"</span><span class="p">,</span> <span class="n">int2</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"uint1: {}"</span><span class="p">,</span> <span class="n">uint1</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"text: {}"</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
 
-    <span class="k">for</span> <span class="n">element</span> <span class="k">in</span> <span class="n">slice</span> <span class="p">{</span>
-        <span class="nb">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;slice: {}&quot;</span><span class="p">,</span> <span class="n">element</span><span class="p">);</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="n">in</span> <span class="n">slice</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"slice: {}"</span><span class="p">,</span> <span class="n">element</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="nb">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;TestType int1: {}&quot;</span><span class="p">,</span> <span class="n">test_type</span><span class="p">.</span><span class="n">int1</span><span class="p">);</span>
-    <span class="nb">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;TestType int2: {}&quot;</span><span class="p">,</span> <span class="n">test_type</span><span class="p">.</span><span class="n">int2</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"TestType int1: {}"</span><span class="p">,</span> <span class="n">test_type</span><span class="py">.int1</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"TestType int2: {}"</span><span class="p">,</span> <span class="n">test_type</span><span class="py">.int2</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
 
-<p>Wie man leicht erkennt, handelt es sich bloß um eine einfache Funktion, die die übergebenen Paramter auf der Konsole ausgibt. Aber genau das ist es, was wir brauchen, um zu sehen, ob unser Programm richtig funktioniert. Zum weiteren Testen habe ich außerdem ein <code>struct</code> eingefügt.</p>
+<p>Wie man leicht erkennt, handelt es sich bloß um eine einfache Funktion, die die übergebenen Paramter auf der Konsole ausgibt. Aber genau das ist es, was wir brauchen, um zu sehen, ob unser Programm richtig funktioniert. Zum weiteren Testen habe ich außerdem ein <code class="highlighter-rouge">struct</code> eingefügt.</p>
 
-<p>Wichtig ist hier vor allem das <code>pub extern</code>, das angibt, dass diese Funktion von außerhalb genutzt werden soll, sowie <code>#[no_mangle]</code>, das verhindert, dass die automatische, interne Namensänderung von Rust stattfindet.</p>
+<p>Wichtig ist hier vor allem das <code class="highlighter-rouge">pub extern</code>, das angibt, dass diese Funktion von außerhalb genutzt werden soll, sowie <code class="highlighter-rouge">#[no_mangle]</code>, das verhindert, dass die automatische, interne Namensänderung von Rust stattfindet.</p>
 
-<p>Nun muss die Bibliothek noch kompiliert werden. Dies erledigt der Befehl <code>cargo build</code>, das Shared Object befindet sich danach im Ordner <code>target/debug</code>.</p>
+<p>Nun muss die Bibliothek noch kompiliert werden. Dies erledigt der Befehl <code class="highlighter-rouge">cargo build</code>, das Shared Object befindet sich danach im Ordner <code class="highlighter-rouge">target/debug</code>.</p>
 
-<p>In der Rust-Dokumentation wird richtig erklärt, dass man natürlich eine C-Header-Datei benötigt, um auf die Funktionen der Rust-Bibliothek zugreifen zu können. Schreiben wir uns also so eine Header-Datei <code>libvalatest.h</code>:</p>
+<p>In der Rust-Dokumentation wird richtig erklärt, dass man natürlich eine C-Header-Datei benötigt, um auf die Funktionen der Rust-Bibliothek zugreifen zu können. Schreiben wir uns also so eine Header-Datei <code class="highlighter-rouge">libvalatest.h</code>:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#ifndef LIBVALATEST_H_</span>
-<span class="cp">#define LIBVALATEST_H_</span>
-
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#ifndef LIBVALATEST_H_
+#define LIBVALATEST_H_
+</span>
 <span class="k">typedef</span> <span class="k">struct</span> <span class="n">TestType</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">int1</span><span class="p">;</span>
     <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">int2</span><span class="p">;</span>
 <span class="p">}</span> <span class="n">TestType</span><span class="p">;</span>
 
-<span class="kt">void</span> <span class="nf">test</span><span class="p">(</span><span class="kt">int</span> <span class="n">int1</span><span class="p">,</span> <span class="kt">long</span> <span class="n">int2</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">uint1</span><span class="p">,</span> <span class="kt">char</span> <span class="n">text</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">slice</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">slice_length</span><span class="p">,</span> <span class="n">TestType</span> <span class="o">*</span><span class="n">test_type</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">test</span><span class="p">(</span><span class="kt">int</span> <span class="n">int1</span><span class="p">,</span> <span class="kt">long</span> <span class="n">int2</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">uint1</span><span class="p">,</span> <span class="kt">char</span> <span class="n">text</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">slice</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">slice_length</span><span class="p">,</span> <span class="n">TestType</span> <span class="o">*</span><span class="n">test_type</span><span class="p">);</span>
 
-<span class="cp">#endif</span></code></pre></div>
+<span class="cp">#endif</span></code></pre></figure>
 
-<p>Wie man sieht, ist auch dies relativ trivial. Es müssen lediglich die Rust-Typen auf ihre entsprechenden C-Typen umgemapped werden. Nun folgt der Standard-Vala-Weg, also das Schreiben des VAPIs <code>libvalatest.vapi</code>:</p>
+<p>Wie man sieht, ist auch dies relativ trivial. Es müssen lediglich die Rust-Typen auf ihre entsprechenden C-Typen umgemapped werden. Nun folgt der Standard-Vala-Weg, also das Schreiben des VAPIs <code class="highlighter-rouge">libvalatest.vapi</code>:</p>
 
-<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="p">[</span><span class="nd">CCode</span> <span class="p">(</span><span class="n">cheader_filename</span> <span class="o">=</span> <span class="s">&quot;libvalatest.h&quot;</span><span class="p">)]</span>
-<span class="kn">namespace</span> <span class="nn">ValaTest</span> <span class="p">{</span>
-    <span class="p">[</span><span class="nd">CCode</span> <span class="p">(</span><span class="n">cname</span> <span class="o">=</span> <span class="s">&quot;TestType&quot;</span><span class="p">,</span> <span class="n">has_type_id</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)]</span>
-    <span class="kd">public</span> <span class="kd">struct</span> <span class="nc">TestType</span> <span class="p">{</span>
-        <span class="kd">public</span> <span class="kt">int</span> <span class="n">int1</span><span class="p">;</span>
-        <span class="kd">public</span> <span class="kt">uint8</span> <span class="n">int2</span><span class="p">;</span>
-    <span class="p">}</span>
+<figure class="highlight"><pre><code class="language-vala" data-lang="vala">[CCode (cheader_filename = "libvalatest.h")]
+namespace ValaTest {
+    [CCode (cname = "TestType", has_type_id = false)]
+    public struct TestType {
+        public int int1;
+        public uint8 int2;
+    }
 
-    <span class="p">[</span><span class="nd">CCode</span> <span class="p">(</span><span class="n">cname</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span><span class="p">)]</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">test</span> <span class="p">(</span><span class="kt">int</span> <span class="n">int1</span><span class="p">,</span> <span class="kt">int64</span> <span class="n">int2</span><span class="p">,</span> <span class="kt">uint8</span> <span class="n">uint1</span><span class="p">,</span> <span class="kt">char</span> <span class="n">text</span><span class="p">,</span> <span class="kt">uint</span><span class="p">[]</span> <span class="n">slice</span><span class="p">,</span> <span class="n">TestType</span> <span class="n">testType</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+    [CCode (cname = "test")]
+    public void test (int int1, int64 int2, uint8 uint1, char text, uint[] slice, TestType testType);
+}</code></pre></figure>
 
-<p>Wie dem aufmerksamen Betrachter nun vielleicht schon aufgefallen ist, hat die Funktion <code>test</code> in der C-Header-Datei einen zusätzlichen Parameter vom Typ <code>int</code>. Dieser wird von Vala automatisch eingefügt, wenn in einem VAPI vor einem Array kein <code>[CCode (array_length = false)]</code> steht. Und nach meiner Erfahrung in der Zusammenstellung dieses Beispiels sollte man das auch nicht tun. Fehlt die Länge des Arrays in der Funktion, läuft die Schleife <code>for element in slice</code> in Rust bis zum Erreichen eines Segmentation faults (ich vermute durch den gesamten dem Programm zur Verfügung stehenden Speicher). Warum das so ist, und wie Rust intern die Länge des Arrays aus dem Funktionsaufruf übernimmt kann ich nicht beantworten. Hier wäre jemand mit mehr Erfahrung in Rust wohl der bessere Ansprechpartner.</p>
+<p>Wie dem aufmerksamen Betrachter nun vielleicht schon aufgefallen ist, hat die Funktion <code class="highlighter-rouge">test</code> in der C-Header-Datei einen zusätzlichen Parameter vom Typ <code class="highlighter-rouge">int</code>. Dieser wird von Vala automatisch eingefügt, wenn in einem VAPI vor einem Array kein <code class="highlighter-rouge">[CCode (array_length = false)]</code> steht. Und nach meiner Erfahrung in der Zusammenstellung dieses Beispiels sollte man das auch nicht tun. Fehlt die Länge des Arrays in der Funktion, läuft die Schleife <code class="highlighter-rouge">for element in slice</code> in Rust bis zum Erreichen eines Segmentation faults (ich vermute durch den gesamten dem Programm zur Verfügung stehenden Speicher). Warum das so ist, und wie Rust intern die Länge des Arrays aus dem Funktionsaufruf übernimmt kann ich nicht beantworten. Hier wäre jemand mit mehr Erfahrung in Rust wohl der bessere Ansprechpartner.</p>
 
-<p>Nun folgt abschließend ein kleines Vala-Programm <code>main.vala</code>, dass die Rust-Funktion aufruft und den Datentyp nutzt:</p>
+<p>Nun folgt abschließend ein kleines Vala-Programm <code class="highlighter-rouge">main.vala</code>, dass die Rust-Funktion aufruft und den Datentyp nutzt:</p>
 
-<div class="highlight"><pre><code class="language-vala" data-lang="vala"><span class="kn">using</span> <span class="nn">ValaTest</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-vala" data-lang="vala">using ValaTest;
 
-<span class="kt">void</span> <span class="n">main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">TestType</span> <span class="n">testType</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">123456789</span><span class="p">,</span> <span class="mi">255</span> <span class="p">};</span>
+void main (string[] args) {
+    TestType testType = { 123456789, 255 };
 
-    <span class="kt">uint</span><span class="p">[]</span> <span class="n">slice</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">255</span> <span class="p">};</span>
+    uint[] slice = { 1, 2, 255 };
 
-    <span class="n">test</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="sc">&#39;T&#39;</span><span class="p">,</span> <span class="n">slice</span><span class="p">,</span> <span class="n">testType</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+    test (1, 2, 3, 'T', slice, testType);
+}</code></pre></figure>
 
 <p>Der Befehl zum Kompilieren ist diesmal ein wenig länger, da alle Komponenten nicht in Standardverzeichnissen liegen:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">valac --vapidir<span class="o">=</span>./ --pkg<span class="o">=</span>libvalatest main.vala -X -I./ -X -L./target/debug -X -lvalatest</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">valac --vapidir<span class="o">=</span>./ --pkg<span class="o">=</span>libvalatest main.vala -X -I./ -X -L./target/debug -X -lvalatest</code></pre></figure>
 
-<p>Zudem muss das Verzeichnis <code>target/debug</code> noch zu den Verzeichnissen hinzugefügt werden, in denen nach Shared Objects gesucht wird. Dies erledigt ein:</p>
+<p>Zudem muss das Verzeichnis <code class="highlighter-rouge">target/debug</code> noch zu den Verzeichnissen hinzugefügt werden, in denen nach Shared Objects gesucht wird. Dies erledigt ein:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>./target/debug</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>./target/debug</code></pre></figure>
 
-<p>Gestartet wird das Programm nun mit <code>./main</code> und tatsächlich, auf der Konsole erscheint die erwartete Ausgabe:</p>
+<p>Gestartet wird das Programm nun mit <code class="highlighter-rouge">./main</code> und tatsächlich, auf der Konsole erscheint die erwartete Ausgabe:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">int1: 1
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">int1: 1
 int2: 2
 uint1: 3
 text: T
@@ -178,9 +178,9 @@ slice: 1
 slice: 2
 slice: 255
 TestType int1: 123456789
-TestType int2: 255</code></pre></div>
+TestType int2: 255</code></pre></figure>
 
-<p>Es ist also sehr gut möglich, von Vala aus Rust zu nutzen, und ich denke, ich werde das in nächster Zeit auch mal tun. Im Laufe dessen werde ich hier natürlich weitere Anleitungen, zum Beispiel zu weiteren Typen wie <code>String</code>/<code>str</code>, veröffentlichen.</p>
+<p>Es ist also sehr gut möglich, von Vala aus Rust zu nutzen, und ich denke, ich werde das in nächster Zeit auch mal tun. Im Laufe dessen werde ich hier natürlich weitere Anleitungen, zum Beispiel zu weiteren Typen wie <code class="highlighter-rouge">String</code>/<code class="highlighter-rouge">str</code>, veröffentlichen.</p>
 
 <p>Bis dahin erst mal viel Spaß mit den neuen Möglichkeiten!</p>
 

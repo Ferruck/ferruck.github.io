@@ -15,9 +15,138 @@
 </description>
 	</image>
     <atom:link href="http://www.philipp-trommler.me/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 03 Mar 2016 20:04:27 +0100</pubDate>
-    <lastBuildDate>Thu, 03 Mar 2016 20:04:27 +0100</lastBuildDate>
+    <pubDate>Thu, 03 Mar 2016 20:09:55 +0100</pubDate>
+    <lastBuildDate>Thu, 03 Mar 2016 20:09:55 +0100</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
+    
+      <item>
+        <title>Wileyfox Swift: Ein ausführlicher Test</title>
+        <description>&lt;p&gt;Ich habe das Wileyfox Swift jetzt seit über einem Monat und nachdem nun auch die Fachpresse darüber berichtet hat, dass es offiziell in Deutschland erhältlich ist, wird es wohl Zeit einen etwas ausführlicheren Test dazu zu schreiben. Dabei möchte ich insbesondere auch auf die auf Amazon beschriebenen Mängel eingehen.&lt;/p&gt;
+
+&lt;p&gt;Ich bin direkt von meinem alten Samsung Galaxy S2 auf das Swift umgestiegen und vergleiche es daher hauptsächlich mit diesem Gerät. Aber auch ein Motorola Moto E (2015) kommt als Vergleichsgerät hier und da vor.&lt;/p&gt;
+
+&lt;h1 id=&quot;lieferumfang&quot;&gt;Lieferumfang&lt;/h1&gt;
+
+&lt;p&gt;Der Lieferumfang des Wileyfox Swift beschränkt sich auf das Mindeste:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Das Smartphone&lt;/li&gt;
+  &lt;li&gt;Ein USB auf Micro-USB Kabel&lt;/li&gt;
+  &lt;li&gt;Die üblichen Anleitungen und Garantiebeschreibungen&lt;/li&gt;
+  &lt;li&gt;Eine Displayschutzfolie, die bereits aufgebracht ist&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Das Ladekabel ist recht kurz (maximal 30cm) und zudem recht steif, in Verbindung mit der Tatsache, dass man kaum andere Kabel benutzen kann (mehr dazu weiter unten) könnte das für den ein oder anderen zum Problem werden.&lt;/p&gt;
+
+&lt;h1 id=&quot;hardware&quot;&gt;Hardware&lt;/h1&gt;
+
+&lt;p&gt;Das Wileyfox Swift ist ein modernes Smartphone, das aussieht, wie moderne Smartphones nunmal aussehen: Schwarz, dünn, abgerundete Ecken, glänzendes Display. Einzig die Rückseite hebt sich vom Smartphone-Allerlei ab: Sie ist sehr rau (der Hersteller nennt das Sandstein) und wird verziert von dem glänzenden Wileyfox-Logo, einem orangenen Wileyfox-Schriftzug und der hauchdünn orange umrandeten Kamera.&lt;/p&gt;
+
+&lt;p&gt;Die Rauheit greift sich allerding sehr schnell ab, wie auch auf Amazon berichtet. Nach den sechs Wochen, in denen ich das Handy nun (ohne Schutzhülle) benutze, ist vom Sandstein nicht mehr viel übrig. Am Aussehen der Rückseite ändert das nichts und sie bleibt auch für ein Smartphone recht griffig; insgesamt überzeugt sie mich.&lt;/p&gt;
+
+&lt;h2 id=&quot;akku&quot;&gt;Akku&lt;/h2&gt;
+
+&lt;p&gt;Der Akku ist wohl einer der Punkte, die mich am positivsten überrascht haben. Besonders im Vergleich zu meinem alten Galaxy S2 handelt es sich bei den Laufzeiten des Swift um einen wahrlichen Sprung.&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;a href=&quot;/images/wileyfoxtest-2.png&quot;&gt;
+		&lt;img src=&quot;/images/wileyfoxtest-2.png&quot; alt=&quot;Akkulaufzeit des Wileyfox Swift.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Akkulaufzeit des Wileyfox Swift.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Das SGS2 hielt zum Schluss kaum noch 12 Stunden, selbst wenn ich es fast gar nicht benutzt habe. Mit dem Wileyfox komme ich locker über zwei Tage, an Wochenenden sind es teilweise auch drei. Im Vergleich zum Moto E verliert es dennoch deutlich, damit schafft man auch mal fünf Tage.&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;a href=&quot;/images/wileyfoxtest-3.png&quot;&gt;
+		&lt;img src=&quot;/images/wileyfoxtest-3.png&quot; alt=&quot;Detaillierter Akkuverbrauch des Wileyfox Swift.&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Detaillierter Akkuverbrauch des Wileyfox Swift.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;kamera&quot;&gt;Kamera&lt;/h2&gt;
+
+&lt;p&gt;Die Kamera unterliegt leider der des Galaxy S2. Die Farbenwiedergabe ist schlecht und die Farben rauschen stark, Details verwaschen, Kanten sind unscharf.
+Die Frontkamera liefert die üblichen Ergebnisse und reicht für Videotelefonie vollkommen aus.&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;a href=&quot;/images/wileyfoxtest-1.jpg&quot;&gt;
+		&lt;img src=&quot;/images/wileyfoxtest-1.jpg&quot; alt=&quot;Testaufnahme mit der Hauptkamera des Wileyfox Swift (die Nummernschilder sind im Nachhinein verwischt worden).&quot; /&gt;
+	&lt;/a&gt;
+	&lt;figcaption&gt;Testaufnahme mit der Hauptkamera des Wileyfox Swift (die Nummernschilder sind im Nachhinein verwischt worden).&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;leistung&quot;&gt;Leistung&lt;/h2&gt;
+
+&lt;p&gt;Die Leistung des Swift ist für die alltägliche Benutzung völlig ausreichend. Weder die Benutzeroberfläche noch Apps ruckeln. Auch anspruchsvollere Anwendungen wie diverse Cardboard-Apps meistert das Wileyfox ohne Verzögerungen. Aufwendige 3D-Spiele habe ich mangels Interesse nicht getestet. Positiv anzumerken ist, dass der Prozessor 64-bittig ist. Dies hat zwar im Moment noch keine spürbaren positiven Auswirkungen, könnte aber im Hinblick auf die Zukunftsicherheit wichtig werden.&lt;/p&gt;
+
+&lt;h2 id=&quot;display&quot;&gt;Display&lt;/h2&gt;
+
+&lt;p&gt;Das Wileyfox hat ein HD-Display (ehemals HDready, also 720x1280 Pixel), das mich wirklich überrascht hat. Da ich ja vom Galaxy S2 eines der viel gelobten AMOLED-Displays gewohnt war, habe ich keine allzu großen Erwartung an das Swift gehabt. Aber von wegen: Das Display des Swift zeigt wirklich schöne Farben, die so gut wie keine Blickwinkelabhängigkeit zeigen und deutlich natürlicher wirken als die des S2, das bei den Rottönen doch sehr übertrieben hat. Auch die Schärfe ist deutlich besser, obwohl der PPI-Wert nicht so viel höher ist. Insgesamt muss ich aber sagen, dass mir ein 5” Display doch einen Deut zu groß ist, da ich recht kleine Hände habe, aber es bleibt einem ja kaum noch eine Wahl.&lt;/p&gt;
+
+&lt;h2 id=&quot;konnektivitt&quot;&gt;Konnektivität&lt;/h2&gt;
+
+&lt;p&gt;Sowohl WLAN- als auch der mobile Empfang sind gut und ein kleines bisschen besser als beim Galaxy. Beim Telefonieren reicht jedoch schon weniger Signalverlust als beim S2, damit das Gegenüber nicht mehr zu hören ist. Man selbst ist jedoch noch gut zu verstehen und auch bei der Datenübertragung ist dieser Effekt nicht zu beobachten, es handelt sich also wahrscheinlich eher um ein Softwareproblem. Ebenso ein Softwareproblem ist die Unfähigkeit des Wileyfox Swift sich mit dem &lt;em&gt;eduroam&lt;/em&gt;-WLAN zu verbinden, eine Lösung dafür habe ich in &lt;a href=&quot;/2016/02/12/wlan-probleme-wileyfox-swift-cm13.html&quot;&gt;meinem letzten Beitrag vorgestellt&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Die bei Amazon oft bemängelten Verbindungsabbrüche beim GPS konnte ich auch beobachten. Das Wileyfox verliert scheinbar in unregelmäßigen Abständen für kurze Zeit den GPS-Fix. Das ist beim Geocachen nicht weiter schlimm, da das Signal schnell zurückkehrt, wie es sich bei der Navigation im Auto verhält (in den Rezensionen ist davon die Rede, dass zum Beispiel Google Maps nach jeder Erlangung des GPS-Fix die letzte Ansage wiederholt) konnte ich mangels Auto nicht testen. Dass die Positionsbestimmung wie in einigen Rezensionen beschrieben äußerst langsam und/oder ungenau seien soll, kann ich nicht bestätigen, sie ist zumindest schneller als beim Galaxy S2 und ausreichend genau.&lt;/p&gt;
+
+&lt;p&gt;Die ebenfalls bei Amazon beschriebenen Probleme bei der Benutzung des Wileyfox mit Bluetooth-Headsets kann ich nicht bestätigen. Musik hören funktioniert bei mir einwandfrei.&lt;/p&gt;
+
+&lt;h2 id=&quot;sonstiges&quot;&gt;Sonstiges&lt;/h2&gt;
+
+&lt;p&gt;Wie oben bereits erwähnt, kann man kaum ein anderes Ladekabel als das von Wileyfox mitgelieferte benutzen, da der USB-Anschluss deutlich tiefer ins Gehäuse eingelassen ist als üblich.
+Dadurch halten übliche USB-Kabel nicht fest und rutschen, außerdem war die Ladegeschwindigkeit mit dem Ladegerät meines SGS2 deutlich geringer als mit einem anderen und dem Kabel von Wileyfox (allerdings kann das auch am Ladegerät des Samsung liegen).&lt;/p&gt;
+
+&lt;p&gt;Ähnlich verhält es sich mit dem Kopfhöreranschluss: Auch dieser ist recht tief ins Gehäuse eingelassen, wodurch manche Audiokabel schlicht keinen Kontakt herstellen und die internen Lautsprecher weiter genutzt werden. Erfolg hatte ich mit solchen Kabeln, die auch eine Headsetfunktion integrieren, also einen Kontakt mehr haben.&lt;/p&gt;
+
+&lt;p&gt;Apropos interne Lautsprecher: Diese sind recht laut (ich lasse das Swift nicht auf voller Lautstärke klingeln, weil das einfach &lt;em&gt;zu&lt;/em&gt; laut wäre) und erzeugen einen recht sauberen Klang. Zu viel sollte man aber Smartphone-typisch nicht erwarten, erst recht keine Bässe. Der Lautsprecher fürs Telefonieren erzeugt einen sehr blechernen Ton, der wirklich gewöhnungsbedürftig ist, dafür ist die Geräuschunterdrückung ordentlich und man versteht seinen Gesprächspartner besser als beim S2.&lt;/p&gt;
+
+&lt;p&gt;Eine weitere Anmerkung: Im Unterschied zu vielen anderen Dual-SIM-Geräten hat das Swift nicht einen SIM-Slot und einen Kombi-Slot sondern zwei vollwertige SIM-Slots und einen MicroSD-Slot.&lt;/p&gt;
+
+&lt;h1 id=&quot;software&quot;&gt;Software&lt;/h1&gt;
+
+&lt;h2 id=&quot;cyanogenos&quot;&gt;CyanogenOS&lt;/h2&gt;
+
+&lt;p&gt;Das vorinstallierte CyanogenOS basiert auf Android 5.1 (CyanogenOS 12.1), ein Update auf Android 5.1.1 (CyanogenOS 12.1.1) kann direkt nach dem ersten Einschalten installiert werden. Es ist damit zu rechnen, dass das Swift relativ gut mit Updates versorgt wird, den Sprung auf Android 6/CyanogenOS 13 halte ich für sicher.&lt;/p&gt;
+
+&lt;p&gt;Das Wileyfox kommt mit einem dezenten, im Material-Design gehaltenen Theme daher, dass mir persönlich aufgrund seiner Orangetöne nicht so gut gefallen hat, aber keineswegs schlecht gemacht ist. Ansonsten handelt es sich im Großen und Ganzen um CyanogenMod mit vorinstallierten Apps. Derer sind es allerdings ziemlich viele, fast die komplette App-Garde von Google ist vorinstalliert und lässt sich natürlich nicht entfernen. In diesem Punkt unterscheidet sich CyanogenOS leider nicht von den Androidversionen von Samsung und Motorola. Ich benutze zwar auch Google-Dienste, möchte aber selbst entscheiden welche der Apps ich nutze und wofür ich meinen Speicherplatz verwende.&lt;/p&gt;
+
+&lt;h2 id=&quot;cyanogenmod&quot;&gt;CyanogenMod&lt;/h2&gt;
+
+&lt;p&gt;Aus diesem Grund und weil ich natürlich immer die neueste Software benutzen möchte, bin ich, kurz nachdem ich das Wileyfox erhalten habe, auf CyanogenMod umgestiegen. Und hier zeigt sich, dass mein Plan voll aufgegangen ist: Dadurch, dass das Swift mit CyanogenOS ausgeliefert wird, ist der Umstieg auf CyanogenMod wirklich kinderleicht.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://wiki.cyanogenmod.org/w/Install_CM_for_crackling&quot;&gt;Die Anleitung auf der CyanogenMod-Webseite&lt;/a&gt; ist wirklich ausführlich und fehlerfrei, kein Gesuche in unzähligen teilweise obskuren Foren wie beim Umstieg auf dem Galaxy S2. Zudem ist natürlich schon CyanogenMod 13 alias Android 6 verfügbar. Und ein weiterer Vorteil gegenüber einem nicht offiziell unterstützten Gerät wie dem SGS2: Die Nightlies von CyanogenMod 13 für das Swift sind jetzt schon deutlich stabiler als die Version 12.1 für das S2. Ich konnte bisher keine Softwarefehler entdecken.&lt;/p&gt;
+
+&lt;h1 id=&quot;fazit&quot;&gt;Fazit&lt;/h1&gt;
+
+&lt;p&gt;Wer sich selbst nicht als Power-User bezeichnen würde, aber sich dennoch ein Gerät mit aktueller Software wünscht, dem kann ich das Wileyfox Swift wirklich nur ans Herz legen. Es ist ein solides Smartphone mit guter Akkulaufzeit und einem guten Display, das für diesen Preis wohl seines Gleichen sucht. Ich muss allerdings zu dieser Empfehlung dazu sagen, dass sie uneingeschränkt nur bei der Verwendung mit CyanogenMod gilt. Das Flashen ist jedoch wirklich einfach und auch für technische Laien zu bewältigen. An CyanogenOS stören mich einfach die vielen, nicht zu entfernenden Google-Apps.&lt;/p&gt;
+
+&lt;p&gt;Vieltelefonierer sollten sich vielleicht nach einem anderen Gerät umsehen, da die Gesprächsqualität wirklich nicht die beste ist. Ebenso ist das Swift nichts für Selfie-süchtige und Instagram-Fans, dafür sind die Kameras schlicht zu schlecht. Auch Handy-Gamer sehnen sich vielleicht nach mehr (Grafik-)Leistung und sollten daher zu einem anderen Gerät greifen.&lt;/p&gt;
+
+&lt;p&gt;Ob ich das Wileyfox Swift wieder kaufen würde? Für den Preis (ich habe circa 140€ bezahlt) auf jeden Fall!&lt;/p&gt;
+</description>
+        <pubDate>Thu, 03 Mar 2016 21:02:03 +0100</pubDate>
+        <link>http://www.philipp-trommler.me/2016/03/03/wileyfox-swift-ausfuehrlicher-test.html</link>
+        <guid isPermaLink="true">http://www.philipp-trommler.me/2016/03/03/wileyfox-swift-ausfuehrlicher-test.html</guid>
+        
+        <category>wileyfox</category>
+        
+        <category>swift</category>
+        
+        <category>cm13</category>
+        
+        <category>cyanogenmod</category>
+        
+        <category>test</category>
+        
+        <category>cyanogenos</category>
+        
+        
+        
+        <media:thumbnail url="http://www.philipp-trommler.me/images/wlanprobscm13-1.png" />
+        <enclosure url='http://www.philipp-trommler.me/images/wlanprobscm13-1.png' length='71943' type='image/png' />
+        
+      </item>
     
       <item>
         <title>WLAN-Probleme mit dem Wileyfox Swift und CM13</title>
@@ -1253,152 +1382,6 @@ entry.enter_notify_event.connect ((e) =&amp;gt; {
         
         <media:thumbnail url="http://www.philipp-trommler.me/images/numix1.png" />
         <enclosure url='http://www.philipp-trommler.me/images/numix1.png' length='100058' type='image/png' />
-        
-      </item>
-    
-      <item>
-        <title>Die neue GTK 3.10 HeaderBar in Vala</title>
-        <description>&lt;p&gt;Mit GNOME 3.10 haben die neuen HeaderBars Einzug gehalten, die Titelleiste und Toolbar eines Fenster vereinen und so, vor allem auf kleinen Displays, Platz sparen.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;a href=&quot;/images/headerbar5.png&quot;&gt;
-		&lt;img src=&quot;/images/headerbar5.png&quot; alt=&quot;Die HeaderBar in Nautilus spart Platz.&quot; /&gt;
-	&lt;/a&gt;
-	&lt;figcaption&gt;Die HeaderBar in Nautilus spart Platz.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Diese HeaderBars können auch einfach in die eigenen Programme integriert werden, wenn die aktuellen Bibliotheken, also &lt;code class=&quot;highlighter-rouge&quot;&gt;libgtk-3-0&lt;/code&gt; und &lt;code class=&quot;highlighter-rouge&quot;&gt;libgtk-3-dev (&amp;gt;= 3.10)&lt;/code&gt;, installiert sind. Das folgende Minimalbeispiel befolgt die aktuellen Empfehlungen zur Erstellung von GNOME-Apps, erweitert also die &lt;code class=&quot;highlighter-rouge&quot;&gt;Gtk.Application&lt;/code&gt; Klasse. Eine HeaderBar besteht im Endeffekt aus drei Bereichen, dem linken und dem rechten, die jeweils mit &lt;code class=&quot;highlighter-rouge&quot;&gt;Gtk.Widget&lt;/code&gt;s befüllt werden können, und dem mittleren, der entweder mit Titel und gegebenenfalls Untertitel oder mit einem &lt;code class=&quot;highlighter-rouge&quot;&gt;Gtk.Widget&lt;/code&gt; belegt wird.&lt;/p&gt;
-
-&lt;h1 id=&quot;minimalbeispiel&quot;&gt;Minimalbeispiel&lt;/h1&gt;
-
-&lt;figure&gt;
-	&lt;a href=&quot;/images/headerbar1.png&quot;&gt;
-		&lt;img src=&quot;/images/headerbar1.png&quot; alt=&quot;Minimalbeispiel für die GTK HeaderBar.&quot; /&gt;
-	&lt;/a&gt;
-	&lt;figcaption&gt;Minimalbeispiel für die GTK HeaderBar.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Dieses Minimalbeispiel kann schon mit wenigen Zeilen Code erstellt werden:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vala&quot; data-lang=&quot;vala&quot;&gt;class Example : Gtk.Application {
-	public Example () {
-		Object (application_id: &quot;com.example.app&quot;, flags: ApplicationFlags.FLAGS_NONE);
-	}
-	
-	protected override void activate () {
-		Gtk.ApplicationWindow window = new Gtk.ApplicationWindow (this);
-		window.set_default_size (500, 500);
-		
-		Gtk.HeaderBar headerBar = new Gtk.HeaderBar ();
-		headerBar.set_title (&quot;Titel&quot;);
-		headerBar.set_subtitle (&quot;Untertitel&quot;);
-		
-		
-		window.set_titlebar (headerBar);
-		window.show_all ();
-	}
-}
-
-int main (string[] args) {
-	return new Example ().run (args);
-}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Das ganze wird wie üblich als &lt;code class=&quot;highlighter-rouge&quot;&gt;main.vala&lt;/code&gt; gespeichert und mit&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vala&quot; data-lang=&quot;vala&quot;&gt;valac --pkg gtk+-3.0 -o example main.vala&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;kompiliert. Interessant ist hier vor allem &lt;code class=&quot;highlighter-rouge&quot;&gt;window.set_titlebar (headerBar);&lt;/code&gt;, das dem Fenster die erstellte HeaderBar als Titelzeile zuweist.&lt;/p&gt;
-
-&lt;h1 id=&quot;die-erweiterung&quot;&gt;Die Erweiterung&lt;/h1&gt;
-
-&lt;p&gt;Soll in der Titelleiste ein “Schließen”-Button angezeigt werden, reicht ein einfacher Befehl:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vala&quot; data-lang=&quot;vala&quot;&gt;headerBar.set_show_close_button (true);&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Der linke und der rechte Bereich der Titelleiste wird jetzt, wie bei einer &lt;code class=&quot;highlighter-rouge&quot;&gt;Gtk.Box&lt;/code&gt;, mit &lt;code class=&quot;highlighter-rouge&quot;&gt;pack_end ()&lt;/code&gt; und &lt;code class=&quot;highlighter-rouge&quot;&gt;pack_start ()&lt;/code&gt; befüllt, soll also zum Beispiel ein “Öffnen”-Button hinzugefügt werden, reichen die beiden Zeilen:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vala&quot; data-lang=&quot;vala&quot;&gt;Gtk.Button openButton = new Gtk.Button.from_icon_name (&quot;document-open&quot;, Gtk.IconSize.LARGE_TOOLBAR);
-headerBar.pack_start (openButton);&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Hierbei wird schon der neue &lt;code class=&quot;highlighter-rouge&quot;&gt;Gtk.Button.from_icon_name&lt;/code&gt;-Constructor genutzt, da &lt;code class=&quot;highlighter-rouge&quot;&gt;Gtk.Stock&lt;/code&gt; ab GTK 3.10 als veraltet markiert ist. Die Iconnamen sind dabei standardisiert und nicht mehr GTK-intern, mehr dazu allerdings in einem anderen Blogpost.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;a href=&quot;/images/headerbar4.png&quot;&gt;
-		&lt;img src=&quot;/images/headerbar4.png&quot; alt=&quot;Erweitertes Minimalbeispiel mit &#39;Öffnen&#39;- und &#39;Schließen&#39;-Buttons.&quot; /&gt;
-	&lt;/a&gt;
-	&lt;figcaption&gt;Erweitertes Minimalbeispiel mit &#39;Öffnen&#39;- und &#39;Schließen&#39;-Buttons.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h1 id=&quot;widgets-in-der-titelleiste&quot;&gt;Widgets in der Titelleiste&lt;/h1&gt;
-
-&lt;p&gt;Soll der mittlere Bereich nun, statt mit Titel und Untertitel, mit einem &lt;code class=&quot;highlighter-rouge&quot;&gt;Gtk.Widget&lt;/code&gt; befüllt werden, so geschieht dies mit &lt;code class=&quot;highlighter-rouge&quot;&gt;headerBar.set_custom_title ()&lt;/code&gt;. Sinnvoll ist das für zentrale Steuerungsobjekte, zum Beispiel ein Suchfeld wie bei der neuen GNOME Karten-App, oder für einen Ansichtswechsel. Mit den folgenden Befehlen lässt sich also ein Suchfeld erstellen:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vala&quot; data-lang=&quot;vala&quot;&gt;Gtk.Entry entry = new Gtk.Entry ();
-entry.set_icon_from_icon_name (Gtk.EntryIconPosition.PRIMARY, &quot;system-search&quot;);
-headerBar.set_custom_title (entry);&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;figure&gt;
-	&lt;a href=&quot;/images/headerbar3.png&quot;&gt;
-		&lt;img src=&quot;/images/headerbar3.png&quot; alt=&quot;Erweitertes Minimalbeispiel mit Widget in der Titelleiste.&quot; /&gt;
-	&lt;/a&gt;
-	&lt;figcaption&gt;Erweitertes Minimalbeispiel mit Widget in der Titelleiste.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Auch hier kommen wieder die neuen Iconnamen zum Einsatz. Der Titel und der Untertitel werden durch das &lt;code class=&quot;highlighter-rouge&quot;&gt;Gtk.Widget&lt;/code&gt; überschrieben, sollen sie wieder angezeigt werden muss der “&lt;code class=&quot;highlighter-rouge&quot;&gt;custom_title&lt;/code&gt;” null gesetzt werden:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vala&quot; data-lang=&quot;vala&quot;&gt;headerBar.set_custom_title (null);&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Einfach, oder? Hier noch einmal der Quelltext des kompletten Minimalbeispiels:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vala&quot; data-lang=&quot;vala&quot;&gt;class Example : Gtk.Application {
-	public Example () {
-		Object (application_id: &quot;com.example.app&quot;, flags: ApplicationFlags.FLAGS_NONE);
-	}
-
-	protected override void activate () {
-		Gtk.ApplicationWindow window = new Gtk.ApplicationWindow (this);
-		window.set_default_size (500, 500);
-	
-		Gtk.HeaderBar headerBar = new Gtk.HeaderBar ();
-		headerBar.set_show_close_button (true);
-	
-		Gtk.Entry entry = new Gtk.Entry ();
-		entry.set_icon_from_icon_name (Gtk.EntryIconPosition.PRIMARY, &quot;system-search&quot;);
-		headerBar.set_custom_title (entry);
-	
-		Gtk.Button openButton = new Gtk.Button.from_icon_name (&quot;document-open&quot;, Gtk.IconSize.LARGE_TOOLBAR);
-		headerBar.pack_start (openButton);
-	
-		Gtk.Button closeButton = new Gtk.Button.from_icon_name (&quot;document-save-as&quot;, Gtk.IconSize.LARGE_TOOLBAR);
-		headerBar.pack_end (closeButton);
-	
-		window.set_titlebar (headerBar);
-		window.show_all ();
-	}
-}
-
-int main (string[] args) {
-	return new Example ().run (args);
-}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;strong&gt;Update (24.04.2014):&lt;/strong&gt; Natürlich kann und sollte man auch das extra für Suchfelder gedachte &lt;code class=&quot;highlighter-rouge&quot;&gt;Gtk.SearchEntry&lt;/code&gt; anstelle eines einfachen &lt;code class=&quot;highlighter-rouge&quot;&gt;Gtk.Entry&lt;/code&gt;s benutzen.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 22 Dec 2013 00:44:00 +0100</pubDate>
-        <link>http://www.philipp-trommler.me/2013/12/22/die-neue-gtk-3-10-headerbar-in-vala.html</link>
-        <guid isPermaLink="true">http://www.philipp-trommler.me/2013/12/22/die-neue-gtk-3-10-headerbar-in-vala.html</guid>
-        
-        <category>gtk3</category>
-        
-        <category>gtk</category>
-        
-        <category>vala</category>
-        
-        <category>headerbar</category>
-        
-        
-        
-        <media:thumbnail url="http://www.philipp-trommler.me/images/headerbar5.png" />
-        <enclosure url='http://www.philipp-trommler.me/images/headerbar5.png' length='63892' type='image/png' />
         
       </item>
     

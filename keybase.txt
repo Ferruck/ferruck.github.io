@@ -1,0 +1,73 @@
+==================================================================
+https://keybase.io/ferruck
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://www.philipp-trommler.me
+  * I am ferruck (https://keybase.io/ferruck) on keybase.
+  * I have a public key with fingerprint 0355 F2F3 3F50 FAE5 37C7  BD5D AB2B 6334 EB6F BA37
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01014d22fbad4715f4f3896f02e1151996c43dd8b262147484cc592545bf5d403fe30a",
+            "fingerprint": "0355f2f33f50fae537c7bd5dab2b6334eb6fba37",
+            "host": "keybase.io",
+            "key_id": "ab2b6334eb6fba37",
+            "kid": "01014d22fbad4715f4f3896f02e1151996c43dd8b262147484cc592545bf5d403fe30a",
+            "uid": "40ba7d7cb63bac54af53adbd875ec819",
+            "username": "ferruck"
+        },
+        "service": {
+            "hostname": "www.philipp-trommler.me",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1460709733,
+    "expire_in": 157680000,
+    "prev": "7394243b8f9bd15035b003c4219b3055dcb4ec65d3240895d3e23effad120ef1",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+
+owGtUm1QVFUYXj4EdpWiCcRBFOaSkLIy9+Oce3evYvgxU5A0gqUFTcu995zLXnfZ
+Xe7eXUACLMcJrIzUoRxDIYoBEaj8gCYpLMJMwSmckXS2/ANGmFbAYBNJdxn718/O
+n3fOe57neZ/3PW99dJghKuTTjXknz4WnNIZcmhANO2PaSyoJ0Y0qCL6ScOCFgJ0I
+ezWbQ0EET5AUSQFE07IoIMBRUAYyY7GyMkljioKU1cpKgEHIItIsTQEOWIAkQSsN
+ARRliADJyJghBcJMyIqrGKseVXFpQVkGQpmWGUaGpCxgyHASJyKIBJEWWYYBWGT1
+igynE+1ub5ChmxMFL85Q3HpOv9gW7P0H/n/27VuQA6QocIiT9GKiIEEgyJARkIgs
+HMSShbIGgV6suoQSrKNlrKo+yUFUmQk96VckHJxrsJEHgLKysgyPXXEqHs9aTXWX
+lDixmqG/mAmP6tbcktupg+ya5uGDGlqFZ4GERdsDOZuouJA+UJ3gx6pXcbsIntKR
+kqYE9SnAkhxp5RjGTOByj6JimxJEQI61kPoJlsF+QuAJjrECGjCiRbaKiIL6t4gk
+yUiApqwiQ0KIJBFgiYWIoQFpseoR0wyWZQFRNIlligh2WOpyEzzQfQrFuk2vUuwS
+NJ+KiSpTXWhiuCEkyhCxKDS4agaTMebf/et/6uH5rdMgb5t21PWF8ntK3J2s7sCi
+LUubl+9NCgMESN+acm39Q9NT/Ol9Ba7d+X0lFXPHqXqATvTnxyV80lB/KQuxQ8m1
+mbdWzQcm7hW1fjjd4a1OfsyQ8Ev+xYP39+6YLG44Xy4j82F3UZjjUKVpQA0Mf696
+r+d4zo37G8Yzt8XaX7T0zwpjBk9C7ZdVH3+Uf9SVk03xfXcDQFtx7BSfuuzrquwa
+dFGKzql4YebVy7XvxJqoTvZx39xs/Q/Ya+55o21dYZevPS5h7LXcsguxi+Hgvt8C
+ub9G84+07EiKn2roHS7tzfhz9Xk1suslY1pzYuv+Amvh3Hrb7W8Cz/gPNjV97syO
+MGU5Ivh3jZvgZ31DP548/e2N5e3p4Y0x9mnWh850htDZA9LYwJGBI6Vb6trsbZef
+2Lmiqacv9n780KbQxtQrmW9Pnk3qyBy9uuRAy9pjpHOZ8cm0fP9gUvvhNVMb4ze8
+lf50x/urUpfkSadGcudv15xY+VXSnvJXCiqfG4ajoSOuqMnBPHvj66StaXZ46NG/
+R7u+i+91RJreu+Ac6TmzObvz5eQi6HhTjpjJ0Pbfupbz7POW8aVXWPfE9Q18XdPq
+Q7s+qFTOesvpPfyuoe6oxPqwn/+KMP2RVnh83eJqafiAcXtzhTGipjXuard3e9/N
+cOf47pY7Nw1TTHXkyhuen2burbn7Dw==
+=64rR
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/ferruck
+
+==================================================================

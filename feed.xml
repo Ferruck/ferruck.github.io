@@ -15,8 +15,8 @@
 </description>
 	</image>
     <atom:link href="http://www.philipp-trommler.me/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 10 Mar 2016 18:24:13 +0100</pubDate>
-    <lastBuildDate>Thu, 10 Mar 2016 18:24:13 +0100</lastBuildDate>
+    <pubDate>Wed, 20 Apr 2016 19:22:59 +0200</pubDate>
+    <lastBuildDate>Wed, 20 Apr 2016 19:22:59 +0200</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
     
       <item>
@@ -97,7 +97,8 @@ Die Frontkamera liefert die üblichen Ergebnisse und reicht für Videotelefonie 
 &lt;p&gt;Wie oben bereits erwähnt, kann man kaum ein anderes Ladekabel als das von Wileyfox mitgelieferte benutzen, da der USB-Anschluss deutlich tiefer ins Gehäuse eingelassen ist als üblich.
 Dadurch halten übliche USB-Kabel nicht fest und rutschen, außerdem war die Ladegeschwindigkeit mit dem Ladegerät meines SGS2 deutlich geringer als mit einem anderen und dem Kabel von Wileyfox (allerdings kann das auch am Ladegerät des Samsung liegen).&lt;/p&gt;
 
-&lt;p&gt;Ähnlich verhält es sich mit dem Kopfhöreranschluss: Auch dieser ist recht tief ins Gehäuse eingelassen, wodurch manche Audiokabel schlicht keinen Kontakt herstellen und die internen Lautsprecher weiter genutzt werden. Erfolg hatte ich mit solchen Kabeln, die auch eine Headsetfunktion integrieren, also einen Kontakt mehr haben.&lt;/p&gt;
+&lt;s&gt;Ähnlich verhält es sich mit dem Kopfhöreranschluss: Auch dieser ist recht tief ins Gehäuse eingelassen, wodurch manche Audiokabel schlicht keinen Kontakt herstellen und die internen Lautsprecher weiter genutzt werden. Erfolg hatte ich mit solchen Kabeln, die auch eine Headsetfunktion integrieren, also einen Kontakt mehr haben.&lt;/s&gt;
+&lt;p&gt;&lt;em&gt;(Siehe Update am Ende des Artikels)&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Apropos interne Lautsprecher: Diese sind recht laut (ich lasse das Swift nicht auf voller Lautstärke klingeln, weil das einfach &lt;em&gt;zu&lt;/em&gt; laut wäre) und erzeugen einen recht sauberen Klang. Zu viel sollte man aber Smartphone-typisch nicht erwarten, erst recht keine Bässe. Der Lautsprecher fürs Telefonieren erzeugt einen sehr blechernen Ton, der wirklich gewöhnungsbedürftig ist, dafür ist die Geräuschunterdrückung ordentlich und man versteht seinen Gesprächspartner besser als beim S2.&lt;/p&gt;
 
@@ -124,6 +125,10 @@ Dadurch halten übliche USB-Kabel nicht fest und rutschen, außerdem war die Lad
 &lt;p&gt;Vieltelefonierer sollten sich vielleicht nach einem anderen Gerät umsehen, da die Gesprächsqualität wirklich nicht die beste ist. Ebenso ist das Swift nichts für Selfie-süchtige und Instagram-Fans, dafür sind die Kameras schlicht zu schlecht. Auch Handy-Gamer sehnen sich vielleicht nach mehr (Grafik-)Leistung und sollten daher zu einem anderen Gerät greifen.&lt;/p&gt;
 
 &lt;p&gt;Ob ich das Wileyfox Swift wieder kaufen würde? Für den Preis (ich habe circa 140€ bezahlt) auf jeden Fall!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 20.04.2016:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Auf den Hinweis eines aufmerksamen Lesers hin ist mir aufgefallen, dass es sich bei den Problemen mit dem Kopfhöreranschluss um einen Softwarefehler handelt. Nach einem Update von CyanogenMod funktioniert der Anschluss nun einwandfrei.&lt;/p&gt;
 </description>
         <pubDate>Thu, 03 Mar 2016 21:02:03 +0100</pubDate>
         <link>http://www.philipp-trommler.me/2016/03/03/wileyfox-swift-ausfuehrlicher-test.html</link>
